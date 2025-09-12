@@ -1,0 +1,22 @@
+module BCD_7_bit(hex, hex2, hex1, hex0);
+	input [7:0] hex;
+	output reg [7:0] hex2;
+	output reg [3:0] hex1, hex0;
+	
+	always @*
+	begin
+		case(hex[7])
+		1'b0:
+		begin
+			hex2 <= 8'h2B;
+			{hex1, hex0} = hex;
+		end
+		1'b1:
+		begin
+			hex2 <= 8'h2D;
+			{hex1, hex0} = ~hex + 1;
+			hex1[3] = 'b0;
+		end
+		endcase
+	end
+endmodule

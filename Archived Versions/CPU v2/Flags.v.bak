@@ -1,0 +1,1 @@
+module Flags(Flags, WE, CLK, RESET, CF, OF, NF, ZF)

@@ -1,0 +1,389 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "CF",
+					"strict" : false
+				},
+				{
+					"name" : "NF",
+					"strict" : false
+				},
+				{
+					"name" : "OF",
+					"strict" : false
+				},
+				{
+					"name" : "ZF",
+					"strict" : false
+				},
+				{
+					"name" : "IXA1",
+					"strict" : false
+				},
+				{
+					"name" : "IXB1",
+					"strict" : false
+				},
+				{
+					"name" : "IXC1",
+					"strict" : false
+				},
+				{
+					"name" : "IXD1",
+					"strict" : false
+				},
+				{
+					"name" : "IXE1",
+					"strict" : false
+				},
+				{
+					"name" : "IXF1",
+					"strict" : false
+				},
+				{
+					"name" : "IXG1",
+					"strict" : false
+				},
+				{
+					"name" : "IXA2",
+					"strict" : false
+				},
+				{
+					"name" : "IXB2",
+					"strict" : false
+				},
+				{
+					"name" : "IXC2",
+					"strict" : false
+				},
+				{
+					"name" : "IXD2",
+					"strict" : false
+				},
+				{
+					"name" : "IXE2",
+					"strict" : false
+				},
+				{
+					"name" : "IXF2",
+					"strict" : false
+				},
+				{
+					"name" : "IXG2",
+					"strict" : false
+				},
+				{
+					"name" : "MREGA1",
+					"strict" : false
+				},
+				{
+					"name" : "MREGB1",
+					"strict" : false
+				},
+				{
+					"name" : "MREGC1",
+					"strict" : false
+				},
+				{
+					"name" : "MREGD1",
+					"strict" : false
+				},
+				{
+					"name" : "MREGE1",
+					"strict" : false
+				},
+				{
+					"name" : "MREGF1",
+					"strict" : false
+				},
+				{
+					"name" : "MREGG1",
+					"strict" : false
+				},
+				{
+					"name" : "MREGA2",
+					"strict" : false
+				},
+				{
+					"name" : "MREGB2",
+					"strict" : false
+				},
+				{
+					"name" : "MREGC2",
+					"strict" : false
+				},
+				{
+					"name" : "MREGD2",
+					"strict" : false
+				},
+				{
+					"name" : "MREGE2",
+					"strict" : false
+				},
+				{
+					"name" : "MREGF2",
+					"strict" : false
+				},
+				{
+					"name" : "MREGG2",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMA1",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMB1",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMC1",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMD1",
+					"strict" : false
+				},
+				{
+					"name" : "DMEME1",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMF1",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMG1",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMA2",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMB2",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMC2",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMD2",
+					"strict" : false
+				},
+				{
+					"name" : "DMEME2",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMF2",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMG2",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMA3",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMB3",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMC3",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMD3",
+					"strict" : false
+				},
+				{
+					"name" : "DMEME3",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMF3",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMG3",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMA4",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMB4",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMC4",
+					"strict" : false
+				},
+				{
+					"name" : "DMEME4",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMD4",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMF4",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMG4",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_RS",
+					"strict" : false
+				},
+				{
+					"name" : "IM[15]",
+					"strict" : false
+				},
+				{
+					"name" : "IM[14]",
+					"strict" : false
+				},
+				{
+					"name" : "IM[13]",
+					"strict" : false
+				},
+				{
+					"name" : "IM[12]",
+					"strict" : false
+				},
+				{
+					"name" : "IM[11]",
+					"strict" : false
+				},
+				{
+					"name" : "IM[10]",
+					"strict" : false
+				},
+				{
+					"name" : "IM[9]",
+					"strict" : false
+				},
+				{
+					"name" : "IM[8]",
+					"strict" : false
+				},
+				{
+					"name" : "IM[2]",
+					"strict" : false
+				},
+				{
+					"name" : "IM[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[3]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[2]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[1]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[0]",
+					"strict" : false
+				},
+				{
+					"name" : "MregOut[1]",
+					"strict" : false
+				},
+				{
+					"name" : "MregOut[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMOUT32[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMOUT32[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMOUT32[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMOUT10[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMOUT10[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMOUT10[2]",
+					"strict" : false
+				},
+				{
+					"name" : "CLKT",
+					"strict" : false
+				},
+				{
+					"name" : "RESET_IN",
+					"strict" : false
+				},
+				{
+					"name" : "Board_Clock",
+					"strict" : false
+				},
+				{
+					"name" : "Manual_Clock",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
