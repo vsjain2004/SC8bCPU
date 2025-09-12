@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at BCD_7_bit.v(9): always construct contains both blocking and non-blocking assignments File: U:/CPU v2/Final Project/BCD_7_bit.v Line: 9
+Warning (10268): Verilog HDL information at BCD_7_bit.v(9): always construct contains both blocking and non-blocking assignments File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v2/BCD_7_bit.v Line: 9

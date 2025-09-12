@@ -1,6 +1,6 @@
 Timing Analyzer report for FinalProject
-Tue Dec  6 11:32:24 2022
-Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
+Fri Sep 12 21:54:44 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
 ---------------------
@@ -104,27 +104,27 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2022  Intel Corporation. All rights reserved.
-Your use of Intel Corporation's design tools, logic functions 
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Intel Program License 
-Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel FPGA IP License Agreement, or other applicable license
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
-Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
 
 
 
 +---------------------------------------------------------------------------------+
 ; Timing Analyzer Summary                                                         ;
 +-----------------------+---------------------------------------------------------+
-; Quartus Prime Version ; Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition ;
+; Quartus Prime Version ; Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Timing Analyzer       ; Legacy Timing Analyzer                                  ;
 ; Revision Name         ; FinalProject                                            ;
 ; Device Family         ; Cyclone IV E                                            ;
@@ -140,16 +140,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 20          ;
-; Maximum allowed            ; 12          ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.02        ;
-; Maximum used               ; 12          ;
+; Average used               ; 1.05        ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.3%      ;
-;     Processors 3-12        ;   0.2%      ;
+;     Processor 2            ;   1.1%      ;
+;     Processors 3-8         ;   0.6%      ;
 +----------------------------+-------------+
 
 
@@ -476,8 +476,8 @@ HTML report is unavailable in plain text report export.
 ; -3.154 ; debouncer:inst18|clock_divider_1024:inst4|inst1 ; debouncer:inst18|clock_divider_1024:inst4|inst10 ; Board_Clock  ; Board_Clock ; 1.000        ; -0.082     ; 4.070      ;
 ; -3.152 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[9]    ; LCD:inst29|LCD_Display:u1|CLK_400HZ              ; Board_Clock  ; Board_Clock ; 1.000        ; -0.076     ; 4.074      ;
 ; -3.034 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[8]    ; LCD:inst29|LCD_Display:u1|CLK_400HZ              ; Board_Clock  ; Board_Clock ; 1.000        ; -0.076     ; 3.956      ;
-; -3.024 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[5]    ; LCD:inst29|LCD_Display:u1|CLK_400HZ              ; Board_Clock  ; Board_Clock ; 1.000        ; -0.076     ; 3.946      ;
 ; -3.024 ; debouncer:inst18|clock_divider_1024:inst4|inst4 ; debouncer:inst18|clock_divider_1024:inst4|inst10 ; Board_Clock  ; Board_Clock ; 1.000        ; -0.082     ; 3.940      ;
+; -3.024 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[5]    ; LCD:inst29|LCD_Display:u1|CLK_400HZ              ; Board_Clock  ; Board_Clock ; 1.000        ; -0.076     ; 3.946      ;
 ; -2.906 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[2]    ; LCD:inst29|LCD_Display:u1|CLK_400HZ              ; Board_Clock  ; Board_Clock ; 1.000        ; -0.076     ; 3.828      ;
 ; -2.899 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[17]   ; LCD:inst29|LCD_Display:u1|CLK_400HZ              ; Board_Clock  ; Board_Clock ; 1.000        ; -0.512     ; 3.385      ;
 ; -2.898 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[12]   ; LCD:inst29|LCD_Display:u1|CLK_400HZ              ; Board_Clock  ; Board_Clock ; 1.000        ; -0.512     ; 3.384      ;
@@ -707,9 +707,9 @@ HTML report is unavailable in plain text report export.
 ; 0.647 ; LCD:inst29|Reset_Delay:r0|Cont[3]               ; LCD:inst29|Reset_Delay:r0|Cont[3]               ; Board_Clock  ; Board_Clock ; 0.000        ; 0.080      ; 0.913      ;
 ; 0.648 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[7]    ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[10]   ; Board_Clock  ; Board_Clock ; 0.000        ; 0.516      ; 1.350      ;
 ; 0.648 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[9]    ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[12]   ; Board_Clock  ; Board_Clock ; 0.000        ; 0.516      ; 1.350      ;
-; 0.649 ; debouncer:inst18|clock_divider_1024:inst4|inst2 ; debouncer:inst18|clock_divider_1024:inst4|inst4 ; Board_Clock  ; Board_Clock ; 0.000        ; 0.082      ; 0.917      ;
 ; 0.649 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[18]   ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[18]   ; Board_Clock  ; Board_Clock ; 0.000        ; 0.080      ; 0.915      ;
 ; 0.649 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[15]   ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[17]   ; Board_Clock  ; Board_Clock ; 0.000        ; 0.512      ; 1.347      ;
+; 0.649 ; debouncer:inst18|clock_divider_1024:inst4|inst2 ; debouncer:inst18|clock_divider_1024:inst4|inst4 ; Board_Clock  ; Board_Clock ; 0.000        ; 0.082      ; 0.917      ;
 ; 0.650 ; LCD:inst29|Reset_Delay:r0|Cont[17]              ; LCD:inst29|Reset_Delay:r0|Cont[17]              ; Board_Clock  ; Board_Clock ; 0.000        ; 0.079      ; 0.915      ;
 ; 0.653 ; debouncer:inst18|clock_divider_1024:inst4|inst2 ; debouncer:inst18|clock_divider_1024:inst4|inst3 ; Board_Clock  ; Board_Clock ; 0.000        ; 0.082      ; 0.921      ;
 ; 0.658 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[11]   ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[11]   ; Board_Clock  ; Board_Clock ; 0.000        ; 0.080      ; 0.924      ;
@@ -736,8 +736,8 @@ HTML report is unavailable in plain text report export.
 ; 0.901 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[5]    ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[12]   ; Board_Clock  ; Board_Clock ; 0.000        ; 0.516      ; 1.603      ;
 ; 0.911 ; debouncer:inst18|clock_divider_1024:inst4|inst5 ; debouncer:inst18|clock_divider_1024:inst4|inst9 ; Board_Clock  ; Board_Clock ; 0.000        ; 0.082      ; 1.179      ;
 ; 0.916 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[11]   ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[17]   ; Board_Clock  ; Board_Clock ; 0.000        ; 0.512      ; 1.614      ;
-; 0.917 ; debouncer:inst18|clock_divider_1024:inst4|inst5 ; debouncer:inst18|clock_divider_1024:inst4|inst8 ; Board_Clock  ; Board_Clock ; 0.000        ; 0.082      ; 1.185      ;
 ; 0.917 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[3]    ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[10]   ; Board_Clock  ; Board_Clock ; 0.000        ; 0.516      ; 1.619      ;
+; 0.917 ; debouncer:inst18|clock_divider_1024:inst4|inst5 ; debouncer:inst18|clock_divider_1024:inst4|inst8 ; Board_Clock  ; Board_Clock ; 0.000        ; 0.082      ; 1.185      ;
 ; 0.921 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[4]    ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[12]   ; Board_Clock  ; Board_Clock ; 0.000        ; 0.516      ; 1.623      ;
 ; 0.921 ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[2]    ; LCD:inst29|LCD_Display:u1|CLK_COUNT_400HZ[10]   ; Board_Clock  ; Board_Clock ; 0.000        ; 0.516      ; 1.623      ;
 ; 0.924 ; debouncer:inst18|clock_divider_1024:inst4|inst4 ; debouncer:inst18|clock_divider_1024:inst4|inst6 ; Board_Clock  ; Board_Clock ; 0.000        ; 0.082      ; 1.192      ;
@@ -4018,12 +4018,12 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
-    Info: Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
-    Info: Processing started: Tue Dec  6 11:32:19 2022
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Processing started: Fri Sep 12 21:54:42 2025
 Info: Command: quartus_sta FinalProject -c FinalProject
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'FinalProject.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
@@ -4167,9 +4167,9 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4948 megabytes
-    Info: Processing ended: Tue Dec  6 11:32:24 2022
-    Info: Elapsed time: 00:00:05
+    Info: Peak virtual memory: 4933 megabytes
+    Info: Processing ended: Fri Sep 12 21:54:44 2025
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 

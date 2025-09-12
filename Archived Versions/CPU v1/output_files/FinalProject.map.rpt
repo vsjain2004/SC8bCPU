@@ -1,6 +1,6 @@
 Analysis & Synthesis report for FinalProject
-Tue Dec  6 11:32:00 2022
-Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
+Fri Sep 12 21:54:27 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
 ---------------------
@@ -71,28 +71,28 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2022  Intel Corporation. All rights reserved.
-Your use of Intel Corporation's design tools, logic functions 
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Intel Program License 
-Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel FPGA IP License Agreement, or other applicable license
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
-Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
 
 
 
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec  6 11:32:00 2022           ;
-; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Standard Edition ;
+; Analysis & Synthesis Status        ; Successful - Fri Sep 12 21:54:27 2025           ;
+; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; FinalProject                                    ;
 ; Top-level Entity Name              ; FinalProject                                    ;
 ; Family                             ; Cyclone IV E                                    ;
@@ -116,7 +116,7 @@ https://fpgasoftware.intel.com/eula.
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
 ; Top-level entity name                                            ; FinalProject       ; FinalProject       ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
-; Use smart compilation                                            ; Off                ; Off                ;
+; Use smart compilation                                            ; On                 ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                      ; Off                ; Off                ;
 ; Restructure Multiplexers                                         ; Auto               ; Auto               ;
@@ -199,72 +199,71 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 20          ;
-; Maximum allowed            ; 12          ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 12          ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-12        ;   0.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                               ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                     ; Library ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------+---------+
-; reset_delay.v                    ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/reset_delay.v                       ;         ;
-; LCD_Display.v                    ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/LCD_Display.v                       ;         ;
-; LCD.v                            ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/LCD.v                               ;         ;
-; BCD_7_bit.v                      ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/BCD_7_bit.v                         ;         ;
-; debouncer.bdf                    ; yes             ; User Block Diagram/Schematic File  ; U:/CPRE281/CPU/Final Project/debouncer.bdf                       ;         ;
-; clock_divider_1024.bdf           ; yes             ; User Block Diagram/Schematic File  ; U:/CPRE281/CPU/Final Project/clock_divider_1024.bdf              ;         ;
-; Zeros.v                          ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/Zeros.v                             ;         ;
-; XOR_8_bit.v                      ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/XOR_8_bit.v                         ;         ;
-; XOR_3_bit.v                      ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/XOR_3_bit.v                         ;         ;
-; seven_seg_decoder.v              ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/seven_seg_decoder.v                 ;         ;
-; register.v                       ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/register.v                          ;         ;
-; reg_16_bit.v                     ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/reg_16_bit.v                        ;         ;
-; reg_8_bit.v                      ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/reg_8_bit.v                         ;         ;
-; PC.bdf                           ; yes             ; User Block Diagram/Schematic File  ; U:/CPRE281/CPU/Final Project/PC.bdf                              ;         ;
-; OR_8_bit.v                       ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/OR_8_bit.v                          ;         ;
-; OR_7_bit.v                       ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/OR_7_bit.v                          ;         ;
-; OR_5_bit.v                       ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/OR_5_bit.v                          ;         ;
-; Ones.v                           ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/Ones.v                              ;         ;
-; mainreg.v                        ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/mainreg.v                           ;         ;
-; IMEM_PRGM.v                      ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/IMEM_PRGM.v                         ;         ;
-; IMEM.bdf                         ; yes             ; User Block Diagram/Schematic File  ; U:/CPRE281/CPU/Final Project/IMEM.bdf                            ;         ;
-; DMEM_PRGM.v                      ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/DMEM_PRGM.v                         ;         ;
-; DMEM.bdf                         ; yes             ; User Block Diagram/Schematic File  ; U:/CPRE281/CPU/Final Project/DMEM.bdf                            ;         ;
-; Decoder3to8.v                    ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/Decoder3to8.v                       ;         ;
-; Decoder2to4.v                    ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/Decoder2to4.v                       ;         ;
-; CLA_8_bit.bdf                    ; yes             ; User Block Diagram/Schematic File  ; U:/CPRE281/CPU/Final Project/CLA_8_bit.bdf                       ;         ;
-; busmux_16_to_1.v                 ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/busmux_16_to_1.v                    ;         ;
-; busmux_8_to_1.v                  ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/busmux_8_to_1.v                     ;         ;
-; busmux_4_to_1.v                  ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/busmux_4_to_1.v                     ;         ;
-; bit_1_to_8.v                     ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/bit_1_to_8.v                        ;         ;
-; AND_8_bit.v                      ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/AND_8_bit.v                         ;         ;
-; AND_7_bit.v                      ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/AND_7_bit.v                         ;         ;
-; AND_5_bit.v                      ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/AND_5_bit.v                         ;         ;
-; ALU.bdf                          ; yes             ; User Block Diagram/Schematic File  ; U:/CPRE281/CPU/Final Project/ALU.bdf                             ;         ;
-; Flags.v                          ; yes             ; User Verilog HDL File              ; U:/CPRE281/CPU/Final Project/Flags.v                             ;         ;
-; FinalProject.bdf                 ; yes             ; User Block Diagram/Schematic File  ; U:/CPRE281/CPU/Final Project/FinalProject.bdf                    ;         ;
-; Control.bdf                      ; yes             ; User Block Diagram/Schematic File  ; U:/CPRE281/CPU/Final Project/Control.bdf                         ;         ;
-; busmux.tdf                       ; yes             ; Megafunction                       ; c:/intelfpga/21.1/quartus/libraries/megafunctions/busmux.tdf     ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                       ; c:/intelfpga/21.1/quartus/libraries/megafunctions/lpm_mux.inc    ;         ;
-; lpm_mux.tdf                      ; yes             ; Megafunction                       ; c:/intelfpga/21.1/quartus/libraries/megafunctions/lpm_mux.tdf    ;         ;
-; aglobal211.inc                   ; yes             ; Megafunction                       ; c:/intelfpga/21.1/quartus/libraries/megafunctions/aglobal211.inc ;         ;
-; muxlut.inc                       ; yes             ; Megafunction                       ; c:/intelfpga/21.1/quartus/libraries/megafunctions/muxlut.inc     ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                       ; c:/intelfpga/21.1/quartus/libraries/megafunctions/bypassff.inc   ;         ;
-; altshift.inc                     ; yes             ; Megafunction                       ; c:/intelfpga/21.1/quartus/libraries/megafunctions/altshift.inc   ;         ;
-; db/mux_7rc.tdf                   ; yes             ; Auto-Generated Megafunction        ; U:/CPRE281/CPU/Final Project/db/mux_7rc.tdf                      ;         ;
-; db/mux_erc.tdf                   ; yes             ; Auto-Generated Megafunction        ; U:/CPRE281/CPU/Final Project/db/mux_erc.tdf                      ;         ;
-; db/mux_9rc.tdf                   ; yes             ; Auto-Generated Megafunction        ; U:/CPRE281/CPU/Final Project/db/mux_9rc.tdf                      ;         ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------+---------+
+; reset_delay.v                    ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reset_delay.v          ;         ;
+; LCD_Display.v                    ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v          ;         ;
+; LCD.v                            ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD.v                  ;         ;
+; BCD_7_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/BCD_7_bit.v            ;         ;
+; debouncer.bdf                    ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/debouncer.bdf          ;         ;
+; clock_divider_1024.bdf           ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/clock_divider_1024.bdf ;         ;
+; Zeros.v                          ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Zeros.v                ;         ;
+; XOR_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/XOR_8_bit.v            ;         ;
+; XOR_3_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/XOR_3_bit.v            ;         ;
+; seven_seg_decoder.v              ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/seven_seg_decoder.v    ;         ;
+; register.v                       ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v             ;         ;
+; reg_16_bit.v                     ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v           ;         ;
+; reg_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_8_bit.v            ;         ;
+; PC.bdf                           ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/PC.bdf                 ;         ;
+; OR_8_bit.v                       ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/OR_8_bit.v             ;         ;
+; OR_7_bit.v                       ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/OR_7_bit.v             ;         ;
+; OR_5_bit.v                       ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/OR_5_bit.v             ;         ;
+; Ones.v                           ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Ones.v                 ;         ;
+; mainreg.v                        ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/mainreg.v              ;         ;
+; IMEM_PRGM.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/IMEM_PRGM.v            ;         ;
+; IMEM.bdf                         ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/IMEM.bdf               ;         ;
+; DMEM_PRGM.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/DMEM_PRGM.v            ;         ;
+; DMEM.bdf                         ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/DMEM.bdf               ;         ;
+; Decoder3to8.v                    ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Decoder3to8.v          ;         ;
+; Decoder2to4.v                    ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Decoder2to4.v          ;         ;
+; CLA_8_bit.bdf                    ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/CLA_8_bit.bdf          ;         ;
+; busmux_16_to_1.v                 ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/busmux_16_to_1.v       ;         ;
+; busmux_8_to_1.v                  ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/busmux_8_to_1.v        ;         ;
+; busmux_4_to_1.v                  ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/busmux_4_to_1.v        ;         ;
+; bit_1_to_8.v                     ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/bit_1_to_8.v           ;         ;
+; AND_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/AND_8_bit.v            ;         ;
+; AND_7_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/AND_7_bit.v            ;         ;
+; AND_5_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/AND_5_bit.v            ;         ;
+; ALU.bdf                          ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/ALU.bdf                ;         ;
+; Flags.v                          ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Flags.v                ;         ;
+; FinalProject.bdf                 ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/FinalProject.bdf       ;         ;
+; Control.bdf                      ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Control.bdf            ;         ;
+; busmux.tdf                       ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/busmux.tdf             ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_mux.inc            ;         ;
+; lpm_mux.tdf                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_mux.tdf            ;         ;
+; aglobal241.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/aglobal241.inc         ;         ;
+; muxlut.inc                       ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/muxlut.inc             ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/bypassff.inc           ;         ;
+; altshift.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/altshift.inc           ;         ;
+; db/mux_7rc.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/db/mux_7rc.tdf         ;         ;
+; db/mux_erc.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/db/mux_erc.tdf         ;         ;
+; db/mux_9rc.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/db/mux_9rc.tdf         ;         ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------------------------+
@@ -1311,94 +1310,94 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
-    Info: Processing started: Tue Dec  6 11:31:44 2022
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Processing started: Fri Sep 12 21:54:19 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProject -c FinalProject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file reset_delay.v
-    Info (12023): Found entity 1: Reset_Delay File: U:/CPRE281/CPU/Final Project/reset_delay.v Line: 2
+    Info (12023): Found entity 1: Reset_Delay File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reset_delay.v Line: 2
 Info (12021): Found 2 design units, including 2 entities, in source file lcd_display.v
-    Info (12023): Found entity 1: LCD_Display File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 41
-    Info (12023): Found entity 2: LCD_display_string File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 265
+    Info (12023): Found entity 1: LCD_Display File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 41
+    Info (12023): Found entity 2: LCD_display_string File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 265
 Info (12021): Found 1 design units, including 1 entities, in source file lcd.v
-    Info (12023): Found entity 1: LCD File: U:/CPRE281/CPU/Final Project/LCD.v Line: 2
+    Info (12023): Found entity 1: LCD File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file bcd_7_bit.v
-    Info (12023): Found entity 1: BCD_7_bit File: U:/CPRE281/CPU/Final Project/BCD_7_bit.v Line: 1
+    Info (12023): Found entity 1: BCD_7_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/BCD_7_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file debouncer.bdf
     Info (12023): Found entity 1: debouncer
 Info (12021): Found 1 design units, including 1 entities, in source file clock_divider_1024.bdf
     Info (12023): Found entity 1: clock_divider_1024
 Info (12021): Found 1 design units, including 1 entities, in source file zeros.v
-    Info (12023): Found entity 1: Zeros File: U:/CPRE281/CPU/Final Project/Zeros.v Line: 1
+    Info (12023): Found entity 1: Zeros File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Zeros.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file xor_8_bit.v
-    Info (12023): Found entity 1: XOR_8_bit File: U:/CPRE281/CPU/Final Project/XOR_8_bit.v Line: 1
+    Info (12023): Found entity 1: XOR_8_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/XOR_8_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file xor_3_bit.v
-    Info (12023): Found entity 1: XOR_3_bit File: U:/CPRE281/CPU/Final Project/XOR_3_bit.v Line: 1
+    Info (12023): Found entity 1: XOR_3_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/XOR_3_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file seven_seg_decoder.v
-    Info (12023): Found entity 1: seven_seg_decoder File: U:/CPRE281/CPU/Final Project/seven_seg_decoder.v Line: 1
+    Info (12023): Found entity 1: seven_seg_decoder File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/seven_seg_decoder.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file register.v
-    Info (12023): Found entity 1: register File: U:/CPRE281/CPU/Final Project/register.v Line: 1
+    Info (12023): Found entity 1: register File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file reg_16_bit.v
-    Info (12023): Found entity 1: reg_16_bit File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 1
+    Info (12023): Found entity 1: reg_16_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file reg_8_bit.v
-    Info (12023): Found entity 1: reg_8_bit File: U:/CPRE281/CPU/Final Project/reg_8_bit.v Line: 1
+    Info (12023): Found entity 1: reg_8_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_8_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file pc.bdf
     Info (12023): Found entity 1: PC
 Info (12021): Found 1 design units, including 1 entities, in source file or_8_bit.v
-    Info (12023): Found entity 1: OR_8_bit File: U:/CPRE281/CPU/Final Project/OR_8_bit.v Line: 1
+    Info (12023): Found entity 1: OR_8_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/OR_8_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file or_7_bit.v
-    Info (12023): Found entity 1: OR_7_bit File: U:/CPRE281/CPU/Final Project/OR_7_bit.v Line: 1
+    Info (12023): Found entity 1: OR_7_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/OR_7_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file or_5_bit.v
-    Info (12023): Found entity 1: OR_5_bit File: U:/CPRE281/CPU/Final Project/OR_5_bit.v Line: 1
+    Info (12023): Found entity 1: OR_5_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/OR_5_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ones.v
-    Info (12023): Found entity 1: Ones File: U:/CPRE281/CPU/Final Project/Ones.v Line: 1
+    Info (12023): Found entity 1: Ones File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Ones.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mainreg.v
-    Info (12023): Found entity 1: mainreg File: U:/CPRE281/CPU/Final Project/mainreg.v Line: 1
+    Info (12023): Found entity 1: mainreg File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/mainreg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file imem_prgm.v
-    Info (12023): Found entity 1: IMEM_PRGM File: U:/CPRE281/CPU/Final Project/IMEM_PRGM.v Line: 1
+    Info (12023): Found entity 1: IMEM_PRGM File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/IMEM_PRGM.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file imem.bdf
     Info (12023): Found entity 1: IMEM
 Info (12021): Found 1 design units, including 1 entities, in source file dmem_prgm.v
-    Info (12023): Found entity 1: DMEM_PRGM File: U:/CPRE281/CPU/Final Project/DMEM_PRGM.v Line: 1
+    Info (12023): Found entity 1: DMEM_PRGM File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/DMEM_PRGM.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file dmem.bdf
     Info (12023): Found entity 1: DMEM
 Info (12021): Found 1 design units, including 1 entities, in source file decoder3to8.v
-    Info (12023): Found entity 1: Decoder3to8 File: U:/CPRE281/CPU/Final Project/Decoder3to8.v Line: 1
+    Info (12023): Found entity 1: Decoder3to8 File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Decoder3to8.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file decoder2to4.v
-    Info (12023): Found entity 1: Decoder2to4 File: U:/CPRE281/CPU/Final Project/Decoder2to4.v Line: 1
+    Info (12023): Found entity 1: Decoder2to4 File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Decoder2to4.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file cla_8_bit.bdf
     Info (12023): Found entity 1: CLA_8_bit
 Info (12021): Found 1 design units, including 1 entities, in source file busmux_16_to_1.v
-    Info (12023): Found entity 1: busmux_16_to_1 File: U:/CPRE281/CPU/Final Project/busmux_16_to_1.v Line: 1
+    Info (12023): Found entity 1: busmux_16_to_1 File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/busmux_16_to_1.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file busmux_8_to_1.v
-    Info (12023): Found entity 1: busmux_8_to_1 File: U:/CPRE281/CPU/Final Project/busmux_8_to_1.v Line: 1
+    Info (12023): Found entity 1: busmux_8_to_1 File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/busmux_8_to_1.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file busmux_4_to_1.v
-    Info (12023): Found entity 1: busmux_4_to_1 File: U:/CPRE281/CPU/Final Project/busmux_4_to_1.v Line: 1
+    Info (12023): Found entity 1: busmux_4_to_1 File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/busmux_4_to_1.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file bit_1_to_8.v
-    Info (12023): Found entity 1: bit_1_to_8 File: U:/CPRE281/CPU/Final Project/bit_1_to_8.v Line: 1
+    Info (12023): Found entity 1: bit_1_to_8 File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/bit_1_to_8.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file and_8_bit.v
-    Info (12023): Found entity 1: AND_8_bit File: U:/CPRE281/CPU/Final Project/AND_8_bit.v Line: 1
+    Info (12023): Found entity 1: AND_8_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/AND_8_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file and_7_bit.v
-    Info (12023): Found entity 1: AND_7_bit File: U:/CPRE281/CPU/Final Project/AND_7_bit.v Line: 1
+    Info (12023): Found entity 1: AND_7_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/AND_7_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file and_5_bit.v
-    Info (12023): Found entity 1: AND_5_bit File: U:/CPRE281/CPU/Final Project/AND_5_bit.v Line: 1
+    Info (12023): Found entity 1: AND_5_bit File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/AND_5_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.bdf
     Info (12023): Found entity 1: ALU
 Info (12021): Found 1 design units, including 1 entities, in source file flags.v
-    Info (12023): Found entity 1: Flags File: U:/CPRE281/CPU/Final Project/Flags.v Line: 1
+    Info (12023): Found entity 1: Flags File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Flags.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file finalproject.bdf
     Info (12023): Found entity 1: FinalProject
 Info (12021): Found 1 design units, including 1 entities, in source file control.bdf
     Info (12023): Found entity 1: Control
-Warning (10236): Verilog HDL Implicit Net warning at register.v(4): created implicit net for "D" File: U:/CPRE281/CPU/Final Project/register.v Line: 4
-Warning (10236): Verilog HDL Implicit Net warning at mainreg.v(8): created implicit net for "Y0" File: U:/CPRE281/CPU/Final Project/mainreg.v Line: 8
-Warning (10236): Verilog HDL Implicit Net warning at mainreg.v(8): created implicit net for "Y1" File: U:/CPRE281/CPU/Final Project/mainreg.v Line: 8
-Warning (10236): Verilog HDL Implicit Net warning at mainreg.v(8): created implicit net for "Y2" File: U:/CPRE281/CPU/Final Project/mainreg.v Line: 8
-Warning (10236): Verilog HDL Implicit Net warning at mainreg.v(8): created implicit net for "Y3" File: U:/CPRE281/CPU/Final Project/mainreg.v Line: 8
+Warning (10236): Verilog HDL Implicit Net warning at register.v(4): created implicit net for "D" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v Line: 4
+Warning (10236): Verilog HDL Implicit Net warning at mainreg.v(8): created implicit net for "Y0" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/mainreg.v Line: 8
+Warning (10236): Verilog HDL Implicit Net warning at mainreg.v(8): created implicit net for "Y1" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/mainreg.v Line: 8
+Warning (10236): Verilog HDL Implicit Net warning at mainreg.v(8): created implicit net for "Y2" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/mainreg.v Line: 8
+Warning (10236): Verilog HDL Implicit Net warning at mainreg.v(8): created implicit net for "Y3" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/mainreg.v Line: 8
 Info (12127): Elaborating entity "FinalProject" for the top level hierarchy
 Info (12128): Elaborating entity "Flags" for hierarchy "Flags:inst4"
-Info (12128): Elaborating entity "register" for hierarchy "Flags:inst4|register:A" File: U:/CPRE281/CPU/Final Project/Flags.v Line: 6
+Info (12128): Elaborating entity "register" for hierarchy "Flags:inst4|register:A" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/Flags.v Line: 6
 Info (12128): Elaborating entity "Control" for hierarchy "Control:inst9"
 Warning (275008): Primitive "NOT" of instance "inst" not used
 Warning (275008): Primitive "NOT" of instance "inst10" not used
@@ -1411,11 +1410,11 @@ Info (12128): Elaborating entity "BUSMUX" for hierarchy "IMEM:inst|BUSMUX:inst24
 Info (12130): Elaborated megafunction instantiation "IMEM:inst|BUSMUX:inst24"
 Info (12133): Instantiated megafunction "IMEM:inst|BUSMUX:inst24" with the following parameter:
     Info (12134): Parameter "WIDTH" = "1"
-Info (12128): Elaborating entity "lpm_mux" for hierarchy "IMEM:inst|BUSMUX:inst24|lpm_mux:$00000" File: c:/intelfpga/21.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
-Info (12131): Elaborated megafunction instantiation "IMEM:inst|BUSMUX:inst24|lpm_mux:$00000", which is child of megafunction instantiation "IMEM:inst|BUSMUX:inst24" File: c:/intelfpga/21.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "IMEM:inst|BUSMUX:inst24|lpm_mux:$00000" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "IMEM:inst|BUSMUX:inst24|lpm_mux:$00000", which is child of megafunction instantiation "IMEM:inst|BUSMUX:inst24" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/busmux.tdf Line: 44
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_7rc.tdf
-    Info (12023): Found entity 1: mux_7rc File: U:/CPRE281/CPU/Final Project/db/mux_7rc.tdf Line: 23
-Info (12128): Elaborating entity "mux_7rc" for hierarchy "IMEM:inst|BUSMUX:inst24|lpm_mux:$00000|mux_7rc:auto_generated" File: c:/intelfpga/21.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+    Info (12023): Found entity 1: mux_7rc File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/db/mux_7rc.tdf Line: 23
+Info (12128): Elaborating entity "mux_7rc" for hierarchy "IMEM:inst|BUSMUX:inst24|lpm_mux:$00000|mux_7rc:auto_generated" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
 Info (12128): Elaborating entity "IMEM_PRGM" for hierarchy "IMEM:inst|IMEM_PRGM:inst17"
 Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:inst12"
 Info (12130): Elaborated megafunction instantiation "BUSMUX:inst12"
@@ -1453,20 +1452,20 @@ Info (12128): Elaborating entity "busmux_4_to_1" for hierarchy "ALU:inst3|busmux
 Info (12128): Elaborating entity "AND_8_bit" for hierarchy "ALU:inst3|AND_8_bit:inst2"
 Info (12128): Elaborating entity "OR_8_bit" for hierarchy "ALU:inst3|OR_8_bit:inst3"
 Info (12128): Elaborating entity "mainreg" for hierarchy "mainreg:inst7"
-Info (12128): Elaborating entity "Decoder2to4" for hierarchy "mainreg:inst7|Decoder2to4:decoder" File: U:/CPRE281/CPU/Final Project/mainreg.v Line: 8
-Info (12128): Elaborating entity "reg_8_bit" for hierarchy "mainreg:inst7|reg_8_bit:A" File: U:/CPRE281/CPU/Final Project/mainreg.v Line: 10
-Info (12128): Elaborating entity "Zeros" for hierarchy "mainreg:inst7|Zeros:Z" File: U:/CPRE281/CPU/Final Project/mainreg.v Line: 14
-Info (12128): Elaborating entity "Ones" for hierarchy "mainreg:inst7|Ones:O" File: U:/CPRE281/CPU/Final Project/mainreg.v Line: 15
+Info (12128): Elaborating entity "Decoder2to4" for hierarchy "mainreg:inst7|Decoder2to4:decoder" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/mainreg.v Line: 8
+Info (12128): Elaborating entity "reg_8_bit" for hierarchy "mainreg:inst7|reg_8_bit:A" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/mainreg.v Line: 10
+Info (12128): Elaborating entity "Zeros" for hierarchy "mainreg:inst7|Zeros:Z" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/mainreg.v Line: 14
+Info (12128): Elaborating entity "Ones" for hierarchy "mainreg:inst7|Ones:O" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/mainreg.v Line: 15
 Info (12128): Elaborating entity "DMEM" for hierarchy "DMEM:inst2"
 Info (12128): Elaborating entity "BUSMUX" for hierarchy "DMEM:inst2|BUSMUX:inst23"
 Info (12130): Elaborated megafunction instantiation "DMEM:inst2|BUSMUX:inst23"
 Info (12133): Instantiated megafunction "DMEM:inst2|BUSMUX:inst23" with the following parameter:
     Info (12134): Parameter "WIDTH" = "8"
-Info (12128): Elaborating entity "lpm_mux" for hierarchy "DMEM:inst2|BUSMUX:inst23|lpm_mux:$00000" File: c:/intelfpga/21.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
-Info (12131): Elaborated megafunction instantiation "DMEM:inst2|BUSMUX:inst23|lpm_mux:$00000", which is child of megafunction instantiation "DMEM:inst2|BUSMUX:inst23" File: c:/intelfpga/21.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "DMEM:inst2|BUSMUX:inst23|lpm_mux:$00000" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "DMEM:inst2|BUSMUX:inst23|lpm_mux:$00000", which is child of megafunction instantiation "DMEM:inst2|BUSMUX:inst23" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/busmux.tdf Line: 44
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_erc.tdf
-    Info (12023): Found entity 1: mux_erc File: U:/CPRE281/CPU/Final Project/db/mux_erc.tdf Line: 23
-Info (12128): Elaborating entity "mux_erc" for hierarchy "DMEM:inst2|BUSMUX:inst23|lpm_mux:$00000|mux_erc:auto_generated" File: c:/intelfpga/21.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+    Info (12023): Found entity 1: mux_erc File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/db/mux_erc.tdf Line: 23
+Info (12128): Elaborating entity "mux_erc" for hierarchy "DMEM:inst2|BUSMUX:inst23|lpm_mux:$00000|mux_erc:auto_generated" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
 Info (12128): Elaborating entity "Decoder3to8" for hierarchy "DMEM:inst2|Decoder3to8:inst4"
 Info (12128): Elaborating entity "DMEM_PRGM" for hierarchy "DMEM:inst2|DMEM_PRGM:inst24"
 Info (12128): Elaborating entity "busmux_8_to_1" for hierarchy "DMEM:inst2|busmux_8_to_1:inst25"
@@ -1474,271 +1473,271 @@ Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:WRDMEM"
 Info (12130): Elaborated megafunction instantiation "BUSMUX:WRDMEM"
 Info (12133): Instantiated megafunction "BUSMUX:WRDMEM" with the following parameter:
     Info (12134): Parameter "WIDTH" = "3"
-Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:WRDMEM|lpm_mux:$00000" File: c:/intelfpga/21.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
-Info (12131): Elaborated megafunction instantiation "BUSMUX:WRDMEM|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:WRDMEM" File: c:/intelfpga/21.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:WRDMEM|lpm_mux:$00000" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "BUSMUX:WRDMEM|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:WRDMEM" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/busmux.tdf Line: 44
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_9rc.tdf
-    Info (12023): Found entity 1: mux_9rc File: U:/CPRE281/CPU/Final Project/db/mux_9rc.tdf Line: 23
-Info (12128): Elaborating entity "mux_9rc" for hierarchy "BUSMUX:WRDMEM|lpm_mux:$00000|mux_9rc:auto_generated" File: c:/intelfpga/21.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+    Info (12023): Found entity 1: mux_9rc File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/db/mux_9rc.tdf Line: 23
+Info (12128): Elaborating entity "mux_9rc" for hierarchy "BUSMUX:WRDMEM|lpm_mux:$00000|mux_9rc:auto_generated" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
 Info (12128): Elaborating entity "seven_seg_decoder" for hierarchy "seven_seg_decoder:inst10"
 Info (12128): Elaborating entity "LCD" for hierarchy "LCD:inst29"
-Info (12128): Elaborating entity "Reset_Delay" for hierarchy "LCD:inst29|Reset_Delay:r0" File: U:/CPRE281/CPU/Final Project/LCD.v Line: 14
-Info (12128): Elaborating entity "LCD_Display" for hierarchy "LCD:inst29|LCD_Display:u1" File: U:/CPRE281/CPU/Final Project/LCD.v Line: 33
-Info (12128): Elaborating entity "BCD_7_bit" for hierarchy "LCD:inst29|LCD_Display:u1|BCD_7_bit:bcd1" File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 71
-Warning (10230): Verilog HDL assignment warning at BCD_7_bit.v(13): truncated value with size 8 to match size of target (7) File: U:/CPRE281/CPU/Final Project/BCD_7_bit.v Line: 13
-Warning (10230): Verilog HDL assignment warning at BCD_7_bit.v(18): truncated value with size 32 to match size of target (7) File: U:/CPRE281/CPU/Final Project/BCD_7_bit.v Line: 18
-Info (12128): Elaborating entity "LCD_display_string" for hierarchy "LCD:inst29|LCD_Display:u1|LCD_display_string:u1" File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 82
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 21
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 20
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 19
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 18
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 17
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 16
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 15
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 14
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 13
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 12
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 11
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 10
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 9
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 8
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 7
-Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: U:/CPRE281/CPU/Final Project/reg_16_bit.v Line: 6
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "LCD:inst29|Reset_Delay:r0" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD.v Line: 14
+Info (12128): Elaborating entity "LCD_Display" for hierarchy "LCD:inst29|LCD_Display:u1" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD.v Line: 33
+Info (12128): Elaborating entity "BCD_7_bit" for hierarchy "LCD:inst29|LCD_Display:u1|BCD_7_bit:bcd1" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 71
+Warning (10230): Verilog HDL assignment warning at BCD_7_bit.v(13): truncated value with size 8 to match size of target (7) File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/BCD_7_bit.v Line: 13
+Warning (10230): Verilog HDL assignment warning at BCD_7_bit.v(18): truncated value with size 32 to match size of target (7) File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/BCD_7_bit.v Line: 18
+Info (12128): Elaborating entity "LCD_display_string" for hierarchy "LCD:inst29|LCD_Display:u1|LCD_display_string:u1" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 82
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg15" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 21
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg14" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 20
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg13" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 19
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 18
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg11" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 17
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg10" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 16
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg9" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 15
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg8" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 14
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg7" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 13
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg6" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 12
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg5" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 11
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 10
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg3" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 9
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg2" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 8
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg1" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 7
+Warning (12020): Port "PRESET_N" on the entity instantiation of "reg0" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/reg_16_bit.v Line: 6
 Warning (19016): Clock multiplexers are found and protected
-    Warning (19017): Found clock multiplexer busmux:inst12|lpm_mux:$00000|mux_7rc:auto_generated|result_node[0]~0 File: U:/CPRE281/CPU/Final Project/db/mux_7rc.tdf Line: 30
+    Warning (19017): Found clock multiplexer busmux:inst12|lpm_mux:$00000|mux_7rc:auto_generated|result_node[0]~0 File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/db/mux_7rc.tdf Line: 30
 Warning (12241): 25 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13044): Always-enabled tri-state buffer(s) removed
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[7]" to the node "LCD_DATA[7]" into a wire File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 46
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[6]" to the node "LCD_DATA[6]" into a wire File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 46
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[5]" to the node "LCD_DATA[5]" into a wire File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 46
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[4]" to the node "LCD_DATA[4]" into a wire File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 46
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[3]" to the node "LCD_DATA[3]" into a wire File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 46
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[2]" to the node "LCD_DATA[2]" into a wire File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 46
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[1]" to the node "LCD_DATA[1]" into a wire File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 46
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[0]" to the node "LCD_DATA[0]" into a wire File: U:/CPRE281/CPU/Final Project/LCD_Display.v Line: 46
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[7]" to the node "LCD_DATA[7]" into a wire File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 46
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[6]" to the node "LCD_DATA[6]" into a wire File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 46
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[5]" to the node "LCD_DATA[5]" into a wire File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 46
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[4]" to the node "LCD_DATA[4]" into a wire File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 46
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[3]" to the node "LCD_DATA[3]" into a wire File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 46
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[2]" to the node "LCD_DATA[2]" into a wire File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 46
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[1]" to the node "LCD_DATA[1]" into a wire File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 46
+    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[0]" to the node "LCD_DATA[0]" into a wire File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/LCD_Display.v Line: 46
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "IXA1" is stuck at GND
     Warning (13410): Pin "IXB1" is stuck at GND
@@ -1781,15 +1780,15 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 8 registers lost all their fanouts during netlist optimizations.
 Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg4|my_dff~0" File: U:/CPRE281/CPU/Final Project/register.v Line: 5
-    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg5|my_dff~0" File: U:/CPRE281/CPU/Final Project/register.v Line: 5
-    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg6|my_dff~0" File: U:/CPRE281/CPU/Final Project/register.v Line: 5
-    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg7|my_dff~0" File: U:/CPRE281/CPU/Final Project/register.v Line: 5
-    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg0|my_dff~0" File: U:/CPRE281/CPU/Final Project/register.v Line: 5
-    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg1|my_dff~0" File: U:/CPRE281/CPU/Final Project/register.v Line: 5
-    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg2|my_dff~0" File: U:/CPRE281/CPU/Final Project/register.v Line: 5
-    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg3|my_dff~0" File: U:/CPRE281/CPU/Final Project/register.v Line: 5
-Info (144001): Generated suppressed messages file U:/CPRE281/CPU/Final Project/output_files/FinalProject.map.smsg
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg4|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg5|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg6|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg7|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg0|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg1|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg2|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg3|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/register.v Line: 5
+Info (144001): Generated suppressed messages file C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/output_files/FinalProject.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 8 input pin(s) that do not drive logic
@@ -1806,15 +1805,15 @@ Info (21057): Implemented 458 device resources after synthesis - the final resou
     Info (21059): Implemented 92 output pins
     Info (21061): Implemented 346 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 328 warnings
-    Info: Peak virtual memory: 4892 megabytes
-    Info: Processing ended: Tue Dec  6 11:32:00 2022
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:14
+    Info: Peak virtual memory: 4844 megabytes
+    Info: Processing ended: Fri Sep 12 21:54:27 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:17
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in U:/CPRE281/CPU/Final Project/output_files/FinalProject.map.smsg.
+The suppressed messages can be found in C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v1/output_files/FinalProject.map.smsg.
 
 

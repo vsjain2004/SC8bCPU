@@ -1,6 +1,6 @@
 Flow report for FinalProject
-Tue Dec  6 11:32:24 2022
-Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
+Fri Sep 12 21:54:44 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
 ---------------------
@@ -21,28 +21,28 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2022  Intel Corporation. All rights reserved.
-Your use of Intel Corporation's design tools, logic functions 
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Intel Program License 
-Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel FPGA IP License Agreement, or other applicable license
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
-Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
 
 
 
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Tue Dec  6 11:32:18 2022           ;
-; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Standard Edition ;
+; Flow Status                        ; Successful - Fri Sep 12 21:54:42 2025           ;
+; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; FinalProject                                    ;
 ; Top-level Entity Name              ; FinalProject                                    ;
 ; Family                             ; Cyclone IV E                                    ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/06/2022 11:31:45 ;
+; Start date & time ; 09/12/2025 21:54:20 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FinalProject        ;
 +-------------------+---------------------+
@@ -76,7 +76,8 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 128122668699041.167034790510632        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 92826790355951.175769426012812         ; --            ; --          ; --         ;
+; FLOW_ENABLE_RTL_VIEWER              ; On                                     ; Off           ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --         ;
@@ -84,8 +85,10 @@ https://fpgasoftware.intel.com/eula.
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
+; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE  ; 12.5 %                                 ; 12.5%         ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
+; SMART_RECOMPILE                     ; On                                     ; Off           ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
 
@@ -94,11 +97,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 4892 MB             ; 00:00:14                           ;
-; Fitter               ; 00:00:10     ; 1.0                     ; 6393 MB             ; 00:00:17                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4732 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.0                     ; 4948 MB             ; 00:00:02                           ;
-; Total                ; 00:00:32     ; --                      ; --                  ; 00:00:35                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4844 MB             ; 00:00:17                           ;
+; Fitter               ; 00:00:10     ; 1.0                     ; 6091 MB             ; 00:00:20                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4986 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4933 MB             ; 00:00:02                           ;
+; Total                ; 00:00:23     ; --                      ; --                  ; 00:00:41                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -107,10 +110,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; co1313-28        ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; co1313-28        ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; co1313-28        ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; co1313-28        ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; vsjain2004       ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; vsjain2004       ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; vsjain2004       ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; vsjain2004       ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
