@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FinalProject
-Fri Sep 12 22:04:00 2025
+Mon Sep 15 19:23:24 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -95,7 +95,7 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Sep 12 22:04:00 2025           ;
+; Analysis & Synthesis Status        ; Successful - Mon Sep 15 19:23:24 2025           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; FinalProject                                    ;
 ; Top-level Entity Name              ; CPU_v2                                          ;
@@ -211,7 +211,8 @@ on the Quartus Prime software download page.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -1378,7 +1379,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -1388,7 +1389,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Fri Sep 12 22:03:51 2025
+    Info: Processing started: Mon Sep 15 19:23:09 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProject -c FinalProject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -1486,8 +1487,6 @@ Info (12128): Elaborating entity "Flags" for hierarchy "Flags:inst4"
 Info (12128): Elaborating entity "register" for hierarchy "Flags:inst4|register:A" File: C:/Users/vjrai/Documents/SC8bCPU/Archived Versions/CPU v2/Flags.v Line: 6
 Info (12128): Elaborating entity "Control" for hierarchy "Control:inst9"
 Warning (275009): Pin "NOOP" not connected
-Warning (275009): Pin "JPE" not connected
-Warning (275008): Primitive "AND2" of instance "inst33" not used
 Info (12128): Elaborating entity "Opcode_decoder" for hierarchy "Opcode_decoder:inst32"
 Info (12128): Elaborating entity "decoder4to16" for hierarchy "Opcode_decoder:inst32|decoder4to16:decoder"
 Info (12128): Elaborating entity "Decoder2to4" for hierarchy "Opcode_decoder:inst32|Decoder2to4:inst2"
@@ -1856,11 +1855,11 @@ Info (21057): Implemented 588 device resources after synthesis - the final resou
     Info (21058): Implemented 20 input pins
     Info (21059): Implemented 92 output pins
     Info (21061): Implemented 476 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 300 warnings
-    Info: Peak virtual memory: 4844 megabytes
-    Info: Processing ended: Fri Sep 12 22:04:00 2025
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:18
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 298 warnings
+    Info: Peak virtual memory: 4877 megabytes
+    Info: Processing ended: Mon Sep 15 19:23:24 2025
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:31
 
 
 +------------------------------------------+
