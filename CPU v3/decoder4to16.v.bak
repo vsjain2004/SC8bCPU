@@ -1,1 +1,0 @@
-module decoder4to16(S, NOOP, LD, ST, ADD, SUB, INC, MOV, IN, OUT, CM)
