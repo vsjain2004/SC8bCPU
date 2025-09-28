@@ -1,0 +1,302 @@
+// Copyright (C) 2025  Altera Corporation. All rights reserved.
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, the Altera Quartus Prime License Agreement,
+// the Altera IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Altera and sold by Altera or its authorized distributors.  Please
+// refer to the Altera Software License Subscription Agreements 
+// on the Quartus Prime software download page.
+
+// PROGRAM		"Quartus Prime"
+// VERSION		"Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition"
+// CREATED		"Sun Sep 28 17:14:29 2025"
+
+module Control(
+	ZF,
+	NOOP,
+	LDM,
+	LDD,
+	LDI,
+	LDX,
+	STO,
+	STI,
+	STX,
+	ADDI,
+	ADDX,
+	SUBI,
+	SUBX,
+	INC,
+	MOV,
+	IN,
+	OUT,
+	CMD,
+	CMP,
+	CMI,
+	CMX,
+	JMP,
+	JPN,
+	JPE,
+	JGT,
+	JGE,
+	ANDI,
+	ANDX,
+	ORI,
+	ORX,
+	XORI,
+	XORX,
+	NF,
+	OF,
+	ADDM,
+	ADDD,
+	SUBM,
+	SUBD,
+	ANDM,
+	ANDD,
+	ORM,
+	ORD,
+	XORM,
+	XORD,
+	I_END,
+	RX,
+	RY,
+	REG_WLINE_1,
+	REG_WLINE_0,
+	REG_W_EN,
+	REG_W_ADD_1,
+	REG_W_ADD_0,
+	REG_ADD_4,
+	REG_ADD_3,
+	REG_ADD_2,
+	REG_ADD_1,
+	REG_ADD_0,
+	ADD_SUB,
+	ALU_S_0,
+	ALU_S_1,
+	FLAG_W,
+	ALU_SL_1,
+	ALU_SL_0,
+	DMEM_W_EN,
+	DMEM_S_ADD,
+	PC_LD_EN,
+	PC_EN,
+	OUT_EN,
+	X_SEL,
+	I_SEL
+);
+
+
+input wire	ZF;
+input wire	NOOP;
+input wire	LDM;
+input wire	LDD;
+input wire	LDI;
+input wire	LDX;
+input wire	STO;
+input wire	STI;
+input wire	STX;
+input wire	ADDI;
+input wire	ADDX;
+input wire	SUBI;
+input wire	SUBX;
+input wire	INC;
+input wire	MOV;
+input wire	IN;
+input wire	OUT;
+input wire	CMD;
+input wire	CMP;
+input wire	CMI;
+input wire	CMX;
+input wire	JMP;
+input wire	JPN;
+input wire	JPE;
+input wire	JGT;
+input wire	JGE;
+input wire	ANDI;
+input wire	ANDX;
+input wire	ORI;
+input wire	ORX;
+input wire	XORI;
+input wire	XORX;
+input wire	NF;
+input wire	OF;
+input wire	ADDM;
+input wire	ADDD;
+input wire	SUBM;
+input wire	SUBD;
+input wire	ANDM;
+input wire	ANDD;
+input wire	ORM;
+input wire	ORD;
+input wire	XORM;
+input wire	XORD;
+input wire	I_END;
+input wire	[1:0] RX;
+input wire	[1:0] RY;
+output wire	REG_WLINE_1;
+output wire	REG_WLINE_0;
+output wire	REG_W_EN;
+output wire	REG_W_ADD_1;
+output wire	REG_W_ADD_0;
+output wire	REG_ADD_4;
+output wire	REG_ADD_3;
+output wire	REG_ADD_2;
+output wire	REG_ADD_1;
+output wire	REG_ADD_0;
+output wire	ADD_SUB;
+output wire	ALU_S_0;
+output wire	ALU_S_1;
+output wire	FLAG_W;
+output wire	ALU_SL_1;
+output wire	ALU_SL_0;
+output wire	DMEM_W_EN;
+output wire	DMEM_S_ADD;
+output wire	PC_LD_EN;
+output wire	PC_EN;
+output wire	OUT_EN;
+output wire	X_SEL;
+output wire	I_SEL;
+
+wire	SYNTHESIZED_WIRE_0;
+wire	SYNTHESIZED_WIRE_1;
+wire	SYNTHESIZED_WIRE_2;
+wire	SYNTHESIZED_WIRE_3;
+wire	SYNTHESIZED_WIRE_34;
+wire	SYNTHESIZED_WIRE_5;
+wire	SYNTHESIZED_WIRE_6;
+wire	SYNTHESIZED_WIRE_8;
+wire	SYNTHESIZED_WIRE_9;
+wire	SYNTHESIZED_WIRE_10;
+wire	SYNTHESIZED_WIRE_11;
+wire	SYNTHESIZED_WIRE_12;
+wire	SYNTHESIZED_WIRE_13;
+wire	SYNTHESIZED_WIRE_14;
+wire	SYNTHESIZED_WIRE_15;
+wire	SYNTHESIZED_WIRE_35;
+wire	SYNTHESIZED_WIRE_36;
+wire	SYNTHESIZED_WIRE_20;
+wire	SYNTHESIZED_WIRE_21;
+wire	SYNTHESIZED_WIRE_22;
+wire	SYNTHESIZED_WIRE_23;
+wire	SYNTHESIZED_WIRE_24;
+wire	SYNTHESIZED_WIRE_25;
+wire	SYNTHESIZED_WIRE_26;
+wire	SYNTHESIZED_WIRE_27;
+wire	SYNTHESIZED_WIRE_28;
+wire	SYNTHESIZED_WIRE_29;
+wire	SYNTHESIZED_WIRE_30;
+wire	SYNTHESIZED_WIRE_31;
+wire	SYNTHESIZED_WIRE_37;
+
+assign	REG_W_ADD_1 = RX[1];
+assign	REG_W_ADD_0 = RX[0];
+assign	REG_ADD_4 = INC;
+assign	OUT_EN = OUT;
+
+
+
+assign	REG_WLINE_1 = LDD | LDX | IN | LDI;
+
+assign	SYNTHESIZED_WIRE_10 = SUBM | SUBX | SUBD | INC | CMP | CMD;
+
+assign	SYNTHESIZED_WIRE_3 = ADDM | ADDX | ADDD | SUBM | SUBX | SUBD | INC | CMP;
+
+assign	SYNTHESIZED_WIRE_1 = CMD | ANDM | CMX | ANDD | ORM | ANDX | ORD | ORX;
+
+assign	SYNTHESIZED_WIRE_2 = XORD | XORX | XORM;
+
+assign	SYNTHESIZED_WIRE_34 = SYNTHESIZED_WIRE_0 | SYNTHESIZED_WIRE_1 | SYNTHESIZED_WIRE_2 | SYNTHESIZED_WIRE_3;
+
+assign	SYNTHESIZED_WIRE_5 = SYNTHESIZED_WIRE_34 & RX[1];
+
+assign	SYNTHESIZED_WIRE_6 = MOV & RY[1];
+
+assign	REG_ADD_1 = SYNTHESIZED_WIRE_5 | LDX | STX | SYNTHESIZED_WIRE_6;
+
+assign	SYNTHESIZED_WIRE_8 = SYNTHESIZED_WIRE_34 & RX[0];
+
+assign	SYNTHESIZED_WIRE_9 = MOV & RY[0];
+
+assign	REG_ADD_0 = SYNTHESIZED_WIRE_8 | LDX | STX | SYNTHESIZED_WIRE_9;
+
+assign	REG_WLINE_0 = IN | LDM;
+
+assign	ADD_SUB = SYNTHESIZED_WIRE_10 | SUBI | CMI | CMX;
+
+assign	ALU_S_1 = ORM | ORI | ORD | ORX | XORD | XORM | XORI | XORX;
+
+assign	ALU_S_0 = ANDM | ANDI | ANDD | ANDX | XORD | XORM | XORI | XORX;
+
+assign	SYNTHESIZED_WIRE_12 = ADDM | ADDX | ADDD | SUBM | SUBX | SUBD | CMP | CMD;
+
+assign	FLAG_W = CMX | SYNTHESIZED_WIRE_11 | SYNTHESIZED_WIRE_12;
+
+assign	SYNTHESIZED_WIRE_15 = LDX | ADDM | STX | ADDD | SUBD | SUBM | CMP | CMD;
+
+assign	SYNTHESIZED_WIRE_13 = ANDM | ORM | ANDD | ORD | XORM | XORD;
+
+assign	ALU_SL_1 = SYNTHESIZED_WIRE_13 | SYNTHESIZED_WIRE_14 | SYNTHESIZED_WIRE_15;
+
+assign	SYNTHESIZED_WIRE_28 = ADDD | INC | SUBD | MOV | ANDD | CMD | ORD | XORD;
+
+assign	DMEM_W_EN = STI | STX | STO;
+
+assign	SYNTHESIZED_WIRE_29 = LDM | LDX | LDD | ADDM | ADDX | ADDD | SUBM | SUBD;
+
+assign	DMEM_S_ADD = STX | LDX;
+
+assign	SYNTHESIZED_WIRE_35 =  ~ZF;
+
+assign	SYNTHESIZED_WIRE_20 = SYNTHESIZED_WIRE_35 & JPN;
+
+assign	SYNTHESIZED_WIRE_26 = ZF & JPE;
+
+assign	SYNTHESIZED_WIRE_36 = NF ~^ OF;
+
+assign	SYNTHESIZED_WIRE_22 = SYNTHESIZED_WIRE_35 & SYNTHESIZED_WIRE_36 & JGT;
+
+assign	SYNTHESIZED_WIRE_21 = SYNTHESIZED_WIRE_36 & JGE;
+
+assign	SYNTHESIZED_WIRE_25 = SYNTHESIZED_WIRE_20 | SYNTHESIZED_WIRE_21 | JMP | SYNTHESIZED_WIRE_22;
+
+assign	PC_EN =  ~I_END;
+
+assign	X_SEL = ADDX | CMX | SUBX | ANDX | ORX | XORX;
+
+assign	SYNTHESIZED_WIRE_31 = SUBX | MOV | INC | IN | ANDD | ANDM | ANDX | ORM;
+
+assign	SYNTHESIZED_WIRE_23 = LDI | SUBI | ADDI | ANDI | ORI | XORI;
+
+assign	REG_W_EN = SYNTHESIZED_WIRE_23 | SYNTHESIZED_WIRE_24;
+
+assign	SYNTHESIZED_WIRE_0 = ADDI | CMI | SUBI | ANDI | ORI | XORI;
+
+assign	PC_LD_EN = SYNTHESIZED_WIRE_25 | SYNTHESIZED_WIRE_26;
+
+assign	SYNTHESIZED_WIRE_11 = SUBI | CMI | ADDI;
+
+assign	SYNTHESIZED_WIRE_14 = ADDI | CMI | SUBI | ANDI | ORI | XORI;
+
+assign	SYNTHESIZED_WIRE_27 = ADDI | CMI | SUBI | ANDI | ORI | XORI;
+
+assign	ALU_SL_0 = SYNTHESIZED_WIRE_27 | SYNTHESIZED_WIRE_28;
+
+assign	I_SEL = LDI | ADDI | STI | SUBI | ANDI | CMI | ORI | XORI;
+
+assign	SYNTHESIZED_WIRE_30 = ORD | XORM | XORD | ORX;
+
+assign	SYNTHESIZED_WIRE_24 = SYNTHESIZED_WIRE_29 | SYNTHESIZED_WIRE_30 | XORX | SYNTHESIZED_WIRE_31;
+
+assign	SYNTHESIZED_WIRE_37 = STI | STX | STO;
+
+assign	REG_ADD_3 = SYNTHESIZED_WIRE_37 & RX[1];
+
+assign	REG_ADD_2 = SYNTHESIZED_WIRE_37 & RX[0];
+
+
+endmodule
