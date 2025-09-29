@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Sun Sep 28 18:55:16 2025
+Mon Sep 29 12:05:27 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -96,13 +96,13 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Sep 28 18:55:16 2025           ;
+; Analysis & Synthesis Status        ; Successful - Mon Sep 29 12:05:27 2025           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; CPU                                             ;
 ; Top-level Entity Name              ; CPU                                             ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 621                                             ;
-;     Total combinational functions  ; 560                                             ;
+; Total logic elements               ; 623                                             ;
+;     Total combinational functions  ; 562                                             ;
 ;     Dedicated logic registers      ; 195                                             ;
 ; Total registers                    ; 195                                             ;
 ; Total pins                         ; 112                                             ;
@@ -212,8 +212,7 @@ on the Quartus Prime software download page.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processors 3-8         ;   0.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -263,6 +262,10 @@ on the Quartus Prime software download page.
 ; decoder4to16.v                   ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU v3/decoder4to16.v                   ;         ;
 ; DMEM.bdf                         ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/CPU v3/DMEM.bdf                         ;         ;
 ; decoder1to2.v                    ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU v3/decoder1to2.v                    ;         ;
+; NOT_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU v3/NOT_8_bit.v                      ;         ;
+; Logic_Shifter.v                  ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Logic_Shifter.v                  ;         ;
+; Arithmetic_Shifter.v             ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Arithmetic_Shifter.v             ;         ;
+; Circular_Shifter.v               ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Circular_Shifter.v               ;         ;
 ; busmux.tdf                       ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/busmux.tdf     ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_mux.inc    ;         ;
 ; lpm_mux.tdf                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_mux.tdf    ;         ;
@@ -281,16 +284,16 @@ on the Quartus Prime software download page.
 +---------------------------------------------+--------+
 ; Resource                                    ; Usage  ;
 +---------------------------------------------+--------+
-; Estimated Total logic elements              ; 621    ;
+; Estimated Total logic elements              ; 623    ;
 ;                                             ;        ;
-; Total combinational functions               ; 560    ;
+; Total combinational functions               ; 562    ;
 ; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 386    ;
-;     -- 3 input functions                    ; 65     ;
-;     -- <=2 input functions                  ; 109    ;
+;     -- 4 input functions                    ; 385    ;
+;     -- 3 input functions                    ; 72     ;
+;     -- <=2 input functions                  ; 105    ;
 ;                                             ;        ;
 ; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 513    ;
+;     -- normal mode                          ; 515    ;
 ;     -- arithmetic mode                      ; 47     ;
 ;                                             ;        ;
 ; Total registers                             ; 195    ;
@@ -303,8 +306,8 @@ on the Quartus Prime software download page.
 ;                                             ;        ;
 ; Maximum fan-out node                        ; inst20 ;
 ; Maximum fan-out                             ; 90     ;
-; Total fan-out                               ; 2813   ;
-; Average fan-out                             ; 2.87   ;
+; Total fan-out                               ; 2822   ;
+; Average fan-out                             ; 2.88   ;
 +---------------------------------------------+--------+
 
 
@@ -313,24 +316,26 @@ on the Quartus Prime software download page.
 +-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------------+--------------+
 ; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                             ; Entity Name        ; Library Name ;
 +-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------------+--------------+
-; |CPU                                    ; 560 (1)             ; 195 (2)                   ; 0           ; 0            ; 0       ; 0         ; 112  ; 0            ; |CPU                                                                            ; CPU                ; work         ;
-;    |ALU:inst3|                          ; 52 (4)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3                                                                  ; ALU                ; work         ;
-;       |CLA_8_bit:inst1|                 ; 48 (31)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1                                                  ; CLA_8_bit          ; work         ;
-;          |AND_5_bit:inst51|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|AND_5_bit:inst51                                 ; AND_5_bit          ; work         ;
-;          |OR_5_bit:inst35|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|OR_5_bit:inst35                                  ; OR_5_bit           ; work         ;
+; |CPU                                    ; 562 (1)             ; 195 (2)                   ; 0           ; 0            ; 0       ; 0         ; 112  ; 0            ; |CPU                                                                            ; CPU                ; work         ;
+;    |ALU:inst3|                          ; 44 (3)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3                                                                  ; ALU                ; work         ;
+;       |CLA_8_bit:inst1|                 ; 40 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1                                                  ; CLA_8_bit          ; work         ;
+;          |AND_7_bit:inst49|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|AND_7_bit:inst49                                 ; AND_7_bit          ; work         ;
+;          |OR_5_bit:inst35|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|OR_5_bit:inst35                                  ; OR_5_bit           ; work         ;
 ;          |OR_7_bit:inst47|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|OR_7_bit:inst47                                  ; OR_7_bit           ; work         ;
-;          |XOR_3_bit:inst17|             ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst17                                 ; XOR_3_bit          ; work         ;
+;          |XOR_3_bit:inst16|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst16                                 ; XOR_3_bit          ; work         ;
 ;          |XOR_3_bit:inst18|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst18                                 ; XOR_3_bit          ; work         ;
-;          |XOR_3_bit:inst20|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst20                                 ; XOR_3_bit          ; work         ;
-;          |XOR_3_bit:inst21|             ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst21                                 ; XOR_3_bit          ; work         ;
+;          |XOR_3_bit:inst19|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst19                                 ; XOR_3_bit          ; work         ;
+;          |XOR_3_bit:inst20|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst20                                 ; XOR_3_bit          ; work         ;
+;          |XOR_3_bit:inst21|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst21                                 ; XOR_3_bit          ; work         ;
 ;          |XOR_3_bit:inst22|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst22                                 ; XOR_3_bit          ; work         ;
 ;          |XOR_3_bit:inst28|             ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst28                                 ; XOR_3_bit          ; work         ;
+;       |busmux_8_to_1:inst9|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|busmux_8_to_1:inst9                                              ; busmux_8_to_1      ; work         ;
 ;    |CLA_8_bit:inst27|                   ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|CLA_8_bit:inst27                                                           ; CLA_8_bit          ; work         ;
 ;       |XOR_3_bit:inst17|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|CLA_8_bit:inst27|XOR_3_bit:inst17                                          ; XOR_3_bit          ; work         ;
 ;       |XOR_3_bit:inst18|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|CLA_8_bit:inst27|XOR_3_bit:inst18                                          ; XOR_3_bit          ; work         ;
 ;    |Control:inst9|                      ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control:inst9                                                              ; Control            ; work         ;
-;    |DMEM:inst33|                        ; 33 (0)              ; 65 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33                                                                ; DMEM               ; work         ;
-;       |DMEMI:inst|                      ; 33 (0)              ; 65 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst                                                     ; DMEMI              ; work         ;
+;    |DMEM:inst33|                        ; 37 (0)              ; 65 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33                                                                ; DMEM               ; work         ;
+;       |DMEMI:inst|                      ; 37 (0)              ; 65 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst                                                     ; DMEMI              ; work         ;
 ;          |busmux:inst12|                ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst12                                       ; busmux             ; work         ;
 ;             |lpm_mux:$00000|            ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst12|lpm_mux:$00000                        ; lpm_mux            ; work         ;
 ;                |mux_erc:auto_generated| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst12|lpm_mux:$00000|mux_erc:auto_generated ; mux_erc            ; work         ;
@@ -346,7 +351,7 @@ on the Quartus Prime software download page.
 ;          |busmux:inst9|                 ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst9                                        ; busmux             ; work         ;
 ;             |lpm_mux:$00000|            ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst9|lpm_mux:$00000                         ; lpm_mux            ; work         ;
 ;                |mux_erc:auto_generated| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst9|lpm_mux:$00000|mux_erc:auto_generated  ; mux_erc            ; work         ;
-;          |busmux_8_to_1:inst25|         ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst25                                ; busmux_8_to_1      ; work         ;
+;          |busmux_8_to_1:inst25|         ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst25                                ; busmux_8_to_1      ; work         ;
 ;          |busmux_8_to_1:inst26|         ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst26                                ; busmux_8_to_1      ; work         ;
 ;          |reg_8_bit:inst14|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14                                    ; reg_8_bit          ; work         ;
 ;             |register:reg0|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg0                      ; register           ; work         ;
@@ -429,15 +434,15 @@ on the Quartus Prime software download page.
 ;       |busmux_16_to_1:inst16|           ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst|busmux_16_to_1:inst16                                            ; busmux_16_to_1     ; work         ;
 ;       |reg_16_bit:inst5|                ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst|reg_16_bit:inst5                                                 ; reg_16_bit         ; work         ;
 ;          |register:reg15|               ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst|reg_16_bit:inst5|register:reg15                                  ; register           ; work         ;
-;    |LCD:inst29|                         ; 194 (0)             ; 79 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29                                                                 ; LCD                ; work         ;
-;       |LCD_Display:u1|                  ; 167 (102)           ; 58 (58)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1                                                  ; LCD_Display        ; work         ;
-;          |BCD_7_bit:bcd1|               ; 56 (56)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1|BCD_7_bit:bcd1                                   ; BCD_7_bit          ; work         ;
-;          |LCD_display_string:u1|        ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1|LCD_display_string:u1                            ; LCD_display_string ; work         ;
+;    |LCD:inst29|                         ; 195 (0)             ; 79 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29                                                                 ; LCD                ; work         ;
+;       |LCD_Display:u1|                  ; 168 (95)            ; 58 (58)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1                                                  ; LCD_Display        ; work         ;
+;          |BCD_7_bit:bcd1|               ; 58 (58)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1|BCD_7_bit:bcd1                                   ; BCD_7_bit          ; work         ;
+;          |LCD_display_string:u1|        ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1|LCD_display_string:u1                            ; LCD_display_string ; work         ;
 ;       |Reset_Delay:r0|                  ; 27 (27)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|Reset_Delay:r0                                                  ; Reset_Delay        ; work         ;
-;    |Opcode_decoder:inst32|              ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Opcode_decoder:inst32                                                      ; Opcode_decoder     ; work         ;
+;    |Opcode_decoder:inst32|              ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Opcode_decoder:inst32                                                      ; Opcode_decoder     ; work         ;
 ;       |Decoder2to4:inst11|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Opcode_decoder:inst32|Decoder2to4:inst11                                   ; Decoder2to4        ; work         ;
 ;       |Decoder2to4:inst4|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Opcode_decoder:inst32|Decoder2to4:inst4                                    ; Decoder2to4        ; work         ;
-;       |decoder4to16:decoder|            ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Opcode_decoder:inst32|decoder4to16:decoder                                 ; decoder4to16       ; work         ;
+;       |decoder4to16:decoder|            ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Opcode_decoder:inst32|decoder4to16:decoder                                 ; decoder4to16       ; work         ;
 ;    |PC:inst5|                           ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5                                                                   ; PC                 ; work         ;
 ;    |busmux:inst12|                      ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst12                                                              ; busmux             ; work         ;
 ;       |lpm_mux:$00000|                  ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst12|lpm_mux:$00000                                               ; lpm_mux            ; work         ;
@@ -445,7 +450,7 @@ on the Quartus Prime software download page.
 ;    |busmux:inst25|                      ; 37 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst25                                                              ; busmux             ; work         ;
 ;       |lpm_mux:$00000|                  ; 37 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst25|lpm_mux:$00000                                               ; lpm_mux            ; work         ;
 ;          |mux_erc:auto_generated|       ; 37 (37)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated                        ; mux_erc            ; work         ;
-;    |busmux_4_to_1:WMR|                  ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:WMR                                                          ; busmux_4_to_1      ; work         ;
+;    |busmux_4_to_1:WMR|                  ; 34 (34)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:WMR                                                          ; busmux_4_to_1      ; work         ;
 ;    |busmux_4_to_1:inst1|                ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:inst1                                                        ; busmux_4_to_1      ; work         ;
 ;    |busmux_8_to_1:inst13|               ; 40 (40)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_8_to_1:inst13                                                       ; busmux_8_to_1      ; work         ;
 ;    |busmux_8_to_1:inst22|               ; 40 (40)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_8_to_1:inst22                                                       ; busmux_8_to_1      ; work         ;
@@ -874,18 +879,17 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_4_to_1:inst1|Mux2                                                      ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |CPU|IMEM:inst|busmux_16_to_1:inst16|F[10]                                         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |CPU|ALU:inst3|busmux_4_to_1:inst|Mux6                                             ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_4_to_1:inst1|Mux7                                                      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |CPU|IMEM:inst|busmux_16_to_1:inst16|F[11]                                         ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |CPU|busmux_4_to_1:WMR|Mux6                                                        ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |CPU|DMEM:inst33|busmux:inst3|lpm_mux:$00000|mux_9rc:auto_generated|result_node[2] ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |CPU|busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated|result_node[1]            ;
-; 7:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_4_to_1:WMR|Mux1                                                        ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_8_to_1:inst22|F[0]                                                     ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_8_to_1:inst13|F[7]                                                     ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst25|F[7]                              ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 15 LEs               ; 0 LEs                  ; No         ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst26|F[2]                              ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |CPU|busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated|result_node[2]            ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_8_to_1:inst22|F[2]                                                     ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_8_to_1:inst13|F[2]                                                     ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst25|F[1]                              ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 15 LEs               ; 0 LEs                  ; No         ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst26|F[0]                              ;
 ; 13:1               ; 5 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated|result_node[4]            ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_4_to_1:WMR|Mux4                                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
 
 
@@ -1373,19 +1377,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR           ; 84                          ;
 ;     ENA SLD           ; 5                           ;
 ;     plain             ; 28                          ;
-; cycloneiii_lcell_comb ; 570                         ;
+; cycloneiii_lcell_comb ; 572                         ;
 ;     arith             ; 47                          ;
 ;         2 data inputs ; 46                          ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 523                         ;
+;     normal            ; 525                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 16                          ;
-;         2 data inputs ; 55                          ;
-;         3 data inputs ; 64                          ;
-;         4 data inputs ; 386                         ;
+;         2 data inputs ; 51                          ;
+;         3 data inputs ; 71                          ;
+;         4 data inputs ; 385                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 13.40                       ;
-; Average LUT depth     ; 5.99                        ;
+; Max LUT depth         ; 13.30                       ;
+; Average LUT depth     ; 5.94                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1404,7 +1408,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Sun Sep 28 18:55:05 2025
+    Info: Processing started: Mon Sep 29 12:05:18 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -1492,6 +1496,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file dmem.bd
     Info (12023): Found entity 1: DMEM
 Info (12021): Found 1 design units, including 1 entities, in source file decoder1to2.v
     Info (12023): Found entity 1: decoder1to2 File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/decoder1to2.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file not_8_bit.v
+    Info (12023): Found entity 1: NOT_8_bit File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/NOT_8_bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file logic_shifter.v
+    Info (12023): Found entity 1: Logic_Shifter File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Logic_Shifter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file arithmetic_shifter.v
+    Info (12023): Found entity 1: Arithmetic_Shifter File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Arithmetic_Shifter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file circular_shifter.v
+    Info (12023): Found entity 1: Circular_Shifter File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Circular_Shifter.v Line: 1
 Warning (10236): Verilog HDL Implicit Net warning at register.v(4): created implicit net for "D" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/register.v Line: 4
 Info (12127): Elaborating entity "CPU" for the top level hierarchy
 Info (12128): Elaborating entity "Flags" for hierarchy "Flags:inst4"
@@ -1521,6 +1533,11 @@ Info (12128): Elaborating entity "debouncer" for hierarchy "debouncer:inst18"
 Info (12128): Elaborating entity "clock_divider_1024" for hierarchy "debouncer:inst18|clock_divider_1024:inst3"
 Info (12128): Elaborating entity "PC" for hierarchy "PC:inst5"
 Info (12128): Elaborating entity "ALU" for hierarchy "ALU:inst3"
+Warning (275080): Converted elements in bus name "AS" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "AS[2..0]" to "AS2..0"
+    Warning (275081): Converted element name(s) from "AS[2]" to "AS2"
+    Warning (275081): Converted element name(s) from "AS[1]" to "AS1"
+    Warning (275081): Converted element name(s) from "AS[0]" to "AS0"
 Info (12128): Elaborating entity "CLA_8_bit" for hierarchy "ALU:inst3|CLA_8_bit:inst1"
 Warning (275011): Block or symbol "AND2" of instance "inst1" overlaps another block or symbol
 Warning (275011): Block or symbol "AND3" of instance "inst23" overlaps another block or symbol
@@ -1546,13 +1563,18 @@ Info (12128): Elaborating entity "AND_7_bit" for hierarchy "ALU:inst3|CLA_8_bit:
 Info (12128): Elaborating entity "XOR_3_bit" for hierarchy "ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst16"
 Info (12128): Elaborating entity "OR_5_bit" for hierarchy "ALU:inst3|CLA_8_bit:inst1|OR_5_bit:inst35"
 Info (12128): Elaborating entity "OR_7_bit" for hierarchy "ALU:inst3|CLA_8_bit:inst1|OR_7_bit:inst47"
-Info (12128): Elaborating entity "busmux_4_to_1" for hierarchy "ALU:inst3|busmux_4_to_1:inst"
+Info (12128): Elaborating entity "busmux_8_to_1" for hierarchy "ALU:inst3|busmux_8_to_1:inst9"
 Info (12128): Elaborating entity "AND_8_bit" for hierarchy "ALU:inst3|AND_8_bit:inst2"
 Info (12128): Elaborating entity "OR_8_bit" for hierarchy "ALU:inst3|OR_8_bit:inst3"
+Info (12128): Elaborating entity "NOT_8_bit" for hierarchy "ALU:inst3|NOT_8_bit:inst"
+Info (12128): Elaborating entity "Logic_Shifter" for hierarchy "ALU:inst3|Logic_Shifter:inst6"
+Info (12128): Elaborating entity "Arithmetic_Shifter" for hierarchy "ALU:inst3|Arithmetic_Shifter:inst7"
+Info (12128): Elaborating entity "Circular_Shifter" for hierarchy "ALU:inst3|Circular_Shifter:inst8"
 Info (12128): Elaborating entity "mainreg" for hierarchy "mainreg:inst7"
 Info (12128): Elaborating entity "reg_8_bit" for hierarchy "mainreg:inst7|reg_8_bit:A" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/mainreg.v Line: 27
 Info (12128): Elaborating entity "Zeros" for hierarchy "mainreg:inst7|Zeros:Z" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/mainreg.v Line: 31
 Info (12128): Elaborating entity "Ones" for hierarchy "mainreg:inst7|Ones:O" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/mainreg.v Line: 32
+Info (12128): Elaborating entity "busmux_4_to_1" for hierarchy "mainreg:inst7|busmux_4_to_1:opa" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/mainreg.v Line: 34
 Info (12128): Elaborating entity "DMEM" for hierarchy "DMEM:inst33"
 Info (12128): Elaborating entity "DMEMI" for hierarchy "DMEM:inst33|DMEMI:inst"
 Info (12128): Elaborating entity "BUSMUX" for hierarchy "DMEM:inst33|DMEMI:inst|BUSMUX:inst23"
@@ -1566,7 +1588,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/mux_
 Info (12128): Elaborating entity "mux_erc" for hierarchy "DMEM:inst33|DMEMI:inst|BUSMUX:inst23|lpm_mux:$00000|mux_erc:auto_generated" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
 Info (12128): Elaborating entity "Decoder3to8" for hierarchy "DMEM:inst33|DMEMI:inst|Decoder3to8:inst4"
 Info (12128): Elaborating entity "DMEM_PRGM" for hierarchy "DMEM:inst33|DMEMI:inst|DMEM_PRGM:inst24"
-Info (12128): Elaborating entity "busmux_8_to_1" for hierarchy "DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst25"
 Info (12128): Elaborating entity "BUSMUX" for hierarchy "DMEM:inst33|BUSMUX:inst3"
 Info (12130): Elaborated megafunction instantiation "DMEM:inst33|BUSMUX:inst3"
 Info (12133): Instantiated megafunction "DMEM:inst33|BUSMUX:inst3" with the following parameter:
@@ -1852,15 +1873,15 @@ Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/vjrai/Documents/SC8bCPU/CPU v3/output_files/CPU.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 756 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 759 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 20 input pins
     Info (21059): Implemented 92 output pins
-    Info (21061): Implemented 644 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 284 warnings
-    Info: Peak virtual memory: 4877 megabytes
-    Info: Processing ended: Sun Sep 28 18:55:16 2025
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:28
+    Info (21061): Implemented 647 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 289 warnings
+    Info: Peak virtual memory: 4845 megabytes
+    Info: Processing ended: Mon Sep 29 12:05:27 2025
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:19
 
 
 +------------------------------------------+

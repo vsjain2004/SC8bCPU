@@ -1,1 +1,6 @@
 Warning (10268): Verilog HDL information at BCD_7_bit.v(9): always construct contains both blocking and non-blocking assignments File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/BCD_7_bit.v Line: 9
+Warning (10273): Verilog HDL warning at Logic_Shifter.v(20): extended using "x" or "z" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Logic_Shifter.v Line: 20
+Warning (10273): Verilog HDL warning at Logic_Shifter.v(34): extended using "x" or "z" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Logic_Shifter.v Line: 34
+Warning (10273): Verilog HDL warning at Arithmetic_Shifter.v(17): extended using "x" or "z" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Arithmetic_Shifter.v Line: 17
+Warning (10273): Verilog HDL warning at Circular_Shifter.v(20): extended using "x" or "z" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Circular_Shifter.v Line: 20
+Warning (10273): Verilog HDL warning at Circular_Shifter.v(34): extended using "x" or "z" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Circular_Shifter.v Line: 34
