@@ -1,1 +1,29 @@
+{C:/Users/vjrai/Documents/SC8bCPU/CPU v3/decoder4to16.v} {1 {vlog -work work -vopt -stats=none {C:/Users/vjrai/Documents/SC8bCPU/CPU v3/decoder4to16.v}
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module decoder4to16
 
+Top level modules:
+	decoder4to16
+
+} {} {}} {C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Control.v} {1 {vlog -work work -vopt -stats=none {C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Control.v}
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module Control
+
+Top level modules:
+	Control
+
+} {} {}} {C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Opcode_decoder.v} {1 {vlog -work work -vopt -stats=none {C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Opcode_decoder.v}
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module Opcode_decoder
+
+Top level modules:
+	Opcode_decoder
+
+} {} {}} {C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Decoder2to4.v} {1 {vlog -work work -vopt -stats=none {C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Decoder2to4.v}
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module Decoder2to4
+
+Top level modules:
+	Decoder2to4
+
+} {} {}}

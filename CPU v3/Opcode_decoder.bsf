@@ -55,8 +55,8 @@ on the Quartus Prime software download page.
 	(port
 		(pt 160 80)
 		(output)
-		(text "END" (rect 0 0 25 15)(font "Intel Clear" (font_size 8)))
-		(text "END" (rect 114 75 139 90)(font "Intel Clear" (font_size 8)))
+		(text "I_END" (rect 0 0 36 15)(font "Intel Clear" (font_size 8)))
+		(text "I_END" (rect 103 75 139 90)(font "Intel Clear" (font_size 8)))
 		(line (pt 160 80)(pt 144 80))
 	)
 	(port
@@ -377,8 +377,8 @@ on the Quartus Prime software download page.
 	(port
 		(pt 160 816)
 		(output)
-		(text "NOT" (rect 0 0 27 15)(font "Intel Clear" (font_size 8)))
-		(text "NOT" (rect 112 811 139 826)(font "Intel Clear" (font_size 8)))
+		(text "I_NOT" (rect 0 0 37 15)(font "Intel Clear" (font_size 8)))
+		(text "I_NOT" (rect 102 811 139 826)(font "Intel Clear" (font_size 8)))
 		(line (pt 160 816)(pt 144 816))
 	)
 	(port
