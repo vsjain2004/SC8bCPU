@@ -214,4 +214,5 @@ set_global_assignment -name VERILOG_FILE NOT_8_bit.v
 set_global_assignment -name VERILOG_FILE Logic_Shifter.v
 set_global_assignment -name VERILOG_FILE Arithmetic_Shifter.v
 set_global_assignment -name VERILOG_FILE Circular_Shifter.v
+set_global_assignment -name FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS ON
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

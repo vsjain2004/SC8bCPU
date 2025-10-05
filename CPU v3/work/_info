@@ -1,0 +1,87 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+!s12c _opt2
+R1
+!s12c _opt1
+R1
+R0
+R1
+!s11f vlog 2024.3 2024.09, Sep 10 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/Users/vjrai/Documents/QueueMAC
+T_opt
+!s110 1759587514
+VT>DWFj8^neSaK35R]:aU73
+Z3 04 7 4 work Control fast 0
+=1-546cebdd63eb-68e12cb9-398-696c
+R1
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM10U1 
+Z7 !s135 nogc
+o-quiet -auto_acc_if_foreign -work work -debugdb +acc
+Z8 tCvgOpt 0
+n@_opt
+Z9 OL;O;2024.3;79
+T_opt1
+!s110 1759562212
+V8J[:2P?oAHNjKml=c?0F?0
+R3
+=1-546cebdd63eb-68e0c9e3-285-8bc8
+R1
+R4
+R5
+R6
+R7
+o-quiet -auto_acc_if_foreign -work work
+R8
+n@_opt1
+R9
+R2
+T_opt2
+!s110 1759587248
+V^akRfG7YkU8Rb]Y@2;Yhn2
+R3
+=1-546cebdd63eb-68e12bb0-0-4888
+R1
+R4
+R5
+R6
+R7
+o-quiet -auto_acc_if_foreign -work work -debugdb
+R8
+n@_opt2
+R9
+R2
+vControl
+2C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Control.v
+!s110 1759498019
+!i10b 1
+!s100 BiA^dDGgB90`HUaTeOGFd0
+II5@UYVfIW4AjUIehSHS;T1
+dC:/Users/vjrai/Documents/SC8bCPU/CPU v3
+w1759065581
+8C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Control.v
+FC:/Users/vjrai/Documents/SC8bCPU/CPU v3/Control.v
+!i122 0
+L0 1 149
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2024.3;79
+r1
+!s85 0
+31
+!s108 1759498019.000000
+!s107 C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Control.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU v3/Control.v|
+!i113 0
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R8
+n@control
