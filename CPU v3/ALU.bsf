@@ -27,8 +27,8 @@ on the Quartus Prime software download page.
 	(port
 		(pt 0 32)
 		(input)
-		(text "ADD/SUB" (rect 0 0 56 15)(font "Intel Clear" (font_size 8)))
-		(text "ADD/SUB" (rect 21 27 77 42)(font "Intel Clear" (font_size 8)))
+		(text "ADD_SUB" (rect 0 0 57 15)(font "Intel Clear" (font_size 8)))
+		(text "ADD_SUB" (rect 21 27 78 42)(font "Intel Clear" (font_size 8)))
 		(line (pt 0 32)(pt 16 32))
 	)
 	(port
