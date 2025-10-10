@@ -1,7 +1,0 @@
-module busmux_16_to_1(S, W0, W1, W2, W3, W4, W5, W6, W7, W8, W9, W10, W11, W12, W13, W14, W15, F);
-	input [3:0] S;
-	input [15:0] W0, W1, W2, W3, W4, W5, W6, W7, W8, W9, W10, W11, W12, W13, W14, W15;
-	output [15:0]F;
-	
-	assign F = S[3] ? (S[2] ? (S[1] ? (S[0] ? W15 : W14) : (S[0] ? W13 : W12)) : (S[1] ? (S[0] ? W11 : W10) : (S[0] ? W9 : W8))) : (S[2] ? (S[1] ? (S[0] ? W7 : W6) : (S[0] ? W5 : W4)) : (S[1] ? (S[0] ? W3 : W2) : (S[0] ? W1 : W0)));
-endmodule
