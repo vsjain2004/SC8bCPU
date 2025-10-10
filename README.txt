@@ -1,4 +1,4 @@
-Main Project File: FinalProject.bdf
+Main Project File: CPU.bdf
 
 Instructions to run:
 1. Loading the program
@@ -17,8 +17,6 @@ Instructions to run:
 	d. The red LEDs LEDR[17] to LEDR[2] visualize the current Instruction. The green LEDs LEDG[7] to LEDG[4] visualize the Flags register.
 	   The green LEDs LEDG[3] to LEDG[0] visualize the Program Counter.
 	e. In case the program uses the LCD display, note that loading a new program or pressing reset will not clear the LCD display.
-
-NOTE: A recording of each program has been provided in 'Program Videos' folder
 
 IMEM program structure:
 //program name
