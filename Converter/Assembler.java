@@ -94,6 +94,38 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					break;
+				case "IN":
+					a = scnr2.next();
+					if(!scnr2.hasNext()) {
+						b = "0000";
+						c = "01";
+						d = GetD(a);
+						e = "00000000";
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					break;
+				case "OUT":
+					a = scnr2.next();
+					if(!scnr2.hasNext()) {
+						b = "0000";
+						c = "10";
+						d = GetD(a);
+						e = "00000000";
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					break;
+				case "END":
+					if(!scnr2.hasNext()) {
+						b = "0000";
+						c = "11";
+						d = "00";
+						e = "00000000";
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					break;
 				case "LDM":
 				case "LDD":
 					y = a;
@@ -137,6 +169,17 @@ public class Assembler {
 					}
 					e = GetEa(scnr2.next(), labels1);
 					break;
+				case "SWAP":
+					a = scnr2.next();
+					b = "0010";
+					c = "00";
+					if(a.endsWith(",")) {
+						d = GetD(a.substring(0, a.length() - 1));
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					e = GetEa(scnr2.next(), labels1);
+					break;
 				case "STO":
 					a = scnr2.next();
 					b = "0010";
@@ -170,7 +213,9 @@ public class Assembler {
 					}
 					e = GetEa(scnr2.next(), labels1);
 					break;
-				case "ADD":
+				case "ADDM":
+				case "ADDD":
+					y = a;
 					a = scnr2.next();
 					b = "0011";
 					if(a.endsWith(",")) {
@@ -179,12 +224,14 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					a = scnr2.next();
-					if(a.startsWith("#")) {
+					if(a.startsWith("#") && y.equals("ADDM")) {
 						c = "00";
 						e = GetE(a);
-					} else {
+					} else if (y.equals("ADDD")) {
 						c = "01";
-						e = GetEa(a, labels1);;
+						e = GetEa(a, labels1);
+					} else {
+						throw new Exception("Illegal Format");
 					}
 					break;
 				case "ADDI":
@@ -209,7 +256,9 @@ public class Assembler {
 					}
 					e = GetEa(scnr2.next(), labels1);
 					break;
-				case "SUB":
+				case "SUBM":
+				case "SUBD":
+					y = a;
 					a = scnr2.next();
 					b = "0100";
 					if(a.endsWith(",")) {
@@ -218,12 +267,14 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					a = scnr2.next();
-					if(a.startsWith("#")) {
+					if(a.startsWith("#") && y.equals("SUBM")) {
 						c = "00";
 						e = GetE(a);
-					} else {
+					} else if (y.equals("SUBD")) {
 						c = "01";
 						e = GetEa(a, labels1);;
+					} else {
+						throw new Exception("Illegal Format");
 					}
 					break;
 				case "SUBI":
@@ -259,7 +310,40 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					break;
-				case "MOV":
+				case "DEC":
+					a = scnr2.next();
+					if(!scnr2.hasNext()) {
+						b = "0101";
+						c = "01";
+						d = GetD(a);
+						e = "00000000";
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					break;
+				case "LSL":
+					a = scnr2.next();
+					b = "0101";
+					c = "10";
+					if(a.endsWith(",")) {
+						d = GetD(a.substring(0, a.length() - 1));
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					e = GetE(scnr2.next());
+					break;
+				case "LSR":
+					a = scnr2.next();
+					b = "0101";
+					c = "11";
+					if(a.endsWith(",")) {
+						d = GetD(a.substring(0, a.length() - 1));
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					e = GetE(scnr2.next());
+					break;
+				case "ADDR":
 					a = scnr2.next();
 					b = "0110";
 					if(a.endsWith(",")) {
@@ -270,27 +354,27 @@ public class Assembler {
 					c = GetD(scnr2.next());
 					e = "00000000";
 					break;
-				case "IN":
+				case "SUBR":
 					a = scnr2.next();
-					if(!scnr2.hasNext()) {
-						b = "0111";
-						c = "00";
-						d = GetD(a);
-						e = "00000000";
+					b = "0111";
+					if(a.endsWith(",")) {
+						d = GetD(a.substring(0, a.length() - 1));
 					} else {
 						throw new Exception("Illegal Format");
 					}
+					c = GetD(scnr2.next());
+					e = "00000000";
 					break;
-				case "OUT":
+				case "MOV":
 					a = scnr2.next();
-					if(!scnr2.hasNext()) {
-						b = "1000";
-						c = "00";
-						d = GetD(a);
-						e = "00000000";
+					b = "1000";
+					if(a.endsWith(",")) {
+						d = GetD(a.substring(0, a.length() - 1));
 					} else {
 						throw new Exception("Illegal Format");
 					}
+					c = GetD(scnr2.next());
+					e = "00000000";
 					break;
 				case "CMP":
 				case "CMD":
@@ -335,9 +419,23 @@ public class Assembler {
 					}
 					e = GetEa(scnr2.next(), labels1);
 					break;
+				case "SWAPR":
+					a = scnr2.next();
+					b = "1010";
+					if(a.endsWith(",")) {
+						d = GetD(a.substring(0, a.length() - 1));
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					c = GetD(scnr2.next());
+					if(c.equals("11")) {
+						throw new Exception("Illegal Format");
+					}
+					e = "00000000";
+					break;
 				case "JMP":
 					b = "1010";
-					c = "00";
+					c = "11";
 					d = "00";
 					e = GetEa(scnr2.next(), labels1);
 					break;
@@ -363,7 +461,9 @@ public class Assembler {
 					d = "00";
 					e = GetEa(scnr2.next(), labels1);
 					break;
-				case "AND":
+				case "ANDM":
+				case "ANDD":
+					y = a;
 					a = scnr2.next();
 					b = "1100";
 					if(a.endsWith(",")) {
@@ -372,12 +472,14 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					a = scnr2.next();
-					if(a.startsWith("#")) {
+					if(a.startsWith("#") && y.equals("ANDM")) {
 						c = "00";
 						e = GetE(a);
-					} else {
+					} else if (y.equals("ANDD")) {
 						c = "01";
-						e = GetEa(a, labels1);;
+						e = GetEa(a, labels1);
+					} else {
+						throw new Exception("Illegal Format");
 					}
 					break;
 				case "ANDI":
@@ -402,7 +504,9 @@ public class Assembler {
 					}
 					e = GetEa(scnr2.next(), labels1);
 					break;
-				case "OR":
+				case "ORM":
+				case "ORD":
+					y = a;
 					a = scnr2.next();
 					b = "1101";
 					if(a.endsWith(",")) {
@@ -411,12 +515,14 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					a = scnr2.next();
-					if(a.startsWith("#")) {
+					if(a.startsWith("#") && y.equals("ORM")) {
 						c = "00";
 						e = GetE(a);
-					} else {
+					} else if (y.equals("ORD")) {
 						c = "01";
-						e = GetEa(a, labels1);;
+						e = GetEa(a, labels1);
+					} else {
+						throw new Exception("Illegal Format");
 					}
 					break;
 				case "ORI":
@@ -441,7 +547,9 @@ public class Assembler {
 					}
 					e = GetEa(scnr2.next(), labels1);
 					break;
-				case "XOR":
+				case "XORM":
+				case "XORD":
+					y = a;
 					a = scnr2.next();
 					b = "1110";
 					if(a.endsWith(",")) {
@@ -450,12 +558,14 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					a = scnr2.next();
-					if(a.startsWith("#")) {
+					if(a.startsWith("#") && y.equals("XORM")) {
 						c = "00";
 						e = GetE(a);
-					} else {
+					} else if (y.equals("XORD")) {
 						c = "01";
-						e = GetEa(a, labels1);;
+						e = GetEa(a, labels1);
+					} else {
+						throw new Exception("Illegal Format");
 					}
 					break;
 				case "XORI":
@@ -480,15 +590,49 @@ public class Assembler {
 					}
 					e = GetEa(scnr2.next(), labels1);
 					break;
-				case "END":
+				case "NOT":
+					a = scnr2.next();
 					if(!scnr2.hasNext()) {
 						b = "1111";
 						c = "00";
-						d = "00";
+						d = GetD(a);
 						e = "00000000";
 					} else {
 						throw new Exception("Illegal Format");
 					}
+					break;
+				case "ASR":
+					a = scnr2.next();
+					b = "1111";
+					c = "01";
+					if(a.endsWith(",")) {
+						d = GetD(a.substring(0, a.length() - 1));
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					e = GetE(scnr2.next());
+					break;
+				case "CSL":
+					a = scnr2.next();
+					b = "1111";
+					c = "10";
+					if(a.endsWith(",")) {
+						d = GetD(a.substring(0, a.length() - 1));
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					e = GetE(scnr2.next());
+					break;
+				case "CSR":
+					a = scnr2.next();
+					b = "1111";
+					c = "11";
+					if(a.endsWith(",")) {
+						d = GetD(a.substring(0, a.length() - 1));
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					e = GetE(scnr2.next());
 					break;
 				default: throw new Exception("Command " + a + " not supported");
 				}
