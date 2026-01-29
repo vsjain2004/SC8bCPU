@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Sun Oct  5 12:27:58 2025
+Thu Jan 29 12:43:04 2026
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -96,15 +96,15 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct  5 12:27:58 2025           ;
+; Analysis & Synthesis Status        ; Successful - Thu Jan 29 12:43:04 2026           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; CPU                                             ;
 ; Top-level Entity Name              ; CPU                                             ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 621                                             ;
-;     Total combinational functions  ; 560                                             ;
-;     Dedicated logic registers      ; 195                                             ;
-; Total registers                    ; 195                                             ;
+; Total logic elements               ; 427                                             ;
+;     Total combinational functions  ; 416                                             ;
+;     Dedicated logic registers      ; 138                                             ;
+; Total registers                    ; 138                                             ;
 ; Total pins                         ; 112                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -279,36 +279,36 @@ on the Quartus Prime software download page.
 +----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary          ;
-+---------------------------------------------+--------+
-; Resource                                    ; Usage  ;
-+---------------------------------------------+--------+
-; Estimated Total logic elements              ; 621    ;
-;                                             ;        ;
-; Total combinational functions               ; 560    ;
-; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 390    ;
-;     -- 3 input functions                    ; 70     ;
-;     -- <=2 input functions                  ; 100    ;
-;                                             ;        ;
-; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 513    ;
-;     -- arithmetic mode                      ; 47     ;
-;                                             ;        ;
-; Total registers                             ; 195    ;
-;     -- Dedicated logic registers            ; 195    ;
-;     -- I/O registers                        ; 0      ;
-;                                             ;        ;
-; I/O pins                                    ; 112    ;
-;                                             ;        ;
-; Embedded Multiplier 9-bit elements          ; 0      ;
-;                                             ;        ;
-; Maximum fan-out node                        ; inst20 ;
-; Maximum fan-out                             ; 90     ;
-; Total fan-out                               ; 2826   ;
-; Average fan-out                             ; 2.89   ;
-+---------------------------------------------+--------+
++--------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                    ;
++---------------------------------------------+----------------------------------+
+; Resource                                    ; Usage                            ;
++---------------------------------------------+----------------------------------+
+; Estimated Total logic elements              ; 427                              ;
+;                                             ;                                  ;
+; Total combinational functions               ; 416                              ;
+; Logic element usage by number of LUT inputs ;                                  ;
+;     -- 4 input functions                    ; 220                              ;
+;     -- 3 input functions                    ; 91                               ;
+;     -- <=2 input functions                  ; 105                              ;
+;                                             ;                                  ;
+; Logic elements by mode                      ;                                  ;
+;     -- normal mode                          ; 369                              ;
+;     -- arithmetic mode                      ; 47                               ;
+;                                             ;                                  ;
+; Total registers                             ; 138                              ;
+;     -- Dedicated logic registers            ; 138                              ;
+;     -- I/O registers                        ; 0                                ;
+;                                             ;                                  ;
+; I/O pins                                    ; 112                              ;
+;                                             ;                                  ;
+; Embedded Multiplier 9-bit elements          ; 0                                ;
+;                                             ;                                  ;
+; Maximum fan-out node                        ; LCD:inst29|Reset_Delay:r0|oRESET ;
+; Maximum fan-out                             ; 58                               ;
+; Total fan-out                               ; 1993                             ;
+; Average fan-out                             ; 2.54                             ;
++---------------------------------------------+----------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -316,23 +316,21 @@ on the Quartus Prime software download page.
 +-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------------+--------------+
 ; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                             ; Entity Name        ; Library Name ;
 +-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------------+--------------+
-; |CPU                                    ; 560 (1)             ; 195 (2)                   ; 0           ; 0            ; 0       ; 0         ; 112  ; 0            ; |CPU                                                                            ; CPU                ; work         ;
-;    |ALU:inst3|                          ; 40 (5)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3                                                                  ; ALU                ; work         ;
-;       |CLA_8_bit:inst1|                 ; 34 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1                                                  ; CLA_8_bit          ; work         ;
-;          |AND_7_bit:inst49|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|AND_7_bit:inst49                                 ; AND_7_bit          ; work         ;
-;          |OR_5_bit:inst35|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|OR_5_bit:inst35                                  ; OR_5_bit           ; work         ;
-;          |OR_7_bit:inst47|              ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|OR_7_bit:inst47                                  ; OR_7_bit           ; work         ;
-;          |XOR_3_bit:inst19|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst19                                 ; XOR_3_bit          ; work         ;
+; |CPU                                    ; 416 (1)             ; 138 (2)                   ; 0           ; 0            ; 0       ; 0         ; 112  ; 0            ; |CPU                                                                            ; CPU                ; work         ;
+;    |ALU:inst3|                          ; 36 (4)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3                                                                  ; ALU                ; work         ;
+;       |CLA_8_bit:inst1|                 ; 32 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1                                                  ; CLA_8_bit          ; work         ;
+;          |OR_5_bit:inst35|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|OR_5_bit:inst35                                  ; OR_5_bit           ; work         ;
+;          |XOR_3_bit:inst16|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst16                                 ; XOR_3_bit          ; work         ;
+;          |XOR_3_bit:inst17|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst17                                 ; XOR_3_bit          ; work         ;
+;          |XOR_3_bit:inst18|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst18                                 ; XOR_3_bit          ; work         ;
+;          |XOR_3_bit:inst19|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst19                                 ; XOR_3_bit          ; work         ;
 ;          |XOR_3_bit:inst20|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst20                                 ; XOR_3_bit          ; work         ;
 ;          |XOR_3_bit:inst21|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst21                                 ; XOR_3_bit          ; work         ;
-;          |XOR_3_bit:inst22|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst22                                 ; XOR_3_bit          ; work         ;
-;       |busmux_8_to_1:inst9|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|busmux_8_to_1:inst9                                              ; busmux_8_to_1      ; work         ;
-;    |CLA_8_bit:inst27|                   ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|CLA_8_bit:inst27                                                           ; CLA_8_bit          ; work         ;
-;       |XOR_3_bit:inst17|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|CLA_8_bit:inst27|XOR_3_bit:inst17                                          ; XOR_3_bit          ; work         ;
-;       |XOR_3_bit:inst18|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|CLA_8_bit:inst27|XOR_3_bit:inst18                                          ; XOR_3_bit          ; work         ;
-;    |Control:inst9|                      ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control:inst9                                                              ; Control            ; work         ;
-;    |DMEM:inst33|                        ; 35 (0)              ; 65 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33                                                                ; DMEM               ; work         ;
-;       |DMEMI:inst|                      ; 35 (0)              ; 65 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst                                                     ; DMEMI              ; work         ;
+;          |XOR_3_bit:inst22|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst22                                 ; XOR_3_bit          ; work         ;
+;          |XOR_3_bit:inst28|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst28                                 ; XOR_3_bit          ; work         ;
+;    |Control:inst9|                      ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control:inst9                                                              ; Control            ; work         ;
+;    |DMEM:inst33|                        ; 38 (0)              ; 16 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33                                                                ; DMEM               ; work         ;
+;       |DMEMI:inst|                      ; 36 (0)              ; 16 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst                                                     ; DMEMI              ; work         ;
 ;          |busmux:inst12|                ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst12                                       ; busmux             ; work         ;
 ;             |lpm_mux:$00000|            ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst12|lpm_mux:$00000                        ; lpm_mux            ; work         ;
 ;                |mux_erc:auto_generated| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst12|lpm_mux:$00000|mux_erc:auto_generated ; mux_erc            ; work         ;
@@ -348,25 +346,13 @@ on the Quartus Prime software download page.
 ;          |busmux:inst9|                 ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst9                                        ; busmux             ; work         ;
 ;             |lpm_mux:$00000|            ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst9|lpm_mux:$00000                         ; lpm_mux            ; work         ;
 ;                |mux_erc:auto_generated| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux:inst9|lpm_mux:$00000|mux_erc:auto_generated  ; mux_erc            ; work         ;
-;          |busmux_8_to_1:inst25|         ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst25                                ; busmux_8_to_1      ; work         ;
-;          |busmux_8_to_1:inst26|         ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst26                                ; busmux_8_to_1      ; work         ;
-;          |reg_8_bit:inst14|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14                                    ; reg_8_bit          ; work         ;
-;             |register:reg0|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg0                      ; register           ; work         ;
+;          |busmux_8_to_1:inst25|         ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst25                                ; busmux_8_to_1      ; work         ;
+;          |reg_8_bit:inst14|             ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14                                    ; reg_8_bit          ; work         ;
 ;             |register:reg1|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg1                      ; register           ; work         ;
-;             |register:reg2|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg2                      ; register           ; work         ;
-;             |register:reg3|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg3                      ; register           ; work         ;
-;             |register:reg4|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg4                      ; register           ; work         ;
-;             |register:reg5|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg5                      ; register           ; work         ;
-;             |register:reg6|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg6                      ; register           ; work         ;
-;             |register:reg7|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg7                      ; register           ; work         ;
-;          |reg_8_bit:inst15|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst15                                    ; reg_8_bit          ; work         ;
-;             |register:reg0|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg0                      ; register           ; work         ;
-;             |register:reg1|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg1                      ; register           ; work         ;
+;          |reg_8_bit:inst15|             ; 0 (0)               ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst15                                    ; reg_8_bit          ; work         ;
 ;             |register:reg2|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg2                      ; register           ; work         ;
 ;             |register:reg3|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg3                      ; register           ; work         ;
-;             |register:reg4|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg4                      ; register           ; work         ;
 ;             |register:reg5|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg5                      ; register           ; work         ;
-;             |register:reg6|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg6                      ; register           ; work         ;
 ;             |register:reg7|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg7                      ; register           ; work         ;
 ;          |reg_8_bit:inst16|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst16                                    ; reg_8_bit          ; work         ;
 ;             |register:reg0|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg0                      ; register           ; work         ;
@@ -377,85 +363,41 @@ on the Quartus Prime software download page.
 ;             |register:reg5|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg5                      ; register           ; work         ;
 ;             |register:reg6|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg6                      ; register           ; work         ;
 ;             |register:reg7|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg7                      ; register           ; work         ;
-;          |reg_8_bit:inst17|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst17                                    ; reg_8_bit          ; work         ;
+;          |reg_8_bit:inst17|             ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst17                                    ; reg_8_bit          ; work         ;
 ;             |register:reg0|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg0                      ; register           ; work         ;
-;             |register:reg1|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg1                      ; register           ; work         ;
-;             |register:reg2|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg2                      ; register           ; work         ;
-;             |register:reg3|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg3                      ; register           ; work         ;
-;             |register:reg4|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg4                      ; register           ; work         ;
-;             |register:reg5|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg5                      ; register           ; work         ;
-;             |register:reg6|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg6                      ; register           ; work         ;
-;             |register:reg7|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg7                      ; register           ; work         ;
-;          |reg_8_bit:inst18|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst18                                    ; reg_8_bit          ; work         ;
-;             |register:reg0|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg0                      ; register           ; work         ;
-;             |register:reg1|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg1                      ; register           ; work         ;
-;             |register:reg2|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg2                      ; register           ; work         ;
-;             |register:reg3|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg3                      ; register           ; work         ;
-;             |register:reg4|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg4                      ; register           ; work         ;
-;             |register:reg5|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg5                      ; register           ; work         ;
-;             |register:reg6|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg6                      ; register           ; work         ;
-;             |register:reg7|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg7                      ; register           ; work         ;
-;          |reg_8_bit:inst19|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst19                                    ; reg_8_bit          ; work         ;
-;             |register:reg0|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg0                      ; register           ; work         ;
-;             |register:reg1|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg1                      ; register           ; work         ;
-;             |register:reg2|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg2                      ; register           ; work         ;
-;             |register:reg3|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg3                      ; register           ; work         ;
-;             |register:reg4|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg4                      ; register           ; work         ;
-;             |register:reg5|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg5                      ; register           ; work         ;
-;             |register:reg6|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg6                      ; register           ; work         ;
-;             |register:reg7|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg7                      ; register           ; work         ;
-;          |reg_8_bit:inst20|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst20                                    ; reg_8_bit          ; work         ;
-;             |register:reg0|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg0                      ; register           ; work         ;
-;             |register:reg1|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg1                      ; register           ; work         ;
-;             |register:reg2|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg2                      ; register           ; work         ;
-;             |register:reg3|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg3                      ; register           ; work         ;
+;          |reg_8_bit:inst20|             ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst20                                    ; reg_8_bit          ; work         ;
 ;             |register:reg4|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg4                      ; register           ; work         ;
-;             |register:reg5|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg5                      ; register           ; work         ;
-;             |register:reg6|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg6                      ; register           ; work         ;
-;             |register:reg7|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg7                      ; register           ; work         ;
-;          |reg_8_bit:inst21|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst21                                    ; reg_8_bit          ; work         ;
-;             |register:reg0|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg0                      ; register           ; work         ;
-;             |register:reg1|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg1                      ; register           ; work         ;
-;             |register:reg2|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg2                      ; register           ; work         ;
-;             |register:reg3|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg3                      ; register           ; work         ;
-;             |register:reg4|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg4                      ; register           ; work         ;
-;             |register:reg5|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg5                      ; register           ; work         ;
-;             |register:reg6|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg6                      ; register           ; work         ;
-;             |register:reg7|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg7                      ; register           ; work         ;
+;       |busmux:inst3|                    ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|busmux:inst3                                                   ; busmux             ; work         ;
+;          |lpm_mux:$00000|               ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|busmux:inst3|lpm_mux:$00000                                    ; lpm_mux            ; work         ;
+;             |mux_9rc:auto_generated|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|DMEM:inst33|busmux:inst3|lpm_mux:$00000|mux_9rc:auto_generated             ; mux_9rc            ; work         ;
 ;    |Flags:inst4|                        ; 0 (0)               ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4                                                                ; Flags              ; work         ;
 ;       |register:A|                      ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4|register:A                                                     ; register           ; work         ;
 ;       |register:B|                      ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4|register:B                                                     ; register           ; work         ;
 ;       |register:C|                      ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4|register:C                                                     ; register           ; work         ;
 ;       |register:D|                      ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4|register:D                                                     ; register           ; work         ;
-;    |IMEM:inst|                          ; 12 (0)              ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst                                                                  ; IMEM               ; work         ;
-;       |busmux_16_to_1:inst16|           ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst|busmux_16_to_1:inst16                                            ; busmux_16_to_1     ; work         ;
-;       |reg_16_bit:inst5|                ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst|reg_16_bit:inst5                                                 ; reg_16_bit         ; work         ;
-;          |register:reg15|               ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst|reg_16_bit:inst5|register:reg15                                  ; register           ; work         ;
-;    |LCD:inst29|                         ; 197 (0)             ; 79 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29                                                                 ; LCD                ; work         ;
-;       |LCD_Display:u1|                  ; 170 (95)            ; 58 (58)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1                                                  ; LCD_Display        ; work         ;
-;          |BCD_7_bit:bcd1|               ; 60 (60)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1|BCD_7_bit:bcd1                                   ; BCD_7_bit          ; work         ;
-;          |LCD_display_string:u1|        ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1|LCD_display_string:u1                            ; LCD_display_string ; work         ;
+;    |IMEM:inst|                          ; 7 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst                                                                  ; IMEM               ; work         ;
+;       |busmux_16_to_1:inst16|           ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst|busmux_16_to_1:inst16                                            ; busmux_16_to_1     ; work         ;
+;       |reg_16_bit:inst7|                ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst|reg_16_bit:inst7                                                 ; reg_16_bit         ; work         ;
+;          |register:reg11|               ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IMEM:inst|reg_16_bit:inst7|register:reg11                                  ; register           ; work         ;
+;    |LCD:inst29|                         ; 201 (0)             ; 79 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29                                                                 ; LCD                ; work         ;
+;       |LCD_Display:u1|                  ; 174 (88)            ; 58 (58)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1                                                  ; LCD_Display        ; work         ;
+;          |BCD_7_bit:bcd1|               ; 73 (73)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1|BCD_7_bit:bcd1                                   ; BCD_7_bit          ; work         ;
+;          |LCD_display_string:u1|        ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|LCD_Display:u1|LCD_display_string:u1                            ; LCD_display_string ; work         ;
 ;       |Reset_Delay:r0|                  ; 27 (27)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|LCD:inst29|Reset_Delay:r0                                                  ; Reset_Delay        ; work         ;
-;    |Opcode_decoder:inst32|              ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Opcode_decoder:inst32                                                      ; Opcode_decoder     ; work         ;
-;       |Decoder2to4:inst4|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Opcode_decoder:inst32|Decoder2to4:inst4                                    ; Decoder2to4        ; work         ;
-;       |decoder4to16:decoder|            ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Opcode_decoder:inst32|decoder4to16:decoder                                 ; decoder4to16       ; work         ;
-;    |PC:inst5|                           ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5                                                                   ; PC                 ; work         ;
+;    |PC:inst5|                           ; 5 (5)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5                                                                   ; PC                 ; work         ;
 ;    |busmux:inst12|                      ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst12                                                              ; busmux             ; work         ;
 ;       |lpm_mux:$00000|                  ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst12|lpm_mux:$00000                                               ; lpm_mux            ; work         ;
 ;          |mux_7rc:auto_generated|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst12|lpm_mux:$00000|mux_7rc:auto_generated                        ; mux_7rc            ; work         ;
-;    |busmux:inst25|                      ; 37 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst25                                                              ; busmux             ; work         ;
-;       |lpm_mux:$00000|                  ; 37 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst25|lpm_mux:$00000                                               ; lpm_mux            ; work         ;
-;          |mux_erc:auto_generated|       ; 37 (37)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated                        ; mux_erc            ; work         ;
-;    |busmux_4_to_1:WMR|                  ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:WMR                                                          ; busmux_4_to_1      ; work         ;
-;    |busmux_4_to_1:inst1|                ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:inst1                                                        ; busmux_4_to_1      ; work         ;
-;    |busmux_8_to_1:inst13|               ; 40 (40)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_8_to_1:inst13                                                       ; busmux_8_to_1      ; work         ;
-;    |busmux_8_to_1:inst22|               ; 40 (40)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_8_to_1:inst22                                                       ; busmux_8_to_1      ; work         ;
-;    |debouncer:inst18|                   ; 29 (4)              ; 24 (4)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|debouncer:inst18                                                           ; debouncer          ; work         ;
-;       |clock_divider_1024:inst3|        ; 13 (13)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|debouncer:inst18|clock_divider_1024:inst3                                  ; clock_divider_1024 ; work         ;
+;    |busmux:inst25|                      ; 11 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst25                                                              ; busmux             ; work         ;
+;       |lpm_mux:$00000|                  ; 11 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst25|lpm_mux:$00000                                               ; lpm_mux            ; work         ;
+;          |mux_erc:auto_generated|       ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated                        ; mux_erc            ; work         ;
+;    |busmux_4_to_1:WMR|                  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:WMR                                                          ; busmux_4_to_1      ; work         ;
+;    |busmux_8_to_1:inst13|               ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_8_to_1:inst13                                                       ; busmux_8_to_1      ; work         ;
+;    |busmux_8_to_1:inst22|               ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_8_to_1:inst22                                                       ; busmux_8_to_1      ; work         ;
+;    |debouncer:inst18|                   ; 30 (4)              ; 24 (4)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|debouncer:inst18                                                           ; debouncer          ; work         ;
+;       |clock_divider_1024:inst3|        ; 14 (14)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|debouncer:inst18|clock_divider_1024:inst3                                  ; clock_divider_1024 ; work         ;
 ;       |clock_divider_1024:inst4|        ; 12 (12)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|debouncer:inst18|clock_divider_1024:inst4                                  ; clock_divider_1024 ; work         ;
-;    |mainreg:inst7|                      ; 12 (2)              ; 16 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7                                                              ; mainreg            ; work         ;
-;       |Decoder2to4:decoder|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|Decoder2to4:decoder                                          ; Decoder2to4        ; work         ;
-;       |busmux_4_to_1:opa|               ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|busmux_4_to_1:opa                                            ; busmux_4_to_1      ; work         ;
+;    |mainreg:inst7|                      ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7                                                              ; mainreg            ; work         ;
 ;       |reg_8_bit:A|                     ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A                                                  ; reg_8_bit          ; work         ;
 ;          |register:reg0|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg0                                    ; register           ; work         ;
 ;          |register:reg1|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg1                                    ; register           ; work         ;
@@ -465,23 +407,12 @@ on the Quartus Prime software download page.
 ;          |register:reg5|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg5                                    ; register           ; work         ;
 ;          |register:reg6|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg6                                    ; register           ; work         ;
 ;          |register:reg7|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg7                                    ; register           ; work         ;
-;       |reg_8_bit:IX|                    ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX                                                 ; reg_8_bit          ; work         ;
-;          |register:reg0|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg0                                   ; register           ; work         ;
-;          |register:reg1|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg1                                   ; register           ; work         ;
-;          |register:reg2|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg2                                   ; register           ; work         ;
-;          |register:reg3|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg3                                   ; register           ; work         ;
-;          |register:reg4|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg4                                   ; register           ; work         ;
-;          |register:reg5|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg5                                   ; register           ; work         ;
-;          |register:reg6|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg6                                   ; register           ; work         ;
-;          |register:reg7|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg7                                   ; register           ; work         ;
-;    |seven_seg_decoder:inst10|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|seven_seg_decoder:inst10                                                   ; seven_seg_decoder  ; work         ;
-;    |seven_seg_decoder:inst11|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|seven_seg_decoder:inst11                                                   ; seven_seg_decoder  ; work         ;
 ;    |seven_seg_decoder:inst14|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|seven_seg_decoder:inst14                                                   ; seven_seg_decoder  ; work         ;
 ;    |seven_seg_decoder:inst15|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|seven_seg_decoder:inst15                                                   ; seven_seg_decoder  ; work         ;
 ;    |seven_seg_decoder:inst16|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|seven_seg_decoder:inst16                                                   ; seven_seg_decoder  ; work         ;
 ;    |seven_seg_decoder:inst17|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|seven_seg_decoder:inst17                                                   ; seven_seg_decoder  ; work         ;
-;    |seven_seg_decoder:inst6|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|seven_seg_decoder:inst6                                                    ; seven_seg_decoder  ; work         ;
-;    |seven_seg_decoder:inst8|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|seven_seg_decoder:inst8                                                    ; seven_seg_decoder  ; work         ;
+;    |seven_seg_decoder:inst6|            ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|seven_seg_decoder:inst6                                                    ; seven_seg_decoder  ; work         ;
+;    |seven_seg_decoder:inst8|            ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|seven_seg_decoder:inst8                                                    ; seven_seg_decoder  ; work         ;
 +-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -532,303 +463,360 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------+---+
 ; Logic Cell Name                                                                 ;   ;
 +---------------------------------------------------------------------------------+---+
-; DMEM:inst33|busmux:inst3|lpm_mux:$00000|mux_9rc:auto_generated|result_node[1]~1 ;   ;
-; DMEM:inst33|busmux:inst3|lpm_mux:$00000|mux_9rc:auto_generated|result_node[0]~0 ;   ;
+; busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated|result_node[0]~0            ;   ;
+; busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated|result_node[1]~1            ;   ;
 ; DMEM:inst33|busmux:inst3|lpm_mux:$00000|mux_9rc:auto_generated|result_node[2]~2 ;   ;
 ; Number of logic cells representing combinational loops                          ; 3 ;
 +---------------------------------------------------------------------------------+---+
 Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                ;
-+---------------------------------------------------+---------------------------------------------------------------+
-; Register name                                     ; Reason for Removal                                            ;
-+---------------------------------------------------+---------------------------------------------------------------+
-; IMEM:inst|reg_16_bit:inst15|register:reg15|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg14|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg13|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg12|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg11|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg10|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg9|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg8|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg7|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg6|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg5|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg4|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg3|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg2|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg1|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst15|register:reg0|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg15|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg14|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg13|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg12|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg11|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg10|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg9|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg8|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg7|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg6|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg5|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg4|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg3|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg2|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg1|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst13|register:reg0|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg15|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg14|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg13|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg12|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg11|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg10|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg9|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg8|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg7|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg6|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg5|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg4|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg3|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg2|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg1|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst11|register:reg0|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg15|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg14|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg13|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg12|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg11|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg10|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg9|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg8|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg7|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg6|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg5|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg4|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg3|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg2|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg1|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst10|register:reg0|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg15|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg14|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg13|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg12|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg11|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg10|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg9|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg8|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg7|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg6|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg5|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg4|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg3|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg2|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg1|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst8|register:reg0|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg15|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg14|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg13|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg12|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg11|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg10|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg9|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg8|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg7|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg6|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg5|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg4|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg3|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg2|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg1|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst6|register:reg0|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg15|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg14|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg13|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg12|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg11|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg10|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg9|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg8|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg7|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg6|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg5|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg4|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg3|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg2|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg1|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst4|register:reg0|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg15|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg14|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg13|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg12|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg11|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg10|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg9|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg8|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg7|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg6|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg5|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg4|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg3|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg2|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg1|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst3|register:reg0|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg15|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg14|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg13|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg12|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg11|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg10|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg9|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg8|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg7|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg6|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg5|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg4|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg3|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg2|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg1|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst2|register:reg0|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg15|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg14|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg13|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg12|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg11|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg10|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg9|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg8|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg7|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg6|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg5|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg4|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg3|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg2|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg1|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst1|register:reg0|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg15|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg14|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg13|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg12|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg11|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg10|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg9|my_dff    ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg8|my_dff    ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg7|my_dff    ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg6|my_dff    ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg5|my_dff    ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg4|my_dff    ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg3|my_dff    ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg2|my_dff    ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg1|my_dff    ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst|register:reg0|my_dff    ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg11|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg10|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg9|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg8|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg7|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg6|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg5|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg4|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg3|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg2|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg1|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst5|register:reg0|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg15|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg14|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg9|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg8|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg7|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg6|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg5|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg4|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg3|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg2|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst7|register:reg0|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg15|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg14|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg13|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg11|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg10|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg7|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg6|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg5|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg4|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg3|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg1|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst9|register:reg0|my_dff   ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg15|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg14|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg13|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg11|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg9|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg8|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg7|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg6|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg5|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg4|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg3|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg2|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg1|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg0|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg15|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg14|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg13|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg12|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg11|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg10|my_dff ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg9|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg8|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg7|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg6|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg5|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg4|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg3|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg2|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg1|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst14|register:reg0|my_dff  ; Stuck at GND due to stuck port data_in                        ;
-; LCD:inst29|LCD_Display:u1|LCD_RW_INT              ; Stuck at GND due to stuck port data_in                        ;
-; IMEM:inst|reg_16_bit:inst12|register:reg10|my_dff ; Merged with IMEM:inst|reg_16_bit:inst12|register:reg12|my_dff ;
-; IMEM:inst|reg_16_bit:inst12|register:reg12|my_dff ; Merged with IMEM:inst|reg_16_bit:inst9|register:reg2|my_dff   ;
-; IMEM:inst|reg_16_bit:inst9|register:reg2|my_dff   ; Merged with IMEM:inst|reg_16_bit:inst9|register:reg8|my_dff   ;
-; IMEM:inst|reg_16_bit:inst9|register:reg8|my_dff   ; Merged with IMEM:inst|reg_16_bit:inst9|register:reg9|my_dff   ;
-; IMEM:inst|reg_16_bit:inst9|register:reg9|my_dff   ; Merged with IMEM:inst|reg_16_bit:inst9|register:reg12|my_dff  ;
-; IMEM:inst|reg_16_bit:inst9|register:reg12|my_dff  ; Merged with IMEM:inst|reg_16_bit:inst7|register:reg1|my_dff   ;
-; IMEM:inst|reg_16_bit:inst7|register:reg1|my_dff   ; Merged with IMEM:inst|reg_16_bit:inst7|register:reg10|my_dff  ;
-; IMEM:inst|reg_16_bit:inst7|register:reg10|my_dff  ; Merged with IMEM:inst|reg_16_bit:inst7|register:reg11|my_dff  ;
-; IMEM:inst|reg_16_bit:inst7|register:reg11|my_dff  ; Merged with IMEM:inst|reg_16_bit:inst7|register:reg12|my_dff  ;
-; IMEM:inst|reg_16_bit:inst7|register:reg12|my_dff  ; Merged with IMEM:inst|reg_16_bit:inst7|register:reg13|my_dff  ;
-; IMEM:inst|reg_16_bit:inst7|register:reg13|my_dff  ; Merged with IMEM:inst|reg_16_bit:inst5|register:reg12|my_dff  ;
-; IMEM:inst|reg_16_bit:inst5|register:reg12|my_dff  ; Merged with IMEM:inst|reg_16_bit:inst5|register:reg13|my_dff  ;
-; IMEM:inst|reg_16_bit:inst5|register:reg13|my_dff  ; Merged with IMEM:inst|reg_16_bit:inst5|register:reg14|my_dff  ;
-; IMEM:inst|reg_16_bit:inst5|register:reg14|my_dff  ; Merged with IMEM:inst|reg_16_bit:inst5|register:reg15|my_dff  ;
-; IMEM:inst|inst25                                  ; Merged with DMEM:inst33|DMEMI:inst|inst                       ;
-; mainreg:inst7|reg_8_bit:C|register:reg7|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:C|register:reg6|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:C|register:reg5|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:C|register:reg4|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:C|register:reg3|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:C|register:reg2|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:C|register:reg1|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:C|register:reg0|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:B|register:reg7|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:B|register:reg6|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:B|register:reg5|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:B|register:reg4|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:B|register:reg3|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:B|register:reg2|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:B|register:reg1|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; mainreg:inst7|reg_8_bit:B|register:reg0|my_dff    ; Stuck at GND due to stuck port clock_enable                   ;
-; LCD:inst29|LCD_Display:u1|LCD_E                   ; Lost fanout                                                   ;
-; LCD:inst29|LCD_Display:u1|next_command~2          ; Lost fanout                                                   ;
-; LCD:inst29|LCD_Display:u1|next_command~3          ; Lost fanout                                                   ;
-; LCD:inst29|LCD_Display:u1|next_command~4          ; Lost fanout                                                   ;
-; LCD:inst29|LCD_Display:u1|next_command~5          ; Lost fanout                                                   ;
-; LCD:inst29|LCD_Display:u1|state~14                ; Lost fanout                                                   ;
-; LCD:inst29|LCD_Display:u1|state~15                ; Lost fanout                                                   ;
-; LCD:inst29|LCD_Display:u1|state~16                ; Lost fanout                                                   ;
-; LCD:inst29|LCD_Display:u1|state~17                ; Lost fanout                                                   ;
-; Total Number of Removed Registers = 282           ;                                                               ;
-+---------------------------------------------------+---------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                      ;
++--------------------------------------------------------------+--------------------------------------------------------------------------+
+; Register name                                                ; Reason for Removal                                                       ;
++--------------------------------------------------------------+--------------------------------------------------------------------------+
+; IMEM:inst|reg_16_bit:inst15|register:reg15|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg14|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg13|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg12|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg11|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg10|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg9|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg8|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg7|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg6|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg5|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg4|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg3|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg2|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg1|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst15|register:reg0|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg15|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg14|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg13|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg12|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg11|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg10|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg9|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg8|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg7|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg6|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg5|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg4|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg3|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg2|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg1|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst13|register:reg0|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg15|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg14|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg13|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg12|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg11|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg10|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg9|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg8|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg7|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg6|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg5|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg4|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg3|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg2|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg1|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst11|register:reg0|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg15|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg14|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg13|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg12|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg11|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg10|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg9|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg8|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg7|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg6|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg5|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg4|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg3|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg2|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg1|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst10|register:reg0|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg15|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg14|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg13|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg12|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg11|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg10|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg9|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg8|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg7|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg6|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg5|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg4|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg3|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg2|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg1|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst8|register:reg0|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg15|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg14|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg13|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg12|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg11|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg10|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg9|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg8|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg7|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg6|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg5|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg4|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg3|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg2|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg1|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst6|register:reg0|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg15|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg14|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg13|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg12|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg11|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg10|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg9|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg8|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg7|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg6|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg5|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg4|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg3|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg2|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg1|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst4|register:reg0|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg15|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg14|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg13|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg12|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg11|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg10|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg9|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg8|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg7|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg6|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg5|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg4|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg3|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg2|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg1|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst3|register:reg0|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg15|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg14|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg13|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg12|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg11|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg10|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg9|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg8|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg7|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg6|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg5|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg4|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg3|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg2|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg1|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst2|register:reg0|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg15|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg14|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg13|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg12|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg11|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg10|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg9|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg8|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg7|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg6|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg5|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg4|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg3|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg2|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg1|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst1|register:reg0|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg15|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg14|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg13|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg12|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg11|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg10|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg9|my_dff               ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg8|my_dff               ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg7|my_dff               ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg6|my_dff               ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg5|my_dff               ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg4|my_dff               ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg3|my_dff               ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg2|my_dff               ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg1|my_dff               ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst|register:reg0|my_dff               ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg15|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg14|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg13|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg12|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg11|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg10|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg9|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg8|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg7|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg6|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg5|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg4|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg3|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg2|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg1|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst5|register:reg0|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg15|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg14|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg13|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg12|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg9|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg8|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg7|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg6|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg5|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg4|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg3|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg2|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg1|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst7|register:reg0|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg15|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg14|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg10|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg9|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg8|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg7|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg6|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg5|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg4|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg3|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg2|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst9|register:reg0|my_dff              ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg15|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg14|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg13|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg11|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg9|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg8|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg7|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg6|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg5|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg4|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg3|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg2|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg1|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg0|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg15|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg14|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg13|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg12|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg11|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg10|my_dff            ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg9|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg8|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg7|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg6|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg5|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg4|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg3|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg2|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg1|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst14|register:reg0|my_dff             ; Stuck at GND due to stuck port data_in                                   ;
+; mainreg:inst7|reg_8_bit:IX|register:reg7|my_dff              ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:IX|register:reg6|my_dff              ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:IX|register:reg5|my_dff              ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:IX|register:reg4|my_dff              ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:IX|register:reg3|my_dff              ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:IX|register:reg2|my_dff              ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:IX|register:reg1|my_dff              ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:IX|register:reg0|my_dff              ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:C|register:reg7|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:C|register:reg6|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:C|register:reg5|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:C|register:reg4|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:C|register:reg3|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:C|register:reg2|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:C|register:reg1|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:C|register:reg0|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:B|register:reg7|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:B|register:reg6|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:B|register:reg5|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:B|register:reg4|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:B|register:reg3|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:B|register:reg2|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:B|register:reg1|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; mainreg:inst7|reg_8_bit:B|register:reg0|my_dff               ; Stuck at GND due to stuck port clock_enable                              ;
+; LCD:inst29|LCD_Display:u1|LCD_RW_INT                         ; Stuck at GND due to stuck port data_in                                   ;
+; IMEM:inst|reg_16_bit:inst12|register:reg10|my_dff            ; Merged with IMEM:inst|reg_16_bit:inst12|register:reg12|my_dff            ;
+; IMEM:inst|reg_16_bit:inst12|register:reg12|my_dff            ; Merged with IMEM:inst|reg_16_bit:inst9|register:reg1|my_dff              ;
+; IMEM:inst|reg_16_bit:inst9|register:reg1|my_dff              ; Merged with IMEM:inst|reg_16_bit:inst9|register:reg11|my_dff             ;
+; IMEM:inst|reg_16_bit:inst9|register:reg11|my_dff             ; Merged with IMEM:inst|reg_16_bit:inst9|register:reg12|my_dff             ;
+; IMEM:inst|reg_16_bit:inst9|register:reg12|my_dff             ; Merged with IMEM:inst|reg_16_bit:inst9|register:reg13|my_dff             ;
+; IMEM:inst|reg_16_bit:inst9|register:reg13|my_dff             ; Merged with IMEM:inst|reg_16_bit:inst7|register:reg10|my_dff             ;
+; IMEM:inst|reg_16_bit:inst7|register:reg10|my_dff             ; Merged with IMEM:inst|reg_16_bit:inst7|register:reg11|my_dff             ;
+; IMEM:inst|inst25                                             ; Merged with DMEM:inst33|DMEMI:inst|inst                                  ;
+; LCD:inst29|LCD_Display:u1|next_command~2                     ; Lost fanout                                                              ;
+; LCD:inst29|LCD_Display:u1|next_command~3                     ; Lost fanout                                                              ;
+; LCD:inst29|LCD_Display:u1|next_command~4                     ; Lost fanout                                                              ;
+; LCD:inst29|LCD_Display:u1|next_command~5                     ; Lost fanout                                                              ;
+; LCD:inst29|LCD_Display:u1|state~14                           ; Lost fanout                                                              ;
+; LCD:inst29|LCD_Display:u1|state~15                           ; Lost fanout                                                              ;
+; LCD:inst29|LCD_Display:u1|state~16                           ; Lost fanout                                                              ;
+; LCD:inst29|LCD_Display:u1|state~17                           ; Lost fanout                                                              ;
+; LCD:inst29|LCD_Display:u1|LCD_E                              ; Lost fanout                                                              ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg4|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg4|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg4|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg4|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg4|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg4|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg4|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg4|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg4|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg4|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg4|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg4|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg5|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg5|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg5|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg5|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg5|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg5|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg5|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg5|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg5|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg5|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg5|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg5|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg6|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg6|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg6|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg6|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg6|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg6|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg6|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg6|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg6|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg6|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg6|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg6|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg6|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg6|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg7|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg7|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg7|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg7|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg7|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg7|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg7|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg7|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg7|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg7|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg7|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg7|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg0|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg0|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg0|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg0|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg0|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg0|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg0|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg0|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg0|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg0|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg0|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg0|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg1|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg1|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg1|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg1|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg1|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg1|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg1|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg1|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg1|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg1|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg1|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg1|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg2|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg2|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg2|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg2|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg2|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg2|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg2|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg2|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg2|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg2|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg2|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg2|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst14|register:reg3|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg3|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst17|register:reg3|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg3|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst18|register:reg3|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg3|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst19|register:reg3|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg3|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst21|register:reg3|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst16|register:reg3|my_dff ;
+; DMEM:inst33|DMEMI:inst|reg_8_bit:inst20|register:reg3|my_dff ; Merged with DMEM:inst33|DMEMI:inst|reg_8_bit:inst15|register:reg3|my_dff ;
+; Total Number of Removed Registers = 339                      ;                                                                          ;
++--------------------------------------------------------------+--------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -836,8 +824,16 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +---------------------------------------------------+---------------------------+---------------------------------------------------------------------------------+
 ; Register name                                     ; Reason for Removal        ; Registers Removed due to This Register                                          ;
 +---------------------------------------------------+---------------------------+---------------------------------------------------------------------------------+
-; IMEM:inst|reg_16_bit:inst15|register:reg11|my_dff ; Stuck at GND              ; mainreg:inst7|reg_8_bit:C|register:reg7|my_dff,                                 ;
-;                                                   ; due to stuck port data_in ; mainreg:inst7|reg_8_bit:C|register:reg6|my_dff,                                 ;
+; IMEM:inst|reg_16_bit:inst15|register:reg11|my_dff ; Stuck at GND              ; mainreg:inst7|reg_8_bit:IX|register:reg7|my_dff,                                ;
+;                                                   ; due to stuck port data_in ; mainreg:inst7|reg_8_bit:IX|register:reg6|my_dff,                                ;
+;                                                   ;                           ; mainreg:inst7|reg_8_bit:IX|register:reg5|my_dff,                                ;
+;                                                   ;                           ; mainreg:inst7|reg_8_bit:IX|register:reg4|my_dff,                                ;
+;                                                   ;                           ; mainreg:inst7|reg_8_bit:IX|register:reg3|my_dff,                                ;
+;                                                   ;                           ; mainreg:inst7|reg_8_bit:IX|register:reg2|my_dff,                                ;
+;                                                   ;                           ; mainreg:inst7|reg_8_bit:IX|register:reg1|my_dff,                                ;
+;                                                   ;                           ; mainreg:inst7|reg_8_bit:IX|register:reg0|my_dff,                                ;
+;                                                   ;                           ; mainreg:inst7|reg_8_bit:C|register:reg7|my_dff,                                 ;
+;                                                   ;                           ; mainreg:inst7|reg_8_bit:C|register:reg6|my_dff,                                 ;
 ;                                                   ;                           ; mainreg:inst7|reg_8_bit:C|register:reg5|my_dff,                                 ;
 ;                                                   ;                           ; mainreg:inst7|reg_8_bit:C|register:reg4|my_dff,                                 ;
 ;                                                   ;                           ; mainreg:inst7|reg_8_bit:C|register:reg3|my_dff,                                 ;
@@ -860,32 +856,28 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 195   ;
+; Total registers                              ; 138   ;
 ; Number of registers using Synchronous Clear  ; 20    ;
-; Number of registers using Synchronous Load   ; 5     ;
-; Number of registers using Asynchronous Clear ; 124   ;
+; Number of registers using Synchronous Load   ; 12    ;
+; Number of registers using Asynchronous Clear ; 67    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 127   ;
+; Number of registers using Clock Enable       ; 70    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_4_to_1:inst1|Mux1                                                      ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |CPU|IMEM:inst|busmux_16_to_1:inst16|F[10]                                         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |CPU|busmux_4_to_1:WMR|Mux5                                                        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |CPU|DMEM:inst33|busmux:inst3|lpm_mux:$00000|mux_9rc:auto_generated|result_node[1] ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |CPU|busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated|result_node[2]            ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_8_to_1:inst22|F[6]                                                     ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_8_to_1:inst13|F[1]                                                     ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst25|F[4]                              ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 15 LEs               ; 0 LEs                  ; No         ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst26|F[1]                              ;
-; 13:1               ; 5 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated|result_node[7]            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg5|my_dff                     ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU|busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated|result_node[2] ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_8_to_1:inst22|F[6]                                          ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_8_to_1:inst13|F[1]                                          ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|DMEM:inst33|DMEMI:inst|busmux_8_to_1:inst25|F[7]                   ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |CPU|busmux:inst25|lpm_mux:$00000|mux_erc:auto_generated|result_node[7] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------+
@@ -1365,26 +1357,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 112                         ;
-; cycloneiii_ff         ; 195                         ;
+; cycloneiii_ff         ; 138                         ;
 ;     CLR               ; 20                          ;
 ;     CLR SCLR          ; 20                          ;
 ;     ENA               ; 38                          ;
-;     ENA CLR           ; 84                          ;
+;     ENA CLR           ; 20                          ;
+;     ENA CLR SLD       ; 7                           ;
 ;     ENA SLD           ; 5                           ;
 ;     plain             ; 28                          ;
-; cycloneiii_lcell_comb ; 570                         ;
+; cycloneiii_lcell_comb ; 431                         ;
 ;     arith             ; 47                          ;
 ;         2 data inputs ; 46                          ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 523                         ;
+;     normal            ; 384                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 16                          ;
-;         2 data inputs ; 46                          ;
-;         3 data inputs ; 69                          ;
-;         4 data inputs ; 390                         ;
+;         1 data inputs ; 21                          ;
+;         2 data inputs ; 51                          ;
+;         3 data inputs ; 90                          ;
+;         4 data inputs ; 220                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 14.30                       ;
-; Average LUT depth     ; 5.93                        ;
+; Max LUT depth         ; 11.00                       ;
+; Average LUT depth     ; 4.40                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1403,7 +1396,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Sun Oct  5 12:27:50 2025
+    Info: Processing started: Thu Jan 29 12:42:56 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -1854,27 +1847,63 @@ Warning (13044): Always-enabled tri-state buffer(s) removed
     Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[1]" to the node "LCD_DATA[1]" into a wire File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/LCD_Display.v Line: 46
     Warning (13045): Converted the fanout from the always-enabled tri-state buffer "LCD:inst29|LCD_Display:u1|DATA_BUS[0]" to the node "LCD_DATA[0]" into a wire File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/LCD_Display.v Line: 46
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "IXA1" is stuck at GND
+    Warning (13410): Pin "IXB1" is stuck at GND
+    Warning (13410): Pin "IXC1" is stuck at GND
+    Warning (13410): Pin "IXD1" is stuck at GND
+    Warning (13410): Pin "IXE1" is stuck at GND
+    Warning (13410): Pin "IXF1" is stuck at GND
+    Warning (13410): Pin "IXG1" is stuck at VCC
+    Warning (13410): Pin "IXA2" is stuck at GND
+    Warning (13410): Pin "IXB2" is stuck at GND
+    Warning (13410): Pin "IXC2" is stuck at GND
+    Warning (13410): Pin "IXD2" is stuck at GND
+    Warning (13410): Pin "IXE2" is stuck at GND
+    Warning (13410): Pin "IXF2" is stuck at GND
+    Warning (13410): Pin "IXG2" is stuck at VCC
     Warning (13410): Pin "LCD_ON" is stuck at VCC
     Warning (13410): Pin "LCD_RW" is stuck at GND
     Warning (13410): Pin "LCD_EN" is stuck at GND
+    Warning (13410): Pin "IM[15]" is stuck at GND
+    Warning (13410): Pin "IM[14]" is stuck at GND
+    Warning (13410): Pin "IM[9]" is stuck at GND
+    Warning (13410): Pin "IM[8]" is stuck at GND
     Warning (13410): Pin "IM[7]" is stuck at GND
     Warning (13410): Pin "IM[6]" is stuck at GND
     Warning (13410): Pin "IM[5]" is stuck at GND
     Warning (13410): Pin "IM[4]" is stuck at GND
     Warning (13410): Pin "IM[3]" is stuck at GND
+    Warning (13410): Pin "IM[2]" is stuck at GND
     Warning (13410): Pin "IM[0]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 9 registers lost all their fanouts during netlist optimizations.
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg4|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg5|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg6|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg7|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg0|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg2|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/register.v Line: 5
+    Info (17048): Logic cell "mainreg:inst7|reg_8_bit:A|register:reg3|my_dff~0" File: C:/Users/vjrai/Documents/SC8bCPU/CPU v3/register.v Line: 5
 Info (144001): Generated suppressed messages file C:/Users/vjrai/Documents/SC8bCPU/CPU v3/output_files/CPU.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 756 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 8 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "IN[4]"
+    Warning (15610): No output dependent on input pin "IN[5]"
+    Warning (15610): No output dependent on input pin "IN[6]"
+    Warning (15610): No output dependent on input pin "IN[7]"
+    Warning (15610): No output dependent on input pin "IN[0]"
+    Warning (15610): No output dependent on input pin "IN[1]"
+    Warning (15610): No output dependent on input pin "IN[2]"
+    Warning (15610): No output dependent on input pin "IN[3]"
+Info (21057): Implemented 542 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 20 input pins
     Info (21059): Implemented 92 output pins
-    Info (21061): Implemented 644 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 289 warnings
+    Info (21061): Implemented 430 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 317 warnings
     Info: Peak virtual memory: 4844 megabytes
-    Info: Processing ended: Sun Oct  5 12:27:58 2025
+    Info: Processing ended: Thu Jan 29 12:43:04 2026
     Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:18
 
