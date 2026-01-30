@@ -2858,54 +2858,6 @@ on the Quartus Prime software download page.
 	)
 )
 (symbol
-	(rect 1032 208 1144 296)
-	(text "BUSMUX" (rect 28 0 94 15)(font "Arial" (font_size 10)))
-	(text "inst25" (rect 3 77 33 89)(font "Intel Clear" ))
-	(port
-		(pt 0 64)
-		(input)
-		(text "datab[WIDTH-1..0]" (rect 6 51 114 64)(font "Arial" (font_size 8)))
-		(text "datab[]" (rect 6 51 46 64)(font "Arial" (font_size 8)))
-		(line (pt 0 64)(pt 44 64)(line_width 3))
-	)
-	(port
-		(pt 56 88)
-		(input)
-		(text "sel" (rect 59 70 76 83)(font "Arial" (font_size 8)))
-		(text "sel" (rect 59 70 76 83)(font "Arial" (font_size 8)))
-		(line (pt 56 88)(pt 56 72))
-	)
-	(port
-		(pt 0 32)
-		(input)
-		(text "dataa[WIDTH-1..0]" (rect 6 19 114 32)(font "Arial" (font_size 8)))
-		(text "dataa[]" (rect 6 19 46 32)(font "Arial" (font_size 8)))
-		(line (pt 0 32)(pt 44 32)(line_width 3))
-	)
-	(port
-		(pt 112 48)
-		(output)
-		(text "result[WIDTH-1..0]" (rect 75 35 182 48)(font "Arial" (font_size 8)))
-		(text "result[]" (rect 75 35 113 48)(font "Arial" (font_size 8)))
-		(line (pt 68 48)(pt 112 48)(line_width 3))
-	)
-	(parameter
-		"WIDTH"
-		"8"
-		"Width of I/O, any integer > 0"
-		" 1" " 2" " 3" " 4" " 5" " 6" " 7" " 8" " 9" "10" "11" "12" "13" "14" "15" "16" "20" "24" "28" "32" "40" "48" "56" "64" 
-	)
-	(drawing
-		(text "0" (rect 52 31 57 40)(font "Arial" (font_size 6)))
-		(text "1" (rect 52 55 57 64)(font "Arial" (font_size 6)))
-		(line (pt 68 64)(pt 68 32))
-		(line (pt 44 80)(pt 44 16))
-		(line (pt 44 16)(pt 68 32))
-		(line (pt 44 80)(pt 68 64))
-	)
-	(annotation_block (parameter)(rect 1144 144 1381 208))
-)
-(symbol
 	(rect 696 448 896 544)
 	(text "CLA_8_bit" (rect 5 0 65 15)(font "Intel Clear" (font_size 8)))
 	(text "inst27" (rect 8 67 38 79)(font "Intel Clear" ))
@@ -2970,181 +2922,6 @@ on the Quartus Prime software download page.
 		(line (pt 8 8)(pt 16 16))
 		(line (pt 16 16)(pt 24 8))
 		(line (pt 8 8)(pt 24 8))
-	)
-)
-(symbol
-	(rect 568 480 680 568)
-	(text "BUSMUX" (rect 28 0 94 15)(font "Arial" (font_size 10)))
-	(text "inst30" (rect 3 77 33 89)(font "Intel Clear" ))
-	(port
-		(pt 0 64)
-		(input)
-		(text "datab[WIDTH-1..0]" (rect 6 51 114 64)(font "Arial" (font_size 8)))
-		(text "datab[]" (rect 6 51 46 64)(font "Arial" (font_size 8)))
-		(line (pt 0 64)(pt 44 64)(line_width 3))
-	)
-	(port
-		(pt 56 88)
-		(input)
-		(text "sel" (rect 59 70 76 83)(font "Arial" (font_size 8)))
-		(text "sel" (rect 59 70 76 83)(font "Arial" (font_size 8)))
-		(line (pt 56 88)(pt 56 72))
-	)
-	(port
-		(pt 0 32)
-		(input)
-		(text "dataa[WIDTH-1..0]" (rect 6 19 114 32)(font "Arial" (font_size 8)))
-		(text "dataa[]" (rect 6 19 46 32)(font "Arial" (font_size 8)))
-		(line (pt 0 32)(pt 44 32)(line_width 3))
-	)
-	(port
-		(pt 112 48)
-		(output)
-		(text "result[WIDTH-1..0]" (rect 75 35 182 48)(font "Arial" (font_size 8)))
-		(text "result[]" (rect 75 35 113 48)(font "Arial" (font_size 8)))
-		(line (pt 68 48)(pt 112 48)(line_width 3))
-	)
-	(parameter
-		"WIDTH"
-		"8"
-		"Width of I/O, any integer > 0"
-		" 1" " 2" " 3" " 4" " 5" " 6" " 7" " 8" " 9" "10" "11" "12" "13" "14" "15" "16" "20" "24" "28" "32" "40" "48" "56" "64" 
-	)
-	(drawing
-		(text "0" (rect 52 31 57 40)(font "Arial" (font_size 6)))
-		(text "1" (rect 52 55 57 64)(font "Arial" (font_size 6)))
-		(line (pt 68 64)(pt 68 32))
-		(line (pt 44 80)(pt 44 16))
-		(line (pt 44 16)(pt 68 32))
-		(line (pt 44 80)(pt 68 64))
-	)
-	(annotation_block (parameter)(rect 680 416 899 474))
-)
-(symbol
-	(rect 1640 344 1960 568)
-	(text "DMEM" (rect 5 0 43 15)(font "Intel Clear" (font_size 8)))
-	(text "inst33" (rect 8 195 38 207)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "CLK" (rect 0 0 23 15)(font "Intel Clear" (font_size 8)))
-		(text "CLK" (rect 21 27 44 42)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "RESET" (rect 0 0 38 15)(font "Intel Clear" (font_size 8)))
-		(text "RESET" (rect 21 43 59 58)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "IN[7..0]" (rect 0 0 42 15)(font "Intel Clear" (font_size 8)))
-		(text "IN[7..0]" (rect 21 59 63 74)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "DMEMWE" (rect 0 0 59 15)(font "Intel Clear" (font_size 8)))
-		(text "DMEMWE" (rect 21 75 80 90)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 80)(pt 16 80))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "WRA[2..0]" (rect 0 0 59 15)(font "Intel Clear" (font_size 8)))
-		(text "WRA[2..0]" (rect 21 91 80 106)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 96)(pt 16 96)(line_width 3))
-	)
-	(port
-		(pt 0 112)
-		(input)
-		(text "WRAXI[2..0]" (rect 0 0 70 15)(font "Intel Clear" (font_size 8)))
-		(text "WRAXI[2..0]" (rect 21 107 91 122)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 112)(pt 16 112)(line_width 3))
-	)
-	(port
-		(pt 0 128)
-		(input)
-		(text "I_SEL" (rect 0 0 33 15)(font "Intel Clear" (font_size 8)))
-		(text "I_SEL" (rect 21 123 54 138)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 128)(pt 16 128))
-	)
-	(port
-		(pt 320 32)
-		(output)
-		(text "OUTA[7..0]" (rect 0 0 66 15)(font "Intel Clear" (font_size 8)))
-		(text "OUTA[7..0]" (rect 174 27 240 42)(font "Intel Clear" (font_size 8)))
-		(line (pt 320 32)(pt 304 32)(line_width 3))
-	)
-	(port
-		(pt 320 48)
-		(output)
-		(text "OUTB[7..0]" (rect 0 0 64 15)(font "Intel Clear" (font_size 8)))
-		(text "OUTB[7..0]" (rect 176 43 240 58)(font "Intel Clear" (font_size 8)))
-		(line (pt 320 48)(pt 304 48)(line_width 3))
-	)
-	(port
-		(pt 320 64)
-		(output)
-		(text "OUTC[7..0]" (rect 0 0 64 15)(font "Intel Clear" (font_size 8)))
-		(text "OUTC[7..0]" (rect 176 59 240 74)(font "Intel Clear" (font_size 8)))
-		(line (pt 320 64)(pt 304 64)(line_width 3))
-	)
-	(port
-		(pt 320 80)
-		(output)
-		(text "OUTD[7..0]" (rect 0 0 66 15)(font "Intel Clear" (font_size 8)))
-		(text "OUTD[7..0]" (rect 173 75 239 90)(font "Intel Clear" (font_size 8)))
-		(line (pt 320 80)(pt 304 80)(line_width 3))
-	)
-	(port
-		(pt 320 96)
-		(output)
-		(text "OUTE[7..0]" (rect 0 0 64 15)(font "Intel Clear" (font_size 8)))
-		(text "OUTE[7..0]" (rect 177 91 241 106)(font "Intel Clear" (font_size 8)))
-		(line (pt 320 96)(pt 304 96)(line_width 3))
-	)
-	(port
-		(pt 320 112)
-		(output)
-		(text "OUTF[7..0]" (rect 0 0 64 15)(font "Intel Clear" (font_size 8)))
-		(text "OUTF[7..0]" (rect 178 107 242 122)(font "Intel Clear" (font_size 8)))
-		(line (pt 320 112)(pt 304 112)(line_width 3))
-	)
-	(port
-		(pt 320 128)
-		(output)
-		(text "OUTG[7..0]" (rect 0 0 66 15)(font "Intel Clear" (font_size 8)))
-		(text "OUTG[7..0]" (rect 174 123 240 138)(font "Intel Clear" (font_size 8)))
-		(line (pt 320 128)(pt 304 128)(line_width 3))
-	)
-	(port
-		(pt 320 144)
-		(output)
-		(text "OUTH[7..0]" (rect 0 0 66 15)(font "Intel Clear" (font_size 8)))
-		(text "OUTH[7..0]" (rect 173 139 239 154)(font "Intel Clear" (font_size 8)))
-		(line (pt 320 144)(pt 304 144)(line_width 3))
-	)
-	(port
-		(pt 320 160)
-		(output)
-		(text "OUTM[7..0]" (rect 0 0 68 15)(font "Intel Clear" (font_size 8)))
-		(text "OUTM[7..0]" (rect 170 155 238 170)(font "Intel Clear" (font_size 8)))
-		(line (pt 320 160)(pt 304 160)(line_width 3))
-	)
-	(port
-		(pt 320 176)
-		(output)
-		(text "OUTX[7..0]" (rect 0 0 66 15)(font "Intel Clear" (font_size 8)))
-		(text "OUTX[7..0]" (rect 176 171 242 186)(font "Intel Clear" (font_size 8)))
-		(line (pt 320 176)(pt 304 176)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 304 208))
 	)
 )
 (symbol
@@ -4362,6 +4139,112 @@ on the Quartus Prime software download page.
 		(rectangle (rect 16 16 160 144))
 	)
 )
+(symbol
+	(rect 1696 344 1880 536)
+	(text "DMEM" (rect 5 0 43 15)(font "Intel Clear" (font_size 8)))
+	(text "inst33" (rect 8 176 38 188)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CLK" (rect 0 0 23 15)(font "Intel Clear" (font_size 8)))
+		(text "CLK" (rect 21 27 44 42)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "RESET" (rect 0 0 38 15)(font "Intel Clear" (font_size 8)))
+		(text "RESET" (rect 21 43 59 58)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "IN[7..0]" (rect 0 0 42 15)(font "Intel Clear" (font_size 8)))
+		(text "IN[7..0]" (rect 21 59 63 74)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "DMEMWE" (rect 0 0 59 15)(font "Intel Clear" (font_size 8)))
+		(text "DMEMWE" (rect 21 75 80 90)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "WRA[2..0]" (rect 0 0 59 15)(font "Intel Clear" (font_size 8)))
+		(text "WRA[2..0]" (rect 21 91 80 106)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 184 32)
+		(output)
+		(text "OUTA[7..0]" (rect 0 0 66 15)(font "Intel Clear" (font_size 8)))
+		(text "OUTA[7..0]" (rect 97 27 163 42)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 32)(pt 168 32)(line_width 3))
+	)
+	(port
+		(pt 184 48)
+		(output)
+		(text "OUTB[7..0]" (rect 0 0 64 15)(font "Intel Clear" (font_size 8)))
+		(text "OUTB[7..0]" (rect 99 43 163 58)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 48)(pt 168 48)(line_width 3))
+	)
+	(port
+		(pt 184 64)
+		(output)
+		(text "OUTC[7..0]" (rect 0 0 64 15)(font "Intel Clear" (font_size 8)))
+		(text "OUTC[7..0]" (rect 99 59 163 74)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 64)(pt 168 64)(line_width 3))
+	)
+	(port
+		(pt 184 80)
+		(output)
+		(text "OUTD[7..0]" (rect 0 0 66 15)(font "Intel Clear" (font_size 8)))
+		(text "OUTD[7..0]" (rect 97 75 163 90)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 80)(pt 168 80)(line_width 3))
+	)
+	(port
+		(pt 184 96)
+		(output)
+		(text "OUTE[7..0]" (rect 0 0 64 15)(font "Intel Clear" (font_size 8)))
+		(text "OUTE[7..0]" (rect 99 91 163 106)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 96)(pt 168 96)(line_width 3))
+	)
+	(port
+		(pt 184 112)
+		(output)
+		(text "OUTF[7..0]" (rect 0 0 64 15)(font "Intel Clear" (font_size 8)))
+		(text "OUTF[7..0]" (rect 99 107 163 122)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 112)(pt 168 112)(line_width 3))
+	)
+	(port
+		(pt 184 128)
+		(output)
+		(text "OUTG[7..0]" (rect 0 0 66 15)(font "Intel Clear" (font_size 8)))
+		(text "OUTG[7..0]" (rect 97 123 163 138)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 128)(pt 168 128)(line_width 3))
+	)
+	(port
+		(pt 184 144)
+		(output)
+		(text "OUTH[7..0]" (rect 0 0 66 15)(font "Intel Clear" (font_size 8)))
+		(text "OUTH[7..0]" (rect 97 139 163 154)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 144)(pt 168 144)(line_width 3))
+	)
+	(port
+		(pt 184 160)
+		(output)
+		(text "OUTM[7..0]" (rect 0 0 68 15)(font "Intel Clear" (font_size 8)))
+		(text "OUTM[7..0]" (rect 95 155 163 170)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 160)(pt 168 160)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 168 176))
+	)
+)
 (connector
 	(text "I[15..8]" (rect 122 24 156 36)(font "Intel Clear" ))
 	(pt 112 40)
@@ -4913,11 +4796,6 @@ on the Quartus Prime software download page.
 	(bus)
 )
 (connector
-	(pt 1592 384)
-	(pt 1592 408)
-	(bus)
-)
-(connector
 	(text "F[3..0]" (rect 1418 160 1448 172)(font "Intel Clear" ))
 	(pt 1408 176)
 	(pt 1464 176)
@@ -4937,11 +4815,6 @@ on the Quartus Prime software download page.
 	(text "RESET" (rect 1434 208 1465 220)(font "Intel Clear" ))
 	(pt 1432 224)
 	(pt 1464 224)
-)
-(connector
-	(pt 1424 456)
-	(pt 1448 456)
-	(bus)
 )
 (connector
 	(text "F32[7]" (rect 2354 -8 2387 4)(font "Intel Clear" ))
@@ -5109,26 +4982,6 @@ on the Quartus Prime software download page.
 	(pt 1328 -8)
 )
 (connector
-	(text "CLK" (rect 1626 360 1646 372)(font "Intel Clear" ))
-	(pt 1616 376)
-	(pt 1640 376)
-)
-(connector
-	(text "RESET" (rect 1610 376 1641 388)(font "Intel Clear" ))
-	(pt 1616 392)
-	(pt 1640 392)
-)
-(connector
-	(pt 1592 408)
-	(pt 1640 408)
-	(bus)
-)
-(connector
-	(text "DMEM_W_EN" (rect 1608 408 1674 420)(font "Intel Clear" ))
-	(pt 1608 424)
-	(pt 1640 424)
-)
-(connector
 	(pt 112 40)
 	(pt 112 160)
 	(bus)
@@ -5290,19 +5143,8 @@ on the Quartus Prime software download page.
 	(bus)
 )
 (connector
-	(text "Result[2..0]" (rect 1408 368 1420 423)(font "Intel Clear" )(vertical))
-	(pt 1424 304)
-	(pt 1424 456)
-	(bus)
-)
-(connector
 	(pt 1616 176)
 	(pt 1704 176)
-)
-(connector
-	(pt 1560 440)
-	(pt 1640 440)
-	(bus)
 )
 (connector
 	(text "F10[7..0]" (rect 2266 448 2309 460)(font "Intel Clear" ))
@@ -5379,33 +5221,13 @@ on the Quartus Prime software download page.
 	(bus)
 )
 (connector
-	(pt 752 240)
-	(pt 1032 240)
-	(bus)
-)
-(connector
 	(pt 1144 256)
 	(pt 1216 256)
 	(bus)
 )
 (connector
-	(pt 1640 456)
-	(pt 1592 456)
-	(bus)
-)
-(connector
-	(pt 1592 456)
-	(pt 1592 536)
-	(bus)
-)
-(connector
 	(pt 96 176)
 	(pt 96 576)
-	(bus)
-)
-(connector
-	(pt 1088 536)
-	(pt 1088 480)
 	(bus)
 )
 (connector
@@ -5416,21 +5238,6 @@ on the Quartus Prime software download page.
 (connector
 	(pt 560 576)
 	(pt 2024 576)
-	(bus)
-)
-(connector
-	(pt 2000 600)
-	(pt 1008 600)
-	(bus)
-)
-(connector
-	(pt 1032 272)
-	(pt 1008 272)
-	(bus)
-)
-(connector
-	(pt 1008 272)
-	(pt 1008 600)
 	(bus)
 )
 (connector
@@ -5514,12 +5321,6 @@ on the Quartus Prime software download page.
 	(bus)
 )
 (connector
-	(text "S[2..0]" (rect 1098 504 1128 516)(font "Intel Clear" ))
-	(pt 1592 536)
-	(pt 1088 536)
-	(bus)
-)
-(connector
 	(text "S[7..0]" (rect 906 456 936 468)(font "Intel Clear" ))
 	(pt 896 480)
 	(pt 1088 480)
@@ -5540,11 +5341,6 @@ on the Quartus Prime software download page.
 	(text "MOut[1]" (rect 602 0 643 12)(font "Intel Clear" ))
 	(pt 616 16)
 	(pt 592 16)
-)
-(connector
-	(text "X_SEL" (rect 1064 298 1076 328)(font "Intel Clear" )(vertical))
-	(pt 1088 296)
-	(pt 1088 344)
 )
 (connector
 	(pt 560 256)
@@ -5691,146 +5487,6 @@ on the Quartus Prime software download page.
 	(pt 1672 256)
 )
 (connector
-	(pt 2024 576)
-	(pt 2024 504)
-	(bus)
-)
-(connector
-	(pt 2000 600)
-	(pt 2000 520)
-	(bus)
-)
-(connector
-	(pt 2024 232)
-	(pt 2024 376)
-	(bus)
-)
-(connector
-	(pt 2024 376)
-	(pt 2024 480)
-	(bus)
-)
-(connector
-	(pt 2032 248)
-	(pt 2032 392)
-	(bus)
-)
-(connector
-	(pt 2032 392)
-	(pt 2032 496)
-	(bus)
-)
-(connector
-	(pt 2040 264)
-	(pt 2040 408)
-	(bus)
-)
-(connector
-	(pt 2040 408)
-	(pt 2040 512)
-	(bus)
-)
-(connector
-	(pt 2048 280)
-	(pt 2048 424)
-	(bus)
-)
-(connector
-	(pt 2048 424)
-	(pt 2048 528)
-	(bus)
-)
-(connector
-	(pt 2056 296)
-	(pt 2056 440)
-	(bus)
-)
-(connector
-	(pt 2056 440)
-	(pt 2056 544)
-	(bus)
-)
-(connector
-	(pt 2064 312)
-	(pt 2064 456)
-	(bus)
-)
-(connector
-	(pt 2064 456)
-	(pt 2064 560)
-	(bus)
-)
-(connector
-	(pt 2072 328)
-	(pt 2072 472)
-	(bus)
-)
-(connector
-	(pt 2072 472)
-	(pt 2072 576)
-	(bus)
-)
-(connector
-	(pt 2080 344)
-	(pt 2080 488)
-	(bus)
-)
-(connector
-	(pt 2080 488)
-	(pt 2080 592)
-	(bus)
-)
-(connector
-	(pt 1960 376)
-	(pt 2024 376)
-	(bus)
-)
-(connector
-	(pt 1960 392)
-	(pt 2032 392)
-	(bus)
-)
-(connector
-	(pt 1960 408)
-	(pt 2040 408)
-	(bus)
-)
-(connector
-	(pt 1960 424)
-	(pt 2048 424)
-	(bus)
-)
-(connector
-	(pt 1960 440)
-	(pt 2056 440)
-	(bus)
-)
-(connector
-	(pt 1960 456)
-	(pt 2064 456)
-	(bus)
-)
-(connector
-	(pt 1960 472)
-	(pt 2072 472)
-	(bus)
-)
-(connector
-	(pt 1960 488)
-	(pt 2080 488)
-	(bus)
-)
-(connector
-	(pt 1960 504)
-	(pt 2024 504)
-	(bus)
-)
-(connector
-	(pt 1960 520)
-	(pt 2000 520)
-	(bus)
-)
-(connector
 	(pt 552 -448)
 	(pt 552 0)
 	(bus)
@@ -5838,56 +5494,6 @@ on the Quartus Prime software download page.
 (connector
 	(pt 552 0)
 	(pt 552 232)
-	(bus)
-)
-(connector
-	(pt 528 232)
-	(pt 528 512)
-	(bus)
-)
-(connector
-	(pt 520 232)
-	(pt 528 232)
-	(bus)
-)
-(connector
-	(pt 528 232)
-	(pt 552 232)
-	(bus)
-)
-(connector
-	(pt 696 512)
-	(pt 688 512)
-	(bus)
-)
-(connector
-	(pt 688 512)
-	(pt 688 528)
-	(bus)
-)
-(connector
-	(pt 688 528)
-	(pt 680 528)
-	(bus)
-)
-(connector
-	(pt 528 512)
-	(pt 568 512)
-	(bus)
-)
-(connector
-	(pt 568 544)
-	(pt 536 544)
-	(bus)
-)
-(connector
-	(pt 536 544)
-	(pt 536 256)
-	(bus)
-)
-(connector
-	(pt 536 256)
-	(pt 560 256)
 	(bus)
 )
 (connector
@@ -5902,11 +5508,6 @@ on the Quartus Prime software download page.
 (connector
 	(pt 672 480)
 	(pt 672 592)
-)
-(connector
-	(text "I_SEL" (rect 1608 448 1635 460)(font "Intel Clear" ))
-	(pt 1640 472)
-	(pt 1608 472)
 )
 (connector
 	(pt 520 200)
@@ -6306,11 +5907,6 @@ on the Quartus Prime software download page.
 	(pt 3400 80)
 )
 (connector
-	(text "I_SEL" (rect 600 583 612 610)(font "Intel Clear" )(vertical))
-	(pt 624 600)
-	(pt 624 568)
-)
-(connector
 	(text "ALU_S_1" (rect 1168 288 1211 300)(font "Intel Clear" ))
 	(pt 1216 304)
 	(pt 1168 304)
@@ -6324,6 +5920,217 @@ on the Quartus Prime software download page.
 	(text "ALU_S_2" (rect 1170 272 1213 284)(font "Intel Clear" ))
 	(pt 1216 288)
 	(pt 1168 288)
+)
+(connector
+	(pt 528 232)
+	(pt 528 512)
+	(bus)
+)
+(connector
+	(pt 520 232)
+	(pt 528 232)
+	(bus)
+)
+(connector
+	(pt 528 232)
+	(pt 552 232)
+	(bus)
+)
+(connector
+	(pt 528 512)
+	(pt 696 512)
+	(bus)
+)
+(connector
+	(pt 1144 240)
+	(pt 752 240)
+	(bus)
+)
+(connector
+	(pt 1144 240)
+	(pt 1144 256)
+	(bus)
+)
+(connector
+	(pt 1448 456)
+	(pt 1424 456)
+	(bus)
+)
+(connector
+	(pt 1088 480)
+	(pt 1088 536)
+	(bus)
+)
+(connector
+	(text "S[2..0]" (rect 1098 504 1128 516)(font "Intel Clear" ))
+	(pt 1088 536)
+	(pt 1424 536)
+	(bus)
+)
+(connector
+	(pt 1424 456)
+	(pt 1424 536)
+	(bus)
+)
+(connector
+	(pt 2024 576)
+	(pt 2024 504)
+	(bus)
+)
+(connector
+	(pt 1592 384)
+	(pt 1592 408)
+	(bus)
+)
+(connector
+	(text "CLK" (rect 1682 360 1702 372)(font "Intel Clear" ))
+	(pt 1672 376)
+	(pt 1696 376)
+)
+(connector
+	(text "RESET" (rect 1666 376 1697 388)(font "Intel Clear" ))
+	(pt 1672 392)
+	(pt 1696 392)
+)
+(connector
+	(pt 1592 408)
+	(pt 1696 408)
+	(bus)
+)
+(connector
+	(text "DMEM_W_EN" (rect 1664 408 1730 420)(font "Intel Clear" ))
+	(pt 1664 424)
+	(pt 1696 424)
+)
+(connector
+	(pt 1560 440)
+	(pt 1696 440)
+	(bus)
+)
+(connector
+	(pt 2024 232)
+	(pt 2024 376)
+	(bus)
+)
+(connector
+	(pt 2024 376)
+	(pt 2024 480)
+	(bus)
+)
+(connector
+	(pt 2032 248)
+	(pt 2032 392)
+	(bus)
+)
+(connector
+	(pt 2032 392)
+	(pt 2032 496)
+	(bus)
+)
+(connector
+	(pt 2040 264)
+	(pt 2040 408)
+	(bus)
+)
+(connector
+	(pt 2040 408)
+	(pt 2040 512)
+	(bus)
+)
+(connector
+	(pt 2048 280)
+	(pt 2048 424)
+	(bus)
+)
+(connector
+	(pt 2048 424)
+	(pt 2048 528)
+	(bus)
+)
+(connector
+	(pt 2056 296)
+	(pt 2056 440)
+	(bus)
+)
+(connector
+	(pt 2056 440)
+	(pt 2056 544)
+	(bus)
+)
+(connector
+	(pt 2064 312)
+	(pt 2064 456)
+	(bus)
+)
+(connector
+	(pt 2064 456)
+	(pt 2064 560)
+	(bus)
+)
+(connector
+	(pt 2072 328)
+	(pt 2072 472)
+	(bus)
+)
+(connector
+	(pt 2072 472)
+	(pt 2072 576)
+	(bus)
+)
+(connector
+	(pt 2080 344)
+	(pt 2080 488)
+	(bus)
+)
+(connector
+	(pt 2080 488)
+	(pt 2080 592)
+	(bus)
+)
+(connector
+	(pt 1880 376)
+	(pt 2024 376)
+	(bus)
+)
+(connector
+	(pt 1880 392)
+	(pt 2032 392)
+	(bus)
+)
+(connector
+	(pt 1880 408)
+	(pt 2040 408)
+	(bus)
+)
+(connector
+	(pt 1880 424)
+	(pt 2048 424)
+	(bus)
+)
+(connector
+	(pt 1880 440)
+	(pt 2056 440)
+	(bus)
+)
+(connector
+	(pt 1880 456)
+	(pt 2064 456)
+	(bus)
+)
+(connector
+	(pt 1880 472)
+	(pt 2072 472)
+	(bus)
+)
+(connector
+	(pt 1880 488)
+	(pt 2080 488)
+	(bus)
+)
+(connector
+	(pt 1880 504)
+	(pt 2024 504)
+	(bus)
 )
 (junction (pt 112 40))
 (junction (pt 112 160))
@@ -6371,7 +6178,6 @@ on the Quartus Prime software download page.
 (junction (pt 1408 240))
 (junction (pt 1408 256))
 (junction (pt 1408 272))
-(junction (pt 1424 304))
 (junction (pt 2024 376))
 (junction (pt 2032 392))
 (junction (pt 2040 408))
@@ -6385,4 +6191,3 @@ on the Quartus Prime software download page.
 (junction (pt 1656 208))
 (junction (pt 1672 224))
 (junction (pt 528 232))
-(junction (pt 560 256))
