@@ -22,7 +22,7 @@ module mainreg(IN, MRWE, WA0, WA1, RA0, RA1, RA2, RA3, RA4, CLK, RESET, SWAPR, O
 	assign INA = SWAPR ? (~(RA1 | RA0) ? OUTB : OUTA) : IN;
 	assign INB = SWAPR ? ((~RA1 & RA0) ? OUTB : OUTA) : IN;
 	assign INC = SWAPR ? ((RA1 & ~RA0) ? OUTB : OUTA) : IN;
-	assign INIX = (SWAPR & RA1 & RA0) ? OUTB : IN;
+	assign INIX = SWAPR ? ((RA1 & RA0) ? OUTB : OUTA) : IN;
 	
 	reg_8_bit A(.IN(INA), .LOAD(Y0), .CLK(CLK), .OUT(OA), .PRESET_N(1), .CLEAR_N(RESET));
 	reg_8_bit B(.IN(INB), .LOAD(Y1), .CLK(CLK), .OUT(OB), .PRESET_N(1), .CLEAR_N(RESET));
