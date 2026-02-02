@@ -268,10 +268,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "DMEMOUT32[1]",
-					"strict" : false
-				},
-				{
 					"name" : "DMEMOUT32[0]",
 					"strict" : false
 				},
@@ -280,7 +276,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "DMEMOUT10[1]",
+					"name" : "DMEMOUT32[1]",
 					"strict" : false
 				},
 				{
@@ -289,6 +285,10 @@
 				},
 				{
 					"name" : "DMEMOUT10[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DMEMOUT10[1]",
 					"strict" : false
 				},
 				{
