@@ -4,18 +4,19 @@ module mainreg(IN, MRWE, WA0, WA1, RA0, RA1, RA2, RA3, RA4, CLK, RESET, SWAPR, O
 	output [7:0] OUTA, OUTB, OUTC, OA, OB, OC, OIX;
 	
 	wire [7:0] OZ, OO;
-	wire DeEN, RS1, RS0, RY0, RY1, RY2, SY0, SY1, SY2, Y0, Y1, Y2, Y3;
+	wire DeEN, RS1, RS0, RY0, RY1, RY2, RY3, SY0, SY1, SY2, SY3, Y0, Y1, Y2, Y3;
 	
 	assign DeEN = SWAPR | MRWE;
 	assign RS1 = SWAPR ? RA1 : WA1;
 	assign RS0 = SWAPR ? RA0 : WA0;
-	Decoder2to4 decoder(.S1(RS1), .S0(RS0), .EN(DeEN), .Y0(RY0), .Y1(RY1), .Y2(RY2), .Y3(Y3));
+	Decoder2to4 decoder(.S1(RS1), .S0(RS0), .EN(DeEN), .Y0(RY0), .Y1(RY1), .Y2(RY2), .Y3(RY3));
 	
-	Decoder2to4 decoder2(.S1(RA3), .S0(RA2), .EN(SWAPR), .Y0(SY0), .Y1(SY1), .Y2(SY2), .Y3());
+	Decoder2to4 decoder2(.S1(RA3), .S0(RA2), .EN(SWAPR), .Y0(SY0), .Y1(SY1), .Y2(SY2), .Y3(SY3));
 	
 	assign Y0 = SY0 | RY0;
 	assign Y1 = SY1 | RY1;
 	assign Y2 = SY2 | RY2;
+	assign Y3 = SY3 | RY3;
 	
 	wire [7:0] INA, INB, INC, INIX;
 	
