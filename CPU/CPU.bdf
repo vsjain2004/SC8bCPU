@@ -611,54 +611,6 @@ on the Quartus Prime software download page.
 	)
 )
 (symbol
-	(rect 1448 392 1560 480)
-	(text "BUSMUX" (rect 28 0 94 15)(font "Arial" (font_size 10)))
-	(text "WRDMEM" (rect 3 77 64 90)(font "Arial" (font_size 8)))
-	(port
-		(pt 0 64)
-		(input)
-		(text "datab[WIDTH-1..0]" (rect 6 51 114 64)(font "Arial" (font_size 8)))
-		(text "datab[]" (rect 6 51 46 64)(font "Arial" (font_size 8)))
-		(line (pt 0 64)(pt 44 64)(line_width 3))
-	)
-	(port
-		(pt 56 88)
-		(input)
-		(text "sel" (rect 59 70 76 83)(font "Arial" (font_size 8)))
-		(text "sel" (rect 59 70 76 83)(font "Arial" (font_size 8)))
-		(line (pt 56 88)(pt 56 72))
-	)
-	(port
-		(pt 0 32)
-		(input)
-		(text "dataa[WIDTH-1..0]" (rect 6 19 114 32)(font "Arial" (font_size 8)))
-		(text "dataa[]" (rect 6 19 46 32)(font "Arial" (font_size 8)))
-		(line (pt 0 32)(pt 44 32)(line_width 3))
-	)
-	(port
-		(pt 112 48)
-		(output)
-		(text "result[WIDTH-1..0]" (rect 75 35 182 48)(font "Arial" (font_size 8)))
-		(text "result[]" (rect 75 35 113 48)(font "Arial" (font_size 8)))
-		(line (pt 68 48)(pt 112 48)(line_width 3))
-	)
-	(parameter
-		"WIDTH"
-		"3"
-		"Width of I/O, any integer > 0"
-		" 1" " 2" " 3" " 4" " 5" " 6" " 7" " 8" " 9" "10" "11" "12" "13" "14" "15" "16" "20" "24" "28" "32" "40" "48" "56" "64" 
-	)
-	(drawing
-		(text "0" (rect 52 31 57 40)(font "Arial" (font_size 6)))
-		(text "1" (rect 52 55 57 64)(font "Arial" (font_size 6)))
-		(line (pt 68 64)(pt 68 32))
-		(line (pt 44 80)(pt 44 16))
-		(line (pt 44 16)(pt 68 32))
-		(line (pt 44 80)(pt 68 64))
-	)
-	(annotation_block (parameter)(rect 1560 480 1680 518))
-)
-(symbol
 	(rect -72 8 64 104)
 	(text "IMEM" (rect 5 0 38 15)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 75 25 87)(font "Intel Clear" ))
@@ -1315,6 +1267,48 @@ on the Quartus Prime software download page.
 		(rectangle (rect 16 16 208 416))
 	)
 )
+(symbol
+	(rect 1360 408 1560 520)
+	(text "busmuxN_2_to_1" (rect 5 0 88 11)(font "Arial" ))
+	(text "inst1" (rect 8 96 32 108)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "In1[(N-1)..0]" (rect 0 0 56 11)(font "Arial" ))
+		(text "In1[(N-1)..0]" (rect 21 27 77 38)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "In2[(N-1)..0]" (rect 0 0 56 11)(font "Arial" ))
+		(text "In2[(N-1)..0]" (rect 21 43 77 54)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "S" (rect 0 0 7 11)(font "Arial" ))
+		(text "S" (rect 21 59 28 70)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 200 32)
+		(output)
+		(text "Out[(N-1)..0]" (rect 0 0 59 11)(font "Arial" ))
+		(text "Out[(N-1)..0]" (rect 130 27 189 38)(font "Arial" ))
+		(line (pt 200 32)(pt 184 32)(line_width 3))
+	)
+	(parameter
+		"N"
+		"3"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 184 96))
+	)
+	(annotation_block (parameter)(rect 1560 376 1732 406))
+)
 (connector
 	(text "I[15..8]" (rect 122 24 156 36)(font "Intel Clear" ))
 	(pt 112 40)
@@ -1540,11 +1534,6 @@ on the Quartus Prime software download page.
 	(bus)
 )
 (connector
-	(text "DMEM_S_ADD" (rect 1485 451 1497 521)(font "Intel Clear" )(vertical))
-	(pt 1504 480)
-	(pt 1504 520)
-)
-(connector
 	(pt 216 -96)
 	(pt 1672 -96)
 	(bus)
@@ -1588,17 +1577,6 @@ on the Quartus Prime software download page.
 (connector
 	(pt 1200 272)
 	(pt 1216 272)
-	(bus)
-)
-(connector
-	(pt 112 40)
-	(pt 112 160)
-	(bus)
-)
-(connector
-	(text "I[2..0]" (rect 104 354 116 382)(font "Intel Clear" )(vertical))
-	(pt 112 160)
-	(pt 112 424)
 	(bus)
 )
 (connector
@@ -1674,11 +1652,6 @@ on the Quartus Prime software download page.
 (connector
 	(pt 560 576)
 	(pt 2024 576)
-	(bus)
-)
-(connector
-	(pt 112 424)
-	(pt 1448 424)
 	(bus)
 )
 (connector
@@ -1930,24 +1903,8 @@ on the Quartus Prime software download page.
 	(bus)
 )
 (connector
-	(pt 1448 456)
-	(pt 1424 456)
-	(bus)
-)
-(connector
 	(pt 1088 480)
 	(pt 1088 536)
-	(bus)
-)
-(connector
-	(text "S[2..0]" (rect 1098 504 1128 516)(font "Intel Clear" ))
-	(pt 1088 536)
-	(pt 1424 536)
-	(bus)
-)
-(connector
-	(pt 1424 456)
-	(pt 1424 536)
 	(bus)
 )
 (connector
@@ -2189,6 +2146,43 @@ on the Quartus Prime software download page.
 	(text "CLK" (rect -318 32 -298 44)(font "Intel Clear" ))
 	(pt -392 48)
 	(pt -296 48)
+)
+(connector
+	(text "S[2..0]" (rect 1098 504 1128 516)(font "Intel Clear" ))
+	(pt 1088 536)
+	(pt 1240 536)
+	(bus)
+)
+(connector
+	(text "DMEM_S_ADD" (rect 1291 461 1361 473)(font "Intel Clear" ))
+	(pt 1360 472)
+	(pt 1320 472)
+)
+(connector
+	(pt 112 440)
+	(pt 1360 440)
+	(bus)
+)
+(connector
+	(pt 112 40)
+	(pt 112 160)
+	(bus)
+)
+(connector
+	(text "I[2..0]" (rect 104 354 116 382)(font "Intel Clear" )(vertical))
+	(pt 112 160)
+	(pt 112 440)
+	(bus)
+)
+(connector
+	(pt 1240 536)
+	(pt 1240 456)
+	(bus)
+)
+(connector
+	(pt 1240 456)
+	(pt 1360 456)
+	(bus)
 )
 (junction (pt 112 40))
 (junction (pt 112 160))

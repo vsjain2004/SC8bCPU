@@ -1,11 +1,11 @@
-Fitter Status : Successful - Sun Feb  8 11:13:10 2026
+Fitter Status : Successful - Sun Feb  8 16:52:30 2026
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : CPU
 Top-level Entity Name : CPU
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 102 / 114,480 ( < 1 % )
+Total logic elements : 103 / 114,480 ( < 1 % )
     Total combinational functions : 100 / 114,480 ( < 1 % )
     Dedicated logic registers : 43 / 114,480 ( < 1 % )
 Total registers : 43

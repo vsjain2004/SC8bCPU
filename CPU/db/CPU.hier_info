@@ -1140,29 +1140,11 @@ PRESET_N => my_dff.PRESET
 CLEAR_N => my_dff.ACLR
 
 
-|CPU|IMEM:inst|BUSMUX:inst24
-dataa[0] => lpm_mux:$00000.data[0][0]
-datab[0] => lpm_mux:$00000.data[1][0]
-sel => lpm_mux:$00000.sel[0]
-result[0] <= lpm_mux:$00000.result[0]
-
-
-|CPU|IMEM:inst|BUSMUX:inst24|lpm_mux:$00000
-data[0][0] => mux_7rc:auto_generated.data[0]
-data[1][0] => mux_7rc:auto_generated.data[1]
-sel[0] => mux_7rc:auto_generated.sel[0]
-clock => ~NO_FANOUT~
-aclr => ~NO_FANOUT~
-clken => ~NO_FANOUT~
-result[0] <= mux_7rc:auto_generated.result[0]
-
-
-|CPU|IMEM:inst|BUSMUX:inst24|lpm_mux:$00000|mux_7rc:auto_generated
-data[0] => result_node[0].IN1
-data[1] => result_node[0].IN1
-result[0] <= result_node[0].DB_MAX_OUTPUT_PORT_TYPE
-sel[0] => result_node[0].IN0
-sel[0] => _.IN0
+|CPU|IMEM:inst|busmuxN_2_to_1:inst20
+In1[0] => Out.DATAA
+In2[0] => Out.DATAB
+S => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|IMEM:inst|IMEM_PRGM:inst17
@@ -4167,116 +4149,44 @@ Clock => inst.CLK
 Clock => inst10.CLK
 Clock => inst12.CLK
 Clock => inst19.CLK
-LOAD => BUSMUX:inst15.sel
-LOAD => BUSMUX:inst16.sel
-LOAD => BUSMUX:inst18.sel
-LOAD => BUSMUX:inst17.sel
+LOAD => busmuxN_2_to_1:inst4.S
+LOAD => busmuxN_2_to_1:inst15.S
+LOAD => busmuxN_2_to_1:inst17.S
+LOAD => busmuxN_2_to_1:inst16.S
 PCEN => inst5.IN1
 PCEN => inst1.IN0
-IN[0] => BUSMUX:inst15.datab[0]
-IN[1] => BUSMUX:inst16.datab[0]
-IN[2] => BUSMUX:inst17.datab[0]
-IN[3] => BUSMUX:inst18.datab[0]
+IN[0] => busmuxN_2_to_1:inst4.In2[0]
+IN[1] => busmuxN_2_to_1:inst15.In2[0]
+IN[2] => busmuxN_2_to_1:inst16.In2[0]
+IN[3] => busmuxN_2_to_1:inst17.In2[0]
 
 
-|CPU|PC:inst5|BUSMUX:inst15
-dataa[0] => lpm_mux:$00000.data[0][0]
-datab[0] => lpm_mux:$00000.data[1][0]
-sel => lpm_mux:$00000.sel[0]
-result[0] <= lpm_mux:$00000.result[0]
+|CPU|PC:inst5|busmuxN_2_to_1:inst4
+In1[0] => Out.DATAA
+In2[0] => Out.DATAB
+S => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|PC:inst5|BUSMUX:inst15|lpm_mux:$00000
-data[0][0] => mux_7rc:auto_generated.data[0]
-data[1][0] => mux_7rc:auto_generated.data[1]
-sel[0] => mux_7rc:auto_generated.sel[0]
-clock => ~NO_FANOUT~
-aclr => ~NO_FANOUT~
-clken => ~NO_FANOUT~
-result[0] <= mux_7rc:auto_generated.result[0]
+|CPU|PC:inst5|busmuxN_2_to_1:inst15
+In1[0] => Out.DATAA
+In2[0] => Out.DATAB
+S => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|PC:inst5|BUSMUX:inst15|lpm_mux:$00000|mux_7rc:auto_generated
-data[0] => result_node[0].IN1
-data[1] => result_node[0].IN1
-result[0] <= result_node[0].DB_MAX_OUTPUT_PORT_TYPE
-sel[0] => result_node[0].IN0
-sel[0] => _.IN0
+|CPU|PC:inst5|busmuxN_2_to_1:inst17
+In1[0] => Out.DATAA
+In2[0] => Out.DATAB
+S => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|PC:inst5|BUSMUX:inst16
-dataa[0] => lpm_mux:$00000.data[0][0]
-datab[0] => lpm_mux:$00000.data[1][0]
-sel => lpm_mux:$00000.sel[0]
-result[0] <= lpm_mux:$00000.result[0]
-
-
-|CPU|PC:inst5|BUSMUX:inst16|lpm_mux:$00000
-data[0][0] => mux_7rc:auto_generated.data[0]
-data[1][0] => mux_7rc:auto_generated.data[1]
-sel[0] => mux_7rc:auto_generated.sel[0]
-clock => ~NO_FANOUT~
-aclr => ~NO_FANOUT~
-clken => ~NO_FANOUT~
-result[0] <= mux_7rc:auto_generated.result[0]
-
-
-|CPU|PC:inst5|BUSMUX:inst16|lpm_mux:$00000|mux_7rc:auto_generated
-data[0] => result_node[0].IN1
-data[1] => result_node[0].IN1
-result[0] <= result_node[0].DB_MAX_OUTPUT_PORT_TYPE
-sel[0] => result_node[0].IN0
-sel[0] => _.IN0
-
-
-|CPU|PC:inst5|BUSMUX:inst18
-dataa[0] => lpm_mux:$00000.data[0][0]
-datab[0] => lpm_mux:$00000.data[1][0]
-sel => lpm_mux:$00000.sel[0]
-result[0] <= lpm_mux:$00000.result[0]
-
-
-|CPU|PC:inst5|BUSMUX:inst18|lpm_mux:$00000
-data[0][0] => mux_7rc:auto_generated.data[0]
-data[1][0] => mux_7rc:auto_generated.data[1]
-sel[0] => mux_7rc:auto_generated.sel[0]
-clock => ~NO_FANOUT~
-aclr => ~NO_FANOUT~
-clken => ~NO_FANOUT~
-result[0] <= mux_7rc:auto_generated.result[0]
-
-
-|CPU|PC:inst5|BUSMUX:inst18|lpm_mux:$00000|mux_7rc:auto_generated
-data[0] => result_node[0].IN1
-data[1] => result_node[0].IN1
-result[0] <= result_node[0].DB_MAX_OUTPUT_PORT_TYPE
-sel[0] => result_node[0].IN0
-sel[0] => _.IN0
-
-
-|CPU|PC:inst5|BUSMUX:inst17
-dataa[0] => lpm_mux:$00000.data[0][0]
-datab[0] => lpm_mux:$00000.data[1][0]
-sel => lpm_mux:$00000.sel[0]
-result[0] <= lpm_mux:$00000.result[0]
-
-
-|CPU|PC:inst5|BUSMUX:inst17|lpm_mux:$00000
-data[0][0] => mux_7rc:auto_generated.data[0]
-data[1][0] => mux_7rc:auto_generated.data[1]
-sel[0] => mux_7rc:auto_generated.sel[0]
-clock => ~NO_FANOUT~
-aclr => ~NO_FANOUT~
-clken => ~NO_FANOUT~
-result[0] <= mux_7rc:auto_generated.result[0]
-
-
-|CPU|PC:inst5|BUSMUX:inst17|lpm_mux:$00000|mux_7rc:auto_generated
-data[0] => result_node[0].IN1
-data[1] => result_node[0].IN1
-result[0] <= result_node[0].DB_MAX_OUTPUT_PORT_TYPE
-sel[0] => result_node[0].IN0
-sel[0] => _.IN0
+|CPU|PC:inst5|busmuxN_2_to_1:inst16
+In1[0] => Out.DATAA
+In2[0] => Out.DATAB
+S => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|ALU:inst3
@@ -5829,239 +5739,271 @@ O[7] <= <VCC>
 
 
 |CPU|mainreg:inst7|busmux_4_to_1:opa
-In1[0] => Mux7.IN0
-In1[1] => Mux6.IN0
-In1[2] => Mux5.IN0
-In1[3] => Mux4.IN0
-In1[4] => Mux3.IN0
-In1[5] => Mux2.IN0
-In1[6] => Mux1.IN0
-In1[7] => Mux0.IN0
-In2[0] => Mux7.IN1
-In2[1] => Mux6.IN1
-In2[2] => Mux5.IN1
-In2[3] => Mux4.IN1
-In2[4] => Mux3.IN1
-In2[5] => Mux2.IN1
-In2[6] => Mux1.IN1
-In2[7] => Mux0.IN1
-In3[0] => Mux7.IN2
-In3[1] => Mux6.IN2
-In3[2] => Mux5.IN2
-In3[3] => Mux4.IN2
-In3[4] => Mux3.IN2
-In3[5] => Mux2.IN2
-In3[6] => Mux1.IN2
-In3[7] => Mux0.IN2
-In4[0] => Mux7.IN3
-In4[1] => Mux6.IN3
-In4[2] => Mux5.IN3
-In4[3] => Mux4.IN3
-In4[4] => Mux3.IN3
-In4[5] => Mux2.IN3
-In4[6] => Mux1.IN3
-In4[7] => Mux0.IN3
-s1 => Mux0.IN4
-s1 => Mux1.IN4
-s1 => Mux2.IN4
-s1 => Mux3.IN4
-s1 => Mux4.IN4
-s1 => Mux5.IN4
-s1 => Mux6.IN4
-s1 => Mux7.IN4
-s0 => Mux0.IN5
-s0 => Mux1.IN5
-s0 => Mux2.IN5
-s0 => Mux3.IN5
-s0 => Mux4.IN5
-s0 => Mux5.IN5
-s0 => Mux6.IN5
-s0 => Mux7.IN5
-Out[0] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In1[3] => Out.DATAA
+In1[4] => Out.DATAA
+In1[5] => Out.DATAA
+In1[6] => Out.DATAA
+In1[7] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+In2[3] => Out.DATAB
+In2[4] => Out.DATAB
+In2[5] => Out.DATAB
+In2[6] => Out.DATAB
+In2[7] => Out.DATAB
+In3[0] => Out.DATAA
+In3[1] => Out.DATAA
+In3[2] => Out.DATAA
+In3[3] => Out.DATAA
+In3[4] => Out.DATAA
+In3[5] => Out.DATAA
+In3[6] => Out.DATAA
+In3[7] => Out.DATAA
+In4[0] => Out.DATAB
+In4[1] => Out.DATAB
+In4[2] => Out.DATAB
+In4[3] => Out.DATAB
+In4[4] => Out.DATAB
+In4[5] => Out.DATAB
+In4[6] => Out.DATAB
+In4[7] => Out.DATAB
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|mainreg:inst7|busmux_4_to_1:opb
-In1[0] => Mux7.IN0
-In1[1] => Mux6.IN0
-In1[2] => Mux5.IN0
-In1[3] => Mux4.IN0
-In1[4] => Mux3.IN0
-In1[5] => Mux2.IN0
-In1[6] => Mux1.IN0
-In1[7] => Mux0.IN0
-In2[0] => Mux7.IN1
-In2[1] => Mux6.IN1
-In2[2] => Mux5.IN1
-In2[3] => Mux4.IN1
-In2[4] => Mux3.IN1
-In2[5] => Mux2.IN1
-In2[6] => Mux1.IN1
-In2[7] => Mux0.IN1
-In3[0] => Mux7.IN2
-In3[1] => Mux6.IN2
-In3[2] => Mux5.IN2
-In3[3] => Mux4.IN2
-In3[4] => Mux3.IN2
-In3[5] => Mux2.IN2
-In3[6] => Mux1.IN2
-In3[7] => Mux0.IN2
-In4[0] => Mux7.IN3
-In4[1] => Mux6.IN3
-In4[2] => Mux5.IN3
-In4[3] => Mux4.IN3
-In4[4] => Mux3.IN3
-In4[5] => Mux2.IN3
-In4[6] => Mux1.IN3
-In4[7] => Mux0.IN3
-s1 => Mux0.IN4
-s1 => Mux1.IN4
-s1 => Mux2.IN4
-s1 => Mux3.IN4
-s1 => Mux4.IN4
-s1 => Mux5.IN4
-s1 => Mux6.IN4
-s1 => Mux7.IN4
-s0 => Mux0.IN5
-s0 => Mux1.IN5
-s0 => Mux2.IN5
-s0 => Mux3.IN5
-s0 => Mux4.IN5
-s0 => Mux5.IN5
-s0 => Mux6.IN5
-s0 => Mux7.IN5
-Out[0] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In1[3] => Out.DATAA
+In1[4] => Out.DATAA
+In1[5] => Out.DATAA
+In1[6] => Out.DATAA
+In1[7] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+In2[3] => Out.DATAB
+In2[4] => Out.DATAB
+In2[5] => Out.DATAB
+In2[6] => Out.DATAB
+In2[7] => Out.DATAB
+In3[0] => Out.DATAA
+In3[1] => Out.DATAA
+In3[2] => Out.DATAA
+In3[3] => Out.DATAA
+In3[4] => Out.DATAA
+In3[5] => Out.DATAA
+In3[6] => Out.DATAA
+In3[7] => Out.DATAA
+In4[0] => Out.DATAB
+In4[1] => Out.DATAB
+In4[2] => Out.DATAB
+In4[3] => Out.DATAB
+In4[4] => Out.DATAB
+In4[5] => Out.DATAB
+In4[6] => Out.DATAB
+In4[7] => Out.DATAB
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|mainreg:inst7|busmux_4_to_1:opc
-In1[0] => Mux7.IN0
-In1[1] => Mux6.IN0
-In1[2] => Mux5.IN0
-In1[3] => Mux4.IN0
-In1[4] => Mux3.IN0
-In1[5] => Mux2.IN0
-In1[6] => Mux1.IN0
-In1[7] => Mux0.IN0
-In2[0] => Mux7.IN1
-In2[1] => Mux6.IN1
-In2[2] => Mux5.IN1
-In2[3] => Mux4.IN1
-In2[4] => Mux3.IN1
-In2[5] => Mux2.IN1
-In2[6] => Mux1.IN1
-In2[7] => Mux0.IN1
-In3[0] => Mux7.IN2
-In3[1] => Mux6.IN2
-In3[2] => Mux5.IN2
-In3[3] => Mux4.IN2
-In3[4] => Mux3.IN2
-In3[5] => Mux2.IN2
-In3[6] => Mux1.IN2
-In3[7] => Mux0.IN2
-In4[0] => Mux7.IN3
-In4[1] => Mux6.IN3
-In4[2] => Mux5.IN3
-In4[3] => Mux4.IN3
-In4[4] => Mux3.IN3
-In4[5] => Mux2.IN3
-In4[6] => Mux1.IN3
-In4[7] => Mux0.IN3
-s1 => Mux0.IN4
-s1 => Mux1.IN4
-s1 => Mux2.IN4
-s1 => Mux3.IN4
-s1 => Mux4.IN4
-s1 => Mux5.IN4
-s1 => Mux6.IN4
-s1 => Mux7.IN4
-s0 => Mux0.IN5
-s0 => Mux1.IN5
-s0 => Mux2.IN5
-s0 => Mux3.IN5
-s0 => Mux4.IN5
-s0 => Mux5.IN5
-s0 => Mux6.IN5
-s0 => Mux7.IN5
-Out[0] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In1[3] => Out.DATAA
+In1[4] => Out.DATAA
+In1[5] => Out.DATAA
+In1[6] => Out.DATAA
+In1[7] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+In2[3] => Out.DATAB
+In2[4] => Out.DATAB
+In2[5] => Out.DATAB
+In2[6] => Out.DATAB
+In2[7] => Out.DATAB
+In3[0] => Out.DATAA
+In3[1] => Out.DATAA
+In3[2] => Out.DATAA
+In3[3] => Out.DATAA
+In3[4] => Out.DATAA
+In3[5] => Out.DATAA
+In3[6] => Out.DATAA
+In3[7] => Out.DATAA
+In4[0] => Out.DATAB
+In4[1] => Out.DATAB
+In4[2] => Out.DATAB
+In4[3] => Out.DATAB
+In4[4] => Out.DATAB
+In4[5] => Out.DATAB
+In4[6] => Out.DATAB
+In4[7] => Out.DATAB
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|busmux_4_to_1:WMR
-In1[0] => Mux7.IN0
-In1[1] => Mux6.IN0
-In1[2] => Mux5.IN0
-In1[3] => Mux4.IN0
-In1[4] => Mux3.IN0
-In1[5] => Mux2.IN0
-In1[6] => Mux1.IN0
-In1[7] => Mux0.IN0
-In2[0] => Mux7.IN1
-In2[1] => Mux6.IN1
-In2[2] => Mux5.IN1
-In2[3] => Mux4.IN1
-In2[4] => Mux3.IN1
-In2[5] => Mux2.IN1
-In2[6] => Mux1.IN1
-In2[7] => Mux0.IN1
-In3[0] => Mux7.IN2
-In3[1] => Mux6.IN2
-In3[2] => Mux5.IN2
-In3[3] => Mux4.IN2
-In3[4] => Mux3.IN2
-In3[5] => Mux2.IN2
-In3[6] => Mux1.IN2
-In3[7] => Mux0.IN2
-In4[0] => Mux7.IN3
-In4[1] => Mux6.IN3
-In4[2] => Mux5.IN3
-In4[3] => Mux4.IN3
-In4[4] => Mux3.IN3
-In4[5] => Mux2.IN3
-In4[6] => Mux1.IN3
-In4[7] => Mux0.IN3
-s1 => Mux0.IN4
-s1 => Mux1.IN4
-s1 => Mux2.IN4
-s1 => Mux3.IN4
-s1 => Mux4.IN4
-s1 => Mux5.IN4
-s1 => Mux6.IN4
-s1 => Mux7.IN4
-s0 => Mux0.IN5
-s0 => Mux1.IN5
-s0 => Mux2.IN5
-s0 => Mux3.IN5
-s0 => Mux4.IN5
-s0 => Mux5.IN5
-s0 => Mux6.IN5
-s0 => Mux7.IN5
-Out[0] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In1[3] => Out.DATAA
+In1[4] => Out.DATAA
+In1[5] => Out.DATAA
+In1[6] => Out.DATAA
+In1[7] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+In2[3] => Out.DATAB
+In2[4] => Out.DATAB
+In2[5] => Out.DATAB
+In2[6] => Out.DATAB
+In2[7] => Out.DATAB
+In3[0] => Out.DATAA
+In3[1] => Out.DATAA
+In3[2] => Out.DATAA
+In3[3] => Out.DATAA
+In3[4] => Out.DATAA
+In3[5] => Out.DATAA
+In3[6] => Out.DATAA
+In3[7] => Out.DATAA
+In4[0] => Out.DATAB
+In4[1] => Out.DATAB
+In4[2] => Out.DATAB
+In4[3] => Out.DATAB
+In4[4] => Out.DATAB
+In4[5] => Out.DATAB
+In4[6] => Out.DATAB
+In4[7] => Out.DATAB
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|DMEM:inst33
@@ -7623,51 +7565,19 @@ F[6] <= F.DB_MAX_OUTPUT_PORT_TYPE
 F[7] <= F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|BUSMUX:WRDMEM
-dataa[0] => lpm_mux:$00000.data[0][0]
-dataa[1] => lpm_mux:$00000.data[0][1]
-dataa[2] => lpm_mux:$00000.data[0][2]
-datab[0] => lpm_mux:$00000.data[1][0]
-datab[1] => lpm_mux:$00000.data[1][1]
-datab[2] => lpm_mux:$00000.data[1][2]
-sel => lpm_mux:$00000.sel[0]
-result[0] <= lpm_mux:$00000.result[0]
-result[1] <= lpm_mux:$00000.result[1]
-result[2] <= lpm_mux:$00000.result[2]
-
-
-|CPU|BUSMUX:WRDMEM|lpm_mux:$00000
-data[0][0] => mux_9rc:auto_generated.data[0]
-data[0][1] => mux_9rc:auto_generated.data[1]
-data[0][2] => mux_9rc:auto_generated.data[2]
-data[1][0] => mux_9rc:auto_generated.data[3]
-data[1][1] => mux_9rc:auto_generated.data[4]
-data[1][2] => mux_9rc:auto_generated.data[5]
-sel[0] => mux_9rc:auto_generated.sel[0]
-clock => ~NO_FANOUT~
-aclr => ~NO_FANOUT~
-clken => ~NO_FANOUT~
-result[0] <= mux_9rc:auto_generated.result[0]
-result[1] <= mux_9rc:auto_generated.result[1]
-result[2] <= mux_9rc:auto_generated.result[2]
-
-
-|CPU|BUSMUX:WRDMEM|lpm_mux:$00000|mux_9rc:auto_generated
-data[0] => result_node[0].IN1
-data[1] => result_node[1].IN1
-data[2] => result_node[2].IN1
-data[3] => result_node[0].IN1
-data[4] => result_node[1].IN1
-data[5] => result_node[2].IN1
-result[0] <= result_node[0].DB_MAX_OUTPUT_PORT_TYPE
-result[1] <= result_node[1].DB_MAX_OUTPUT_PORT_TYPE
-result[2] <= result_node[2].DB_MAX_OUTPUT_PORT_TYPE
-sel[0] => result_node[2].IN0
-sel[0] => _.IN0
-sel[0] => result_node[1].IN0
-sel[0] => _.IN0
-sel[0] => result_node[0].IN0
-sel[0] => _.IN0
+|CPU|busmuxN_2_to_1:inst1
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+S => Out.OUTPUTSELECT
+S => Out.OUTPUTSELECT
+S => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|CLA_8_bit:inst27
@@ -7919,61 +7829,69 @@ Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|busmux_4_to_1:SALU
-In1[0] => Mux7.IN0
-In1[1] => Mux6.IN0
-In1[2] => Mux5.IN0
-In1[3] => Mux4.IN0
-In1[4] => Mux3.IN0
-In1[5] => Mux2.IN0
-In1[6] => Mux1.IN0
-In1[7] => Mux0.IN0
-In2[0] => Mux7.IN1
-In2[1] => Mux6.IN1
-In2[2] => Mux5.IN1
-In2[3] => Mux4.IN1
-In2[4] => Mux3.IN1
-In2[5] => Mux2.IN1
-In2[6] => Mux1.IN1
-In2[7] => Mux0.IN1
-In3[0] => Mux7.IN2
-In3[1] => Mux6.IN2
-In3[2] => Mux5.IN2
-In3[3] => Mux4.IN2
-In3[4] => Mux3.IN2
-In3[5] => Mux2.IN2
-In3[6] => Mux1.IN2
-In3[7] => Mux0.IN2
-In4[0] => Mux7.IN3
-In4[1] => Mux6.IN3
-In4[2] => Mux5.IN3
-In4[3] => Mux4.IN3
-In4[4] => Mux3.IN3
-In4[5] => Mux2.IN3
-In4[6] => Mux1.IN3
-In4[7] => Mux0.IN3
-s1 => Mux0.IN4
-s1 => Mux1.IN4
-s1 => Mux2.IN4
-s1 => Mux3.IN4
-s1 => Mux4.IN4
-s1 => Mux5.IN4
-s1 => Mux6.IN4
-s1 => Mux7.IN4
-s0 => Mux0.IN5
-s0 => Mux1.IN5
-s0 => Mux2.IN5
-s0 => Mux3.IN5
-s0 => Mux4.IN5
-s0 => Mux5.IN5
-s0 => Mux6.IN5
-s0 => Mux7.IN5
-Out[0] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In1[3] => Out.DATAA
+In1[4] => Out.DATAA
+In1[5] => Out.DATAA
+In1[6] => Out.DATAA
+In1[7] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+In2[3] => Out.DATAB
+In2[4] => Out.DATAB
+In2[5] => Out.DATAB
+In2[6] => Out.DATAB
+In2[7] => Out.DATAB
+In3[0] => Out.DATAA
+In3[1] => Out.DATAA
+In3[2] => Out.DATAA
+In3[3] => Out.DATAA
+In3[4] => Out.DATAA
+In3[5] => Out.DATAA
+In3[6] => Out.DATAA
+In3[7] => Out.DATAA
+In4[0] => Out.DATAB
+In4[1] => Out.DATAB
+In4[2] => Out.DATAB
+In4[3] => Out.DATAB
+In4[4] => Out.DATAB
+In4[5] => Out.DATAB
+In4[6] => Out.DATAB
+In4[7] => Out.DATAB
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
