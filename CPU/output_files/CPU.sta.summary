@@ -2,256 +2,40 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : -5.566
-TNS   : -51.383
-
 Type  : Slow 1200mV 85C Model Setup 'CLKT'
-Slack : -5.400
-TNS   : -86.786
-
-Type  : Slow 1200mV 85C Model Setup 'Board_Clock'
-Slack : -3.562
-TNS   : -116.005
-
-Type  : Slow 1200mV 85C Model Setup 'debouncer:inst18|clock_divider_1024:inst4|inst10'
-Slack : -2.251
-TNS   : -7.104
-
-Type  : Slow 1200mV 85C Model Setup 'debouncer:inst18|clock_divider_1024:inst3|inst10'
-Slack : -0.587
-TNS   : -0.815
-
-Type  : Slow 1200mV 85C Model Hold 'Board_Clock'
-Slack : 0.402
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'debouncer:inst18|clock_divider_1024:inst3|inst10'
-Slack : 0.402
-TNS   : 0.000
+Slack : -4.799
+TNS   : -112.274
 
 Type  : Slow 1200mV 85C Model Hold 'CLKT'
-Slack : 0.403
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'debouncer:inst18|clock_divider_1024:inst4|inst10'
-Slack : 0.403
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : 0.404
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Recovery 'Board_Clock'
-Slack : -1.653
-TNS   : -28.113
-
-Type  : Slow 1200mV 85C Model Recovery 'CLKT'
-Slack : -0.881
-TNS   : -15.387
-
-Type  : Slow 1200mV 85C Model Recovery 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : -0.568
-TNS   : -4.597
-
-Type  : Slow 1200mV 85C Model Removal 'CLKT'
-Slack : 0.563
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Removal 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : 0.622
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Removal 'Board_Clock'
-Slack : 1.552
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Board_Clock'
-Slack : -3.000
-TNS   : -69.820
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLKT'
-Slack : -3.000
-TNS   : -46.690
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : -1.285
-TNS   : -47.545
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'debouncer:inst18|clock_divider_1024:inst4|inst10'
-Slack : -1.285
-TNS   : -12.850
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'debouncer:inst18|clock_divider_1024:inst3|inst10'
-Slack : -1.285
-TNS   : -7.710
-
-Type  : Slow 1200mV 0C Model Setup 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : -4.996
-TNS   : -43.500
-
-Type  : Slow 1200mV 0C Model Setup 'CLKT'
-Slack : -4.801
-TNS   : -76.076
-
-Type  : Slow 1200mV 0C Model Setup 'Board_Clock'
-Slack : -3.217
-TNS   : -100.847
-
-Type  : Slow 1200mV 0C Model Setup 'debouncer:inst18|clock_divider_1024:inst4|inst10'
-Slack : -1.979
-TNS   : -5.555
-
-Type  : Slow 1200mV 0C Model Setup 'debouncer:inst18|clock_divider_1024:inst3|inst10'
-Slack : -0.351
-TNS   : -0.406
-
-Type  : Slow 1200mV 0C Model Hold 'debouncer:inst18|clock_divider_1024:inst3|inst10'
-Slack : 0.353
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'Board_Clock'
-Slack : 0.354
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'CLKT'
-Slack : 0.354
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : 0.354
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'debouncer:inst18|clock_divider_1024:inst4|inst10'
-Slack : 0.354
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Recovery 'Board_Clock'
-Slack : -1.430
-TNS   : -23.782
-
-Type  : Slow 1200mV 0C Model Recovery 'CLKT'
-Slack : -0.820
-TNS   : -10.990
-
-Type  : Slow 1200mV 0C Model Recovery 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : -0.455
-TNS   : -3.122
-
-Type  : Slow 1200mV 0C Model Removal 'CLKT'
 Slack : 0.385
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Removal 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : 0.538
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'Board_Clock'
-Slack : 1.420
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Board_Clock'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLKT'
 Slack : -3.000
-TNS   : -69.820
+TNS   : -58.255
+
+Type  : Slow 1200mV 0C Model Setup 'CLKT'
+Slack : -4.304
+TNS   : -98.987
+
+Type  : Slow 1200mV 0C Model Hold 'CLKT'
+Slack : 0.338
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLKT'
 Slack : -3.000
-TNS   : -46.690
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : -1.285
-TNS   : -47.545
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'debouncer:inst18|clock_divider_1024:inst4|inst10'
-Slack : -1.285
-TNS   : -12.850
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'debouncer:inst18|clock_divider_1024:inst3|inst10'
-Slack : -1.285
-TNS   : -7.710
+TNS   : -58.255
 
 Type  : Fast 1200mV 0C Model Setup 'CLKT'
-Slack : -2.835
-TNS   : -40.636
-
-Type  : Fast 1200mV 0C Model Setup 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : -2.150
-TNS   : -11.541
-
-Type  : Fast 1200mV 0C Model Setup 'Board_Clock'
-Slack : -1.314
-TNS   : -31.614
-
-Type  : Fast 1200mV 0C Model Setup 'debouncer:inst18|clock_divider_1024:inst4|inst10'
-Slack : -0.590
-TNS   : -0.590
-
-Type  : Fast 1200mV 0C Model Setup 'debouncer:inst18|clock_divider_1024:inst3|inst10'
-Slack : 0.101
-TNS   : 0.000
+Slack : -2.442
+TNS   : -48.143
 
 Type  : Fast 1200mV 0C Model Hold 'CLKT'
-Slack : 0.180
+Slack : 0.174
 TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : 0.180
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'Board_Clock'
-Slack : 0.181
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'debouncer:inst18|clock_divider_1024:inst4|inst10'
-Slack : 0.181
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'debouncer:inst18|clock_divider_1024:inst3|inst10'
-Slack : 0.182
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Recovery 'Board_Clock'
-Slack : -0.386
-TNS   : -4.487
-
-Type  : Fast 1200mV 0C Model Recovery 'CLKT'
-Slack : 0.049
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Recovery 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : 0.101
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : 0.268
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'CLKT'
-Slack : 0.291
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'Board_Clock'
-Slack : 0.729
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Board_Clock'
-Slack : -3.000
-TNS   : -58.182
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLKT'
 Slack : -3.000
-TNS   : -42.854
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LCD:inst29|LCD_Display:u1|CLK_400HZ'
-Slack : -1.000
-TNS   : -37.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'debouncer:inst18|clock_divider_1024:inst4|inst10'
-Slack : -1.000
-TNS   : -10.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'debouncer:inst18|clock_divider_1024:inst3|inst10'
-Slack : -1.000
-TNS   : -6.000
+TNS   : -49.113
 
 ------------------------------------------------------------
