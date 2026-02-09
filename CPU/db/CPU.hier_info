@@ -4190,11 +4190,52 @@ Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|ALU:inst3
-CF <= CLA_8_bit:inst1.Cout
-ADD_SUB => CLA_8_bit:inst1.Cin
+CF <= AddSub8b:inst1.Cout
+ADD_SUB => AddSub8b:inst1.Cin
 ADD_SUB => Logic_Shifter:inst6.ShiftDir
 ADD_SUB => Circular_Shifter:inst8.ShiftDir
-X[0] => CLA_8_bit:inst1.X[0]
+Y[0] => AddSub8b:inst1.X[0]
+Y[0] => AND_8_bit:inst2.In[0]
+Y[0] => OR_8_bit:inst3.In[0]
+Y[0] => XOR_8_bit:inst4.In[0]
+Y[0] => Logic_Shifter:inst6.ShiftAmt[0]
+Y[0] => Arithmetic_Shifter:inst7.ShiftAmt[0]
+Y[0] => Circular_Shifter:inst8.ShiftAmt[0]
+Y[1] => AddSub8b:inst1.X[1]
+Y[1] => AND_8_bit:inst2.In[1]
+Y[1] => OR_8_bit:inst3.In[1]
+Y[1] => XOR_8_bit:inst4.In[1]
+Y[1] => Logic_Shifter:inst6.ShiftAmt[1]
+Y[1] => Arithmetic_Shifter:inst7.ShiftAmt[1]
+Y[1] => Circular_Shifter:inst8.ShiftAmt[1]
+Y[2] => AddSub8b:inst1.X[2]
+Y[2] => AND_8_bit:inst2.In[2]
+Y[2] => OR_8_bit:inst3.In[2]
+Y[2] => XOR_8_bit:inst4.In[2]
+Y[2] => Logic_Shifter:inst6.ShiftAmt[2]
+Y[2] => Arithmetic_Shifter:inst7.ShiftAmt[2]
+Y[2] => Circular_Shifter:inst8.ShiftAmt[2]
+Y[3] => AddSub8b:inst1.X[3]
+Y[3] => AND_8_bit:inst2.In[3]
+Y[3] => OR_8_bit:inst3.In[3]
+Y[3] => XOR_8_bit:inst4.In[3]
+Y[4] => AddSub8b:inst1.X[4]
+Y[4] => AND_8_bit:inst2.In[4]
+Y[4] => OR_8_bit:inst3.In[4]
+Y[4] => XOR_8_bit:inst4.In[4]
+Y[5] => AddSub8b:inst1.X[5]
+Y[5] => AND_8_bit:inst2.In[5]
+Y[5] => OR_8_bit:inst3.In[5]
+Y[5] => XOR_8_bit:inst4.In[5]
+Y[6] => AddSub8b:inst1.X[6]
+Y[6] => AND_8_bit:inst2.In[6]
+Y[6] => OR_8_bit:inst3.In[6]
+Y[6] => XOR_8_bit:inst4.In[6]
+Y[7] => AddSub8b:inst1.X[7]
+Y[7] => AND_8_bit:inst2.In[7]
+Y[7] => OR_8_bit:inst3.In[7]
+Y[7] => XOR_8_bit:inst4.In[7]
+X[0] => AddSub8b:inst1.Y[0]
 X[0] => AND_8_bit:inst2.Control[0]
 X[0] => OR_8_bit:inst3.Control[0]
 X[0] => XOR_8_bit:inst4.Control[0]
@@ -4202,7 +4243,7 @@ X[0] => NOT_8_bit:inst.In[0]
 X[0] => Logic_Shifter:inst6.IN[0]
 X[0] => Arithmetic_Shifter:inst7.IN[0]
 X[0] => Circular_Shifter:inst8.IN[0]
-X[1] => CLA_8_bit:inst1.X[1]
+X[1] => AddSub8b:inst1.Y[1]
 X[1] => AND_8_bit:inst2.Control[1]
 X[1] => OR_8_bit:inst3.Control[1]
 X[1] => XOR_8_bit:inst4.Control[1]
@@ -4210,7 +4251,7 @@ X[1] => NOT_8_bit:inst.In[1]
 X[1] => Logic_Shifter:inst6.IN[1]
 X[1] => Arithmetic_Shifter:inst7.IN[1]
 X[1] => Circular_Shifter:inst8.IN[1]
-X[2] => CLA_8_bit:inst1.X[2]
+X[2] => AddSub8b:inst1.Y[2]
 X[2] => AND_8_bit:inst2.Control[2]
 X[2] => OR_8_bit:inst3.Control[2]
 X[2] => XOR_8_bit:inst4.Control[2]
@@ -4218,7 +4259,7 @@ X[2] => NOT_8_bit:inst.In[2]
 X[2] => Logic_Shifter:inst6.IN[2]
 X[2] => Arithmetic_Shifter:inst7.IN[2]
 X[2] => Circular_Shifter:inst8.IN[2]
-X[3] => CLA_8_bit:inst1.X[3]
+X[3] => AddSub8b:inst1.Y[3]
 X[3] => AND_8_bit:inst2.Control[3]
 X[3] => OR_8_bit:inst3.Control[3]
 X[3] => XOR_8_bit:inst4.Control[3]
@@ -4226,7 +4267,7 @@ X[3] => NOT_8_bit:inst.In[3]
 X[3] => Logic_Shifter:inst6.IN[3]
 X[3] => Arithmetic_Shifter:inst7.IN[3]
 X[3] => Circular_Shifter:inst8.IN[3]
-X[4] => CLA_8_bit:inst1.X[4]
+X[4] => AddSub8b:inst1.Y[4]
 X[4] => AND_8_bit:inst2.Control[4]
 X[4] => OR_8_bit:inst3.Control[4]
 X[4] => XOR_8_bit:inst4.Control[4]
@@ -4234,7 +4275,7 @@ X[4] => NOT_8_bit:inst.In[4]
 X[4] => Logic_Shifter:inst6.IN[4]
 X[4] => Arithmetic_Shifter:inst7.IN[4]
 X[4] => Circular_Shifter:inst8.IN[4]
-X[5] => CLA_8_bit:inst1.X[5]
+X[5] => AddSub8b:inst1.Y[5]
 X[5] => AND_8_bit:inst2.Control[5]
 X[5] => OR_8_bit:inst3.Control[5]
 X[5] => XOR_8_bit:inst4.Control[5]
@@ -4242,7 +4283,7 @@ X[5] => NOT_8_bit:inst.In[5]
 X[5] => Logic_Shifter:inst6.IN[5]
 X[5] => Arithmetic_Shifter:inst7.IN[5]
 X[5] => Circular_Shifter:inst8.IN[5]
-X[6] => CLA_8_bit:inst1.X[6]
+X[6] => AddSub8b:inst1.Y[6]
 X[6] => AND_8_bit:inst2.Control[6]
 X[6] => OR_8_bit:inst3.Control[6]
 X[6] => XOR_8_bit:inst4.Control[6]
@@ -4250,7 +4291,7 @@ X[6] => NOT_8_bit:inst.In[6]
 X[6] => Logic_Shifter:inst6.IN[6]
 X[6] => Arithmetic_Shifter:inst7.IN[6]
 X[6] => Circular_Shifter:inst8.IN[6]
-X[7] => CLA_8_bit:inst1.X[7]
+X[7] => AddSub8b:inst1.Y[7]
 X[7] => AND_8_bit:inst2.Control[7]
 X[7] => OR_8_bit:inst3.Control[7]
 X[7] => XOR_8_bit:inst4.Control[7]
@@ -4258,48 +4299,7 @@ X[7] => NOT_8_bit:inst.In[7]
 X[7] => Logic_Shifter:inst6.IN[7]
 X[7] => Arithmetic_Shifter:inst7.IN[7]
 X[7] => Circular_Shifter:inst8.IN[7]
-Y[0] => CLA_8_bit:inst1.Y[0]
-Y[0] => AND_8_bit:inst2.In[0]
-Y[0] => OR_8_bit:inst3.In[0]
-Y[0] => XOR_8_bit:inst4.In[0]
-Y[0] => Logic_Shifter:inst6.ShiftAmt[0]
-Y[0] => Arithmetic_Shifter:inst7.ShiftAmt[0]
-Y[0] => Circular_Shifter:inst8.ShiftAmt[0]
-Y[1] => CLA_8_bit:inst1.Y[1]
-Y[1] => AND_8_bit:inst2.In[1]
-Y[1] => OR_8_bit:inst3.In[1]
-Y[1] => XOR_8_bit:inst4.In[1]
-Y[1] => Logic_Shifter:inst6.ShiftAmt[1]
-Y[1] => Arithmetic_Shifter:inst7.ShiftAmt[1]
-Y[1] => Circular_Shifter:inst8.ShiftAmt[1]
-Y[2] => CLA_8_bit:inst1.Y[2]
-Y[2] => AND_8_bit:inst2.In[2]
-Y[2] => OR_8_bit:inst3.In[2]
-Y[2] => XOR_8_bit:inst4.In[2]
-Y[2] => Logic_Shifter:inst6.ShiftAmt[2]
-Y[2] => Arithmetic_Shifter:inst7.ShiftAmt[2]
-Y[2] => Circular_Shifter:inst8.ShiftAmt[2]
-Y[3] => CLA_8_bit:inst1.Y[3]
-Y[3] => AND_8_bit:inst2.In[3]
-Y[3] => OR_8_bit:inst3.In[3]
-Y[3] => XOR_8_bit:inst4.In[3]
-Y[4] => CLA_8_bit:inst1.Y[4]
-Y[4] => AND_8_bit:inst2.In[4]
-Y[4] => OR_8_bit:inst3.In[4]
-Y[4] => XOR_8_bit:inst4.In[4]
-Y[5] => CLA_8_bit:inst1.Y[5]
-Y[5] => AND_8_bit:inst2.In[5]
-Y[5] => OR_8_bit:inst3.In[5]
-Y[5] => XOR_8_bit:inst4.In[5]
-Y[6] => CLA_8_bit:inst1.Y[6]
-Y[6] => AND_8_bit:inst2.In[6]
-Y[6] => OR_8_bit:inst3.In[6]
-Y[6] => XOR_8_bit:inst4.In[6]
-Y[7] => CLA_8_bit:inst1.Y[7]
-Y[7] => AND_8_bit:inst2.In[7]
-Y[7] => OR_8_bit:inst3.In[7]
-Y[7] => XOR_8_bit:inst4.In[7]
-OF <= CLA_8_bit:inst1.Ov
+OF <= AddSub8b:inst1.Ov
 NF <= N[7].DB_MAX_OUTPUT_PORT_TYPE
 ZF <= inst5.DB_MAX_OUTPUT_PORT_TYPE
 Result[0] <= O[0].DB_MAX_OUTPUT_PORT_TYPE
@@ -4315,252 +4315,58 @@ AS1 => busmux_8_to_1:inst9.S[1]
 AS0 => busmux_8_to_1:inst9.S[0]
 
 
-|CPU|ALU:inst3|CLA_8_bit:inst1
-Cout <= inst71.DB_MAX_OUTPUT_PORT_TYPE
-X[0] => inst.IN0
-X[0] => inst8.IN1
-X[0] => XOR_3_bit:inst16.In1
-X[1] => inst3.IN0
-X[1] => inst10.IN1
-X[1] => XOR_3_bit:inst17.In1
-X[2] => inst4.IN0
-X[2] => inst11.IN1
-X[2] => XOR_3_bit:inst18.In1
-X[3] => inst12.IN1
-X[3] => inst7.IN0
-X[3] => XOR_3_bit:inst19.In1
-X[4] => inst38.IN0
-X[4] => inst13.IN1
-X[4] => XOR_3_bit:inst22.In1
-X[5] => inst46.IN0
-X[5] => inst15.IN1
-X[5] => XOR_3_bit:inst21.In1
-X[6] => inst14.IN1
-X[6] => inst55.IN0
-X[6] => XOR_3_bit:inst28.In1
-X[7] => inst66.IN0
-X[7] => inst65.IN1
-X[7] => XOR_3_bit:inst20.In1
-Cin => bit_1_to_8:inst68.In
-Cin => inst70.IN1
-Cin => inst48.IN6
-Cin => XOR_3_bit:inst16.In3
-Cin => inst1.IN0
-Cin => inst23.IN2
-Cin => inst24.IN3
-Cin => AND_5_bit:inst34.In5
-Cin => inst36.IN5
-Cin => AND_7_bit:inst40.In7
-Y[0] => XOR_8_bit:inst69.In[0]
-Y[1] => XOR_8_bit:inst69.In[1]
-Y[2] => XOR_8_bit:inst69.In[2]
-Y[3] => XOR_8_bit:inst69.In[3]
-Y[4] => XOR_8_bit:inst69.In[4]
-Y[5] => XOR_8_bit:inst69.In[5]
-Y[6] => XOR_8_bit:inst69.In[6]
-Y[7] => XOR_8_bit:inst69.In[7]
-Ov <= inst73.DB_MAX_OUTPUT_PORT_TYPE
-S[0] <= XOR_3_bit:inst16.Out
-S[1] <= XOR_3_bit:inst17.Out
-S[2] <= XOR_3_bit:inst18.Out
-S[3] <= XOR_3_bit:inst19.Out
-S[4] <= XOR_3_bit:inst22.Out
-S[5] <= XOR_3_bit:inst21.Out
-S[6] <= XOR_3_bit:inst28.Out
-S[7] <= XOR_3_bit:inst20.Out
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|XOR_8_bit:inst69
-In[0] => Out.IN0
-In[1] => Out.IN0
-In[2] => Out.IN0
-In[3] => Out.IN0
-In[4] => Out.IN0
-In[5] => Out.IN0
-In[6] => Out.IN0
-In[7] => Out.IN0
-Control[0] => Out.IN1
-Control[1] => Out.IN1
-Control[2] => Out.IN1
-Control[3] => Out.IN1
-Control[4] => Out.IN1
-Control[5] => Out.IN1
-Control[6] => Out.IN1
-Control[7] => Out.IN1
-Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|bit_1_to_8:inst68
-In => Decoder0.IN0
-Out[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|AND_5_bit:inst61
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|AND_7_bit:inst59
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-In6 => WideAnd0.IN5
-In7 => WideAnd0.IN6
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|AND_5_bit:inst51
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|AND_7_bit:inst49
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-In6 => WideAnd0.IN5
-In7 => WideAnd0.IN6
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst16
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst17
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst18
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst19
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst22
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|OR_5_bit:inst35
-In1 => WideOr0.IN0
-In2 => WideOr0.IN1
-In3 => WideOr0.IN2
-In4 => WideOr0.IN3
-In5 => WideOr0.IN4
-Out <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|AND_5_bit:inst34
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst21
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|AND_5_bit:inst37
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst28
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|OR_7_bit:inst47
-In1 => WideOr0.IN0
-In2 => WideOr0.IN1
-In3 => WideOr0.IN2
-In4 => WideOr0.IN3
-In5 => WideOr0.IN4
-In6 => WideOr0.IN5
-In7 => WideOr0.IN6
-Out <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|AND_5_bit:inst42
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|AND_7_bit:inst40
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-In6 => WideAnd0.IN5
-In7 => WideAnd0.IN6
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|ALU:inst3|CLA_8_bit:inst1|XOR_3_bit:inst20
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
+|CPU|ALU:inst3|AddSub8b:inst1
+Cin => Yi[7].OUTPUTSELECT
+Cin => Yi[6].OUTPUTSELECT
+Cin => Yi[5].OUTPUTSELECT
+Cin => Yi[4].OUTPUTSELECT
+Cin => Yi[3].OUTPUTSELECT
+Cin => Yi[2].OUTPUTSELECT
+Cin => Yi[1].OUTPUTSELECT
+Cin => Yi[0].OUTPUTSELECT
+Cin => Add1.IN18
+Cin => Ov.OUTPUTSELECT
+X[0] => Add0.IN8
+X[1] => Add0.IN7
+X[2] => Add0.IN6
+X[3] => Add0.IN5
+X[4] => Add0.IN4
+X[5] => Add0.IN3
+X[6] => Add0.IN2
+X[7] => Add0.IN1
+X[7] => Ov.IN0
+X[7] => Ov.IN1
+X[7] => Ov.IN0
+X[7] => Ov.IN0
+Y[0] => Yi[0].DATAA
+Y[0] => Yi[0].DATAB
+Y[1] => Yi[1].DATAA
+Y[1] => Yi[1].DATAB
+Y[2] => Yi[2].DATAA
+Y[2] => Yi[2].DATAB
+Y[3] => Yi[3].DATAA
+Y[3] => Yi[3].DATAB
+Y[4] => Yi[4].DATAA
+Y[4] => Yi[4].DATAB
+Y[5] => Yi[5].DATAA
+Y[5] => Yi[5].DATAB
+Y[6] => Yi[6].DATAA
+Y[6] => Yi[6].DATAB
+Y[7] => Yi[7].DATAA
+Y[7] => Ov.IN1
+Y[7] => Ov.IN1
+Y[7] => Yi[7].DATAB
+Y[7] => Ov.IN1
+S[0] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[1] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[2] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[3] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[4] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[5] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[6] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[7] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+Ov <= Ov.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|ALU:inst3|busmux_8_to_1:inst9
@@ -7580,252 +7386,58 @@ Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|CLA_8_bit:inst27
-Cout <= inst71.DB_MAX_OUTPUT_PORT_TYPE
-X[0] => inst.IN0
-X[0] => inst8.IN1
-X[0] => XOR_3_bit:inst16.In1
-X[1] => inst3.IN0
-X[1] => inst10.IN1
-X[1] => XOR_3_bit:inst17.In1
-X[2] => inst4.IN0
-X[2] => inst11.IN1
-X[2] => XOR_3_bit:inst18.In1
-X[3] => inst12.IN1
-X[3] => inst7.IN0
-X[3] => XOR_3_bit:inst19.In1
-X[4] => inst38.IN0
-X[4] => inst13.IN1
-X[4] => XOR_3_bit:inst22.In1
-X[5] => inst46.IN0
-X[5] => inst15.IN1
-X[5] => XOR_3_bit:inst21.In1
-X[6] => inst14.IN1
-X[6] => inst55.IN0
-X[6] => XOR_3_bit:inst28.In1
-X[7] => inst66.IN0
-X[7] => inst65.IN1
-X[7] => XOR_3_bit:inst20.In1
-Cin => bit_1_to_8:inst68.In
-Cin => inst70.IN1
-Cin => inst48.IN6
-Cin => XOR_3_bit:inst16.In3
-Cin => inst1.IN0
-Cin => inst23.IN2
-Cin => inst24.IN3
-Cin => AND_5_bit:inst34.In5
-Cin => inst36.IN5
-Cin => AND_7_bit:inst40.In7
-Y[0] => XOR_8_bit:inst69.In[0]
-Y[1] => XOR_8_bit:inst69.In[1]
-Y[2] => XOR_8_bit:inst69.In[2]
-Y[3] => XOR_8_bit:inst69.In[3]
-Y[4] => XOR_8_bit:inst69.In[4]
-Y[5] => XOR_8_bit:inst69.In[5]
-Y[6] => XOR_8_bit:inst69.In[6]
-Y[7] => XOR_8_bit:inst69.In[7]
-Ov <= inst73.DB_MAX_OUTPUT_PORT_TYPE
-S[0] <= XOR_3_bit:inst16.Out
-S[1] <= XOR_3_bit:inst17.Out
-S[2] <= XOR_3_bit:inst18.Out
-S[3] <= XOR_3_bit:inst19.Out
-S[4] <= XOR_3_bit:inst22.Out
-S[5] <= XOR_3_bit:inst21.Out
-S[6] <= XOR_3_bit:inst28.Out
-S[7] <= XOR_3_bit:inst20.Out
-
-
-|CPU|CLA_8_bit:inst27|XOR_8_bit:inst69
-In[0] => Out.IN0
-In[1] => Out.IN0
-In[2] => Out.IN0
-In[3] => Out.IN0
-In[4] => Out.IN0
-In[5] => Out.IN0
-In[6] => Out.IN0
-In[7] => Out.IN0
-Control[0] => Out.IN1
-Control[1] => Out.IN1
-Control[2] => Out.IN1
-Control[3] => Out.IN1
-Control[4] => Out.IN1
-Control[5] => Out.IN1
-Control[6] => Out.IN1
-Control[7] => Out.IN1
-Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|bit_1_to_8:inst68
-In => Decoder0.IN0
-Out[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|AND_5_bit:inst61
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|AND_7_bit:inst59
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-In6 => WideAnd0.IN5
-In7 => WideAnd0.IN6
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|AND_5_bit:inst51
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|AND_7_bit:inst49
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-In6 => WideAnd0.IN5
-In7 => WideAnd0.IN6
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|XOR_3_bit:inst16
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|XOR_3_bit:inst17
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|XOR_3_bit:inst18
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|XOR_3_bit:inst19
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|XOR_3_bit:inst22
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|OR_5_bit:inst35
-In1 => WideOr0.IN0
-In2 => WideOr0.IN1
-In3 => WideOr0.IN2
-In4 => WideOr0.IN3
-In5 => WideOr0.IN4
-Out <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|AND_5_bit:inst34
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|XOR_3_bit:inst21
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|AND_5_bit:inst37
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|XOR_3_bit:inst28
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|OR_7_bit:inst47
-In1 => WideOr0.IN0
-In2 => WideOr0.IN1
-In3 => WideOr0.IN2
-In4 => WideOr0.IN3
-In5 => WideOr0.IN4
-In6 => WideOr0.IN5
-In7 => WideOr0.IN6
-Out <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|AND_5_bit:inst42
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|AND_7_bit:inst40
-In1 => WideAnd0.IN0
-In2 => WideAnd0.IN1
-In3 => WideAnd0.IN2
-In4 => WideAnd0.IN3
-In5 => WideAnd0.IN4
-In6 => WideAnd0.IN5
-In7 => WideAnd0.IN6
-Out <= WideAnd0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|CLA_8_bit:inst27|XOR_3_bit:inst20
-In1 => Out.IN0
-In2 => Out.IN1
-In3 => Out.IN1
-Out <= Out.DB_MAX_OUTPUT_PORT_TYPE
+|CPU|AddSub8b:inst6
+Cin => Yi[7].OUTPUTSELECT
+Cin => Yi[6].OUTPUTSELECT
+Cin => Yi[5].OUTPUTSELECT
+Cin => Yi[4].OUTPUTSELECT
+Cin => Yi[3].OUTPUTSELECT
+Cin => Yi[2].OUTPUTSELECT
+Cin => Yi[1].OUTPUTSELECT
+Cin => Yi[0].OUTPUTSELECT
+Cin => Add1.IN18
+Cin => Ov.OUTPUTSELECT
+X[0] => Add0.IN8
+X[1] => Add0.IN7
+X[2] => Add0.IN6
+X[3] => Add0.IN5
+X[4] => Add0.IN4
+X[5] => Add0.IN3
+X[6] => Add0.IN2
+X[7] => Add0.IN1
+X[7] => Ov.IN0
+X[7] => Ov.IN1
+X[7] => Ov.IN0
+X[7] => Ov.IN0
+Y[0] => Yi[0].DATAA
+Y[0] => Yi[0].DATAB
+Y[1] => Yi[1].DATAA
+Y[1] => Yi[1].DATAB
+Y[2] => Yi[2].DATAA
+Y[2] => Yi[2].DATAB
+Y[3] => Yi[3].DATAA
+Y[3] => Yi[3].DATAB
+Y[4] => Yi[4].DATAA
+Y[4] => Yi[4].DATAB
+Y[5] => Yi[5].DATAA
+Y[5] => Yi[5].DATAB
+Y[6] => Yi[6].DATAA
+Y[6] => Yi[6].DATAB
+Y[7] => Yi[7].DATAA
+Y[7] => Ov.IN1
+Y[7] => Ov.IN1
+Y[7] => Yi[7].DATAB
+Y[7] => Ov.IN1
+S[0] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[1] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[2] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[3] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[4] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[5] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[6] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+S[7] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+Ov <= Ov.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|busmux_4_to_1:SALU

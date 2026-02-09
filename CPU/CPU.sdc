@@ -1,6 +1,6 @@
 set_time_format -unit ns -decimal_places 3
 
-create_clock -name {CLKT} -period 10.000 -waveform { 0.000 5.000 } [get_ports { CLKT }]
+create_clock -name {CLKT} -period 9.500 -waveform { 0.000 4.750 } [get_ports { CLKT }]
 
 #**************************************************************
 # Set Clock Uncertainty

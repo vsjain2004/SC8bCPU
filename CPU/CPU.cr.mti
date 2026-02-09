@@ -61,12 +61,12 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	AND_7_bit
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEM_PRGM.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEM_PRGM.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module AND_8_bit
+-- Compiling module DMEM_PRGM
 
 Top level modules:
-	AND_8_bit
+	DMEM_PRGM
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
@@ -75,19 +75,19 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	Control_Unit
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEM_PRGM.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEM_PRGM.v
-Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module DMEM_PRGM
-
-Top level modules:
-	DMEM_PRGM
-
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/bit_1_to_8.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/bit_1_to_8.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 -- Compiling module bit_1_to_8
 
 Top level modules:
 	bit_1_to_8
+
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module AND_8_bit
+
+Top level modules:
+	AND_8_bit
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_4_to_1.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_4_to_1.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
@@ -96,13 +96,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	busmux_4_to_1
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v
-Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module ALU
-
-Top level modules:
-	ALU
-
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 -- Compiling module Logic_Shifter
@@ -110,19 +103,12 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	Logic_Shifter
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module mainreg
+-- Compiling module ALU
 
 Top level modules:
-	mainreg
-
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v
-Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module reg_8_bit
-
-Top level modules:
-	reg_8_bit
+	ALU
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
@@ -131,19 +117,19 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	Zeros
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_16_to_1.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_16_to_1.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module busmux_16_to_1
+-- Compiling module reg_8_bit
 
 Top level modules:
-	busmux_16_to_1
+	reg_8_bit
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module decoder1to2
+-- Compiling module mainreg
 
 Top level modules:
-	decoder1to2
+	mainreg
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/seven_seg_decoder.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/seven_seg_decoder.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
@@ -152,33 +138,26 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	seven_seg_decoder
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module busmux_8_to_1
+-- Compiling module decoder1to2
 
 Top level modules:
-	busmux_8_to_1
+	decoder1to2
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_16_to_1.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_16_to_1.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module busmuxN_2_to_1
+-- Compiling module busmux_16_to_1
 
 Top level modules:
-	busmuxN_2_to_1
+	busmux_16_to_1
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub8b.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub8b.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module Flags
+-- Compiling module AddSub8b
 
 Top level modules:
-	Flags
-
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/IMEM_PRGM.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/IMEM_PRGM.v
-Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module IMEM_PRGM
-
-Top level modules:
-	IMEM_PRGM
+	AddSub8b
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
@@ -187,12 +166,33 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	register
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/IMEM_PRGM.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/IMEM_PRGM.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module Arithmetic_Shifter
+-- Compiling module IMEM_PRGM
 
 Top level modules:
-	Arithmetic_Shifter
+	IMEM_PRGM
+
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module Flags
+
+Top level modules:
+	Flags
+
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module busmuxN_2_to_1
+
+Top level modules:
+	busmuxN_2_to_1
+
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module busmux_8_to_1
+
+Top level modules:
+	busmux_8_to_1
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_8_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_8_bit.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
@@ -200,6 +200,13 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 
 Top level modules:
 	NOT_8_bit
+
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module Arithmetic_Shifter
+
+Top level modules:
+	Arithmetic_Shifter
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
@@ -216,12 +223,12 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	LCD_Display
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_3_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_3_bit.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module Circular_Shifter
+-- Compiling module XOR_3_bit
 
 Top level modules:
-	Circular_Shifter
+	XOR_3_bit
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/reset_delay.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/reset_delay.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
@@ -230,12 +237,12 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	Reset_Delay
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_3_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_3_bit.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module XOR_3_bit
+-- Compiling module Circular_Shifter
 
 Top level modules:
-	XOR_3_bit
+	Circular_Shifter
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_16_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_16_bit.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
@@ -244,13 +251,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	reg_16_bit
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v
-Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module LCD
-
-Top level modules:
-	LCD
-
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_5_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_5_bit.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 -- Compiling module OR_5_bit
@@ -258,12 +258,19 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	OR_5_bit
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module Decoder3to8
+-- Compiling module LCD
 
 Top level modules:
-	Decoder3to8
+	LCD
+
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEMI.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEMI.v
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module DMEMI
+
+Top level modules:
+	DMEMI
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
@@ -272,11 +279,11 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	decoder4to16
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEMI.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEMI.v
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module DMEMI
+-- Compiling module Decoder3to8
 
 Top level modules:
-	DMEMI
+	Decoder3to8
 
 } {} {}}
