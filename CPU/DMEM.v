@@ -15,9 +15,9 @@
 
 // PROGRAM		"Quartus Prime"
 // VERSION		"Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition"
-// CREATED		"Sun Feb  1 12:18:01 2026"
+// CREATED		"Tue Feb 10 17:10:03 2026"
 
-module DMEMI(
+module DMEM(
 	CLK,
 	RESET,
 	DMEMWE,

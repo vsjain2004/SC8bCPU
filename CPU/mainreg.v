@@ -25,10 +25,10 @@ module mainreg(IN, MRWE, WA0, WA1, RA0, RA1, RA2, RA3, RA4, CLK, RESET, SWAPR, O
 	assign INC = SWAPR ? ((RA1 & ~RA0) ? OUTB : OUTA) : IN;
 	assign INIX = SWAPR ? ((RA1 & RA0) ? OUTB : OUTA) : IN;
 	
-	reg_8_bit A(.IN(INA), .LOAD(Y0), .CLK(CLK), .OUT(OA), .PRESET_N(1), .CLEAR_N(RESET));
-	reg_8_bit B(.IN(INB), .LOAD(Y1), .CLK(CLK), .OUT(OB), .PRESET_N(1), .CLEAR_N(RESET));
-	reg_8_bit C(.IN(INC), .LOAD(Y2), .CLK(CLK), .OUT(OC), .PRESET_N(1), .CLEAR_N(RESET));
-	reg_8_bit IX(.IN(INIX), .LOAD(Y3), .CLK(CLK), .OUT(OIX), .PRESET_N(1), .CLEAR_N(RESET));
+	reg_8_bit A(.IN(INA), .LOAD(Y0), .CLK(CLK), .OUT(OA), .PRESET_N(1'b1), .CLEAR_N(RESET));
+	reg_8_bit B(.IN(INB), .LOAD(Y1), .CLK(CLK), .OUT(OB), .PRESET_N(1'b1), .CLEAR_N(RESET));
+	reg_8_bit C(.IN(INC), .LOAD(Y2), .CLK(CLK), .OUT(OC), .PRESET_N(1'b1), .CLEAR_N(RESET));
+	reg_8_bit IX(.IN(INIX), .LOAD(Y3), .CLK(CLK), .OUT(OIX), .PRESET_N(1'b1), .CLEAR_N(RESET));
 	Zeros Z(.Z(OZ));
 	Ones O(.O(OO));
 	
