@@ -4,187 +4,43 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "CF",
+					"name" : "OUT_EN",
 					"strict" : false
 				},
 				{
-					"name" : "NF",
+					"name" : "oOUT[7]",
 					"strict" : false
 				},
 				{
-					"name" : "OF",
+					"name" : "oOUT[6]",
 					"strict" : false
 				},
 				{
-					"name" : "ZF",
+					"name" : "oOUT[5]",
 					"strict" : false
 				},
 				{
-					"name" : "IM[13]",
+					"name" : "oOUT[4]",
 					"strict" : false
 				},
 				{
-					"name" : "IM[12]",
+					"name" : "oOUT[3]",
 					"strict" : false
 				},
 				{
-					"name" : "IM[11]",
+					"name" : "oOUT[2]",
 					"strict" : false
 				},
 				{
-					"name" : "IM[10]",
+					"name" : "oOUT[1]",
 					"strict" : false
 				},
 				{
-					"name" : "IM[1]",
+					"name" : "oOUT[0]",
 					"strict" : false
 				},
 				{
-					"name" : "MemA[7]",
-					"strict" : false
-				},
-				{
-					"name" : "MemA[6]",
-					"strict" : false
-				},
-				{
-					"name" : "MemA[5]",
-					"strict" : false
-				},
-				{
-					"name" : "MemA[4]",
-					"strict" : false
-				},
-				{
-					"name" : "MemA[3]",
-					"strict" : false
-				},
-				{
-					"name" : "MemA[2]",
-					"strict" : false
-				},
-				{
-					"name" : "MemA[1]",
-					"strict" : false
-				},
-				{
-					"name" : "MemA[0]",
-					"strict" : false
-				},
-				{
-					"name" : "MemB[7]",
-					"strict" : false
-				},
-				{
-					"name" : "MemB[5]",
-					"strict" : false
-				},
-				{
-					"name" : "MemB[3]",
-					"strict" : false
-				},
-				{
-					"name" : "MemC[7]",
-					"strict" : false
-				},
-				{
-					"name" : "MemC[6]",
-					"strict" : false
-				},
-				{
-					"name" : "MemC[5]",
-					"strict" : false
-				},
-				{
-					"name" : "MemC[4]",
-					"strict" : false
-				},
-				{
-					"name" : "MemC[3]",
-					"strict" : false
-				},
-				{
-					"name" : "MemC[2]",
-					"strict" : false
-				},
-				{
-					"name" : "MemC[1]",
-					"strict" : false
-				},
-				{
-					"name" : "MemC[0]",
-					"strict" : false
-				},
-				{
-					"name" : "MemD[1]",
-					"strict" : false
-				},
-				{
-					"name" : "MemD[0]",
-					"strict" : false
-				},
-				{
-					"name" : "MemE[5]",
-					"strict" : false
-				},
-				{
-					"name" : "MemE[1]",
-					"strict" : false
-				},
-				{
-					"name" : "MemG[4]",
-					"strict" : false
-				},
-				{
-					"name" : "MemG[3]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[3]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[2]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[1]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[0]",
-					"strict" : false
-				},
-				{
-					"name" : "RegA[7]",
-					"strict" : false
-				},
-				{
-					"name" : "RegA[6]",
-					"strict" : false
-				},
-				{
-					"name" : "RegA[5]",
-					"strict" : false
-				},
-				{
-					"name" : "RegA[4]",
-					"strict" : false
-				},
-				{
-					"name" : "RegA[3]",
-					"strict" : false
-				},
-				{
-					"name" : "RegA[2]",
-					"strict" : false
-				},
-				{
-					"name" : "RegA[1]",
-					"strict" : false
-				},
-				{
-					"name" : "RegA[0]",
+					"name" : "InstLd",
 					"strict" : false
 				},
 				{
@@ -192,7 +48,103 @@
 					"strict" : false
 				},
 				{
+					"name" : "InstExt[10]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[11]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[12]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[13]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[14]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[15]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[7]",
+					"strict" : false
+				},
+				{
 					"name" : "RESET_IN",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[9]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[8]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[6]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[7]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[6]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[5]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[4]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[3]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[2]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[1]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[0]",
 					"strict" : false
 				}
 			]
