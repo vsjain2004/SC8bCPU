@@ -120,6 +120,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "InstExt[1]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[0]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[2]",
+					"strict" : false
+				},
+				{
 					"name" : "InstExt[6]",
 					"strict" : false
 				},
@@ -133,18 +145,6 @@
 				},
 				{
 					"name" : "InstExt[3]",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[2]",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[1]",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[0]",
 					"strict" : false
 				}
 			]

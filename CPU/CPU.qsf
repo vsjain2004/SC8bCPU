@@ -77,7 +77,6 @@ set_global_assignment -name VERILOG_FILE busmux_16_to_1.v
 set_global_assignment -name VERILOG_FILE busmux_8_to_1.v
 set_global_assignment -name VERILOG_FILE busmux_4_to_1.v
 set_global_assignment -name VERILOG_FILE AND_8_bit.v
-set_global_assignment -name BDF_FILE ALU.bdf
 set_global_assignment -name VERILOG_FILE Flags.v
 set_global_assignment -name VERILOG_FILE decoder4to16.v
 set_global_assignment -name BDF_FILE DMEM.bdf
@@ -91,4 +90,5 @@ set_global_assignment -name VERILOG_FILE busmuxN_2_to_1.v
 set_global_assignment -name VERILOG_FILE AddSub8b.v
 set_global_assignment -name VERILOG_FILE dffg.v
 set_global_assignment -name VERILOG_FILE memory.v
+set_global_assignment -name VERILOG_FILE ALU.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
