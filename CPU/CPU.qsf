@@ -65,9 +65,7 @@ set_global_assignment -name VERILOG_FILE reg_8_bit.v
 set_global_assignment -name VERILOG_FILE OR_8_bit.v
 set_global_assignment -name VERILOG_FILE Ones.v
 set_global_assignment -name VERILOG_FILE mainreg.v
-set_global_assignment -name VERILOG_FILE Decoder3to8.v
 set_global_assignment -name VERILOG_FILE Decoder2to4.v
-set_global_assignment -name VERILOG_FILE busmux_16_to_1.v
 set_global_assignment -name VERILOG_FILE busmux_8_to_1.v
 set_global_assignment -name VERILOG_FILE busmux_4_to_1.v
 set_global_assignment -name VERILOG_FILE AND_8_bit.v
