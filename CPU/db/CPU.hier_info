@@ -1,240 +1,40 @@
 |CPU
-OUT_EN <= Control_Unit:inst2.OUT_EN
-CLKT => memory:IMEM.clk
-CLKT => inst26.IN0
-CLKT => mainreg:inst7.CLK
-CLKT => memory:DMEM.clk
-InstLd => memory:IMEM.we
-RESET_IN => PC:inst5.RESET
-RESET_IN => mainreg:inst7.RESET
-InstExt[0] => memory:IMEM.data[0]
-InstExt[1] => memory:IMEM.data[1]
-InstExt[2] => memory:IMEM.data[2]
-InstExt[3] => memory:IMEM.data[3]
-InstExt[4] => memory:IMEM.data[4]
-InstExt[5] => memory:IMEM.data[5]
-InstExt[6] => memory:IMEM.data[6]
-InstExt[7] => memory:IMEM.data[7]
-InstExt[8] => memory:IMEM.data[8]
-InstExt[9] => memory:IMEM.data[9]
-InstExt[10] => memory:IMEM.data[10]
-InstExt[11] => memory:IMEM.data[11]
-InstExt[12] => memory:IMEM.data[12]
-InstExt[13] => memory:IMEM.data[13]
-InstExt[14] => memory:IMEM.data[14]
-InstExt[15] => memory:IMEM.data[15]
-oOUT[0] <= mainreg:inst7.OUTA[0]
-oOUT[1] <= mainreg:inst7.OUTA[1]
-oOUT[2] <= mainreg:inst7.OUTA[2]
-oOUT[3] <= mainreg:inst7.OUTA[3]
-oOUT[4] <= mainreg:inst7.OUTA[4]
-oOUT[5] <= mainreg:inst7.OUTA[5]
-oOUT[6] <= mainreg:inst7.OUTA[6]
-oOUT[7] <= mainreg:inst7.OUTA[7]
-IN[0] => busmux_4_to_1:WMR.In4[0]
-IN[1] => busmux_4_to_1:WMR.In4[1]
-IN[2] => busmux_4_to_1:WMR.In4[2]
-IN[3] => busmux_4_to_1:WMR.In4[3]
-IN[4] => busmux_4_to_1:WMR.In4[4]
-IN[5] => busmux_4_to_1:WMR.In4[5]
-IN[6] => busmux_4_to_1:WMR.In4[6]
-IN[7] => busmux_4_to_1:WMR.In4[7]
-
-
-|CPU|Control_Unit:inst2
-INST[0] => REG_W_ADD_0.IN1
-INST[0] => REG_ADD_2.IN1
-INST[0] => REG_ADD_0.IN1
-INST[1] => REG_W_ADD_1.IN1
-INST[1] => REG_ADD_3.IN1
-INST[1] => REG_ADD_1.IN1
-INST[2] => INST[2].IN10
-INST[3] => INST[3].IN10
-INST[4] => INST[4].IN1
-INST[5] => INST[5].IN1
-INST[6] => INST[6].IN1
-INST[7] => INST[7].IN1
-NF => PC_LD_EN.IN0
-OF => PC_LD_EN.IN1
-ZF => PC_LD_EN.IN1
-ZF => PC_LD_EN.IN1
-ZF => PC_LD_EN.IN1
-REG_WLINE_1 <= REG_WLINE_1.DB_MAX_OUTPUT_PORT_TYPE
-REG_WLINE_0 <= REG_WLINE_0.DB_MAX_OUTPUT_PORT_TYPE
-REG_W_EN <= REG_W_EN.DB_MAX_OUTPUT_PORT_TYPE
-REG_W_ADD_1 <= REG_W_ADD_1.DB_MAX_OUTPUT_PORT_TYPE
-REG_W_ADD_0 <= REG_W_ADD_0.DB_MAX_OUTPUT_PORT_TYPE
-REG_ADD_4 <= REG_ADD_4.DB_MAX_OUTPUT_PORT_TYPE
-REG_ADD_3 <= REG_ADD_3.DB_MAX_OUTPUT_PORT_TYPE
-REG_ADD_2 <= REG_ADD_2.DB_MAX_OUTPUT_PORT_TYPE
-REG_ADD_1 <= REG_ADD_1.DB_MAX_OUTPUT_PORT_TYPE
-REG_ADD_0 <= REG_ADD_0.DB_MAX_OUTPUT_PORT_TYPE
-ADD_SUB <= ADD_SUB.DB_MAX_OUTPUT_PORT_TYPE
-ALU_S_0 <= ALU_S_0.DB_MAX_OUTPUT_PORT_TYPE
-ALU_S_1 <= ALU_S_1.DB_MAX_OUTPUT_PORT_TYPE
-FLAG_W <= FLAG_W.DB_MAX_OUTPUT_PORT_TYPE
-ALU_SL_1 <= ALU_SL_1.DB_MAX_OUTPUT_PORT_TYPE
-ALU_SL_0 <= ALU_SL_0.DB_MAX_OUTPUT_PORT_TYPE
-DMEM_W_EN <= REG_ADD_3.DB_MAX_OUTPUT_PORT_TYPE
-DMEM_S_ADD <= DMEM_S_ADD.DB_MAX_OUTPUT_PORT_TYPE
-PC_LD_EN <= PC_LD_EN.DB_MAX_OUTPUT_PORT_TYPE
-PC_EN <= Decoder2to4:opdec1.Y0
-OUT_EN <= Decoder2to4:opdec2.Y3
-SWAP_R <= decoder4to16:opdef1.O
-ALU_S_2 <= ALU_S_2.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|decoder4to16:opdef1
-S[0] => Decoder0.IN3
-S[1] => Decoder0.IN2
-S[2] => Decoder0.IN1
-S[3] => Decoder0.IN0
-O[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[5] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[6] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[7] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[8] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[9] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[10] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[11] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[12] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[13] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[14] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-O[15] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|Decoder2to4:opdec0
-S1 => Decoder0.IN0
-S0 => Decoder0.IN1
-EN => Y3.OUTPUTSELECT
-EN => Y2.OUTPUTSELECT
-EN => Y1.OUTPUTSELECT
-EN => Y0.OUTPUTSELECT
-Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
-Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
-Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
-Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|Decoder2to4:opdec1
-S1 => Decoder0.IN0
-S0 => Decoder0.IN1
-EN => Y3.OUTPUTSELECT
-EN => Y2.OUTPUTSELECT
-EN => Y1.OUTPUTSELECT
-EN => Y0.OUTPUTSELECT
-Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
-Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
-Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
-Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|Decoder2to4:opdec2
-S1 => Decoder0.IN0
-S0 => Decoder0.IN1
-EN => Y3.OUTPUTSELECT
-EN => Y2.OUTPUTSELECT
-EN => Y1.OUTPUTSELECT
-EN => Y0.OUTPUTSELECT
-Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
-Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
-Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
-Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|Decoder2to4:opdec3
-S1 => Decoder0.IN0
-S0 => Decoder0.IN1
-EN => Y3.OUTPUTSELECT
-EN => Y2.OUTPUTSELECT
-EN => Y1.OUTPUTSELECT
-EN => Y0.OUTPUTSELECT
-Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
-Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
-Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
-Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|Decoder2to4:opdec6
-S1 => Decoder0.IN0
-S0 => Decoder0.IN1
-EN => Y3.OUTPUTSELECT
-EN => Y2.OUTPUTSELECT
-EN => Y1.OUTPUTSELECT
-EN => Y0.OUTPUTSELECT
-Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
-Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
-Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
-Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|Decoder2to4:opdec8
-S1 => Decoder0.IN0
-S0 => Decoder0.IN1
-EN => Y3.OUTPUTSELECT
-EN => Y2.OUTPUTSELECT
-EN => Y1.OUTPUTSELECT
-EN => Y0.OUTPUTSELECT
-Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
-Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
-Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
-Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|Decoder2to4:opdec9
-S1 => Decoder0.IN0
-S0 => Decoder0.IN1
-EN => Y3.OUTPUTSELECT
-EN => Y2.OUTPUTSELECT
-EN => Y1.OUTPUTSELECT
-EN => Y0.OUTPUTSELECT
-Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
-Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
-Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
-Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|Decoder2to4:opdec10
-S1 => Decoder0.IN0
-S0 => Decoder0.IN1
-EN => Y3.OUTPUTSELECT
-EN => Y2.OUTPUTSELECT
-EN => Y1.OUTPUTSELECT
-EN => Y0.OUTPUTSELECT
-Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
-Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
-Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
-Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|Decoder2to4:opdec12
-S1 => Decoder0.IN0
-S0 => Decoder0.IN1
-EN => Y3.OUTPUTSELECT
-EN => Y2.OUTPUTSELECT
-EN => Y1.OUTPUTSELECT
-EN => Y0.OUTPUTSELECT
-Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
-Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
-Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
-Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|Control_Unit:inst2|Decoder2to4:opdec14
-S1 => Decoder0.IN0
-S0 => Decoder0.IN1
-EN => Y3.OUTPUTSELECT
-EN => Y2.OUTPUTSELECT
-EN => Y1.OUTPUTSELECT
-EN => Y0.OUTPUTSELECT
-Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
-Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
-Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
-Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
+InstExt[0] => InstExt[0].IN1
+InstExt[1] => InstExt[1].IN1
+InstExt[2] => InstExt[2].IN1
+InstExt[3] => InstExt[3].IN1
+InstExt[4] => InstExt[4].IN1
+InstExt[5] => InstExt[5].IN1
+InstExt[6] => InstExt[6].IN1
+InstExt[7] => InstExt[7].IN1
+InstExt[8] => InstExt[8].IN1
+InstExt[9] => InstExt[9].IN1
+InstExt[10] => InstExt[10].IN1
+InstExt[11] => InstExt[11].IN1
+InstExt[12] => InstExt[12].IN1
+InstExt[13] => InstExt[13].IN1
+InstExt[14] => InstExt[14].IN1
+InstExt[15] => InstExt[15].IN1
+InstLd => InstLd.IN1
+CLK => CLK.IN5
+CLEAR_N => CLEAR_N.IN3
+IN[0] => IN[0].IN1
+IN[1] => IN[1].IN1
+IN[2] => IN[2].IN1
+IN[3] => IN[3].IN1
+IN[4] => IN[4].IN1
+IN[5] => IN[5].IN1
+IN[6] => IN[6].IN1
+IN[7] => IN[7].IN1
+OUT_EN << Control_Unit:OpDec.OUT_EN
+oOUT[0] << oRP1[0].DB_MAX_OUTPUT_PORT_TYPE
+oOUT[1] << oRP1[1].DB_MAX_OUTPUT_PORT_TYPE
+oOUT[2] << oRP1[2].DB_MAX_OUTPUT_PORT_TYPE
+oOUT[3] << oRP1[3].DB_MAX_OUTPUT_PORT_TYPE
+oOUT[4] << oRP1[4].DB_MAX_OUTPUT_PORT_TYPE
+oOUT[5] << oRP1[5].DB_MAX_OUTPUT_PORT_TYPE
+oOUT[6] << oRP1[6].DB_MAX_OUTPUT_PORT_TYPE
+oOUT[7] << oRP1[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|memory:IMEM
@@ -259,22 +59,6 @@ clk => ram.data_a[3].CLK
 clk => ram.data_a[2].CLK
 clk => ram.data_a[1].CLK
 clk => ram.data_a[0].CLK
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-clk => q[8]~reg0.CLK
-clk => q[9]~reg0.CLK
-clk => q[10]~reg0.CLK
-clk => q[11]~reg0.CLK
-clk => q[12]~reg0.CLK
-clk => q[13]~reg0.CLK
-clk => q[14]~reg0.CLK
-clk => q[15]~reg0.CLK
 clk => ram.CLK0
 data[0] => ram.data_a[0].DATAIN
 data[0] => ram.DATAIN
@@ -322,215 +106,142 @@ addr[2] => ram.RADDR2
 addr[3] => ram.waddr_a[3].DATAIN
 addr[3] => ram.WADDR3
 addr[3] => ram.RADDR3
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[8] <= q[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[9] <= q[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[10] <= q[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[11] <= q[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[12] <= q[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[13] <= q[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[14] <= q[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[15] <= q[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[0] <= ram.DATAOUT
+q[1] <= ram.DATAOUT1
+q[2] <= ram.DATAOUT2
+q[3] <= ram.DATAOUT3
+q[4] <= ram.DATAOUT4
+q[5] <= ram.DATAOUT5
+q[6] <= ram.DATAOUT6
+q[7] <= ram.DATAOUT7
+q[8] <= ram.DATAOUT8
+q[9] <= ram.DATAOUT9
+q[10] <= ram.DATAOUT10
+q[11] <= ram.DATAOUT11
+q[12] <= ram.DATAOUT12
+q[13] <= ram.DATAOUT13
+q[14] <= ram.DATAOUT14
+q[15] <= ram.DATAOUT15
 
 
-|CPU|PC:inst5
-LOAD => LOAD.IN4
-IN[0] => ~NO_FANOUT~
-IN[1] => ~NO_FANOUT~
-IN[2] => ~NO_FANOUT~
-IN[3] => ~NO_FANOUT~
-PCEN => iReg.IN1
-PCEN => aReg[0].IN1
-Clock => Clock.IN4
-RESET => RESET.IN4
-A[0] <= <GND>
-A[1] <= <GND>
-A[2] <= <GND>
-A[3] <= <GND>
+|CPU|memory:DMEM
+clk => ram.we_a.CLK
+clk => ram.waddr_a[2].CLK
+clk => ram.waddr_a[1].CLK
+clk => ram.waddr_a[0].CLK
+clk => ram.data_a[7].CLK
+clk => ram.data_a[6].CLK
+clk => ram.data_a[5].CLK
+clk => ram.data_a[4].CLK
+clk => ram.data_a[3].CLK
+clk => ram.data_a[2].CLK
+clk => ram.data_a[1].CLK
+clk => ram.data_a[0].CLK
+clk => ram.CLK0
+data[0] => ram.data_a[0].DATAIN
+data[0] => ram.DATAIN
+data[1] => ram.data_a[1].DATAIN
+data[1] => ram.DATAIN1
+data[2] => ram.data_a[2].DATAIN
+data[2] => ram.DATAIN2
+data[3] => ram.data_a[3].DATAIN
+data[3] => ram.DATAIN3
+data[4] => ram.data_a[4].DATAIN
+data[4] => ram.DATAIN4
+data[5] => ram.data_a[5].DATAIN
+data[5] => ram.DATAIN5
+data[6] => ram.data_a[6].DATAIN
+data[6] => ram.DATAIN6
+data[7] => ram.data_a[7].DATAIN
+data[7] => ram.DATAIN7
+we => ram.we_a.DATAIN
+we => ram.WE
+addr[0] => ram.waddr_a[0].DATAIN
+addr[0] => ram.WADDR
+addr[0] => ram.RADDR
+addr[1] => ram.waddr_a[1].DATAIN
+addr[1] => ram.WADDR1
+addr[1] => ram.RADDR1
+addr[2] => ram.waddr_a[2].DATAIN
+addr[2] => ram.WADDR2
+addr[2] => ram.RADDR2
+q[0] <= ram.DATAOUT
+q[1] <= ram.DATAOUT1
+q[2] <= ram.DATAOUT2
+q[3] <= ram.DATAOUT3
+q[4] <= ram.DATAOUT4
+q[5] <= ram.DATAOUT5
+q[6] <= ram.DATAOUT6
+q[7] <= ram.DATAOUT7
 
 
-|CPU|PC:inst5|register:a0
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
+|CPU|Control_Unit:OpDec
+INST[0] => REG_W_ADD_0.IN1
+INST[0] => REG_ADD_2.IN1
+INST[0] => REG_ADD_0.IN1
+INST[1] => REG_W_ADD_1.IN1
+INST[1] => REG_ADD_3.IN1
+INST[1] => REG_ADD_1.IN1
+INST[2] => INST[2].IN10
+INST[3] => INST[3].IN10
+INST[4] => INST[4].IN1
+INST[5] => INST[5].IN1
+INST[6] => INST[6].IN1
+INST[7] => INST[7].IN1
+NF => PC_LD_EN.IN0
+OF => PC_LD_EN.IN1
+ZF => PC_LD_EN.IN1
+ZF => PC_LD_EN.IN1
+ZF => PC_LD_EN.IN1
+REG_WLINE_1 <= REG_WLINE_1.DB_MAX_OUTPUT_PORT_TYPE
+REG_WLINE_0 <= REG_WLINE_0.DB_MAX_OUTPUT_PORT_TYPE
+REG_W_EN <= REG_W_EN.DB_MAX_OUTPUT_PORT_TYPE
+REG_W_ADD_1 <= REG_W_ADD_1.DB_MAX_OUTPUT_PORT_TYPE
+REG_W_ADD_0 <= REG_W_ADD_0.DB_MAX_OUTPUT_PORT_TYPE
+REG_ADD_4 <= REG_ADD_4.DB_MAX_OUTPUT_PORT_TYPE
+REG_ADD_3 <= REG_ADD_3.DB_MAX_OUTPUT_PORT_TYPE
+REG_ADD_2 <= REG_ADD_2.DB_MAX_OUTPUT_PORT_TYPE
+REG_ADD_1 <= REG_ADD_1.DB_MAX_OUTPUT_PORT_TYPE
+REG_ADD_0 <= REG_ADD_0.DB_MAX_OUTPUT_PORT_TYPE
+ADD_SUB <= ADD_SUB.DB_MAX_OUTPUT_PORT_TYPE
+ALU_S_0 <= ALU_S_0.DB_MAX_OUTPUT_PORT_TYPE
+ALU_S_1 <= ALU_S_1.DB_MAX_OUTPUT_PORT_TYPE
+FLAG_W <= FLAG_W.DB_MAX_OUTPUT_PORT_TYPE
+ALU_SL_1 <= ALU_SL_1.DB_MAX_OUTPUT_PORT_TYPE
+ALU_SL_0 <= ALU_SL_0.DB_MAX_OUTPUT_PORT_TYPE
+DMEM_W_EN <= REG_ADD_3.DB_MAX_OUTPUT_PORT_TYPE
+DMEM_S_ADD <= DMEM_S_ADD.DB_MAX_OUTPUT_PORT_TYPE
+PC_LD_EN <= PC_LD_EN.DB_MAX_OUTPUT_PORT_TYPE
+PC_EN <= Decoder2to4:opdec1.Y0
+OUT_EN <= Decoder2to4:opdec2.Y3
+SWAP_R <= decoder4to16:opdef1.O
+ALU_S_2 <= ALU_S_2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|PC:inst5|register:a0|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+|CPU|Control_Unit:OpDec|decoder4to16:opdef1
+S[0] => Decoder0.IN3
+S[1] => Decoder0.IN2
+S[2] => Decoder0.IN1
+S[3] => Decoder0.IN0
+O[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[5] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[6] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[7] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[8] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[9] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[10] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[11] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[12] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[13] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[14] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+O[15] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|PC:inst5|register:a1
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|PC:inst5|register:a1|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|PC:inst5|register:a2
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|PC:inst5|register:a2|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|PC:inst5|register:a3
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|PC:inst5|register:a3|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7
-IN[0] => INA.DATAA
-IN[0] => INB.DATAA
-IN[0] => INC.DATAA
-IN[0] => INIX.DATAA
-IN[1] => INA.DATAA
-IN[1] => INB.DATAA
-IN[1] => INC.DATAA
-IN[1] => INIX.DATAA
-IN[2] => INA.DATAA
-IN[2] => INB.DATAA
-IN[2] => INC.DATAA
-IN[2] => INIX.DATAA
-IN[3] => INA.DATAA
-IN[3] => INB.DATAA
-IN[3] => INC.DATAA
-IN[3] => INIX.DATAA
-IN[4] => INA.DATAA
-IN[4] => INB.DATAA
-IN[4] => INC.DATAA
-IN[4] => INIX.DATAA
-IN[5] => INA.DATAA
-IN[5] => INB.DATAA
-IN[5] => INC.DATAA
-IN[5] => INIX.DATAA
-IN[6] => INA.DATAA
-IN[6] => INB.DATAA
-IN[6] => INC.DATAA
-IN[6] => INIX.DATAA
-IN[7] => INA.DATAA
-IN[7] => INB.DATAA
-IN[7] => INC.DATAA
-IN[7] => INIX.DATAA
-MRWE => DeEN.IN0
-WA0 => RS0.DATAA
-WA1 => RS1.DATAA
-RA0 => RA0.IN1
-RA1 => RA1.IN1
-RA2 => RA2.IN2
-RA3 => RA3.IN2
-RA4 => RA4.IN1
-CLK => CLK.IN4
-RESET => RESET.IN4
-SWAPR => SWAPR.IN1
-OUTA[0] <= busmux_4_to_1:opa.Out
-OUTA[1] <= busmux_4_to_1:opa.Out
-OUTA[2] <= busmux_4_to_1:opa.Out
-OUTA[3] <= busmux_4_to_1:opa.Out
-OUTA[4] <= busmux_4_to_1:opa.Out
-OUTA[5] <= busmux_4_to_1:opa.Out
-OUTA[6] <= busmux_4_to_1:opa.Out
-OUTA[7] <= busmux_4_to_1:opa.Out
-OUTB[0] <= busmux_4_to_1:opb.Out
-OUTB[1] <= busmux_4_to_1:opb.Out
-OUTB[2] <= busmux_4_to_1:opb.Out
-OUTB[3] <= busmux_4_to_1:opb.Out
-OUTB[4] <= busmux_4_to_1:opb.Out
-OUTB[5] <= busmux_4_to_1:opb.Out
-OUTB[6] <= busmux_4_to_1:opb.Out
-OUTB[7] <= busmux_4_to_1:opb.Out
-OUTC[0] <= busmux_4_to_1:opc.Out
-OUTC[1] <= busmux_4_to_1:opc.Out
-OUTC[2] <= busmux_4_to_1:opc.Out
-OUTC[3] <= busmux_4_to_1:opc.Out
-OUTC[4] <= busmux_4_to_1:opc.Out
-OUTC[5] <= busmux_4_to_1:opc.Out
-OUTC[6] <= busmux_4_to_1:opc.Out
-OUTC[7] <= busmux_4_to_1:opc.Out
-OA[0] <= OA[0].DB_MAX_OUTPUT_PORT_TYPE
-OA[1] <= OA[1].DB_MAX_OUTPUT_PORT_TYPE
-OA[2] <= OA[2].DB_MAX_OUTPUT_PORT_TYPE
-OA[3] <= OA[3].DB_MAX_OUTPUT_PORT_TYPE
-OA[4] <= OA[4].DB_MAX_OUTPUT_PORT_TYPE
-OA[5] <= OA[5].DB_MAX_OUTPUT_PORT_TYPE
-OA[6] <= OA[6].DB_MAX_OUTPUT_PORT_TYPE
-OA[7] <= OA[7].DB_MAX_OUTPUT_PORT_TYPE
-OB[0] <= OB[0].DB_MAX_OUTPUT_PORT_TYPE
-OB[1] <= OB[1].DB_MAX_OUTPUT_PORT_TYPE
-OB[2] <= OB[2].DB_MAX_OUTPUT_PORT_TYPE
-OB[3] <= OB[3].DB_MAX_OUTPUT_PORT_TYPE
-OB[4] <= OB[4].DB_MAX_OUTPUT_PORT_TYPE
-OB[5] <= OB[5].DB_MAX_OUTPUT_PORT_TYPE
-OB[6] <= OB[6].DB_MAX_OUTPUT_PORT_TYPE
-OB[7] <= OB[7].DB_MAX_OUTPUT_PORT_TYPE
-OC[0] <= OC[0].DB_MAX_OUTPUT_PORT_TYPE
-OC[1] <= OC[1].DB_MAX_OUTPUT_PORT_TYPE
-OC[2] <= OC[2].DB_MAX_OUTPUT_PORT_TYPE
-OC[3] <= OC[3].DB_MAX_OUTPUT_PORT_TYPE
-OC[4] <= OC[4].DB_MAX_OUTPUT_PORT_TYPE
-OC[5] <= OC[5].DB_MAX_OUTPUT_PORT_TYPE
-OC[6] <= OC[6].DB_MAX_OUTPUT_PORT_TYPE
-OC[7] <= OC[7].DB_MAX_OUTPUT_PORT_TYPE
-OIX[0] <= OIX[0].DB_MAX_OUTPUT_PORT_TYPE
-OIX[1] <= OIX[1].DB_MAX_OUTPUT_PORT_TYPE
-OIX[2] <= OIX[2].DB_MAX_OUTPUT_PORT_TYPE
-OIX[3] <= OIX[3].DB_MAX_OUTPUT_PORT_TYPE
-OIX[4] <= OIX[4].DB_MAX_OUTPUT_PORT_TYPE
-OIX[5] <= OIX[5].DB_MAX_OUTPUT_PORT_TYPE
-OIX[6] <= OIX[6].DB_MAX_OUTPUT_PORT_TYPE
-OIX[7] <= OIX[7].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|Decoder2to4:decoder
+|CPU|Control_Unit:OpDec|Decoder2to4:opdec0
 S1 => Decoder0.IN0
 S0 => Decoder0.IN1
 EN => Y3.OUTPUTSELECT
@@ -543,7 +254,7 @@ Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
 Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|mainreg:inst7|Decoder2to4:decoder2
+|CPU|Control_Unit:OpDec|Decoder2to4:opdec1
 S1 => Decoder0.IN0
 S0 => Decoder0.IN1
 EN => Y3.OUTPUTSELECT
@@ -556,895 +267,108 @@ Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
 Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|mainreg:inst7|reg_8_bit:A
-IN[0] => IN[0].IN1
-IN[1] => IN[1].IN1
-IN[2] => IN[2].IN1
-IN[3] => IN[3].IN1
-IN[4] => IN[4].IN1
-IN[5] => IN[5].IN1
-IN[6] => IN[6].IN1
-IN[7] => IN[7].IN1
-LOAD => LOAD.IN8
-CLK => CLK.IN8
-OUT[0] <= register:reg0.OUT
-OUT[1] <= register:reg1.OUT
-OUT[2] <= register:reg2.OUT
-OUT[3] <= register:reg3.OUT
-OUT[4] <= register:reg4.OUT
-OUT[5] <= register:reg5.OUT
-OUT[6] <= register:reg6.OUT
-OUT[7] <= register:reg7.OUT
-PRESET_N => PRESET_N.IN8
-CLEAR_N => CLEAR_N.IN8
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg0
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg0|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg1
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg1|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg2
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg2|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg3
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg3|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg4
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg4|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg5
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg5|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg6
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg6|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg7
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:A|register:reg7|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:B
-IN[0] => IN[0].IN1
-IN[1] => IN[1].IN1
-IN[2] => IN[2].IN1
-IN[3] => IN[3].IN1
-IN[4] => IN[4].IN1
-IN[5] => IN[5].IN1
-IN[6] => IN[6].IN1
-IN[7] => IN[7].IN1
-LOAD => LOAD.IN8
-CLK => CLK.IN8
-OUT[0] <= register:reg0.OUT
-OUT[1] <= register:reg1.OUT
-OUT[2] <= register:reg2.OUT
-OUT[3] <= register:reg3.OUT
-OUT[4] <= register:reg4.OUT
-OUT[5] <= register:reg5.OUT
-OUT[6] <= register:reg6.OUT
-OUT[7] <= register:reg7.OUT
-PRESET_N => PRESET_N.IN8
-CLEAR_N => CLEAR_N.IN8
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg0
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg0|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg1
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg1|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg2
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg2|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg3
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg3|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg4
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg4|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg5
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg5|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg6
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg6|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg7
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:B|register:reg7|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:C
-IN[0] => IN[0].IN1
-IN[1] => IN[1].IN1
-IN[2] => IN[2].IN1
-IN[3] => IN[3].IN1
-IN[4] => IN[4].IN1
-IN[5] => IN[5].IN1
-IN[6] => IN[6].IN1
-IN[7] => IN[7].IN1
-LOAD => LOAD.IN8
-CLK => CLK.IN8
-OUT[0] <= register:reg0.OUT
-OUT[1] <= register:reg1.OUT
-OUT[2] <= register:reg2.OUT
-OUT[3] <= register:reg3.OUT
-OUT[4] <= register:reg4.OUT
-OUT[5] <= register:reg5.OUT
-OUT[6] <= register:reg6.OUT
-OUT[7] <= register:reg7.OUT
-PRESET_N => PRESET_N.IN8
-CLEAR_N => CLEAR_N.IN8
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg0
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg0|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg1
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg1|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg2
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg2|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg3
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg3|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg4
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg4|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg5
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg5|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg6
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg6|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg7
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:C|register:reg7|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX
-IN[0] => IN[0].IN1
-IN[1] => IN[1].IN1
-IN[2] => IN[2].IN1
-IN[3] => IN[3].IN1
-IN[4] => IN[4].IN1
-IN[5] => IN[5].IN1
-IN[6] => IN[6].IN1
-IN[7] => IN[7].IN1
-LOAD => LOAD.IN8
-CLK => CLK.IN8
-OUT[0] <= register:reg0.OUT
-OUT[1] <= register:reg1.OUT
-OUT[2] <= register:reg2.OUT
-OUT[3] <= register:reg3.OUT
-OUT[4] <= register:reg4.OUT
-OUT[5] <= register:reg5.OUT
-OUT[6] <= register:reg6.OUT
-OUT[7] <= register:reg7.OUT
-PRESET_N => PRESET_N.IN8
-CLEAR_N => CLEAR_N.IN8
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg0
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg0|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg1
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg1|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg2
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg2|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg3
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg3|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg4
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg4|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg5
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg5|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg6
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg6|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg7
-IN => D.DATAB
-LOAD => D.OUTPUTSELECT
-CLK => CLK.IN1
-OUT <= dffg:my_dff.q
-PRESET_N => PRESET_N.IN1
-CLEAR_N => CLEAR_N.IN1
-
-
-|CPU|mainreg:inst7|reg_8_bit:IX|register:reg7|dffg:my_dff
-d => q~reg0.DATAIN
-clk => q~reg0.CLK
-prn => q.IN0
-clrn => q.IN1
-clrn => q~reg0.ACLR
-q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|Zeros:Z
-Z[0] <= <GND>
-Z[1] <= <GND>
-Z[2] <= <GND>
-Z[3] <= <GND>
-Z[4] <= <GND>
-Z[5] <= <GND>
-Z[6] <= <GND>
-Z[7] <= <GND>
-
-
-|CPU|mainreg:inst7|Ones:O
-O[0] <= <VCC>
-O[1] <= <VCC>
-O[2] <= <VCC>
-O[3] <= <VCC>
-O[4] <= <VCC>
-O[5] <= <VCC>
-O[6] <= <VCC>
-O[7] <= <VCC>
-
-
-|CPU|mainreg:inst7|busmux_4_to_1:opa
-In1[0] => Out.DATAA
-In1[1] => Out.DATAA
-In1[2] => Out.DATAA
-In1[3] => Out.DATAA
-In1[4] => Out.DATAA
-In1[5] => Out.DATAA
-In1[6] => Out.DATAA
-In1[7] => Out.DATAA
-In2[0] => Out.DATAB
-In2[1] => Out.DATAB
-In2[2] => Out.DATAB
-In2[3] => Out.DATAB
-In2[4] => Out.DATAB
-In2[5] => Out.DATAB
-In2[6] => Out.DATAB
-In2[7] => Out.DATAB
-In3[0] => Out.DATAA
-In3[1] => Out.DATAA
-In3[2] => Out.DATAA
-In3[3] => Out.DATAA
-In3[4] => Out.DATAA
-In3[5] => Out.DATAA
-In3[6] => Out.DATAA
-In3[7] => Out.DATAA
-In4[0] => Out.DATAB
-In4[1] => Out.DATAB
-In4[2] => Out.DATAB
-In4[3] => Out.DATAB
-In4[4] => Out.DATAB
-In4[5] => Out.DATAB
-In4[6] => Out.DATAB
-In4[7] => Out.DATAB
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|busmux_4_to_1:opb
-In1[0] => Out.DATAA
-In1[1] => Out.DATAA
-In1[2] => Out.DATAA
-In1[3] => Out.DATAA
-In1[4] => Out.DATAA
-In1[5] => Out.DATAA
-In1[6] => Out.DATAA
-In1[7] => Out.DATAA
-In2[0] => Out.DATAB
-In2[1] => Out.DATAB
-In2[2] => Out.DATAB
-In2[3] => Out.DATAB
-In2[4] => Out.DATAB
-In2[5] => Out.DATAB
-In2[6] => Out.DATAB
-In2[7] => Out.DATAB
-In3[0] => Out.DATAA
-In3[1] => Out.DATAA
-In3[2] => Out.DATAA
-In3[3] => Out.DATAA
-In3[4] => Out.DATAA
-In3[5] => Out.DATAA
-In3[6] => Out.DATAA
-In3[7] => Out.DATAA
-In4[0] => Out.DATAB
-In4[1] => Out.DATAB
-In4[2] => Out.DATAB
-In4[3] => Out.DATAB
-In4[4] => Out.DATAB
-In4[5] => Out.DATAB
-In4[6] => Out.DATAB
-In4[7] => Out.DATAB
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|CPU|mainreg:inst7|busmux_4_to_1:opc
-In1[0] => Out.DATAA
-In1[1] => Out.DATAA
-In1[2] => Out.DATAA
-In1[3] => Out.DATAA
-In1[4] => Out.DATAA
-In1[5] => Out.DATAA
-In1[6] => Out.DATAA
-In1[7] => Out.DATAA
-In2[0] => Out.DATAB
-In2[1] => Out.DATAB
-In2[2] => Out.DATAB
-In2[3] => Out.DATAB
-In2[4] => Out.DATAB
-In2[5] => Out.DATAB
-In2[6] => Out.DATAB
-In2[7] => Out.DATAB
-In3[0] => Out.DATAA
-In3[1] => Out.DATAA
-In3[2] => Out.DATAA
-In3[3] => Out.DATAA
-In3[4] => Out.DATAA
-In3[5] => Out.DATAA
-In3[6] => Out.DATAA
-In3[7] => Out.DATAA
-In4[0] => Out.DATAB
-In4[1] => Out.DATAB
-In4[2] => Out.DATAB
-In4[3] => Out.DATAB
-In4[4] => Out.DATAB
-In4[5] => Out.DATAB
-In4[6] => Out.DATAB
-In4[7] => Out.DATAB
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+|CPU|Control_Unit:OpDec|Decoder2to4:opdec2
+S1 => Decoder0.IN0
+S0 => Decoder0.IN1
+EN => Y3.OUTPUTSELECT
+EN => Y2.OUTPUTSELECT
+EN => Y1.OUTPUTSELECT
+EN => Y0.OUTPUTSELECT
+Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
+Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|Control_Unit:OpDec|Decoder2to4:opdec3
+S1 => Decoder0.IN0
+S0 => Decoder0.IN1
+EN => Y3.OUTPUTSELECT
+EN => Y2.OUTPUTSELECT
+EN => Y1.OUTPUTSELECT
+EN => Y0.OUTPUTSELECT
+Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
+Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|Control_Unit:OpDec|Decoder2to4:opdec6
+S1 => Decoder0.IN0
+S0 => Decoder0.IN1
+EN => Y3.OUTPUTSELECT
+EN => Y2.OUTPUTSELECT
+EN => Y1.OUTPUTSELECT
+EN => Y0.OUTPUTSELECT
+Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
+Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|Control_Unit:OpDec|Decoder2to4:opdec8
+S1 => Decoder0.IN0
+S0 => Decoder0.IN1
+EN => Y3.OUTPUTSELECT
+EN => Y2.OUTPUTSELECT
+EN => Y1.OUTPUTSELECT
+EN => Y0.OUTPUTSELECT
+Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
+Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|Control_Unit:OpDec|Decoder2to4:opdec9
+S1 => Decoder0.IN0
+S0 => Decoder0.IN1
+EN => Y3.OUTPUTSELECT
+EN => Y2.OUTPUTSELECT
+EN => Y1.OUTPUTSELECT
+EN => Y0.OUTPUTSELECT
+Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
+Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|Control_Unit:OpDec|Decoder2to4:opdec10
+S1 => Decoder0.IN0
+S0 => Decoder0.IN1
+EN => Y3.OUTPUTSELECT
+EN => Y2.OUTPUTSELECT
+EN => Y1.OUTPUTSELECT
+EN => Y0.OUTPUTSELECT
+Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
+Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|Control_Unit:OpDec|Decoder2to4:opdec12
+S1 => Decoder0.IN0
+S0 => Decoder0.IN1
+EN => Y3.OUTPUTSELECT
+EN => Y2.OUTPUTSELECT
+EN => Y1.OUTPUTSELECT
+EN => Y0.OUTPUTSELECT
+Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
+Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|Control_Unit:OpDec|Decoder2to4:opdec14
+S1 => Decoder0.IN0
+S0 => Decoder0.IN1
+EN => Y3.OUTPUTSELECT
+EN => Y2.OUTPUTSELECT
+EN => Y1.OUTPUTSELECT
+EN => Y0.OUTPUTSELECT
+Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
+Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |CPU|busmux_4_to_1:WMR
@@ -1514,7 +438,1069 @@ Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|ALU:inst3
+|CPU|mainreg:MReg
+IN[0] => INA.DATAA
+IN[0] => INB.DATAA
+IN[0] => INC.DATAA
+IN[0] => INIX.DATAA
+IN[1] => INA.DATAA
+IN[1] => INB.DATAA
+IN[1] => INC.DATAA
+IN[1] => INIX.DATAA
+IN[2] => INA.DATAA
+IN[2] => INB.DATAA
+IN[2] => INC.DATAA
+IN[2] => INIX.DATAA
+IN[3] => INA.DATAA
+IN[3] => INB.DATAA
+IN[3] => INC.DATAA
+IN[3] => INIX.DATAA
+IN[4] => INA.DATAA
+IN[4] => INB.DATAA
+IN[4] => INC.DATAA
+IN[4] => INIX.DATAA
+IN[5] => INA.DATAA
+IN[5] => INB.DATAA
+IN[5] => INC.DATAA
+IN[5] => INIX.DATAA
+IN[6] => INA.DATAA
+IN[6] => INB.DATAA
+IN[6] => INC.DATAA
+IN[6] => INIX.DATAA
+IN[7] => INA.DATAA
+IN[7] => INB.DATAA
+IN[7] => INC.DATAA
+IN[7] => INIX.DATAA
+MRWE => DeEN.IN0
+WA0 => RS0.DATAA
+WA1 => RS1.DATAA
+RA0 => RA0.IN1
+RA1 => RA1.IN1
+RA2 => RA2.IN2
+RA3 => RA3.IN2
+RA4 => RA4.IN1
+CLK => CLK.IN4
+RESET => RESET.IN4
+SWAPR => SWAPR.IN1
+OUTA[0] <= busmux_4_to_1:opa.Out
+OUTA[1] <= busmux_4_to_1:opa.Out
+OUTA[2] <= busmux_4_to_1:opa.Out
+OUTA[3] <= busmux_4_to_1:opa.Out
+OUTA[4] <= busmux_4_to_1:opa.Out
+OUTA[5] <= busmux_4_to_1:opa.Out
+OUTA[6] <= busmux_4_to_1:opa.Out
+OUTA[7] <= busmux_4_to_1:opa.Out
+OUTB[0] <= busmux_4_to_1:opb.Out
+OUTB[1] <= busmux_4_to_1:opb.Out
+OUTB[2] <= busmux_4_to_1:opb.Out
+OUTB[3] <= busmux_4_to_1:opb.Out
+OUTB[4] <= busmux_4_to_1:opb.Out
+OUTB[5] <= busmux_4_to_1:opb.Out
+OUTB[6] <= busmux_4_to_1:opb.Out
+OUTB[7] <= busmux_4_to_1:opb.Out
+OUTC[0] <= busmux_4_to_1:opc.Out
+OUTC[1] <= busmux_4_to_1:opc.Out
+OUTC[2] <= busmux_4_to_1:opc.Out
+OUTC[3] <= busmux_4_to_1:opc.Out
+OUTC[4] <= busmux_4_to_1:opc.Out
+OUTC[5] <= busmux_4_to_1:opc.Out
+OUTC[6] <= busmux_4_to_1:opc.Out
+OUTC[7] <= busmux_4_to_1:opc.Out
+OIX[0] <= OIX[0].DB_MAX_OUTPUT_PORT_TYPE
+OIX[1] <= OIX[1].DB_MAX_OUTPUT_PORT_TYPE
+OIX[2] <= OIX[2].DB_MAX_OUTPUT_PORT_TYPE
+OIX[3] <= OIX[3].DB_MAX_OUTPUT_PORT_TYPE
+OIX[4] <= OIX[4].DB_MAX_OUTPUT_PORT_TYPE
+OIX[5] <= OIX[5].DB_MAX_OUTPUT_PORT_TYPE
+OIX[6] <= OIX[6].DB_MAX_OUTPUT_PORT_TYPE
+OIX[7] <= OIX[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|Decoder2to4:decoder
+S1 => Decoder0.IN0
+S0 => Decoder0.IN1
+EN => Y3.OUTPUTSELECT
+EN => Y2.OUTPUTSELECT
+EN => Y1.OUTPUTSELECT
+EN => Y0.OUTPUTSELECT
+Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
+Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|Decoder2to4:decoder2
+S1 => Decoder0.IN0
+S0 => Decoder0.IN1
+EN => Y3.OUTPUTSELECT
+EN => Y2.OUTPUTSELECT
+EN => Y1.OUTPUTSELECT
+EN => Y0.OUTPUTSELECT
+Y0 <= Y0.DB_MAX_OUTPUT_PORT_TYPE
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+Y2 <= Y2.DB_MAX_OUTPUT_PORT_TYPE
+Y3 <= Y3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:A
+IN[0] => IN[0].IN1
+IN[1] => IN[1].IN1
+IN[2] => IN[2].IN1
+IN[3] => IN[3].IN1
+IN[4] => IN[4].IN1
+IN[5] => IN[5].IN1
+IN[6] => IN[6].IN1
+IN[7] => IN[7].IN1
+LOAD => LOAD.IN8
+CLK => CLK.IN8
+OUT[0] <= register:reg0.OUT
+OUT[1] <= register:reg1.OUT
+OUT[2] <= register:reg2.OUT
+OUT[3] <= register:reg3.OUT
+OUT[4] <= register:reg4.OUT
+OUT[5] <= register:reg5.OUT
+OUT[6] <= register:reg6.OUT
+OUT[7] <= register:reg7.OUT
+PRESET_N => PRESET_N.IN8
+CLEAR_N => CLEAR_N.IN8
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg0
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg0|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg1
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg1|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg2
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg2|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg3
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg3|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg4
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg4|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg5
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg5|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg6
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg6|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg7
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:A|register:reg7|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:B
+IN[0] => IN[0].IN1
+IN[1] => IN[1].IN1
+IN[2] => IN[2].IN1
+IN[3] => IN[3].IN1
+IN[4] => IN[4].IN1
+IN[5] => IN[5].IN1
+IN[6] => IN[6].IN1
+IN[7] => IN[7].IN1
+LOAD => LOAD.IN8
+CLK => CLK.IN8
+OUT[0] <= register:reg0.OUT
+OUT[1] <= register:reg1.OUT
+OUT[2] <= register:reg2.OUT
+OUT[3] <= register:reg3.OUT
+OUT[4] <= register:reg4.OUT
+OUT[5] <= register:reg5.OUT
+OUT[6] <= register:reg6.OUT
+OUT[7] <= register:reg7.OUT
+PRESET_N => PRESET_N.IN8
+CLEAR_N => CLEAR_N.IN8
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg0
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg0|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg1
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg1|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg2
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg2|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg3
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg3|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg4
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg4|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg5
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg5|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg6
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg6|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg7
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:B|register:reg7|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:C
+IN[0] => IN[0].IN1
+IN[1] => IN[1].IN1
+IN[2] => IN[2].IN1
+IN[3] => IN[3].IN1
+IN[4] => IN[4].IN1
+IN[5] => IN[5].IN1
+IN[6] => IN[6].IN1
+IN[7] => IN[7].IN1
+LOAD => LOAD.IN8
+CLK => CLK.IN8
+OUT[0] <= register:reg0.OUT
+OUT[1] <= register:reg1.OUT
+OUT[2] <= register:reg2.OUT
+OUT[3] <= register:reg3.OUT
+OUT[4] <= register:reg4.OUT
+OUT[5] <= register:reg5.OUT
+OUT[6] <= register:reg6.OUT
+OUT[7] <= register:reg7.OUT
+PRESET_N => PRESET_N.IN8
+CLEAR_N => CLEAR_N.IN8
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg0
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg0|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg1
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg1|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg2
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg2|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg3
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg3|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg4
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg4|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg5
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg5|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg6
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg6|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg7
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:C|register:reg7|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX
+IN[0] => IN[0].IN1
+IN[1] => IN[1].IN1
+IN[2] => IN[2].IN1
+IN[3] => IN[3].IN1
+IN[4] => IN[4].IN1
+IN[5] => IN[5].IN1
+IN[6] => IN[6].IN1
+IN[7] => IN[7].IN1
+LOAD => LOAD.IN8
+CLK => CLK.IN8
+OUT[0] <= register:reg0.OUT
+OUT[1] <= register:reg1.OUT
+OUT[2] <= register:reg2.OUT
+OUT[3] <= register:reg3.OUT
+OUT[4] <= register:reg4.OUT
+OUT[5] <= register:reg5.OUT
+OUT[6] <= register:reg6.OUT
+OUT[7] <= register:reg7.OUT
+PRESET_N => PRESET_N.IN8
+CLEAR_N => CLEAR_N.IN8
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg0
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg0|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg1
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg1|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg2
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg2|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg3
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg3|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg4
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg4|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg5
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg5|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg6
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg6|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg7
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|mainreg:MReg|reg_8_bit:IX|register:reg7|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|Zeros:Z
+Z[0] <= <GND>
+Z[1] <= <GND>
+Z[2] <= <GND>
+Z[3] <= <GND>
+Z[4] <= <GND>
+Z[5] <= <GND>
+Z[6] <= <GND>
+Z[7] <= <GND>
+
+
+|CPU|mainreg:MReg|Ones:O
+O[0] <= <VCC>
+O[1] <= <VCC>
+O[2] <= <VCC>
+O[3] <= <VCC>
+O[4] <= <VCC>
+O[5] <= <VCC>
+O[6] <= <VCC>
+O[7] <= <VCC>
+
+
+|CPU|mainreg:MReg|busmux_4_to_1:opa
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In1[3] => Out.DATAA
+In1[4] => Out.DATAA
+In1[5] => Out.DATAA
+In1[6] => Out.DATAA
+In1[7] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+In2[3] => Out.DATAB
+In2[4] => Out.DATAB
+In2[5] => Out.DATAB
+In2[6] => Out.DATAB
+In2[7] => Out.DATAB
+In3[0] => Out.DATAA
+In3[1] => Out.DATAA
+In3[2] => Out.DATAA
+In3[3] => Out.DATAA
+In3[4] => Out.DATAA
+In3[5] => Out.DATAA
+In3[6] => Out.DATAA
+In3[7] => Out.DATAA
+In4[0] => Out.DATAB
+In4[1] => Out.DATAB
+In4[2] => Out.DATAB
+In4[3] => Out.DATAB
+In4[4] => Out.DATAB
+In4[5] => Out.DATAB
+In4[6] => Out.DATAB
+In4[7] => Out.DATAB
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|busmux_4_to_1:opb
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In1[3] => Out.DATAA
+In1[4] => Out.DATAA
+In1[5] => Out.DATAA
+In1[6] => Out.DATAA
+In1[7] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+In2[3] => Out.DATAB
+In2[4] => Out.DATAB
+In2[5] => Out.DATAB
+In2[6] => Out.DATAB
+In2[7] => Out.DATAB
+In3[0] => Out.DATAA
+In3[1] => Out.DATAA
+In3[2] => Out.DATAA
+In3[3] => Out.DATAA
+In3[4] => Out.DATAA
+In3[5] => Out.DATAA
+In3[6] => Out.DATAA
+In3[7] => Out.DATAA
+In4[0] => Out.DATAB
+In4[1] => Out.DATAB
+In4[2] => Out.DATAB
+In4[3] => Out.DATAB
+In4[4] => Out.DATAB
+In4[5] => Out.DATAB
+In4[6] => Out.DATAB
+In4[7] => Out.DATAB
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|mainreg:MReg|busmux_4_to_1:opc
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In1[3] => Out.DATAA
+In1[4] => Out.DATAA
+In1[5] => Out.DATAA
+In1[6] => Out.DATAA
+In1[7] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+In2[3] => Out.DATAB
+In2[4] => Out.DATAB
+In2[5] => Out.DATAB
+In2[6] => Out.DATAB
+In2[7] => Out.DATAB
+In3[0] => Out.DATAA
+In3[1] => Out.DATAA
+In3[2] => Out.DATAA
+In3[3] => Out.DATAA
+In3[4] => Out.DATAA
+In3[5] => Out.DATAA
+In3[6] => Out.DATAA
+In3[7] => Out.DATAA
+In4[0] => Out.DATAB
+In4[1] => Out.DATAB
+In4[2] => Out.DATAB
+In4[3] => Out.DATAB
+In4[4] => Out.DATAB
+In4[5] => Out.DATAB
+In4[6] => Out.DATAB
+In4[7] => Out.DATAB
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|busmux_4_to_1:SALU
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In1[3] => Out.DATAA
+In1[4] => Out.DATAA
+In1[5] => Out.DATAA
+In1[6] => Out.DATAA
+In1[7] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+In2[3] => Out.DATAB
+In2[4] => Out.DATAB
+In2[5] => Out.DATAB
+In2[6] => Out.DATAB
+In2[7] => Out.DATAB
+In3[0] => Out.DATAA
+In3[1] => Out.DATAA
+In3[2] => Out.DATAA
+In3[3] => Out.DATAA
+In3[4] => Out.DATAA
+In3[5] => Out.DATAA
+In3[6] => Out.DATAA
+In3[7] => Out.DATAA
+In4[0] => Out.DATAB
+In4[1] => Out.DATAB
+In4[2] => Out.DATAB
+In4[3] => Out.DATAB
+In4[4] => Out.DATAB
+In4[5] => Out.DATAB
+In4[6] => Out.DATAB
+In4[7] => Out.DATAB
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s1 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+s0 => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|ALU:alu
 ADD_SUB => ADD_SUB.IN3
 Y[0] => Y[0].IN7
 Y[1] => Y[1].IN7
@@ -1549,7 +1535,7 @@ Result[6] <= busmux_8_to_1:mux1.F
 Result[7] <= busmux_8_to_1:mux1.F
 
 
-|CPU|ALU:inst3|AddSub8b:adder
+|CPU|ALU:alu|AddSub8b:adder
 Cin => Yi[7].OUTPUTSELECT
 Cin => Yi[6].OUTPUTSELECT
 Cin => Yi[5].OUTPUTSELECT
@@ -1603,7 +1589,7 @@ Cout <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 Ov <= Ov.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|ALU:inst3|AND_8_bit:ander
+|CPU|ALU:alu|AND_8_bit:ander
 In[0] => Out.IN0
 In[1] => Out.IN0
 In[2] => Out.IN0
@@ -1630,7 +1616,7 @@ Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|ALU:inst3|OR_8_bit:orer
+|CPU|ALU:alu|OR_8_bit:orer
 In[0] => Out.IN0
 In[1] => Out.IN0
 In[2] => Out.IN0
@@ -1657,7 +1643,7 @@ Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|ALU:inst3|XOR_8_bit:xorer
+|CPU|ALU:alu|XOR_8_bit:xorer
 In[0] => Out.IN0
 In[1] => Out.IN0
 In[2] => Out.IN0
@@ -1684,7 +1670,7 @@ Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|ALU:inst3|NOT_8_bit:noter
+|CPU|ALU:alu|NOT_8_bit:noter
 In[0] => Out[0].DATAIN
 In[1] => Out[1].DATAIN
 In[2] => Out[2].DATAIN
@@ -1703,7 +1689,7 @@ Out[6] <= In[6].DB_MAX_OUTPUT_PORT_TYPE
 Out[7] <= In[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|ALU:inst3|Logic_Shifter:ls
+|CPU|ALU:alu|Logic_Shifter:ls
 IN[0] => Mux6.IN7
 IN[0] => Mux7.IN7
 IN[0] => Mux8.IN7
@@ -1839,7 +1825,7 @@ Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|ALU:inst3|Arithmetic_Shifter:as
+|CPU|ALU:alu|Arithmetic_Shifter:as
 IN[0] => Mux5.IN7
 IN[1] => Mux4.IN7
 IN[1] => Mux5.IN6
@@ -1922,7 +1908,7 @@ Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 Out[7] <= IN[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|ALU:inst3|Circular_Shifter:cs
+|CPU|ALU:alu|Circular_Shifter:cs
 IN[0] => Mux0.IN7
 IN[0] => Mux1.IN7
 IN[0] => Mux2.IN7
@@ -2117,7 +2103,7 @@ Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|ALU:inst3|busmux_8_to_1:mux1
+|CPU|ALU:alu|busmux_8_to_1:mux1
 S[0] => F.OUTPUTSELECT
 S[0] => F.OUTPUTSELECT
 S[0] => F.OUTPUTSELECT
@@ -2248,148 +2234,92 @@ F[6] <= F.DB_MAX_OUTPUT_PORT_TYPE
 F[7] <= F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|busmux_4_to_1:SALU
-In1[0] => Out.DATAA
-In1[1] => Out.DATAA
-In1[2] => Out.DATAA
-In1[3] => Out.DATAA
-In1[4] => Out.DATAA
-In1[5] => Out.DATAA
-In1[6] => Out.DATAA
-In1[7] => Out.DATAA
-In2[0] => Out.DATAB
-In2[1] => Out.DATAB
-In2[2] => Out.DATAB
-In2[3] => Out.DATAB
-In2[4] => Out.DATAB
-In2[5] => Out.DATAB
-In2[6] => Out.DATAB
-In2[7] => Out.DATAB
-In3[0] => Out.DATAA
-In3[1] => Out.DATAA
-In3[2] => Out.DATAA
-In3[3] => Out.DATAA
-In3[4] => Out.DATAA
-In3[5] => Out.DATAA
-In3[6] => Out.DATAA
-In3[7] => Out.DATAA
-In4[0] => Out.DATAB
-In4[1] => Out.DATAB
-In4[2] => Out.DATAB
-In4[3] => Out.DATAB
-In4[4] => Out.DATAB
-In4[5] => Out.DATAB
-In4[6] => Out.DATAB
-In4[7] => Out.DATAB
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s1 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-s0 => Out.OUTPUTSELECT
-Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+|CPU|Flags:flag_reg
+Flags[0] => Flags[0].IN1
+Flags[1] => Flags[1].IN1
+Flags[2] => Flags[2].IN1
+Flags[3] => Flags[3].IN1
+FWE => FWE.IN4
+CLK => CLK.IN4
+RESET => RESET.IN4
+OF <= register:B.OUT
+NF <= register:C.OUT
+ZF <= register:D.OUT
 
 
-|CPU|memory:DMEM
-clk => ram.we_a.CLK
-clk => ram.waddr_a[2].CLK
-clk => ram.waddr_a[1].CLK
-clk => ram.waddr_a[0].CLK
-clk => ram.data_a[7].CLK
-clk => ram.data_a[6].CLK
-clk => ram.data_a[5].CLK
-clk => ram.data_a[4].CLK
-clk => ram.data_a[3].CLK
-clk => ram.data_a[2].CLK
-clk => ram.data_a[1].CLK
-clk => ram.data_a[0].CLK
-clk => q[0]~reg0.CLK
-clk => q[1]~reg0.CLK
-clk => q[2]~reg0.CLK
-clk => q[3]~reg0.CLK
-clk => q[4]~reg0.CLK
-clk => q[5]~reg0.CLK
-clk => q[6]~reg0.CLK
-clk => q[7]~reg0.CLK
-clk => ram.CLK0
-data[0] => ram.data_a[0].DATAIN
-data[0] => ram.DATAIN
-data[1] => ram.data_a[1].DATAIN
-data[1] => ram.DATAIN1
-data[2] => ram.data_a[2].DATAIN
-data[2] => ram.DATAIN2
-data[3] => ram.data_a[3].DATAIN
-data[3] => ram.DATAIN3
-data[4] => ram.data_a[4].DATAIN
-data[4] => ram.DATAIN4
-data[5] => ram.data_a[5].DATAIN
-data[5] => ram.DATAIN5
-data[6] => ram.data_a[6].DATAIN
-data[6] => ram.DATAIN6
-data[7] => ram.data_a[7].DATAIN
-data[7] => ram.DATAIN7
-we => ram.we_a.DATAIN
-we => ram.WE
-addr[0] => ram.waddr_a[0].DATAIN
-addr[0] => ram.WADDR
-addr[0] => ram.RADDR
-addr[1] => ram.waddr_a[1].DATAIN
-addr[1] => ram.WADDR1
-addr[1] => ram.RADDR1
-addr[2] => ram.waddr_a[2].DATAIN
-addr[2] => ram.WADDR2
-addr[2] => ram.RADDR2
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+|CPU|Flags:flag_reg|register:A
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
 
 
-|CPU|busmuxN_2_to_1:inst1
-In1[0] => Out.DATAA
-In1[1] => Out.DATAA
-In1[2] => Out.DATAA
-In2[0] => Out.DATAB
-In2[1] => Out.DATAB
-In2[2] => Out.DATAB
-S => Out.OUTPUTSELECT
-S => Out.OUTPUTSELECT
-S => Out.OUTPUTSELECT
-Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
-Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+|CPU|Flags:flag_reg|register:A|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|CPU|AddSub8b:inst6
+|CPU|Flags:flag_reg|register:B
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|Flags:flag_reg|register:B|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|Flags:flag_reg|register:C
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|Flags:flag_reg|register:C|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|Flags:flag_reg|register:D
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|Flags:flag_reg|register:D|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|AddSub8b:indexer
 Cin => Yi[7].OUTPUTSELECT
 Cin => Yi[6].OUTPUTSELECT
 Cin => Yi[5].OUTPUTSELECT
@@ -2441,5 +2371,128 @@ S[6] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 S[7] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 Ov <= Ov.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|busmuxN_2_to_1:DMWA
+In1[0] => Out.DATAA
+In1[1] => Out.DATAA
+In1[2] => Out.DATAA
+In1[3] => Out.DATAA
+In1[4] => Out.DATAA
+In1[5] => Out.DATAA
+In1[6] => Out.DATAA
+In1[7] => Out.DATAA
+In2[0] => Out.DATAB
+In2[1] => Out.DATAB
+In2[2] => Out.DATAB
+In2[3] => Out.DATAB
+In2[4] => Out.DATAB
+In2[5] => Out.DATAB
+In2[6] => Out.DATAB
+In2[7] => Out.DATAB
+S => Out.OUTPUTSELECT
+S => Out.OUTPUTSELECT
+S => Out.OUTPUTSELECT
+S => Out.OUTPUTSELECT
+S => Out.OUTPUTSELECT
+S => Out.OUTPUTSELECT
+S => Out.OUTPUTSELECT
+S => Out.OUTPUTSELECT
+Out[0] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[1] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[2] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[3] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[4] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[5] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[6] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+Out[7] <= Out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|PC:pc
+LOAD => LOAD.IN4
+IN[0] => ~NO_FANOUT~
+IN[1] => ~NO_FANOUT~
+IN[2] => ~NO_FANOUT~
+IN[3] => ~NO_FANOUT~
+PCEN => iReg.IN1
+PCEN => aReg[0].IN1
+CLK => CLK.IN4
+RESET => RESET.IN4
+A[0] <= register:a0.OUT
+A[1] <= register:a1.OUT
+A[2] <= register:a2.OUT
+A[3] <= register:a3.OUT
+
+
+|CPU|PC:pc|register:a0
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|PC:pc|register:a0|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|PC:pc|register:a1
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|PC:pc|register:a1|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|PC:pc|register:a2
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|PC:pc|register:a2|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU|PC:pc|register:a3
+IN => D.DATAB
+LOAD => D.OUTPUTSELECT
+CLK => CLK.IN1
+OUT <= dffg:my_dff.q
+PRESET_N => PRESET_N.IN1
+CLEAR_N => CLEAR_N.IN1
+
+
+|CPU|PC:pc|register:a3|dffg:my_dff
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+prn => q.IN0
+clrn => q.IN1
+clrn => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

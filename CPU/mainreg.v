@@ -1,9 +1,9 @@
-module mainreg(IN, MRWE, WA0, WA1, RA0, RA1, RA2, RA3, RA4, CLK, RESET, SWAPR, OUTA, OUTB, OUTC, OA, OB, OC, OIX);
+module mainreg(IN, MRWE, WA0, WA1, RA0, RA1, RA2, RA3, RA4, CLK, RESET, SWAPR, OUTA, OUTB, OUTC, OIX);
 	input MRWE, WA0, WA1, RA0, RA1, RA2, RA3, RA4, CLK, RESET, SWAPR;
 	input [7:0] IN;
-	output [7:0] OUTA, OUTB, OUTC, OA, OB, OC, OIX;
+	output [7:0] OUTA, OUTB, OUTC, OIX;
 	
-	wire [7:0] OZ, OO;
+	wire [7:0] OZ, OO, OA, OB, OC;
 	wire DeEN, RS1, RS0, RY0, RY1, RY2, RY3, SY0, SY1, SY2, SY3, Y0, Y1, Y2, Y3;
 	
 	assign DeEN = SWAPR | MRWE;

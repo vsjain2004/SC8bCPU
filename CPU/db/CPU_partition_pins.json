@@ -8,27 +8,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "oOUT[7]",
-					"strict" : false
-				},
-				{
-					"name" : "oOUT[6]",
-					"strict" : false
-				},
-				{
-					"name" : "oOUT[5]",
-					"strict" : false
-				},
-				{
-					"name" : "oOUT[4]",
-					"strict" : false
-				},
-				{
-					"name" : "oOUT[3]",
-					"strict" : false
-				},
-				{
-					"name" : "oOUT[2]",
+					"name" : "oOUT[0]",
 					"strict" : false
 				},
 				{
@@ -36,47 +16,27 @@
 					"strict" : false
 				},
 				{
-					"name" : "oOUT[0]",
+					"name" : "oOUT[2]",
 					"strict" : false
 				},
 				{
-					"name" : "CLKT",
+					"name" : "oOUT[3]",
 					"strict" : false
 				},
 				{
-					"name" : "IN[7]",
+					"name" : "oOUT[4]",
 					"strict" : false
 				},
 				{
-					"name" : "RESET_IN",
+					"name" : "oOUT[5]",
 					"strict" : false
 				},
 				{
-					"name" : "IN[6]",
+					"name" : "oOUT[6]",
 					"strict" : false
 				},
 				{
-					"name" : "IN[5]",
-					"strict" : false
-				},
-				{
-					"name" : "IN[4]",
-					"strict" : false
-				},
-				{
-					"name" : "IN[3]",
-					"strict" : false
-				},
-				{
-					"name" : "IN[2]",
-					"strict" : false
-				},
-				{
-					"name" : "IN[1]",
-					"strict" : false
-				},
-				{
-					"name" : "IN[0]",
+					"name" : "oOUT[7]",
 					"strict" : false
 				},
 				{
@@ -84,7 +44,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
 					"name" : "InstLd",
+					"strict" : false
+				},
+				{
+					"name" : "CLEAR_N",
 					"strict" : false
 				},
 				{
@@ -108,6 +76,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "IN[0]",
+					"strict" : false
+				},
+				{
 					"name" : "InstExt[9]",
 					"strict" : false
 				},
@@ -116,11 +88,31 @@
 					"strict" : false
 				},
 				{
-					"name" : "InstExt[7]",
+					"name" : "IN[1]",
 					"strict" : false
 				},
 				{
-					"name" : "InstExt[1]",
+					"name" : "IN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[6]",
+					"strict" : false
+				},
+				{
+					"name" : "IN[7]",
 					"strict" : false
 				},
 				{
@@ -128,15 +120,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "InstExt[1]",
+					"strict" : false
+				},
+				{
 					"name" : "InstExt[2]",
 					"strict" : false
 				},
 				{
-					"name" : "InstExt[6]",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[5]",
+					"name" : "InstExt[3]",
 					"strict" : false
 				},
 				{
@@ -144,7 +136,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "InstExt[3]",
+					"name" : "InstExt[5]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[6]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[7]",
 					"strict" : false
 				}
 			]
