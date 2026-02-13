@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Thu Feb 12 11:29:53 2026
+Fri Feb 13 11:28:51 2026
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -13,35 +13,26 @@ Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. General Register Statistics
- 10. Registers Packed Into Inferred Megafunctions
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Source assignments for memory:IMEM|altsyncram:ram_rtl_0|altsyncram_3c81:auto_generated
- 13. Parameter Settings for User Entity Instance: memory:IMEM
- 14. Parameter Settings for User Entity Instance: PC:inst5|busmuxN_2_to_1:inst4
- 15. Parameter Settings for User Entity Instance: PC:inst5|busmuxN_2_to_1:inst15
- 16. Parameter Settings for User Entity Instance: PC:inst5|busmuxN_2_to_1:inst16
- 17. Parameter Settings for User Entity Instance: PC:inst5|busmuxN_2_to_1:inst17
- 18. Parameter Settings for User Entity Instance: memory:DMEM
- 19. Parameter Settings for User Entity Instance: busmuxN_2_to_1:inst1
- 20. Parameter Settings for Inferred Entity Instance: memory:IMEM|altsyncram:ram_rtl_0
- 21. altsyncram Parameter Settings by Entity Instance
- 22. Port Connectivity Checks: "mainreg:inst7|busmux_4_to_1:opc"
- 23. Port Connectivity Checks: "mainreg:inst7|reg_8_bit:IX"
- 24. Port Connectivity Checks: "mainreg:inst7|reg_8_bit:C"
- 25. Port Connectivity Checks: "mainreg:inst7|reg_8_bit:B"
- 26. Port Connectivity Checks: "mainreg:inst7|reg_8_bit:A"
- 27. Port Connectivity Checks: "Flags:inst4|register:D"
- 28. Port Connectivity Checks: "Flags:inst4|register:C"
- 29. Port Connectivity Checks: "Flags:inst4|register:B"
- 30. Port Connectivity Checks: "Flags:inst4|register:A"
- 31. Port Connectivity Checks: "Control_Unit:inst2|Decoder2to4:opdec14"
- 32. Port Connectivity Checks: "Control_Unit:inst2|Decoder2to4:opdec12"
- 33. Post-Synthesis Netlist Statistics for Top Partition
- 34. Elapsed Time Per Partition
- 35. Analysis & Synthesis Messages
- 36. Analysis & Synthesis Suppressed Messages
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: memory:IMEM
+ 11. Parameter Settings for User Entity Instance: memory:DMEM
+ 12. Parameter Settings for User Entity Instance: busmuxN_2_to_1:inst1
+ 13. Port Connectivity Checks: "mainreg:inst7|busmux_4_to_1:opc"
+ 14. Port Connectivity Checks: "mainreg:inst7|reg_8_bit:IX"
+ 15. Port Connectivity Checks: "mainreg:inst7|reg_8_bit:C"
+ 16. Port Connectivity Checks: "mainreg:inst7|reg_8_bit:B"
+ 17. Port Connectivity Checks: "mainreg:inst7|reg_8_bit:A"
+ 18. Port Connectivity Checks: "PC:inst5|register:a3"
+ 19. Port Connectivity Checks: "PC:inst5|register:a2"
+ 20. Port Connectivity Checks: "PC:inst5|register:a1"
+ 21. Port Connectivity Checks: "PC:inst5|register:a0"
+ 22. Port Connectivity Checks: "Control_Unit:inst2|Decoder2to4:opdec14"
+ 23. Port Connectivity Checks: "Control_Unit:inst2|Decoder2to4:opdec12"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -68,18 +59,18 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Feb 12 11:29:52 2026           ;
+; Analysis & Synthesis Status        ; Successful - Fri Feb 13 11:28:51 2026           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; CPU                                             ;
 ; Top-level Entity Name              ; CPU                                             ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 435                                             ;
-;     Total combinational functions  ; 379                                             ;
-;     Dedicated logic registers      ; 111                                             ;
-; Total registers                    ; 111                                             ;
+; Total logic elements               ; 451                                             ;
+;     Total combinational functions  ; 363                                             ;
+;     Dedicated logic registers      ; 136                                             ;
+; Total registers                    ; 136                                             ;
 ; Total pins                         ; 36                                              ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 256                                             ;
+; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
 ; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
@@ -188,47 +179,36 @@ on the Quartus Prime software download page.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                              ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                    ; Library ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+---------+
-; CPU.bdf                          ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.bdf                                    ;         ;
-; Zeros.v                          ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v                                    ;         ;
-; XOR_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_8_bit.v                                ;         ;
-; register.v                       ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v                                 ;         ;
-; reg_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v                                ;         ;
-; PC.bdf                           ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/CPU/PC.bdf                                     ;         ;
-; OR_8_bit.v                       ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_8_bit.v                                 ;         ;
-; Ones.v                           ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Ones.v                                     ;         ;
-; mainreg.v                        ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v                                  ;         ;
-; Decoder2to4.v                    ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v                              ;         ;
-; busmux_8_to_1.v                  ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v                            ;         ;
-; busmux_4_to_1.v                  ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_4_to_1.v                            ;         ;
-; AND_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v                                ;         ;
-; Flags.v                          ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v                                    ;         ;
-; decoder4to16.v                   ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v                             ;         ;
-; NOT_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_8_bit.v                                ;         ;
-; Logic_Shifter.v                  ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v                            ;         ;
-; Arithmetic_Shifter.v             ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v                       ;         ;
-; Circular_Shifter.v               ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v                         ;         ;
-; Control_Unit.v                   ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v                             ;         ;
-; busmuxN_2_to_1.v                 ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v                           ;         ;
-; AddSub8b.v                       ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub8b.v                                 ;         ;
-; dffg.v                           ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v                                     ;         ;
-; memory.v                         ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v                                   ;         ;
-; ALU.v                            ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v                                      ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal241.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/aglobal241.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_3c81.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/vjrai/Documents/SC8bCPU/CPU/db/altsyncram_3c81.tdf                     ;         ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                              ; Library ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------+---------+
+; CPU.bdf                          ; yes             ; User Block Diagram/Schematic File  ; C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.bdf              ;         ;
+; Zeros.v                          ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v              ;         ;
+; XOR_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_8_bit.v          ;         ;
+; register.v                       ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v           ;         ;
+; reg_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v          ;         ;
+; OR_8_bit.v                       ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_8_bit.v           ;         ;
+; Ones.v                           ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Ones.v               ;         ;
+; mainreg.v                        ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v            ;         ;
+; Decoder2to4.v                    ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v        ;         ;
+; busmux_8_to_1.v                  ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v      ;         ;
+; busmux_4_to_1.v                  ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_4_to_1.v      ;         ;
+; AND_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v          ;         ;
+; decoder4to16.v                   ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v       ;         ;
+; NOT_8_bit.v                      ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_8_bit.v          ;         ;
+; Logic_Shifter.v                  ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v      ;         ;
+; Arithmetic_Shifter.v             ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v ;         ;
+; Circular_Shifter.v               ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v   ;         ;
+; Control_Unit.v                   ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v       ;         ;
+; busmuxN_2_to_1.v                 ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v     ;         ;
+; AddSub8b.v                       ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub8b.v           ;         ;
+; dffg.v                           ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v               ;         ;
+; memory.v                         ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v             ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v                ;         ;
+; PC.v                             ; yes             ; User Verilog HDL File              ; C:/Users/vjrai/Documents/SC8bCPU/CPU/PC.v                 ;         ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------+
@@ -236,157 +216,129 @@ on the Quartus Prime software download page.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 435        ;
+; Estimated Total logic elements              ; 451        ;
 ;                                             ;            ;
-; Total combinational functions               ; 379        ;
+; Total combinational functions               ; 363        ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 260        ;
-;     -- 3 input functions                    ; 103        ;
+;     -- 4 input functions                    ; 247        ;
+;     -- 3 input functions                    ; 100        ;
 ;     -- <=2 input functions                  ; 16         ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 369        ;
+;     -- normal mode                          ; 353        ;
 ;     -- arithmetic mode                      ; 10         ;
 ;                                             ;            ;
-; Total registers                             ; 111        ;
-;     -- Dedicated logic registers            ; 111        ;
+; Total registers                             ; 136        ;
+;     -- Dedicated logic registers            ; 136        ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
 ; I/O pins                                    ; 36         ;
-; Total memory bits                           ; 256        ;
 ;                                             ;            ;
 ; Embedded Multiplier 9-bit elements          ; 0          ;
 ;                                             ;            ;
 ; Maximum fan-out node                        ; CLKT~input ;
-; Maximum fan-out                             ; 127        ;
-; Total fan-out                               ; 1962       ;
-; Average fan-out                             ; 3.39       ;
+; Maximum fan-out                             ; 136        ;
+; Total fan-out                               ; 1845       ;
+; Average fan-out                             ; 3.23       ;
 +---------------------------------------------+------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                             ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------+--------------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                  ; Entity Name        ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------+--------------------+--------------+
-; |CPU                                      ; 379 (0)             ; 111 (0)                   ; 256         ; 0            ; 0       ; 0         ; 36   ; 0            ; |CPU                                                                 ; CPU                ; work         ;
-;    |ALU:inst3|                            ; 154 (3)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3                                                       ; ALU                ; work         ;
-;       |AddSub8b:adder|                    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|AddSub8b:adder                                        ; AddSub8b           ; work         ;
-;       |Arithmetic_Shifter:as|             ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|Arithmetic_Shifter:as                                 ; Arithmetic_Shifter ; work         ;
-;       |Circular_Shifter:cs|               ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|Circular_Shifter:cs                                   ; Circular_Shifter   ; work         ;
-;       |Logic_Shifter:ls|                  ; 65 (65)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|Logic_Shifter:ls                                      ; Logic_Shifter      ; work         ;
-;       |busmux_8_to_1:mux1|                ; 43 (43)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|busmux_8_to_1:mux1                                    ; busmux_8_to_1      ; work         ;
-;    |AddSub8b:inst6|                       ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|AddSub8b:inst6                                                  ; AddSub8b           ; work         ;
-;    |Control_Unit:inst2|                   ; 54 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:inst2                                              ; Control_Unit       ; work         ;
-;       |Decoder2to4:opdec2|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:inst2|Decoder2to4:opdec2                           ; Decoder2to4        ; work         ;
-;       |Decoder2to4:opdec3|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:inst2|Decoder2to4:opdec3                           ; Decoder2to4        ; work         ;
-;       |decoder4to16:opdef1|               ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:inst2|decoder4to16:opdef1                          ; decoder4to16       ; work         ;
-;    |Flags:inst4|                          ; 0 (0)               ; 3 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4                                                     ; Flags              ; work         ;
-;       |register:B|                        ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4|register:B                                          ; register           ; work         ;
-;          |dffg:my_dff|                    ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4|register:B|dffg:my_dff                              ; dffg               ; work         ;
-;       |register:C|                        ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4|register:C                                          ; register           ; work         ;
-;          |dffg:my_dff|                    ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4|register:C|dffg:my_dff                              ; dffg               ; work         ;
-;       |register:D|                        ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4|register:D                                          ; register           ; work         ;
-;          |dffg:my_dff|                    ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:inst4|register:D|dffg:my_dff                              ; dffg               ; work         ;
-;    |PC:inst5|                             ; 8 (4)               ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5                                                        ; PC                 ; work         ;
-;       |busmuxN_2_to_1:inst15|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5|busmuxN_2_to_1:inst15                                  ; busmuxN_2_to_1     ; work         ;
-;       |busmuxN_2_to_1:inst16|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5|busmuxN_2_to_1:inst16                                  ; busmuxN_2_to_1     ; work         ;
-;       |busmuxN_2_to_1:inst17|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5|busmuxN_2_to_1:inst17                                  ; busmuxN_2_to_1     ; work         ;
-;       |busmuxN_2_to_1:inst4|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5|busmuxN_2_to_1:inst4                                   ; busmuxN_2_to_1     ; work         ;
-;       |dffg:inst18|                       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5|dffg:inst18                                            ; dffg               ; work         ;
-;       |dffg:inst19|                       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5|dffg:inst19                                            ; dffg               ; work         ;
-;       |dffg:inst20|                       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5|dffg:inst20                                            ; dffg               ; work         ;
-;       |dffg:inst|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:inst5|dffg:inst                                              ; dffg               ; work         ;
-;    |busmux_4_to_1:SALU|                   ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:SALU                                              ; busmux_4_to_1      ; work         ;
-;    |busmux_4_to_1:WMR|                    ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:WMR                                               ; busmux_4_to_1      ; work         ;
-;    |mainreg:inst7|                        ; 77 (9)              ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7                                                   ; mainreg            ; work         ;
-;       |Decoder2to4:decoder2|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|Decoder2to4:decoder2                              ; Decoder2to4        ; work         ;
-;       |Decoder2to4:decoder|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|Decoder2to4:decoder                               ; Decoder2to4        ; work         ;
-;       |busmux_4_to_1:opa|                 ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|busmux_4_to_1:opa                                 ; busmux_4_to_1      ; work         ;
-;       |busmux_4_to_1:opb|                 ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|busmux_4_to_1:opb                                 ; busmux_4_to_1      ; work         ;
-;       |reg_8_bit:A|                       ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A                                       ; reg_8_bit          ; work         ;
-;          |register:reg0|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg0                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg0|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg1|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg1                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg1|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg2|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg2                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg2|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg3|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg3                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg3|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg4|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg4                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg4|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg5|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg5                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg5|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg6|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg6                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg6|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg7|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg7                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg7|dffg:my_dff             ; dffg               ; work         ;
-;       |reg_8_bit:B|                       ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B                                       ; reg_8_bit          ; work         ;
-;          |register:reg0|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg0                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg0|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg1|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg1                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg1|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg2|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg2                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg2|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg3|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg3                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg3|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg4|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg4                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg4|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg5|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg5                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg5|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg6|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg6                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg6|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg7|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg7                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg7|dffg:my_dff             ; dffg               ; work         ;
-;       |reg_8_bit:C|                       ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C                                       ; reg_8_bit          ; work         ;
-;          |register:reg0|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg0                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg0|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg1|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg1                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg1|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg2|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg2                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg2|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg3|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg3                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg3|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg4|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg4                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg4|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg5|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg5                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg5|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg6|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg6                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg6|dffg:my_dff             ; dffg               ; work         ;
-;          |register:reg7|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg7                         ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg7|dffg:my_dff             ; dffg               ; work         ;
-;       |reg_8_bit:IX|                      ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX                                      ; reg_8_bit          ; work         ;
-;          |register:reg0|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg0                        ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg0|dffg:my_dff            ; dffg               ; work         ;
-;          |register:reg1|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg1                        ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg1|dffg:my_dff            ; dffg               ; work         ;
-;          |register:reg2|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg2                        ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg2|dffg:my_dff            ; dffg               ; work         ;
-;          |register:reg3|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg3                        ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg3|dffg:my_dff            ; dffg               ; work         ;
-;          |register:reg4|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg4                        ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg4|dffg:my_dff            ; dffg               ; work         ;
-;          |register:reg5|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg5                        ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg5|dffg:my_dff            ; dffg               ; work         ;
-;          |register:reg6|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg6                        ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg6|dffg:my_dff            ; dffg               ; work         ;
-;          |register:reg7|                  ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg7                        ; register           ; work         ;
-;             |dffg:my_dff|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg7|dffg:my_dff            ; dffg               ; work         ;
-;    |memory:DMEM|                          ; 48 (48)             ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|memory:DMEM                                                     ; memory             ; work         ;
-;    |memory:IMEM|                          ; 0 (0)               ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|memory:IMEM                                                     ; memory             ; work         ;
-;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|memory:IMEM|altsyncram:ram_rtl_0                                ; altsyncram         ; work         ;
-;          |altsyncram_3c81:auto_generated| ; 0 (0)               ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|memory:IMEM|altsyncram:ram_rtl_0|altsyncram_3c81:auto_generated ; altsyncram_3c81    ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------+--------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                      ;
++-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Entity Name        ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------------+--------------+
+; |CPU                          ; 363 (0)             ; 136 (0)                   ; 0           ; 0            ; 0       ; 0         ; 36   ; 0            ; |CPU                                                      ; CPU                ; work         ;
+;    |ALU:inst3|                ; 150 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3                                            ; ALU                ; work         ;
+;       |AddSub8b:adder|        ; 17 (17)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|AddSub8b:adder                             ; AddSub8b           ; work         ;
+;       |Arithmetic_Shifter:as| ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|Arithmetic_Shifter:as                      ; Arithmetic_Shifter ; work         ;
+;       |Circular_Shifter:cs|   ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|Circular_Shifter:cs                        ; Circular_Shifter   ; work         ;
+;       |Logic_Shifter:ls|      ; 65 (65)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|Logic_Shifter:ls                           ; Logic_Shifter      ; work         ;
+;       |busmux_8_to_1:mux1|    ; 43 (43)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:inst3|busmux_8_to_1:mux1                         ; busmux_8_to_1      ; work         ;
+;    |AddSub8b:inst6|           ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|AddSub8b:inst6                                       ; AddSub8b           ; work         ;
+;    |Control_Unit:inst2|       ; 50 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:inst2                                   ; Control_Unit       ; work         ;
+;       |Decoder2to4:opdec2|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:inst2|Decoder2to4:opdec2                ; Decoder2to4        ; work         ;
+;       |Decoder2to4:opdec3|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:inst2|Decoder2to4:opdec3                ; Decoder2to4        ; work         ;
+;       |decoder4to16:opdef1|   ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:inst2|decoder4to16:opdef1               ; decoder4to16       ; work         ;
+;    |busmux_4_to_1:SALU|       ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:SALU                                   ; busmux_4_to_1      ; work         ;
+;    |busmux_4_to_1:WMR|        ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:WMR                                    ; busmux_4_to_1      ; work         ;
+;    |mainreg:inst7|            ; 77 (9)              ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7                                        ; mainreg            ; work         ;
+;       |Decoder2to4:decoder2|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|Decoder2to4:decoder2                   ; Decoder2to4        ; work         ;
+;       |Decoder2to4:decoder|   ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|Decoder2to4:decoder                    ; Decoder2to4        ; work         ;
+;       |busmux_4_to_1:opa|     ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|busmux_4_to_1:opa                      ; busmux_4_to_1      ; work         ;
+;       |busmux_4_to_1:opb|     ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|busmux_4_to_1:opb                      ; busmux_4_to_1      ; work         ;
+;       |reg_8_bit:A|           ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A                            ; reg_8_bit          ; work         ;
+;          |register:reg0|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg0              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg0|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg1|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg1              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg1|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg2|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg2              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg2|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg3|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg3              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg3|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg4|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg4              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg4|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg5|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg5              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg5|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg6|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg6              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg6|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg7|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg7              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg7|dffg:my_dff  ; dffg               ; work         ;
+;       |reg_8_bit:B|           ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B                            ; reg_8_bit          ; work         ;
+;          |register:reg0|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg0              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg0|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg1|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg1              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg1|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg2|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg2              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg2|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg3|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg3              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg3|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg4|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg4              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg4|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg5|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg5              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg5|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg6|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg6              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg6|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg7|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg7              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg7|dffg:my_dff  ; dffg               ; work         ;
+;       |reg_8_bit:C|           ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C                            ; reg_8_bit          ; work         ;
+;          |register:reg0|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg0              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg0|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg1|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg1              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg1|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg2|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg2              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg2|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg3|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg3              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg3|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg4|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg4              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg4|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg5|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg5              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg5|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg6|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg6              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg6|dffg:my_dff  ; dffg               ; work         ;
+;          |register:reg7|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg7              ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg7|dffg:my_dff  ; dffg               ; work         ;
+;       |reg_8_bit:IX|          ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX                           ; reg_8_bit          ; work         ;
+;          |register:reg0|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg0             ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg0|dffg:my_dff ; dffg               ; work         ;
+;          |register:reg1|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg1             ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg1|dffg:my_dff ; dffg               ; work         ;
+;          |register:reg2|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg2             ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg2|dffg:my_dff ; dffg               ; work         ;
+;          |register:reg3|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg3             ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg3|dffg:my_dff ; dffg               ; work         ;
+;          |register:reg4|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg4             ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg4|dffg:my_dff ; dffg               ; work         ;
+;          |register:reg5|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg5             ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg5|dffg:my_dff ; dffg               ; work         ;
+;          |register:reg6|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg6             ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg6|dffg:my_dff ; dffg               ; work         ;
+;          |register:reg7|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg7             ; register           ; work         ;
+;             |dffg:my_dff|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg7|dffg:my_dff ; dffg               ; work         ;
+;    |memory:DMEM|              ; 48 (48)             ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|memory:DMEM                                          ; memory             ; work         ;
+;    |memory:IMEM|              ; 0 (0)               ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|memory:IMEM                                          ; memory             ; work         ;
++-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                          ;
-+----------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
-; Name                                                                       ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
-+----------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
-; memory:IMEM|altsyncram:ram_rtl_0|altsyncram_3c81:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 16           ; 16           ; --           ; --           ; 256  ; None ;
-+----------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
 
 
 +------------------------------------------------------+
@@ -394,23 +346,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 111   ;
+; Total registers                              ; 136   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 32    ;
-; Number of registers using Asynchronous Clear ; 39    ;
+; Number of registers using Asynchronous Clear ; 32    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 99    ;
+; Number of registers using Clock Enable       ; 112   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+-----------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions        ;
-+----------------------+-----------------------+------+
-; Register Name        ; Megafunction          ; Type ;
-+----------------------+-----------------------+------+
-; memory:IMEM|q[0..15] ; memory:IMEM|ram_rtl_0 ; RAM  ;
-+----------------------+-----------------------+------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -418,23 +361,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg4|dffg:my_dff|q  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg1|dffg:my_dff|q  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg6|dffg:my_dff|q  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg2|dffg:my_dff|q ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|mainreg:inst7|busmux_4_to_1:opa|Out[0]                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|mainreg:inst7|busmux_4_to_1:opb|Out[7]                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_4_to_1:SALU|Out[1]                              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:inst7|reg_8_bit:A|register:reg5|dffg:my_dff|q  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:inst7|reg_8_bit:B|register:reg5|dffg:my_dff|q  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:inst7|reg_8_bit:C|register:reg3|dffg:my_dff|q  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:inst7|reg_8_bit:IX|register:reg3|dffg:my_dff|q ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|mainreg:inst7|busmux_4_to_1:opa|Out[3]                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|mainreg:inst7|busmux_4_to_1:opb|Out[3]                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_4_to_1:SALU|Out[3]                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------+
-; Source assignments for memory:IMEM|altsyncram:ram_rtl_0|altsyncram_3c81:auto_generated ;
-+---------------------------------+--------------------+------+--------------------------+
-; Assignment                      ; Value              ; From ; To                       ;
-+---------------------------------+--------------------+------+--------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                        ;
-+---------------------------------+--------------------+------+--------------------------+
 
 
 +----------------------------------------------------------+
@@ -445,46 +379,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; data_width     ; 16    ; Signed Integer                  ;
 ; addr_width     ; 4     ; Signed Integer                  ;
 +----------------+-------+---------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PC:inst5|busmuxN_2_to_1:inst4 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; N              ; 1     ; Signed Integer                                    ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PC:inst5|busmuxN_2_to_1:inst15 ;
-+----------------+-------+----------------------------------------------------+
-; Parameter Name ; Value ; Type                                               ;
-+----------------+-------+----------------------------------------------------+
-; N              ; 1     ; Signed Integer                                     ;
-+----------------+-------+----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PC:inst5|busmuxN_2_to_1:inst16 ;
-+----------------+-------+----------------------------------------------------+
-; Parameter Name ; Value ; Type                                               ;
-+----------------+-------+----------------------------------------------------+
-; N              ; 1     ; Signed Integer                                     ;
-+----------------+-------+----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PC:inst5|busmuxN_2_to_1:inst17 ;
-+----------------+-------+----------------------------------------------------+
-; Parameter Name ; Value ; Type                                               ;
-+----------------+-------+----------------------------------------------------+
-; N              ; 1     ; Signed Integer                                     ;
-+----------------+-------+----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -507,87 +401,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; N              ; 3     ; Signed Integer                           ;
 +----------------+-------+------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: memory:IMEM|altsyncram:ram_rtl_0 ;
-+------------------------------------+----------------------+-----------------------+
-; Parameter Name                     ; Value                ; Type                  ;
-+------------------------------------+----------------------+-----------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped               ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY            ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY          ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE          ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE        ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped               ;
-; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped               ;
-; WIDTH_A                            ; 16                   ; Untyped               ;
-; WIDTHAD_A                          ; 4                    ; Untyped               ;
-; NUMWORDS_A                         ; 16                   ; Untyped               ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped               ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped               ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped               ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped               ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped               ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped               ;
-; WIDTH_B                            ; 1                    ; Untyped               ;
-; WIDTHAD_B                          ; 1                    ; Untyped               ;
-; NUMWORDS_B                         ; 1                    ; Untyped               ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped               ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped               ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped               ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped               ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped               ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped               ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped               ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped               ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped               ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped               ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped               ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped               ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped               ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped               ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped               ;
-; BYTE_SIZE                          ; 8                    ; Untyped               ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped               ;
-; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA             ; Untyped               ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped               ;
-; INIT_FILE                          ; UNUSED               ; Untyped               ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped               ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped               ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped               ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped               ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped               ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped               ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped               ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped               ;
-; ENABLE_ECC                         ; FALSE                ; Untyped               ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped               ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped               ;
-; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped               ;
-; CBXI_PARAMETER                     ; altsyncram_3c81      ; Untyped               ;
-+------------------------------------+----------------------+-----------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                             ;
-+-------------------------------------------+----------------------------------+
-; Name                                      ; Value                            ;
-+-------------------------------------------+----------------------------------+
-; Number of entity instances                ; 1                                ;
-; Entity Instance                           ; memory:IMEM|altsyncram:ram_rtl_0 ;
-;     -- OPERATION_MODE                     ; SINGLE_PORT                      ;
-;     -- WIDTH_A                            ; 16                               ;
-;     -- NUMWORDS_A                         ; 16                               ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                     ;
-;     -- WIDTH_B                            ; 1                                ;
-;     -- NUMWORDS_B                         ; 1                                ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                           ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                     ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                             ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                        ;
-+-------------------------------------------+----------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -636,40 +449,40 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+-------+----------+-------------------------+
 
 
-+----------------------------------------------------+
-; Port Connectivity Checks: "Flags:inst4|register:D" ;
-+----------+-------+----------+----------------------+
-; Port     ; Type  ; Severity ; Details              ;
-+----------+-------+----------+----------------------+
-; PRESET_N ; Input ; Info     ; Stuck at VCC         ;
-+----------+-------+----------+----------------------+
++--------------------------------------------------+
+; Port Connectivity Checks: "PC:inst5|register:a3" ;
++----------+-------+----------+--------------------+
+; Port     ; Type  ; Severity ; Details            ;
++----------+-------+----------+--------------------+
+; PRESET_N ; Input ; Info     ; Stuck at VCC       ;
++----------+-------+----------+--------------------+
 
 
-+----------------------------------------------------+
-; Port Connectivity Checks: "Flags:inst4|register:C" ;
-+----------+-------+----------+----------------------+
-; Port     ; Type  ; Severity ; Details              ;
-+----------+-------+----------+----------------------+
-; PRESET_N ; Input ; Info     ; Stuck at VCC         ;
-+----------+-------+----------+----------------------+
++--------------------------------------------------+
+; Port Connectivity Checks: "PC:inst5|register:a2" ;
++----------+-------+----------+--------------------+
+; Port     ; Type  ; Severity ; Details            ;
++----------+-------+----------+--------------------+
+; PRESET_N ; Input ; Info     ; Stuck at VCC       ;
++----------+-------+----------+--------------------+
 
 
-+----------------------------------------------------+
-; Port Connectivity Checks: "Flags:inst4|register:B" ;
-+----------+-------+----------+----------------------+
-; Port     ; Type  ; Severity ; Details              ;
-+----------+-------+----------+----------------------+
-; PRESET_N ; Input ; Info     ; Stuck at VCC         ;
-+----------+-------+----------+----------------------+
++--------------------------------------------------+
+; Port Connectivity Checks: "PC:inst5|register:a1" ;
++----------+-------+----------+--------------------+
+; Port     ; Type  ; Severity ; Details            ;
++----------+-------+----------+--------------------+
+; PRESET_N ; Input ; Info     ; Stuck at VCC       ;
++----------+-------+----------+--------------------+
 
 
-+----------------------------------------------------+
-; Port Connectivity Checks: "Flags:inst4|register:A" ;
-+----------+-------+----------+----------------------+
-; Port     ; Type  ; Severity ; Details              ;
-+----------+-------+----------+----------------------+
-; PRESET_N ; Input ; Info     ; Stuck at VCC         ;
-+----------+-------+----------+----------------------+
++--------------------------------------------------+
+; Port Connectivity Checks: "PC:inst5|register:a0" ;
++----------+-------+----------+--------------------+
+; Port     ; Type  ; Severity ; Details            ;
++----------+-------+----------+--------------------+
+; PRESET_N ; Input ; Info     ; Stuck at VCC       ;
++----------+-------+----------+--------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
@@ -696,24 +509,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 36                          ;
-; cycloneiii_ff         ; 111                         ;
-;     CLR               ; 4                           ;
-;     ENA               ; 64                          ;
-;     ENA CLR           ; 3                           ;
+; cycloneiii_ff         ; 136                         ;
+;     ENA               ; 80                          ;
 ;     ENA CLR SLD       ; 32                          ;
-;     plain             ; 8                           ;
-; cycloneiii_lcell_comb ; 379                         ;
+;     plain             ; 24                          ;
+; cycloneiii_lcell_comb ; 363                         ;
 ;     arith             ; 10                          ;
 ;         2 data inputs ; 1                           ;
 ;         3 data inputs ; 9                           ;
-;     normal            ; 369                         ;
+;     normal            ; 353                         ;
 ;         2 data inputs ; 15                          ;
-;         3 data inputs ; 94                          ;
-;         4 data inputs ; 260                         ;
-; cycloneiii_ram_block  ; 16                          ;
+;         3 data inputs ; 91                          ;
+;         4 data inputs ; 247                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 16.00                       ;
-; Average LUT depth     ; 9.72                        ;
+; Max LUT depth         ; 15.00                       ;
+; Average LUT depth     ; 9.12                        ;
 +-----------------------+-----------------------------+
 
 
@@ -732,7 +542,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Thu Feb 12 11:29:45 2026
+    Info: Processing started: Fri Feb 13 11:28:43 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -744,24 +554,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file xor_8_b
     Info (12023): Found entity 1: XOR_8_bit File: C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_8_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file register.v
     Info (12023): Found entity 1: register File: C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file reg_16_bit.v
-    Info (12023): Found entity 1: reg_16_bit File: C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_16_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file reg_8_bit.v
     Info (12023): Found entity 1: reg_8_bit File: C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file pc.bdf
-    Info (12023): Found entity 1: PC
 Info (12021): Found 1 design units, including 1 entities, in source file or_8_bit.v
     Info (12023): Found entity 1: OR_8_bit File: C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_8_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ones.v
     Info (12023): Found entity 1: Ones File: C:/Users/vjrai/Documents/SC8bCPU/CPU/Ones.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mainreg.v
     Info (12023): Found entity 1: mainreg File: C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file imem_prgm.v
-    Info (12023): Found entity 1: IMEM_PRGM File: C:/Users/vjrai/Documents/SC8bCPU/CPU/IMEM_PRGM.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file imem.bdf
-    Info (12023): Found entity 1: IMEM
-Info (12021): Found 1 design units, including 1 entities, in source file dmem_prgm.v
-    Info (12023): Found entity 1: DMEM_PRGM File: C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEM_PRGM.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file decoder3to8.v
     Info (12023): Found entity 1: Decoder3to8 File: C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file decoder2to4.v
@@ -774,15 +574,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file busmux_
     Info (12023): Found entity 1: busmux_4_to_1 File: C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_4_to_1.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file and_8_bit.v
     Info (12023): Found entity 1: AND_8_bit File: C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v Line: 1
-Warning (12019): Can't analyze file -- file ALU.bdf is missing
 Info (12021): Found 1 design units, including 1 entities, in source file flags.v
     Info (12023): Found entity 1: Flags File: C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file decoder4to16.v
     Info (12023): Found entity 1: decoder4to16 File: C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file dmem.bdf
-    Info (12023): Found entity 1: DMEM
-Info (12021): Found 1 design units, including 1 entities, in source file decoder1to2.v
-    Info (12023): Found entity 1: decoder1to2 File: C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file not_8_bit.v
     Info (12023): Found entity 1: NOT_8_bit File: C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_8_bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file logic_shifter.v
@@ -803,14 +598,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file memory.
     Info (12023): Found entity 1: memory File: C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
     Info (12023): Found entity 1: ALU File: C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pc.v
+    Info (12023): Found entity 1: PC File: C:/Users/vjrai/Documents/SC8bCPU/CPU/PC.v Line: 1
 Warning (10236): Verilog HDL Implicit Net warning at register.v(4): created implicit net for "D" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v Line: 4
 Info (12127): Elaborating entity "CPU" for the top level hierarchy
 Info (12128): Elaborating entity "Control_Unit" for hierarchy "Control_Unit:inst2"
 Info (12128): Elaborating entity "decoder4to16" for hierarchy "Control_Unit:inst2|decoder4to16:opdef1" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v Line: 11
 Info (12128): Elaborating entity "Decoder2to4" for hierarchy "Control_Unit:inst2|Decoder2to4:opdec0" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v Line: 15
-Info (12128): Elaborating entity "Flags" for hierarchy "Flags:inst4"
-Info (12128): Elaborating entity "register" for hierarchy "Flags:inst4|register:A" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v Line: 6
-Info (12128): Elaborating entity "dffg" for hierarchy "Flags:inst4|register:A|dffg:my_dff" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v Line: 5
+Info (12128): Elaborating entity "memory" for hierarchy "memory:IMEM"
+Info (12128): Elaborating entity "PC" for hierarchy "PC:inst5"
+Warning (10034): Output port "A" at PC.v(5) has no driver File: C:/Users/vjrai/Documents/SC8bCPU/CPU/PC.v Line: 5
+Info (12128): Elaborating entity "register" for hierarchy "PC:inst5|register:a0" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/PC.v Line: 17
+Info (12128): Elaborating entity "dffg" for hierarchy "PC:inst5|register:a0|dffg:my_dff" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v Line: 5
+Info (12128): Elaborating entity "mainreg" for hierarchy "mainreg:inst7"
+Info (12128): Elaborating entity "reg_8_bit" for hierarchy "mainreg:inst7|reg_8_bit:A" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v Line: 28
+Info (12128): Elaborating entity "Zeros" for hierarchy "mainreg:inst7|Zeros:Z" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v Line: 32
+Info (12128): Elaborating entity "Ones" for hierarchy "mainreg:inst7|Ones:O" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v Line: 33
+Info (12128): Elaborating entity "busmux_4_to_1" for hierarchy "mainreg:inst7|busmux_4_to_1:opa" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v Line: 35
 Info (12128): Elaborating entity "ALU" for hierarchy "ALU:inst3"
 Info (12128): Elaborating entity "AddSub8b" for hierarchy "ALU:inst3|AddSub8b:adder" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v Line: 10
 Info (12128): Elaborating entity "AND_8_bit" for hierarchy "ALU:inst3|AND_8_bit:ander" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v Line: 11
@@ -821,59 +625,25 @@ Info (12128): Elaborating entity "Logic_Shifter" for hierarchy "ALU:inst3|Logic_
 Info (12128): Elaborating entity "Arithmetic_Shifter" for hierarchy "ALU:inst3|Arithmetic_Shifter:as" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v Line: 16
 Info (12128): Elaborating entity "Circular_Shifter" for hierarchy "ALU:inst3|Circular_Shifter:cs" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v Line: 17
 Info (12128): Elaborating entity "busmux_8_to_1" for hierarchy "ALU:inst3|busmux_8_to_1:mux1" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v Line: 19
-Info (12128): Elaborating entity "mainreg" for hierarchy "mainreg:inst7"
-Info (12128): Elaborating entity "reg_8_bit" for hierarchy "mainreg:inst7|reg_8_bit:A" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v Line: 28
-Info (12128): Elaborating entity "Zeros" for hierarchy "mainreg:inst7|Zeros:Z" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v Line: 32
-Info (12128): Elaborating entity "Ones" for hierarchy "mainreg:inst7|Ones:O" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v Line: 33
-Info (12128): Elaborating entity "busmux_4_to_1" for hierarchy "mainreg:inst7|busmux_4_to_1:opa" File: C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v Line: 35
-Info (12128): Elaborating entity "memory" for hierarchy "memory:IMEM"
-Info (12128): Elaborating entity "PC" for hierarchy "PC:inst5"
-Info (12128): Elaborating entity "busmuxN_2_to_1" for hierarchy "PC:inst5|busmuxN_2_to_1:inst4"
 Info (12128): Elaborating entity "memory" for hierarchy "memory:DMEM"
 Info (12128): Elaborating entity "busmuxN_2_to_1" for hierarchy "busmuxN_2_to_1:inst1"
-Info (276014): Found 1 instances of uninferred RAM logic
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276004): RAM logic "memory:IMEM|ram" is uninferred due to inappropriate RAM size File: C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v Line: 8
     Info (276004): RAM logic "memory:DMEM|ram" is uninferred due to inappropriate RAM size File: C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v Line: 8
-Info (19000): Inferred 1 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "memory:IMEM|ram_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
-        Info (286033): Parameter WIDTH_A set to 16
-        Info (286033): Parameter WIDTHAD_A set to 4
-        Info (286033): Parameter NUMWORDS_A set to 16
-        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
-        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-Info (12130): Elaborated megafunction instantiation "memory:IMEM|altsyncram:ram_rtl_0"
-Info (12133): Instantiated megafunction "memory:IMEM|altsyncram:ram_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
-    Info (12134): Parameter "WIDTH_A" = "16"
-    Info (12134): Parameter "WIDTHAD_A" = "4"
-    Info (12134): Parameter "NUMWORDS_A" = "16"
-    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "READ_DURING_WRITE_MODE_PORT_A" = "OLD_DATA"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_3c81.tdf
-    Info (12023): Found entity 1: altsyncram_3c81 File: C:/Users/vjrai/Documents/SC8bCPU/CPU/db/altsyncram_3c81.tdf Line: 28
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/vjrai/Documents/SC8bCPU/CPU/output_files/CPU.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 496 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 495 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 27 input pins
     Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 444 logic cells
-    Info (21064): Implemented 16 RAM segments
+    Info (21061): Implemented 459 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4847 megabytes
-    Info: Processing ended: Thu Feb 12 11:29:53 2026
+    Info: Peak virtual memory: 4842 megabytes
+    Info: Processing ended: Fri Feb 13 11:28:51 2026
     Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:16
+    Info: Total CPU time (on all processors): 00:00:18
 
 
 +------------------------------------------+

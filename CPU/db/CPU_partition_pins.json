@@ -40,35 +40,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "InstLd",
-					"strict" : false
-				},
-				{
 					"name" : "CLKT",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[10]",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[11]",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[12]",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[13]",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[14]",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[15]",
 					"strict" : false
 				},
 				{
@@ -77,14 +49,6 @@
 				},
 				{
 					"name" : "RESET_IN",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[9]",
-					"strict" : false
-				},
-				{
-					"name" : "InstExt[8]",
 					"strict" : false
 				},
 				{
@@ -113,6 +77,42 @@
 				},
 				{
 					"name" : "IN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[10]",
+					"strict" : false
+				},
+				{
+					"name" : "InstLd",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[11]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[12]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[13]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[14]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[15]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[9]",
+					"strict" : false
+				},
+				{
+					"name" : "InstExt[8]",
 					"strict" : false
 				},
 				{

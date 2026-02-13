@@ -4,7 +4,7 @@ module XOR_8_bit(In, Control, Out);
 	input [7:0] Control;
 	output reg [7:0] Out;
 	
-	always @*
+	always @*	
 	begin
 		for(k = 0; k <= 7; k = k + 1)
 		begin
