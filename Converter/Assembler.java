@@ -5,14 +5,14 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Assembler {
-	public static void main(String args[]) throws IOException {
+	public static void main(String[] args) throws IOException {
 		File f;
 		String path;
 		Scanner scnr1 = new Scanner(System.in);
 		while(true) {
 			System.out.print("Text file path: ");
 			path = scnr1.nextLine();
-			if(path.endsWith(".txt")) {
+			if(path.endsWith(".asm")) {
 				f = new File(path);
 				if(f.isFile()) {
 					break;
@@ -20,9 +20,9 @@ public class Assembler {
 			}
 			System.out.println("Unsupported File Format. Provide Text file.");
 		}
-		String storepath = path.substring(0, path.lastIndexOf(f.separator) + 1);
-		File imem = new File(storepath + "IMEM_PRGM.v");
-		File dmem = new File(storepath + "DMEM_PRGM.v");
+		String storepath = path.substring(0, path.lastIndexOf('.'));
+		File imem = new File(storepath + "_IMEM.hex");
+		File dmem = new File(storepath + "_DMEM.hex");
 		imem.createNewFile();
 		dmem.createNewFile();
 		Scanner scnr2 = null;
@@ -35,20 +35,17 @@ public class Assembler {
 			scnr = new Scanner(f);
 			scnr3 = new Scanner(f);
 			pi = new PrintWriter(imem);
-			pi.println("module IMEM_PRGM(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P);\r\n"
-					+ "\toutput [15:0] A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P;");
-			pi.println("\tassign A = 16'b0000000000000000;");
+			pi.println("0000");
 			String line = scnr.nextLine();
 			String line1 = scnr3.nextLine();
-			char[] letter = {'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'};
-			HashMap<String, String> labels = new HashMap<String, String>();
-			HashMap<String, String> labels1 = new HashMap<String, String>();
+			HashMap<String, String> labels = new HashMap<>();
+			HashMap<String, String> labels1 = new HashMap<>();
 			String y = null;
-			while(!line1.equals("") && line1 != null) {
+			while(line1 != null && !line1.equals("")) {
 				scnr2 = new Scanner(line1);
 				String a = scnr2.next();
 				if(a.endsWith(":") && !a.startsWith("//")) {
-					labels.put(a.substring(0, a.length() - 1), IntToBin(i));
+					labels.put(a.substring(0, a.length() - 1), IntToBin(i+1));
 				}
 				i++;
 				line1 = scnr3.nextLine();
@@ -69,7 +66,7 @@ public class Assembler {
 				}
 			}
 			i = 0;
-			while(!line.equals("") && line != null && i < 15) {
+			while(line != null && !line.equals("") && i < 15) {
 				while(line != null && line.startsWith("//")) {
 					line = scnr.nextLine();
 				}
@@ -79,6 +76,9 @@ public class Assembler {
 				scnr2 = new Scanner(line);
 				String a = scnr2.next();
 				String b, c, d, e;
+				if(a.contains(":")){
+					a = scnr2.next();
+				}
 				switch(a) {
 				case "NOOP": 
 					if(!scnr2.hasNext()) {
@@ -224,7 +224,7 @@ public class Assembler {
 						e = GetE(a);
 					} else if (y.equals("SUBD")) {
 						c = "01";
-						e = GetEa(a, labels1);;
+						e = GetEa(a, labels1);
 					} else {
 						throw new Exception("Illegal Format");
 					}
@@ -342,29 +342,45 @@ public class Assembler {
 					b = "1000";
 					c = "11";
 					d = "00";
-					e = GetEa(scnr2.next(), labels1);
+					e = GetEa(scnr2.next(), labels);
 					break;
 				case "JPN":
 					b = "1001";
 					c = "00";
 					d = "00";
-					e = GetEa(scnr2.next(), labels1);
+					e = GetEa(scnr2.next(), labels);
 					break;
 				case "JPE":
 					b = "1001";
 					c = "01";
 					d = "00";
-					e = GetEa(scnr2.next(), labels1);
+					e = GetEa(scnr2.next(), labels);
+					break;
 				case "JGT":
 					b = "1001";
 					c = "10";
 					d = "00";
-					e = GetEa(scnr2.next(), labels1);
+					e = GetEa(scnr2.next(), labels);
+					break;
 				case "JGE":
 					b = "1001";
 					c = "11";
 					d = "00";
-					e = GetEa(scnr2.next(), labels1);
+					e = GetEa(scnr2.next(), labels);
+					break;
+				case "SWAPR":
+					a = scnr2.next();
+					b = "1010";
+					if(a.endsWith(",")) {
+						d = GetD(a.substring(0, a.length() - 1));
+					} else {
+						throw new Exception("Illegal Format");
+					}
+					c = GetD(scnr2.next());
+					if(c.equals("11")) {
+						throw new Exception("Illegal Format");
+					}
+					e = "00000000";
 					break;
 				case "ANDM":
 				case "ANDD":
@@ -543,12 +559,11 @@ public class Assembler {
 				}
 				for(int j = 0; j < 8; j++) {
 					if(e.charAt(j) == '0' || e.charAt(j) == '1') {
-						continue;
 					} else {
 						throw new Exception("Illegal Format");
 					}
 				}
-				pi.println("\tassign " + letter[i] + " = 16'b" + b + c + d + e + ";");
+				pi.println(Integer.toHexString((Integer.parseInt(b + c + d + e,2))));
 				line = scnr.nextLine();
 				i += 1;
 			}
@@ -556,18 +571,16 @@ public class Assembler {
 				throw new Exception("Too many instruction lines");
 			} else if(i < 15) {
 				for(; i < 15; i++) {
-					pi.println("\tassign " + letter[i] + " = 16'b0000000000000000;");
+					pi.println("0000");
 				}
 			}
 			if(line == null) {
 				throw new Exception("Illegal Format");
 			}
-			pi.println("endmodule");
 			i = 0;
 			line = scnr.nextLine();
 			pd = new PrintWriter(dmem);
-			pd.println("module DMEM_PRGM(D0, D1, D2, D3, D4, D5, D6, D7);\r\n"
-					+ "\toutput [7:0] D0, D1, D2, D3, D4, D5, D6, D7;");
+			
 			while(line != null && i < 8) {
 				while(line != null && line.startsWith("//")) {
 					line = scnr.nextLine();
@@ -582,7 +595,7 @@ public class Assembler {
 				} else if (a.endsWith(":")) {
 					throw new Exception("Illegal Format");
 				}
-				pd.println("\tassign D" + i + " = 8'b" + GetE(a) + ";");
+				pd.println(Integer.toHexString((Integer.parseInt(GetE(a),2))));
 				try {
 					line = scnr.nextLine();
 				} catch(java.util.NoSuchElementException d) {
@@ -594,15 +607,15 @@ public class Assembler {
 				throw new Exception("Too many data lines");
 			}else if(i < 8 && line == null) {
 				for(; i < 8; i++) {
-					pd.println("\tassign D" + i + " = 8'b00000000;");
+					pd.println("00");
 				}
 			} else {
 				throw new Exception("Illegal Format");
 			}
-			pd.println("endmodule");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			System.out.println("Hex Files generated.");
 			pi.flush();
 			pi.close();
 			pd.flush();
@@ -628,82 +641,80 @@ public class Assembler {
 		String x = "";
 		for(int i = 0; i < 2; i++) {
 			switch(a.charAt(i)) {
-			case '0': x += "0000"; break;
-			case '1': x += "0001"; break;
-			case '2': x += "0010"; break;
-			case '3': x += "0011"; break;
-			case '4': x += "0100"; break;
-			case '5': x += "0101"; break;
-			case '6': x += "0110"; break;
-			case '7': x += "0111"; break;
-			case '8': x += "1000"; break;
-			case '9': x += "1001"; break;
-			case 'A': x += "1010"; break;
-			case 'B': x += "1011"; break;
-			case 'C': x += "1100"; break;
-			case 'D': x += "1101"; break;
-			case 'E': x += "1110"; break;
-			case 'F': x += "1111"; break;
-			default: throw new Exception("Illegal Format");
+			case '0' -> x += "0000";
+			case '1' -> x += "0001";
+			case '2' -> x += "0010";
+			case '3' -> x += "0011";
+			case '4' -> x += "0100";
+			case '5' -> x += "0101";
+			case '6' -> x += "0110";
+			case '7' -> x += "0111";
+			case '8' -> x += "1000";
+			case '9' -> x += "1001";
+			case 'A' -> x += "1010";
+			case 'B' -> x += "1011";
+			case 'C' -> x += "1100";
+			case 'D' -> x += "1101";
+			case 'E' -> x += "1110";
+			case 'F' -> x += "1111";
+			default -> throw new Exception("Illegal Format");
 			}
 		}
 		return x;
 	}
 	
 	public static String GetD(String a) throws Exception {
-		if(a.equals("A")){
-			return "00";
-		} else if(a.equals("B")){
-			return "01";
-		} else if(a.equals("C")){
-			return "10";
-		} else if(a.equals("IX")){
-			return "11";
-		} else {
-			throw new Exception("Illegal Format");
+		switch (a) {
+			case "A" -> {
+				return "00";
+			}
+			case "B" -> {
+				return "01";
+			}
+			case "C" -> {
+				return "10";
+			}
+			case "IX" -> {
+				return "11";
+			}
+			default -> throw new Exception("Illegal Format");
 		}
 	}
 	
 	public static String GetE(String a) throws Exception {
 		if (a.startsWith("#")) {
 			switch(a.substring(0, 2)) {
-			case "#B": 
+			case "#B" -> {
 				if(a.length() != 10) {
 					throw new Exception("Illegal Format");
 				}
 				return a.substring(2);
-			case "#&":
+			}
+			case "#&" -> {
 				if(a.length() != 4) {
 					throw new Exception("Illegal Format");
 				}
 				return HexToBin(a.substring(2));
-			case "#0":
-			case "#1":
-			case "#2":
-			case "#3":
-			case "#4":
-			case "#5":
-			case "#6":
-			case "#7":
-			case "#8":
-			case "#9":
+			}
+			case "#0", "#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8", "#9" -> {
 				if(a.length() > 4 || Integer.parseInt(a.substring(1)) > 127 || Integer.parseInt(a.substring(1)) < -128) {
 					throw new Exception("Illegal Format");
 				}
 				return IntToBin(Integer.parseInt(a.substring(1)));
-			default: throw new Exception("Illegal Format");
+			}
+			default -> throw new Exception("Illegal Format");
 			}
 		} else {
 			throw new Exception("Illegal Format");
 		}
 	}
 	
-	public static String GetEa(String a, HashMap<String, String> labels1) throws Exception {
+	public static String GetEa(String a, HashMap<String, String> labels) throws Exception {
 		String e;
 		try {
 			e = String.format("%d", Integer.valueOf(a));
 		} catch(NumberFormatException x) {
-			e = labels1.get(a);
+			e = labels.get(a);
 			if(e == null) {
 				throw new Exception("Illegal Format");
 			}

@@ -1,0 +1,5 @@
+IN A
+Y: SWAPR A, B
+END
+
+X: #&2A
