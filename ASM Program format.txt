@@ -2,19 +2,20 @@ File Extension: .asm
 
 Program Format:
 
-1. Upto 15 lines of Assembly instructions, with final instruction being "END".
+1. Upto 16 lines of Assembly instructions, with final instruction being "END". Labels can be used for memory address
+   reference as "X: Y", where X is the Label and Y is the instruction.
 2. A 1 Line empty space
-3. Data Memory with each address on new line set as "X: Y", where X is an identifier variable, used in the instructions as 
+3. Data Memory with each address on new line set as "X: Y", where X is an identifier variable/Label, used in the instructions as 
    well, and Y is the data.
 
-Number Format: For any Immediate operand, shift amount, and Data Memory, use the following:
-    #  : Decimal
-    #B : Binary
-    #& : Hexadecimal
+Number Format: For any Signed Immediate operand, shift amount, and Data Memory, use the following:
+    #  : Decimal (#-128 to #127)
+    #B : Binary (#B00000000 to #B11111111)
+    #& : Hexadecimal (#&00 to #&FF)
 
 For any memory address for non-branch instructions, it is recommended to use Labels and repeat them in the data memory section.
 For any memory address for jump/branch instructions, it is recommended to use Labels and use them at said instruction.
 
-Comment Lines start with //
+Comment Lines start with // (No inline comments allowed)
 
 For an example, Check Test.asm, and associated Test_IMEM.hex and Test_DMEM.hex

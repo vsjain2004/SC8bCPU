@@ -35,23 +35,32 @@ public class Assembler {
 			scnr = new Scanner(f);
 			scnr3 = new Scanner(f);
 			pi = new PrintWriter(imem);
-			pi.println("0000");
 			String line = scnr.nextLine();
 			String line1 = scnr3.nextLine();
 			HashMap<String, String> labels = new HashMap<>();
 			HashMap<String, String> labels1 = new HashMap<>();
-			String y = null;
+			String y;
 			while(line1 != null && !line1.equals("")) {
 				scnr2 = new Scanner(line1);
 				String a = scnr2.next();
 				if(a.endsWith(":") && !a.startsWith("//")) {
 					labels.put(a.substring(0, a.length() - 1), IntToBin(i+1));
 				}
-				i++;
-				line1 = scnr3.nextLine();
+				if(!a.startsWith("//")){
+					i++;
+				}
+				try {
+					line1 = scnr3.nextLine();
+				} catch(java.util.NoSuchElementException d) {
+					line1 = null;
+				}
 			}
 			i = 0;
-			line1 = scnr3.nextLine();
+			try {
+				line1 = scnr3.nextLine();
+			} catch(java.util.NoSuchElementException d) {
+				line1 = null;
+			}
 			while(line1 != null) {
 				scnr2 = new Scanner(line1);
 				String a = scnr2.next();
@@ -66,8 +75,8 @@ public class Assembler {
 				}
 			}
 			i = 0;
-			while(line != null && !line.equals("") && i < 15) {
-				while(line != null && line.startsWith("//")) {
+			while(line != null && !line.equals("") && i < 16) {
+				while(line != null && line.stripLeading().startsWith("//")) {
 					line = scnr.nextLine();
 				}
 				if(line == null) {
@@ -80,7 +89,7 @@ public class Assembler {
 					a = scnr2.next();
 				}
 				switch(a) {
-				case "NOOP": 
+				case "NOOP" -> {
 					if(!scnr2.hasNext()) {
 						b = "0000";
 						c = "11";
@@ -89,8 +98,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "IN":
+				}
+				case "IN" -> {
 					a = scnr2.next();
 					if(!scnr2.hasNext()) {
 						b = "0001";
@@ -100,8 +109,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "OUT":
+				}
+				case "OUT" -> {
 					a = scnr2.next();
 					if(!scnr2.hasNext()) {
 						b = "0010";
@@ -111,8 +120,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "END":
+				}
+				case "END" -> {
 					if(!scnr2.hasNext()) {
 						b = "0001";
 						c = "00";
@@ -121,9 +130,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "LDM":
-				case "LDD":
+				}
+				case "LDM", "LDD" -> {
 					y = a;
 					a = scnr2.next();
 					b = "0000";
@@ -142,8 +150,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "LDX":
+				}
+				case "LDX" -> {
 					a = scnr2.next();
 					b = "0000";
 					c = "10";
@@ -153,8 +161,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetEa(scnr2.next(), labels1);
-					break;
-				case "STO":
+				}
+				case "STO" -> {
 					a = scnr2.next();
 					b = "0001";
 					c = "01";
@@ -164,8 +172,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetEa(scnr2.next(), labels1);
-					break;
-				case "STX":
+				}
+				case "STX" -> {
 					a = scnr2.next();
 					b = "0001";
 					c = "10";
@@ -175,9 +183,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetEa(scnr2.next(), labels1);
-					break;
-				case "ADDM":
-				case "ADDD":
+				}
+				case "ADDM", "ADDD" -> {
 					y = a;
 					a = scnr2.next();
 					b = "0010";
@@ -196,8 +203,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "ADDX":
+				}
+				case "ADDX" -> {
 					a = scnr2.next();
 					b = "0010";
 					c = "10";
@@ -207,9 +214,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetEa(scnr2.next(), labels1);
-					break;
-				case "SUBM":
-				case "SUBD":
+				}
+				case "SUBM", "SUBD" -> {
 					y = a;
 					a = scnr2.next();
 					b = "0011";
@@ -228,8 +234,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "SUBX":
+				}
+				case "SUBX" -> {
 					a = scnr2.next();
 					b = "0011";
 					c = "10";
@@ -239,8 +245,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetEa(scnr2.next(), labels1);
-					break;
-				case "INC":
+				}
+				case "INC" -> {
 					a = scnr2.next();
 					if(!scnr2.hasNext()) {
 						b = "0110";
@@ -250,8 +256,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "DEC":
+				}
+				case "DEC" -> {
 					a = scnr2.next();
 					if(!scnr2.hasNext()) {
 						b = "0110";
@@ -261,8 +267,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "LSL":
+				}
+				case "LSL" -> {
 					a = scnr2.next();
 					b = "0110";
 					c = "10";
@@ -272,8 +278,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetE(scnr2.next());
-					break;
-				case "LSR":
+				}
+				case "LSR" -> {
 					a = scnr2.next();
 					b = "0110";
 					c = "11";
@@ -283,8 +289,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetE(scnr2.next());
-					break;
-				case "ADDR":
+				}
+				case "ADDR" -> {
 					a = scnr2.next();
 					b = "0100";
 					if(a.endsWith(",")) {
@@ -294,8 +300,8 @@ public class Assembler {
 					}
 					c = GetD(scnr2.next());
 					e = "00000000";
-					break;
-				case "SUBR":
+				}
+				case "SUBR" -> {
 					a = scnr2.next();
 					b = "0101";
 					if(a.endsWith(",")) {
@@ -305,9 +311,8 @@ public class Assembler {
 					}
 					c = GetD(scnr2.next());
 					e = "00000000";
-					break;
-				case "CMP":
-				case "CMD":
+				}
+				case "CMP", "CMD" -> {
 					y = a;
 					a = scnr2.next();
 					b = "1000";
@@ -326,8 +331,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "CMX":
+				}
+				case "CMX" -> {
 					a = scnr2.next();
 					b = "1000";
 					c = "10";
@@ -337,38 +342,38 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetEa(scnr2.next(), labels1);
-					break;
-				case "JMP":
+				}
+				case "JMP" -> {
 					b = "1000";
 					c = "11";
 					d = "00";
 					e = GetEa(scnr2.next(), labels);
-					break;
-				case "JPN":
+				}
+				case "JPN" -> {
 					b = "1001";
 					c = "00";
 					d = "00";
 					e = GetEa(scnr2.next(), labels);
-					break;
-				case "JPE":
+				}
+				case "JPE" -> {
 					b = "1001";
 					c = "01";
 					d = "00";
 					e = GetEa(scnr2.next(), labels);
-					break;
-				case "JGT":
+				}
+				case "JGT" -> {
 					b = "1001";
 					c = "10";
 					d = "00";
 					e = GetEa(scnr2.next(), labels);
-					break;
-				case "JGE":
+				}
+				case "JGE" -> {
 					b = "1001";
 					c = "11";
 					d = "00";
 					e = GetEa(scnr2.next(), labels);
-					break;
-				case "SWAPR":
+				}
+				case "SWAPR" -> {
 					a = scnr2.next();
 					b = "1010";
 					if(a.endsWith(",")) {
@@ -381,9 +386,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = "00000000";
-					break;
-				case "ANDM":
-				case "ANDD":
+				}
+				case "ANDM", "ANDD" -> {
 					y = a;
 					a = scnr2.next();
 					b = "1010";
@@ -402,8 +406,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "ANDX":
+				}
+				case "ANDX" -> {
 					a = scnr2.next();
 					b = "1010";
 					c = "10";
@@ -413,9 +417,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetEa(scnr2.next(), labels1);
-					break;
-				case "ORM":
-				case "ORD":
+				}
+				case "ORM", "ORD" -> {
 					y = a;
 					a = scnr2.next();
 					b = "1100";
@@ -434,8 +437,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "ORX":
+				}
+				case "ORX" -> {
 					a = scnr2.next();
 					b = "1100";
 					c = "10";
@@ -445,9 +448,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetEa(scnr2.next(), labels1);
-					break;
-				case "XORM":
-				case "XORD":
+				}
+				case "XORM", "XORD" -> {
 					y = a;
 					a = scnr2.next();
 					b = "1110";
@@ -466,8 +468,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "XORX":
+				}
+				case "XORX" -> {
 					a = scnr2.next();
 					b = "1110";
 					c = "10";
@@ -477,8 +479,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetEa(scnr2.next(), labels1);
-					break;
-				case "NOT":
+				}
+				case "NOT" -> {
 					a = scnr2.next();
 					if(!scnr2.hasNext()) {
 						b = "1010";
@@ -488,8 +490,8 @@ public class Assembler {
 					} else {
 						throw new Exception("Illegal Format");
 					}
-					break;
-				case "ASR":
+				}
+				case "ASR" -> {
 					a = scnr2.next();
 					b = "0011";
 					c = "11";
@@ -499,8 +501,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetE(scnr2.next());
-					break;
-				case "CSL":
+				}
+				case "CSL" -> {
 					a = scnr2.next();
 					b = "1100";
 					c = "11";
@@ -510,8 +512,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetE(scnr2.next());
-					break;
-				case "CSR":
+				}
+				case "CSR" -> {
 					a = scnr2.next();
 					b = "1110";
 					c = "11";
@@ -521,8 +523,8 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 					e = GetE(scnr2.next());
-					break;
-				case "ANDR":
+				}
+				case "ANDR" -> {
 					a = scnr2.next();
 					b = "1011";
 					if(a.endsWith(",")) {
@@ -532,8 +534,8 @@ public class Assembler {
 					}
 					c = GetD(scnr2.next());
 					e = "00000000";
-					break;
-				case "ORR":
+				}
+				case "ORR" -> {
 					a = scnr2.next();
 					b = "1101";
 					if(a.endsWith(",")) {
@@ -543,8 +545,8 @@ public class Assembler {
 					}
 					c = GetD(scnr2.next());
 					e = "00000000";
-					break;
-				case "XORR":
+				}
+				case "XORR" -> {
 					a = scnr2.next();
 					b = "1111";
 					if(a.endsWith(",")) {
@@ -554,8 +556,8 @@ public class Assembler {
 					}
 					c = GetD(scnr2.next());
 					e = "00000000";
-					break;
-				default: throw new Exception("Command " + a + " not supported");
+				}
+				default -> throw new Exception("Command " + a + " not supported");
 				}
 				for(int j = 0; j < 8; j++) {
 					if(e.charAt(j) == '0' || e.charAt(j) == '1') {
@@ -563,22 +565,35 @@ public class Assembler {
 						throw new Exception("Illegal Format");
 					}
 				}
-				pi.println(Integer.toHexString((Integer.parseInt(b + c + d + e,2))));
-				line = scnr.nextLine();
+				if(i < 15) {
+					pi.println(String.format("%4s", Integer.toHexString((Integer.parseInt(b + c + d + e,2)))).replace(' ', '0'));
+				} else {
+					pi.print(String.format("%4s", Integer.toHexString((Integer.parseInt(b + c + d + e,2)))).replace(' ', '0'));
+				}
+				try {
+					line = scnr.nextLine();
+				} catch(java.util.NoSuchElementException g) {
+					line = "";
+				}
 				i += 1;
 			}
-			if(i > 15) {
+			if(i == 16 && !"".equals(line)) {
 				throw new Exception("Too many instruction lines");
-			} else if(i < 15) {
+			} else if(i < 16) {
 				for(; i < 15; i++) {
 					pi.println("0000");
 				}
+				pi.print("0000");
 			}
 			if(line == null) {
 				throw new Exception("Illegal Format");
 			}
 			i = 0;
-			line = scnr.nextLine();
+			try {
+				line = scnr.nextLine();
+			} catch(java.util.NoSuchElementException g) {
+				line = null;
+			}
 			pd = new PrintWriter(dmem);
 			
 			while(line != null && i < 8) {
@@ -595,7 +610,11 @@ public class Assembler {
 				} else if (a.endsWith(":")) {
 					throw new Exception("Illegal Format");
 				}
-				pd.println(Integer.toHexString((Integer.parseInt(GetE(a),2))));
+				if(i < 7) {
+					pd.println(String.format("%2s", Integer.toHexString((Integer.parseInt(GetE(a),2)))).replace(' ', '0'));
+				} else {
+					pd.print(String.format("%2s", Integer.toHexString((Integer.parseInt(GetE(a),2)))).replace(' ', '0'));
+				}
 				try {
 					line = scnr.nextLine();
 				} catch(java.util.NoSuchElementException d) {
@@ -603,13 +622,14 @@ public class Assembler {
 				}
 				i++;
 			}
-			if(i == 8) {
+			if(i == 8 && line != null) {
 				throw new Exception("Too many data lines");
 			}else if(i < 8 && line == null) {
-				for(; i < 8; i++) {
+				for(; i < 7; i++) {
 					pd.println("00");
 				}
-			} else {
+				pd.print("00");
+			} else if(!(i == 8 && line == null)) {
 				throw new Exception("Illegal Format");
 			}
 		} catch (Exception e) {
@@ -685,19 +705,21 @@ public class Assembler {
 		if (a.startsWith("#")) {
 			switch(a.substring(0, 2)) {
 			case "#B" -> {
-				if(a.length() != 10) {
+				if(a.length() <= 10) {
+					return String.format("%8s", a.substring(2)).replace(' ', '0');
+				} else {
 					throw new Exception("Illegal Format");
 				}
-				return a.substring(2);
 			}
 			case "#&" -> {
-				if(a.length() != 4) {
+				if(a.length() <= 4) {
+					return HexToBin(String.format("%2s", a.substring(2)).replace(' ', '0'));
+				} else {
 					throw new Exception("Illegal Format");
 				}
-				return HexToBin(a.substring(2));
 			}
-			case "#0", "#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8", "#9" -> {
-				if(a.length() > 4 || Integer.parseInt(a.substring(1)) > 127 || Integer.parseInt(a.substring(1)) < -128) {
+			case "#0", "#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8", "#9", "#-" -> {
+				if((!a.startsWith("#-") && a.length() > 4) || (a.startsWith("#-") && a.length() > 5) || Integer.parseInt(a.substring(1)) > 127 || Integer.parseInt(a.substring(1)) < -128) {
 					throw new Exception("Illegal Format");
 				}
 				return IntToBin(Integer.parseInt(a.substring(1)));

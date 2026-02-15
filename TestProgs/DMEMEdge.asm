@@ -1,0 +1,15 @@
+LDM IX, #7
+LDD A, LOW
+LDX B, LOW
+STO A, HIGH
+STX B, LOW
+END
+
+LOW:  #3
+MID:  #0
+MID2: #0
+MID3: #0
+MID4: #0
+MID5: #0
+MID6: #0
+HIGH: #9
