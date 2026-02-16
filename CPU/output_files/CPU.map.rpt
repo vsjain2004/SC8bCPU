@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Fri Feb 13 15:28:16 2026
+Mon Feb 16 14:54:10 2026
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -22,23 +22,22 @@ Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
  14. Port Connectivity Checks: "PC:pc|register:a2"
  15. Port Connectivity Checks: "PC:pc|register:a1"
  16. Port Connectivity Checks: "PC:pc|register:a0"
- 17. Port Connectivity Checks: "busmuxN_2_to_1:DMWA"
- 18. Port Connectivity Checks: "AddSub8b:indexer"
- 19. Port Connectivity Checks: "Flags:flag_reg|register:D"
- 20. Port Connectivity Checks: "Flags:flag_reg|register:C"
- 21. Port Connectivity Checks: "Flags:flag_reg|register:B"
- 22. Port Connectivity Checks: "Flags:flag_reg|register:A"
- 23. Port Connectivity Checks: "mainreg:MReg|busmux_4_to_1:opc"
- 24. Port Connectivity Checks: "mainreg:MReg|reg_8_bit:IX"
- 25. Port Connectivity Checks: "mainreg:MReg|reg_8_bit:C"
- 26. Port Connectivity Checks: "mainreg:MReg|reg_8_bit:B"
- 27. Port Connectivity Checks: "mainreg:MReg|reg_8_bit:A"
- 28. Port Connectivity Checks: "Control_Unit:OpDec|Decoder2to4:opdec14"
- 29. Port Connectivity Checks: "Control_Unit:OpDec|Decoder2to4:opdec12"
- 30. Post-Synthesis Netlist Statistics for Top Partition
- 31. Elapsed Time Per Partition
- 32. Analysis & Synthesis Messages
- 33. Analysis & Synthesis Suppressed Messages
+ 17. Port Connectivity Checks: "AddSub8b:indexer"
+ 18. Port Connectivity Checks: "Flags:flag_reg|register:D"
+ 19. Port Connectivity Checks: "Flags:flag_reg|register:C"
+ 20. Port Connectivity Checks: "Flags:flag_reg|register:B"
+ 21. Port Connectivity Checks: "Flags:flag_reg|register:A"
+ 22. Port Connectivity Checks: "mainreg:MReg|busmux_4_to_1:opc"
+ 23. Port Connectivity Checks: "mainreg:MReg|reg_8_bit:IX"
+ 24. Port Connectivity Checks: "mainreg:MReg|reg_8_bit:C"
+ 25. Port Connectivity Checks: "mainreg:MReg|reg_8_bit:B"
+ 26. Port Connectivity Checks: "mainreg:MReg|reg_8_bit:A"
+ 27. Port Connectivity Checks: "Control_Unit:OpDec|Decoder2to4:opdec14"
+ 28. Port Connectivity Checks: "Control_Unit:OpDec|Decoder2to4:opdec12"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -65,13 +64,13 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Feb 13 15:28:16 2026           ;
+; Analysis & Synthesis Status        ; Successful - Mon Feb 16 14:54:10 2026           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; CPU                                             ;
 ; Top-level Entity Name              ; CPU                                             ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 879                                             ;
-;     Total combinational functions  ; 567                                             ;
+; Total logic elements               ; 884                                             ;
+;     Total combinational functions  ; 572                                             ;
 ;     Dedicated logic registers      ; 359                                             ;
 ; Total registers                    ; 359                                             ;
 ; Total pins                         ; 36                                              ;
@@ -229,16 +228,16 @@ on the Quartus Prime software download page.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 879       ;
+; Estimated Total logic elements              ; 884       ;
 ;                                             ;           ;
-; Total combinational functions               ; 567       ;
+; Total combinational functions               ; 572       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 441       ;
-;     -- 3 input functions                    ; 90        ;
-;     -- <=2 input functions                  ; 36        ;
+;     -- 4 input functions                    ; 445       ;
+;     -- 3 input functions                    ; 92        ;
+;     -- <=2 input functions                  ; 35        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 557       ;
+;     -- normal mode                          ; 562       ;
 ;     -- arithmetic mode                      ; 10        ;
 ;                                             ;           ;
 ; Total registers                             ; 359       ;
@@ -251,7 +250,7 @@ on the Quartus Prime software download page.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; CLK~input ;
 ; Maximum fan-out                             ; 359       ;
-; Total fan-out                               ; 3331      ;
+; Total fan-out                               ; 3347      ;
 ; Average fan-out                             ; 3.34      ;
 +---------------------------------------------+-----------+
 
@@ -261,7 +260,7 @@ on the Quartus Prime software download page.
 +-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------------+--------------+
 ; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                      ; Entity Name        ; Library Name ;
 +-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------------+--------------+
-; |CPU                          ; 567 (0)             ; 359 (0)                   ; 0           ; 0            ; 0       ; 0         ; 36   ; 0            ; |CPU                                                     ; CPU                ; work         ;
+; |CPU                          ; 572 (0)             ; 359 (0)                   ; 0           ; 0            ; 0       ; 0         ; 36   ; 0            ; |CPU                                                     ; CPU                ; work         ;
 ;    |ALU:alu|                  ; 152 (3)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:alu                                             ; ALU                ; work         ;
 ;       |AND_8_bit:ander|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:alu|AND_8_bit:ander                             ; AND_8_bit          ; work         ;
 ;       |AddSub8b:adder|        ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:alu|AddSub8b:adder                              ; AddSub8b           ; work         ;
@@ -270,7 +269,7 @@ on the Quartus Prime software download page.
 ;       |Logic_Shifter:ls|      ; 61 (61)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:alu|Logic_Shifter:ls                            ; Logic_Shifter      ; work         ;
 ;       |busmux_8_to_1:mux1|    ; 43 (43)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ALU:alu|busmux_8_to_1:mux1                          ; busmux_8_to_1      ; work         ;
 ;    |AddSub8b:indexer|         ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|AddSub8b:indexer                                    ; AddSub8b           ; work         ;
-;    |Control_Unit:OpDec|       ; 56 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:OpDec                                  ; Control_Unit       ; work         ;
+;    |Control_Unit:OpDec|       ; 55 (35)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:OpDec                                  ; Control_Unit       ; work         ;
 ;       |Decoder2to4:opdec2|    ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:OpDec|Decoder2to4:opdec2               ; Decoder2to4        ; work         ;
 ;       |Decoder2to4:opdec3|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:OpDec|Decoder2to4:opdec3               ; Decoder2to4        ; work         ;
 ;       |decoder4to16:opdef1|   ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Control_Unit:OpDec|decoder4to16:opdef1              ; decoder4to16       ; work         ;
@@ -281,20 +280,19 @@ on the Quartus Prime software download page.
 ;          |dffg:my_dff|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:flag_reg|register:C|dffg:my_dff               ; dffg               ; work         ;
 ;       |register:D|            ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:flag_reg|register:D                           ; register           ; work         ;
 ;          |dffg:my_dff|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|Flags:flag_reg|register:D|dffg:my_dff               ; dffg               ; work         ;
-;    |PC:pc|                    ; 5 (5)               ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc                                               ; PC                 ; work         ;
-;       |register:a0|           ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a0                                   ; register           ; work         ;
-;          |dffg:my_dff|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a0|dffg:my_dff                       ; dffg               ; work         ;
-;       |register:a1|           ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a1                                   ; register           ; work         ;
-;          |dffg:my_dff|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a1|dffg:my_dff                       ; dffg               ; work         ;
-;       |register:a2|           ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a2                                   ; register           ; work         ;
-;          |dffg:my_dff|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a2|dffg:my_dff                       ; dffg               ; work         ;
-;       |register:a3|           ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a3                                   ; register           ; work         ;
-;          |dffg:my_dff|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a3|dffg:my_dff                       ; dffg               ; work         ;
+;    |PC:pc|                    ; 10 (4)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc                                               ; PC                 ; work         ;
+;       |register:a0|           ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a0                                   ; register           ; work         ;
+;          |dffg:my_dff|        ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a0|dffg:my_dff                       ; dffg               ; work         ;
+;       |register:a1|           ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a1                                   ; register           ; work         ;
+;          |dffg:my_dff|        ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a1|dffg:my_dff                       ; dffg               ; work         ;
+;       |register:a2|           ; 2 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a2                                   ; register           ; work         ;
+;          |dffg:my_dff|        ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a2|dffg:my_dff                       ; dffg               ; work         ;
+;       |register:a3|           ; 2 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a3                                   ; register           ; work         ;
+;          |dffg:my_dff|        ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|PC:pc|register:a3|dffg:my_dff                       ; dffg               ; work         ;
 ;    |busmux_4_to_1:SALU|       ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:SALU                                  ; busmux_4_to_1      ; work         ;
 ;    |busmux_4_to_1:WMR|        ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|busmux_4_to_1:WMR                                   ; busmux_4_to_1      ; work         ;
-;    |mainreg:MReg|             ; 76 (9)              ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:MReg                                        ; mainreg            ; work         ;
-;       |Decoder2to4:decoder2|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:MReg|Decoder2to4:decoder2                   ; Decoder2to4        ; work         ;
-;       |Decoder2to4:decoder|   ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:MReg|Decoder2to4:decoder                    ; Decoder2to4        ; work         ;
+;    |mainreg:MReg|             ; 77 (10)             ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:MReg                                        ; mainreg            ; work         ;
+;       |Decoder2to4:decoder2|  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:MReg|Decoder2to4:decoder2                   ; Decoder2to4        ; work         ;
 ;       |busmux_4_to_1:opa|     ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:MReg|busmux_4_to_1:opa                      ; busmux_4_to_1      ; work         ;
 ;       |busmux_4_to_1:opb|     ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:MReg|busmux_4_to_1:opb                      ; busmux_4_to_1      ; work         ;
 ;       |reg_8_bit:A|           ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|mainreg:MReg|reg_8_bit:A                            ; reg_8_bit          ; work         ;
@@ -381,7 +379,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Number of registers using Synchronous Load   ; 32    ;
 ; Number of registers using Asynchronous Clear ; 39    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 359   ;
+; Number of registers using Clock Enable       ; 355   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -391,10 +389,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:MReg|reg_8_bit:A|register:reg5|dffg:my_dff|q  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:MReg|reg_8_bit:B|register:reg0|dffg:my_dff|q  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:MReg|reg_8_bit:C|register:reg4|dffg:my_dff|q  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:MReg|reg_8_bit:IX|register:reg5|dffg:my_dff|q ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:MReg|reg_8_bit:A|register:reg3|dffg:my_dff|q  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:MReg|reg_8_bit:B|register:reg6|dffg:my_dff|q  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:MReg|reg_8_bit:C|register:reg0|dffg:my_dff|q  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|mainreg:MReg|reg_8_bit:IX|register:reg4|dffg:my_dff|q ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CPU|PC:pc|register:a0|dffg:my_dff|q                       ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|mainreg:MReg|busmux_4_to_1:opa|Out[7]                 ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|mainreg:MReg|busmux_4_to_1:opb|Out[3]                 ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|busmux_4_to_1:SALU|Out[1]                             ;
@@ -428,7 +427,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-----------------------------------------+
 ; Parameter Name ; Value ; Type                                    ;
 +----------------+-------+-----------------------------------------+
-; N              ; 8     ; Signed Integer                          ;
+; N              ; 3     ; Signed Integer                          ;
 +----------------+-------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -467,17 +466,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+-------+----------+-----------------+
 ; PRESET_N ; Input ; Info     ; Stuck at VCC    ;
 +----------+-------+----------+-----------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "busmuxN_2_to_1:DMWA"                                                                                                                        ;
-+------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                     ;
-+------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; In1  ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "In1[7..3]" will be connected to GND. ;
-; In2  ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "In2[7..3]" will be connected to GND. ;
-; Out  ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (3 bits) it drives; bit(s) "Out[7..3]" have no fanouts                      ;
-+------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------+
@@ -529,14 +517,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mainreg:MReg|busmux_4_to_1:opc"                                                                                                                                                     ;
-+--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port   ; Type  ; Severity ; Details                                                                                                                                                                            ;
-+--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; s1     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; s1[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-+--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------+
+; Port Connectivity Checks: "mainreg:MReg|busmux_4_to_1:opc" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; s1   ; Input ; Info     ; Stuck at VCC                     ;
++------+-------+----------+----------------------------------+
 
 
 +-------------------------------------------------------+
@@ -600,20 +587,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; boundary_port         ; 36                          ;
 ; cycloneiii_ff         ; 359                         ;
+;     CLR               ; 4                           ;
 ;     ENA               ; 320                         ;
-;     ENA CLR           ; 7                           ;
+;     ENA CLR           ; 3                           ;
 ;     ENA CLR SLD       ; 32                          ;
-; cycloneiii_lcell_comb ; 567                         ;
+; cycloneiii_lcell_comb ; 572                         ;
 ;     arith             ; 10                          ;
 ;         2 data inputs ; 1                           ;
 ;         3 data inputs ; 9                           ;
-;     normal            ; 557                         ;
-;         2 data inputs ; 35                          ;
-;         3 data inputs ; 81                          ;
-;         4 data inputs ; 441                         ;
+;     normal            ; 562                         ;
+;         2 data inputs ; 34                          ;
+;         3 data inputs ; 83                          ;
+;         4 data inputs ; 445                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 19.00                       ;
-; Average LUT depth     ; 14.32                       ;
+; Average LUT depth     ; 14.29                       ;
 +-----------------------+-----------------------------+
 
 
@@ -632,7 +620,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Fri Feb 13 15:28:03 2026
+    Info: Processing started: Mon Feb 16 14:53:54 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -650,12 +638,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file ones.v
     Info (12023): Found entity 1: Ones File: C:/Users/vjrai/Documents/SC8bCPU/CPU/Ones.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mainreg.v
     Info (12023): Found entity 1: mainreg File: C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file decoder3to8.v
-    Info (12023): Found entity 1: Decoder3to8 File: C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file decoder2to4.v
     Info (12023): Found entity 1: Decoder2to4 File: C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file busmux_16_to_1.v
-    Info (12023): Found entity 1: busmux_16_to_1 File: C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_16_to_1.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file busmux_8_to_1.v
     Info (12023): Found entity 1: busmux_8_to_1 File: C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file busmux_4_to_1.v
@@ -720,20 +704,19 @@ Info (12128): Elaborating entity "PC" for hierarchy "PC:pc" File: C:/Users/vjrai
 Info (276014): Found 2 instances of uninferred RAM logic
     Info (276007): RAM logic "memory:IMEM|ram" is uninferred due to asynchronous read logic File: C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v Line: 8
     Info (276004): RAM logic "memory:DMEM|ram" is uninferred due to inappropriate RAM size File: C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v Line: 8
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/vjrai/Documents/SC8bCPU/CPU/output_files/CPU.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 924 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 929 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 27 input pins
     Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 888 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info (21061): Implemented 893 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 4843 megabytes
-    Info: Processing ended: Fri Feb 13 15:28:16 2026
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:35
+    Info: Processing ended: Mon Feb 16 14:54:10 2026
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:32
 
 
 +------------------------------------------+

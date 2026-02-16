@@ -35,7 +35,7 @@ module CPU(InstExt, InstLd, CLK, CLEAR_N, IN, OUT_EN, oOUT);
 	
 	AddSub8b indexer(.Cin(1'b0), .X(Inst[7:0]), .Y(oIX), .S(IXAddr), .Cout(), .Ov());
 	
-	busmuxN_2_to_1 DMWA(.In1(Inst[2:0]), .In2(IXAddr[2:0]), .S(DMEM_S_ADD), .Out(DMEMAddr));
+	busmuxN_2_to_1 #(.N(3)) DMWA(.In1(Inst[2:0]), .In2(IXAddr[2:0]), .S(DMEM_S_ADD), .Out(DMEMAddr));
 	
 	PC pc(.LOAD(PC_LD_EN), .IN(Inst[3:0]), .PCEN(PC_EN), .CLK(CLK), .RESET(CLEAR_N), .A(oPC));
 	

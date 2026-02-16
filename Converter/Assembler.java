@@ -44,7 +44,7 @@ public class Assembler {
 				scnr2 = new Scanner(line1);
 				String a = scnr2.next();
 				if(a.endsWith(":") && !a.startsWith("//")) {
-					labels.put(a.substring(0, a.length() - 1), IntToBin(i+1));
+					labels.put(a.substring(0, a.length() - 1), IntToBin(i));
 				}
 				if(!a.startsWith("//")){
 					i++;
@@ -375,16 +375,13 @@ public class Assembler {
 				}
 				case "SWAPR" -> {
 					a = scnr2.next();
-					b = "1010";
+					b = "0111";
 					if(a.endsWith(",")) {
 						d = GetD(a.substring(0, a.length() - 1));
 					} else {
 						throw new Exception("Illegal Format");
 					}
 					c = GetD(scnr2.next());
-					if(c.equals("11")) {
-						throw new Exception("Illegal Format");
-					}
 					e = "00000000";
 				}
 				case "ANDM", "ANDD" -> {

@@ -34,5 +34,5 @@ module mainreg(IN, MRWE, WA0, WA1, RA0, RA1, RA2, RA3, RA4, CLK, RESET, SWAPR, O
 	
 	busmux_4_to_1 opa(.In1(OA), .In2(OB), .In3(OC), .In4(OIX), .s1(RA1), .s0(RA0), .Out(OUTA));
 	busmux_4_to_1 opb(.In1(OA), .In2(OB), .In3(OC), .In4(OIX), .s1(RA3), .s0(RA2), .Out(OUTB));
-	busmux_4_to_1 opc(.In1(OZ), .In2(OO), .In3(OZ), .In4(OO), .s1(1), .s0(RA4), .Out(OUTC));
+	busmux_4_to_1 opc(.In1(OZ), .In2(OO), .In3(OZ), .In4(OO), .s1(1'b1), .s0(RA4), .Out(OUTC));
 endmodule
