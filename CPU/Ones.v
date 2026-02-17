@@ -1,5 +1,5 @@
-module Ones(O);
-	output [7:0] O;
+module Ones #(parameter N = 31) (O);
+	output [N-1:0] O;
 
-	assign O = 8'b11111111;
+	assign O = {N{1'b1}};
 endmodule
