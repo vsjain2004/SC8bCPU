@@ -1,4 +1,4 @@
-module NOT_N_bit #(parameter N = 31) (In, Out);
+module NOT_N_bit #(parameter N = 32) (In, Out);
 	integer k;
 	input [N-1:0] In;
 	output reg [N-1:0] Out;

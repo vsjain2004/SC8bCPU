@@ -1,4 +1,4 @@
-module XOR_N_bit #(parameter N = 31) (In, Control, Out);
+module XOR_N_bit #(parameter N = 32) (In, Control, Out);
 	integer k;
 	input [N-1:0] In;
 	input [N-1:0] Control;

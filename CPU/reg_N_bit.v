@@ -1,4 +1,4 @@
-module reg_N_bit #(parameter N = 31) (IN, LOAD, CLK, OUT, PRESET_N, CLEAR_N);
+module reg_N_bit #(parameter N = 32) (IN, LOAD, CLK, OUT, PRESET_N, CLEAR_N);
 	input [N-1:0] IN;
 	input LOAD, CLK, PRESET_N, CLEAR_N;
 	output [N-1:0] OUT;

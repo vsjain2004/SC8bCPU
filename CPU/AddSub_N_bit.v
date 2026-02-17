@@ -1,4 +1,4 @@
-module AddSub_N_bit #(parameter N = 31) (Cin, X, Y, S, Cout, Ov);
+module AddSub_N_bit #(parameter N = 32) (Cin, X, Y, S, Cout, Ov);
 	input Cin;
 	input [N-1:0] X, Y;
 	output [N-1:0] S;
