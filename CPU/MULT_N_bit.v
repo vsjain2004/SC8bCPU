@@ -1,7 +1,8 @@
-module MULT_N_bit #(parameter N = 32) (X, Y, Signed, OutHi, OutLo);
+module MULT_N_bit #(parameter N = 32) (X, Y, Signed, OutHi, OutLo, Ov);
     input [N-1:0] X, Y;
     input Signed;
     output [N-1:0] OutHi, OutLo;
+    output Ov;
 
     wire signed [N:0] X_ext;
     wire signed [N:0] Y_ext;
@@ -9,28 +10,12 @@ module MULT_N_bit #(parameter N = 32) (X, Y, Signed, OutHi, OutLo);
     assign X_ext = Signed ? {X[N-1], X} : {1'b0, X};
     assign Y_ext = Signed ? {Y[N-1], Y} : {1'b0, Y};
 
+    assign Ov = (X[N-1] & (~|X[N-2:0]) & (&Y)) | (Y[N-1] & (~|Y[N-2:0]) & (&X));
+
     wire signed [2*N+1:0] product;
     assign product = X_ext * Y_ext;
 
     assign {OutHi, OutLo} = product[2*N-1:0];
 
-    // wire [2*N-1:0] P_unsigned;
-    // assign P_unsigned = X * Y;
-
-    // wire X_neg = Signed & X[N-1];
-    // wire Y_neg = Signed & Y[N-1];
-
-    // wire [2*N-1:0] correction_X = X_neg ? ({ {N{1'b0}}, Y } << N) : 0;
-    // wire [2*N-1:0] correction_Y = Y_neg ? ({ {N{1'b0}}, X } << N) : 0;
-
-    // wire [2*N-1:0] P_signed;
-
-    // assign P_signed = P_unsigned
-    //                 - correction_X
-    //                 - correction_Y;
-
-    // wire [2*N-1:0] P_final = Signed ? P_signed : P_unsigned;
-
-    // assign Out = HiLo ? P_final[2*N-1:N]
-    //                   : P_final[N-1:0];
+    assign Ov = Signed ? (OutHi != {N{OutLo[N-1]}}) : (|OutHi);
 endmodule
