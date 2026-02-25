@@ -1,7 +1,7 @@
-module MULT_N_bit #(parameter N = 32) (X, Y, HiLo, Signed, Out);
+module MULT_N_bit #(parameter N = 32) (X, Y, Signed, OutHi, OutLo);
     input [N-1:0] X, Y;
-    input HiLo, Signed;
-    output [N-1:0] Out;
+    input Signed;
+    output [N-1:0] OutHi, OutLo;
 
     wire signed [N:0] X_ext;
     wire signed [N:0] Y_ext;
@@ -12,7 +12,7 @@ module MULT_N_bit #(parameter N = 32) (X, Y, HiLo, Signed, Out);
     wire signed [2*N+1:0] product;
     assign product = X_ext * Y_ext;
 
-    assign Out = HiLo ? product[2*N-1:N] : product[N-1:0];
+    assign {OutHi, OutLo} = product[2*N-1:0];
 
     // wire [2*N-1:0] P_unsigned;
     // assign P_unsigned = X * Y;
