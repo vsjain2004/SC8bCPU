@@ -1,0 +1,95 @@
+ADD Rd, R1, Imm
+    LDMU A, Imm[31:16]
+    ORI A, A, Imm[15:0]
+    ADDR Rd, R1, A
+
+ADD Rd, R1, Imm[R2]
+    LDW A, Imm[R2]
+    ADDR Rd, R1, A
+
+SUB Rd, R1, Imm
+    LDMU A, Imm[31:16]
+    ORI A, A, Imm[15:0]
+    SUBR Rd, R1, A
+
+SUB Rd, R1, Imm[R2]
+    LDW A, Imm[R2]
+    SUBR Rd, R1, A
+
+AND Rd, R1, Imm
+AND Rd, R1, Imm[R2]
+OR Rd, R1, Imm[R2]
+XOR Rd, R1, Imm
+XOR Rd, R1, Imm[R2]
+MULT Rd1, Rd2, R1, Imm
+MULT Rd1, Rd2, R1, Imm[R2]
+MULTU Rd1, Rd2, R1, Imm
+MULTU Rd1, Rd2, R1, Imm[R2]
+DIV Rd1, Rd2, R1, Imm
+DIV Rd1, Rd2, R1, Imm[R2]
+DIVU Rd1, Rd2, R1, Imm
+DIVU Rd1, Rd2, R1, Imm[R2]
+
+    All above similar to ADD/SUB
+
+MULT Rd, R1, Op2
+    MULT Rd1, Z, R1, Op2
+
+MULTH Rd, R1, Op2
+    MULT Z, Rd2, R1, Op2
+
+MULTU Rd, R1, Op2
+    MULTU Rd1, Z, R1, Op2
+
+MULTHU Rd, R1, Op2
+    MULTU Z, Rd2, R1, Op2
+
+DIV Rd, R1, Op2
+    DIV Rd1, Z, R1, Op2
+
+DIVR Rd, R1, Op2
+    DIV Z, Rd2, R1, Op2
+
+DIVU Rd, R1, Op2
+    DIVU Rd1, Z, R1, Op2
+
+DIVRU Rd, R1, Op2
+    DIVU Z, Rd2, R1, Op2
+
+CMP R1, Imm
+CMP R1, Imm[R2]
+
+    Similar to ADD/SUB
+
+JMP Immediate
+    LDJ A, Imm
+    JMP A
+
+JAL Immediate
+    LDJ A, Imm
+    JAL A, RA
+
+JAL R1, Imm
+    LDJ A, Imm
+    JAL A, R1
+
+JAL R1
+    JAL R1, RA
+
+JGE Immediate
+    LDM A, Imm + 7
+    LSL A, A, 1
+    ADDPC A, A
+    JGER A
+
+JGTU Immediate
+    LDM A, Imm + 8
+    LSL A, A, 1
+    ADDPC A, A
+    JGTRU A
+
+JGEU Immediate
+    LDM A, Imm + 8
+    LSL A, A, 1
+    ADDPC A, A
+    JGERU A
