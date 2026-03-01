@@ -272,15 +272,15 @@ Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/Fam
 Not Register & NOT & R1 & R[R1] = $~\sim$R[R2] & NOT R1, R2 & 7 \\
 And Immediate & AND(M) & P & R[Rd] = R[R1] \& ZeroExtImm & AND Rd, R1, Imm & --\\
 And Direct & AND(D) & R2 & R[Rd] = R[R1] \& M[R2] & AND Rd, R1, [R2] & 13/1/0\\
-And Indexed & AND(X) & P & R[Rd] = R[R1] \& M[R2 + ZeroExtImm] & AND Rd, R1, Imm[R2] & --\\
+And Indexed & AND(X) & P & R[Rd] = R[R1] \& M[R2 + SignExtImm] & AND Rd, R1, Imm[R2] & --\\
 And Register & AND(R) & R2 & R[Rd] = R[R1] \& R[R2] & AND Rd, R1, R2 & 13/1/1\\
 Or Immediate & OR(M) & I & R[Rd] = R[R1] \textbar ~ZeroExtImm & OR Rd, R1, Imm & 8\\
 Or Direct & OR(D) & R2 & R[Rd] = R[R1] \textbar ~M[R2] & OR Rd, R1, [R2] & 13/1/2\\
-Or Indexed & OR(X) & P & R[Rd] = R[R1] \textbar ~M[R2 + ZeroExtImm] & OR Rd, R1, Imm[R2] & --\\
+Or Indexed & OR(X) & P & R[Rd] = R[R1] \textbar ~M[R2 + SignExtImm] & OR Rd, R1, Imm[R2] & --\\
 Or Register & OR(R) & R2 & R[Rd] = R[R1] \textbar ~R[R2] & OR Rd, R1, R2 & 13/1/3\\
 Xor Immediate & XOR(M) & P & R[Rd] = R[R1] $\oplus$ ZeroExtImm & XOR Rd, R1, Imm & --\\
 Xor Direct & XOR(D) & R2 & R[Rd] = R[R1] $\oplus$ M[R2] & XOR Rd, R1, [R2] & 13/1/4\\
-Xor Indexed & XOR(X) & P & R[Rd] = R[R1] $\oplus$ M[R2 + ZeroExtImm] & XOR Rd, R1, Imm[R2] & --\\
+Xor Indexed & XOR(X) & P & R[Rd] = R[R1] $\oplus$ M[R2 + SignExtImm] & XOR Rd, R1, Imm[R2] & --\\
 Xor Register & XOR(R) & R2 & R[Rd] = R[R1] $\oplus$ R[R2] & XOR Rd, R1, R2 & 13/1/5\\
 Arithmetic Shift Right Immediate & ASR & R2 & R[Rd] = R[R1] $>>>$ R2 & ASR Rd, R1, R2 & 13/1/6\\
 Arithmetic Shift Right Register & ASRR & R2 & R[Rd] = R[R1] $>>>$ R[R2] & ASRR Rd, R1, R2 & 13/1/7\\
@@ -331,9 +331,9 @@ Mult High Half & MULTH & P & R[Rd] = [R[R1] * Op2](63:32) & MULTH Rd, R1, Op2 & 
 Mult Low Half Unsigned & MULTU & P &R[Rd] = [R[R1] * U(Op2)](31:0) & MULTU Rd, R1, Op2 & --\\
 Mult High Half Unsigned & MULTHU & P & R[Rd] = [R[R1] * U(Op2)](63:32) & MULTHU Rd, R1, Op2 & --\\
 Div Quotient & DIV & P & R[Rd] = R[R1] / Op2 & DIV Rd, R1, Op2 & --\\
-Div Remainder & DIVR & P & R[Rd] = R[R1] \% Op2 & DIVR Rd, R1, Op2 & --\\
+Div Remainder & REM & P & R[Rd] = R[R1] \% Op2 & REM Rd, R1, Op2 & --\\
 Div Quotient Unsigned & DIVU & P & R[Rd] = R[R1] / U(Op2) & DIVU Rd, R1, Op2 & --\\
-Div Remainder Unsigned & DIVRU & P & R[Rd] = R[R1] \% U(Op2) & DIVRU Rd, R1, Op2 & --\\
+Div Remainder Unsigned & REMU & P & R[Rd] = R[R1] \% U(Op2) & REMU Rd, R1, Op2 & --\\
 \bottomrule
 \end{tabular}
 
@@ -352,7 +352,7 @@ Jump & JMP & P & PC = JMPAddr & JMP Immediate & --\\
 Jump Register & JMPR & R1 & PC = R[R1] & JMPR R1 & 10\\
 Jump and Link & JAL & P & PC = JMPAddr; R[RA] = NextInst & JAL Immediate & --\\
 Jump and Link Register & JAL(R) & P & PC = JMPAddr; R[R1] = NextInst & JAL R1, Imm & --\\
-Jump Register and Link & J(R)AL & P & PC = R[R1]; R[RA] = NextInst & JAL R1 & 11\\
+Jump Register and Link & J(R)AL & P & PC = R[R1]; R[RA] = NextInst & JAL R1 & --\\
 Jump Register and Link Register & J(R)AL(R) & R1 & PC = R[R1]; R[R2] = PC + 2 & JAL R1, R2 & 11\\
 Jump if Not Equal & JPN & I & If Flags, PC = PC + 4 + (SignExtImm $<<$ 1) & JPN Immediate & 9\\
 Jump if Not Equal Register & JPN(R) & R1 & If Flags, PC = R[R1] & JPN R1 & 12\\

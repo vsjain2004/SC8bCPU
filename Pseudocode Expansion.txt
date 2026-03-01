@@ -47,13 +47,13 @@ MULTHU Rd, R1, Op2
 DIV Rd, R1, Op2
     DIV Rd1, Z, R1, Op2
 
-DIVR Rd, R1, Op2
+REM Rd, R1, Op2
     DIV Z, Rd2, R1, Op2
 
 DIVU Rd, R1, Op2
     DIVU Rd1, Z, R1, Op2
 
-DIVRU Rd, R1, Op2
+REMU Rd, R1, Op2
     DIVU Z, Rd2, R1, Op2
 
 CMP R1, Imm

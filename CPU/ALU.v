@@ -1,7 +1,8 @@
-module ALU(ADD_SUB, Y, X, AS2, AS1, AS0, Arithmetic, ZF, CF, OF, NF, Result);
+module ALU(ADD_SUB, Y, X, ALU_SELECT, ZF, CF, OF, NF, Result);
 
-	input ADD_SUB, AS2, AS1, AS0, Arithmetic;
+	input ADD_SUB;
 	input [31:0] Y, X;
+	input [2:0] ALU_SELECT;
 	output ZF, CF, OF, NF;
 	output [31:0] Result;
 	
@@ -16,7 +17,7 @@ module ALU(ADD_SUB, Y, X, AS2, AS1, AS0, Arithmetic, ZF, CF, OF, NF, Result);
 	Arithmetic_Shifter as(.IN(X), .ShiftAmt(Y[4:0]), .Out(oAS));
 	Circular_Shifter cs(.IN(X), .ShiftAmt(Y[4:0]), .ShiftDir(ADD_SUB), .Out(oCS));
 	
-	busmuxN_8_to_1 mux1(.S({AS2, AS1, AS0}), .W0(oAdd), .W1(oAnd), .W2(oOr), .W3(oXor), .W4(oNot), .W5(oLS), .W6(oAS), .W7(oCS), .F(Result));
+	busmuxN_8_to_1 mux1(.S(ALU_SELECT), .W0(oAdd), .W1(oAnd), .W2(oOr), .W3(oXor), .W4(oNot), .W5(oLS), .W6(oAS), .W7(oCS), .F(Result));
 	
 	assign NF = oAdd[31];
 	assign ZF = ~|oAdd;
