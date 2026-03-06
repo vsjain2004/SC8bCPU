@@ -1,8 +1,8 @@
-module memory2 #(parameter BASE_BIT_WIDTH = 8, ADDR_WIDTH = 12) (clk, data, we, addr, dlen, q); 
+module memory2 #(parameter BASE_BIT_WIDTH = 8, ADDR_WIDTH = 12) (clk, data, we, re, addr, dlen, q); 
 	input clk;
 	input [ADDR_WIDTH-1:0] addr;
 	input [BASE_BIT_WIDTH*4 - 1:0] data;
-	input we;
+	input we, re;
 	input [1:0] dlen;
 	output reg [BASE_BIT_WIDTH*4 - 1:0] q;
 	
@@ -49,13 +49,15 @@ module memory2 #(parameter BASE_BIT_WIDTH = 8, ADDR_WIDTH = 12) (clk, data, we, 
 		end
 	end
 	
-	always @(addr, addr1, addr2, addr3, dlen, ram) begin
-		case (dlen)
-			2'b00 : q = {{BASE_BIT_WIDTH*3{1'b0}}, ram[addr]};
-			2'b01 : q = addr1 ? {{BASE_BIT_WIDTH*3{1'b0}}, ram[addr]} : {{BASE_BIT_WIDTH*2{1'b0}}, ram[addr+1], ram[addr]};
-			2'b10 : q = addr2 ? (addr[0] ? {{BASE_BIT_WIDTH*3{1'b0}}, ram[addr]} : {{BASE_BIT_WIDTH*2{1'b0}}, ram[addr+1], ram[addr]}) : {{BASE_BIT_WIDTH{1'b0}}, ram[addr+2], ram[addr+1], ram[addr]};
-			2'b11 : q = addr3 ? (addr2 ? (addr[0] ? {{BASE_BIT_WIDTH*3{1'b0}}, ram[addr]} : {{BASE_BIT_WIDTH*2{1'b0}}, ram[addr+1], ram[addr]}) : {{BASE_BIT_WIDTH{1'b0}}, ram[addr+2], ram[addr+1], ram[addr]}) : {ram[addr+3], ram[addr+2], ram[addr+1], ram[addr]};
-			default: q = {BASE_BIT_WIDTH*4{1'bx}};
-		endcase
+	always @(addr, addr1, addr2, addr3, dlen, ram, re) begin
+		if (re) begin
+			case (dlen)
+				2'b00 : q = {{BASE_BIT_WIDTH*3{1'b0}}, ram[addr]};
+				2'b01 : q = addr1 ? {{BASE_BIT_WIDTH*3{1'b0}}, ram[addr]} : {{BASE_BIT_WIDTH*2{1'b0}}, ram[addr+1], ram[addr]};
+				2'b10 : q = addr2 ? (addr[0] ? {{BASE_BIT_WIDTH*3{1'b0}}, ram[addr]} : {{BASE_BIT_WIDTH*2{1'b0}}, ram[addr+1], ram[addr]}) : {{BASE_BIT_WIDTH{1'b0}}, ram[addr+2], ram[addr+1], ram[addr]};
+				2'b11 : q = addr3 ? (addr2 ? (addr[0] ? {{BASE_BIT_WIDTH*3{1'b0}}, ram[addr]} : {{BASE_BIT_WIDTH*2{1'b0}}, ram[addr+1], ram[addr]}) : {{BASE_BIT_WIDTH{1'b0}}, ram[addr+2], ram[addr+1], ram[addr]}) : {ram[addr+3], ram[addr+2], ram[addr+1], ram[addr]};
+				default: q = {BASE_BIT_WIDTH*4{1'bx}};
+			endcase
+		end
 	end
 endmodule
