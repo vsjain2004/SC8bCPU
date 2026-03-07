@@ -144,10 +144,12 @@ module Opcode_Decoder(
     assign SIGNED = LDM | LDW | LDH | LDB | STW | STH | STB | JPN | JPE | JGT | MULTD | MULTR | DIVD | DIVR;
     assign PC_IN = {(JPN | JPE | JGT), (JMPR | JRALR | JPNR | JPER | JGTR | JGER)};
     assign ALU_X_SEL = INC | DEC | CMPR | ADDR_DEST | SUBR_DEST;
-    assign ALU_Y_SEL
-    assign DMEM_SEL_ADD
-    assign REG_SEL_IN_A
-    assign REG_SEL_IN_B
+    assign ALU_Y_SEL = {(ADDD | SUBD | ANDD |ORD | XORD | ASR | LSL | LSR | CSL | CSR | MULTD | MULTDU | DIVD | DIVDU | CMD | ADDPC), 
+                        (INC | DEC | ORM | ADDPC), (CMPR | ADDR_DEST | SUBR_DEST | ORM | ASR | LSL | LSR | CSL | CSR)};
+    assign DMEM_SEL_ADD = LDW | LDH | LDB | STW | STH | STB;
+    assign REG_SEL_IN_A = {(LDW | LDH | LDB | LDJ | Fam_code[2]), (LDM | LDMU | Fam_code[2]), 
+                           (MOV | SWAPR | LDMU | LDJ | DIVD | DIVR | DIVDU | DIVRU)};
+    assign REG_SEL_IN_B = {Fam_code[2], (JRALR | DIVD | DIVR | DIVDU | DIVRU)};
     assign IMEM_R_EN = ~|PC_IMEM[1:0] & ~|PC_IMEM[17:16];
-    assign DMEM_R_EN
+    assign DMEM_R_EN = LDW | LDH | LDB | ADDD | SUBD | ANDD | ORD | XORD | MULTD | MULTDU | DIVD | DIVDU | CMD;
 endmodule
