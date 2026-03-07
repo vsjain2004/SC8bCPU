@@ -54,6 +54,14 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	ALU
 
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v {2 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module memory2
+** Warning: C:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v(52): (vlog-2256) Event expressions should result in a singular type.
+
+Top level modules:
+	memory2
+
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 -- Compiling module Zeros
@@ -82,19 +90,19 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	OR_N_bit
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v
-Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module register
-
-Top level modules:
-	register
-
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/MULT_N_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/MULT_N_bit.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 -- Compiling module MULT_N_bit
 
 Top level modules:
 	MULT_N_bit
+
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module register
+
+Top level modules:
+	register
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024

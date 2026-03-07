@@ -1,39 +1,33 @@
 m255
 K4
 z2
-Z0 !s12c _opt2
+Z0 !s12c _opt1
 Z1 !s99 nomlopt
 R0
 R1
-Z2 !s12c _opt1
-R1
-Z3 !s12c _opt
-R1
-R0
-R1
-R2
-R1
-R0
+Z2 !s12c _opt
 R1
 R2
 R1
 R2
 R1
-R0
-R1
-R0
+R2
 R1
 R2
 R1
-R3
-R1
-R3
-R1
-R0
+R2
 R1
 R2
 R1
-R3
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+Z3 !s12c _opt2
 R1
 R3
 R1
@@ -45,6 +39,28 @@ R3
 R1
 R0
 R1
+R3
+R1
+R0
+R1
+R0
+R1
+R3
+R1
+R3
+R1
+R0
+R1
+R2
+R1
+R2
+R1
+R3
+R1
+R0
+R1
+R2
+R1
 R2
 R1
 R3
@@ -60,6 +76,16 @@ R1
 R2
 R1
 R3
+R1
+R0
+R1
+R2
+R1
+R3
+R1
+R0
+R1
+R2
 R1
 !s11f vlog 2024.3 2024.09, Sep 10 2024
 13
@@ -70,10 +96,10 @@ R1
 cModel Technology
 Z4 dC:/Users/vjrai/Documents/QueueMAC
 T_opt
-!s110 1772888429
-Vk?BR:[P^Wk[9OCjEHeP=@3
-04 16 4 work Circular_Shifter fast 0
-=1-546cebdd63eb-69ac216d-7e-6124
+!s110 1772902528
+VM65O07g:MWZo=APo_Vn1o3
+04 9 4 work DIV_N_bit fast 0
+=12-546cebdd63eb-69ac5880-160-241c
 R1
 Z5 !s12f OEM100
 Z6 !s12b OEM100
@@ -85,24 +111,23 @@ n@_opt
 Z11 OL;O;2024.3;79
 R4
 T_opt1
-!s110 1772888775
-V`ld;NOR:?WAz>z3ZQRV4L3
-Z12 04 7 4 work memory2 fast 0
-=1-546cebdd63eb-69ac22c6-254-8380
+!s110 1772903024
+V?Mkf_n>BQVGN1eA;fbD`=0
+04 10 4 work MULT_N_bit fast 0
+=2-546cebdd63eb-69ac5a70-135-6bc8
 R1
 R5
 R6
 R7
 R8
-o-quiet -auto_acc_if_foreign -work work
+R9
 R10
 n@_opt1
 R11
-R4
 T_opt2
 !s110 1772889173
 V]YXnH[VWH;]KZI>WLR8RW1
-R12
+04 7 4 work memory2 fast 0
 =2-546cebdd63eb-69ac2455-f6-2870
 R1
 R5
@@ -113,20 +138,21 @@ R9
 R10
 n@_opt2
 R11
+R4
 vAddSub8b
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub8b.v
 !s110 1771160259
 !i10b 1
 !s100 XAZVQll6nGVc=HQV;f5Tf2
 IE?=63`zC5IgTKbAT2b^Tg2
-Z13 dC:/Users/vjrai/Documents/SC8bCPU/CPU
+Z12 dC:/Users/vjrai/Documents/SC8bCPU/CPU
 w1770617657
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub8b.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub8b.v
 !i122 140
-Z14 L0 1 14
-Z15 VDg1SIo80bB@j0V0VzS_@n1
-Z16 OL;L;2024.3;79
+Z13 L0 1 14
+Z14 VDg1SIo80bB@j0V0VzS_@n1
+Z15 OL;L;2024.3;79
 r1
 !s85 0
 31
@@ -134,71 +160,71 @@ r1
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub8b.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub8b.v|
 !i113 0
-Z17 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z16 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R10
 n@add@sub8b
 vAddSub_N_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v
-Z18 !s110 1772874915
+Z17 !s110 1772874915
 !i10b 1
 !s100 DCcbR;Dl7cginomL;2Qe;1
 IECfGUDdNfbMFBn>0P^7ne2
-R13
+R12
 w1771344248
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v
 !i122 199
+R13
 R14
 R15
-R16
 r1
 !s85 0
 31
-Z19 !s108 1772874915.000000
+Z18 !s108 1772874915.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v|
 !i113 0
-R17
+R16
 R10
 n@add@sub_@n_bit
 vALU
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v
-R18
+R17
 !i10b 1
 !s100 O0^0R`kC6::aSgDedC0gg2
 IzLc4YfeKI1ljXRc_j?G[O3
-R13
+R12
 w1772359497
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v
 !i122 200
 L0 1 25
+R14
 R15
-R16
 r1
 !s85 0
 31
-R19
+R18
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v|
 !i113 0
-R17
+R16
 R10
 n@a@l@u
 vAND_5_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_5_bit.v
-Z20 !s110 1770559974
+Z19 !s110 1770559974
 !i10b 1
 !s100 JIN4:i<C=UW_KzJ8J[i_X2
 IP6NZ:OFo3^9b54^jBldRo3
-R13
-Z21 w1770442541
+R12
+Z20 w1770442541
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_5_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/AND_5_bit.v
 !i122 99
-Z22 L0 1 7
+Z21 L0 1 7
+R14
 R15
-R16
 r1
 !s85 0
 31
@@ -206,243 +232,243 @@ r1
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_5_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_5_bit.v|
 !i113 0
-R17
+R16
 R10
 n@a@n@d_5_bit
 vAND_7_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_7_bit.v
-R20
+R19
 !i10b 1
 !s100 f@EB=jgP_J0DX0afP6Z9Y0
 IkYf>;X6>i<;3WRL;35ZiT2
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_7_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/AND_7_bit.v
 !i122 100
-R22
+R21
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z23 !s108 1770559974.000000
+Z22 !s108 1770559974.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_7_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_7_bit.v|
 !i113 0
-R17
+R16
 R10
 n@a@n@d_7_bit
 vAND_8_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v
-Z24 !s110 1771160260
+Z23 !s110 1771160260
 !i10b 1
 !s100 o2d:^eASieRJJb<NJQBP:3
 IcfT83S2X6MNd4SE=60o?n1
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v
 !i122 142
+R13
 R14
 R15
-R16
 r1
 !s85 0
 31
-Z25 !s108 1771160260.000000
+Z24 !s108 1771160260.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_8_bit.v|
 !i113 0
-R17
+R16
 R10
 n@a@n@d_8_bit
 vAND_N_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_N_bit.v
-R18
+R17
 !i10b 1
 !s100 <IGMZE?mjfNzYfQGMVliC3
 I=mN[@:AzD8RZkQo^CU5CV1
-R13
+R12
 w1771344241
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_N_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/AND_N_bit.v
 !i122 201
+R13
 R14
 R15
-R16
 r1
 !s85 0
 31
-R19
+R18
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_N_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/AND_N_bit.v|
 !i113 0
-R17
+R16
 R10
 n@a@n@d_@n_bit
 vArithmetic_Shifter
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v
-R24
+R23
 !i10b 1
 !s100 Jl9i=^0cifaZPTRDo`fj[1
 IM6bNFSVDPQcaWzAmCKE3J3
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v
 !i122 143
 L0 1 20
+R14
 R15
-R16
 r1
 !s85 0
 31
-R25
+R24
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Arithmetic_Shifter.v|
 !i113 0
-R17
+R16
 R10
 n@arithmetic_@shifter
 vBCD_7_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/BCD_7_bit.v
-R20
+R19
 !i10b 1
 !s100 E1CO^MeE?17;SS9g>K^zL1
 IeS^1jQzP6P8H:CTVB@_K12
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/BCD_7_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/BCD_7_bit.v
 !i122 103
 L0 1 804
+R14
 R15
-R16
 r1
 !s85 0
 31
-R23
+R22
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/BCD_7_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/BCD_7_bit.v|
 !i113 0
-R17
+R16
 R10
 n@b@c@d_7_bit
 vbit_1_to_8
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/bit_1_to_8.v
-Z26 !s110 1770559975
+Z25 !s110 1770559975
 !i10b 1
 !s100 <RS13]IT3T^T8o48`bJfV2
 IWR76nKHib>BAE7iV41zO13
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/bit_1_to_8.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/bit_1_to_8.v
 !i122 104
-Z27 L0 1 13
+Z26 L0 1 13
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z28 !s108 1770559975.000000
+Z27 !s108 1770559975.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/bit_1_to_8.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/bit_1_to_8.v|
 !i113 0
-R17
+R16
 R10
 vbusmux_16_to_1
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_16_to_1.v
-R26
+R25
 !i10b 1
 !s100 6^V<PWh`V:XHVFDc]eDJE1
 IeKC<[71IENKgd_z]9BAB>0
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_16_to_1.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_16_to_1.v
 !i122 107
-R22
+R21
+R14
 R15
-R16
 r1
 !s85 0
 31
-R28
+R27
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_16_to_1.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_16_to_1.v|
 !i113 0
-R17
+R16
 R10
 vbusmux_4_to_1
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_4_to_1.v
-R24
+R23
 !i10b 1
 !s100 j3CiZLjej^_n@jOJghlkA3
 IkWCl8YJ6`Ke]jKjgL7;DK3
-R13
+R12
 w1770549696
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_4_to_1.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_4_to_1.v
 !i122 144
-Z29 L0 1 11
+Z28 L0 1 11
+R14
 R15
-R16
 r1
 !s85 0
 31
-R25
+R24
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_4_to_1.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_4_to_1.v|
 !i113 0
-R17
+R16
 R10
 vbusmux_8_to_1
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v
-Z30 !s110 1771160261
+Z29 !s110 1771160261
 !i10b 1
 !s100 N[R5bELOg9z]XNmc2mD>V3
 IhG@=NA1V2kz8BHBS8o60V2
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v
 !i122 145
-R22
+R21
+R14
 R15
-R16
 r1
 !s85 0
 31
-R25
+R24
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/busmux_8_to_1.v|
 !i113 0
-R17
+R16
 R10
 vbusmuxN_2_to_1
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v
-Z31 !s110 1772874916
+Z30 !s110 1772874916
 !i10b 1
 !s100 KgAX@iT5mKAb_8^CR[TS63
 IQEmk2XV^]HSL>Wga:NmBT1
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v
 !i122 203
-Z32 L0 1 9
+Z31 L0 1 9
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z33 !s108 1772874916.000000
+Z32 !s108 1772874916.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_2_to_1.v|
 !i113 0
-R17
+R16
 R10
 nbusmux@n_2_to_1
 vbusmuxN_32_to_1
@@ -451,14 +477,14 @@ vbusmuxN_32_to_1
 !i10b 1
 !s100 4:A_WG[SZf<F2HcS7S?fi3
 I1bb[@PR<K5]8OCA>7;MQX2
-R13
+R12
 w1772875192
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_32_to_1.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_32_to_1.v
 !i122 230
-R32
+R31
+R14
 R15
-R16
 r1
 !s85 0
 31
@@ -466,103 +492,103 @@ r1
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_32_to_1.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_32_to_1.v|
 !i113 0
-R17
+R16
 R10
 nbusmux@n_32_to_1
 vbusmuxN_4_to_1
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_4_to_1.v
-R31
+R30
 !i10b 1
 !s100 O=RL>_cWZXgWk:ECa]HTQ2
 I;gCReH<X<J_Bj3>E]Q[Zz3
-R13
+R12
 w1771935022
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_4_to_1.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_4_to_1.v
 !i122 204
-R29
+R28
+R14
 R15
-R16
 r1
 !s85 0
 31
-R33
+R32
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_4_to_1.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_4_to_1.v|
 !i113 0
-R17
+R16
 R10
 nbusmux@n_4_to_1
 vbusmuxN_8_to_1
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_8_to_1.v
-R31
+R30
 !i10b 1
 !s100 HKTI5NMSMAW1EjYbKSWA41
 I@igk:FVP:2;JWn?ISQCMB3
-R13
+R12
 w1772874650
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_8_to_1.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_8_to_1.v
 !i122 205
-R22
+R21
+R14
 R15
-R16
 r1
 !s85 0
 31
-R33
+R32
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_8_to_1.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_8_to_1.v|
 !i113 0
-R17
+R16
 R10
 nbusmux@n_8_to_1
 vCircular_Shifter
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v
-R31
+R30
 !i10b 1
 !s100 WVgWYNBSjKLNh1kMPO8af1
 I0=b?XfMM_3[Y5Gf[eN2NY0
-R13
+R12
 w1771579782
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v
 !i122 206
-Z34 L0 1 12
+Z33 L0 1 12
+R14
 R15
-R16
 r1
 !s85 0
 31
-R33
+R32
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Circular_Shifter.v|
 !i113 0
-R17
+R16
 R10
 n@circular_@shifter
 vCLA_8_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/CLA_8_bit.v
-Z35 !s110 1770559976
+Z34 !s110 1770559976
 !i10b 1
 !s100 5HAL^<k:LI5ZK[WaQ877I0
 IoY_zGBIKi:aD4D[RXE[FK1
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/CLA_8_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/CLA_8_bit.v
 !i122 110
 L0 20 361
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z36 !s108 1770559976.000000
+Z35 !s108 1770559976.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/CLA_8_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/CLA_8_bit.v|
 !i113 0
-R17
+R16
 R10
 n@c@l@a_8_bit
 vControl
@@ -571,14 +597,14 @@ vControl
 !i10b 1
 !s100 183936j_j6W_[a;Si1XPW3
 In5T:@Va5l[:Mim0Lf;iRX3
-R13
+R12
 w1760076161
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Control.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Control.v
 !i122 68
 L0 1 149
+R14
 R15
-R16
 r1
 !s85 0
 31
@@ -586,23 +612,23 @@ r1
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Control.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Control.v|
 !i113 0
-R17
+R16
 R10
 n@control
 vControl_Unit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v
-R30
+R29
 !i10b 1
 !s100 z@9BY<hRlBcRfQCHNK;^F1
 I0[c9_0U_DiRe_BYg>8L<T2
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v
 !i122 148
 L0 1 50
+R14
 R15
-R16
 r1
 !s85 0
 31
@@ -610,458 +636,458 @@ r1
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Control_Unit.v|
 !i113 0
-R17
+R16
 R10
 n@control_@unit
 vCPU
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v
-Z37 !s110 1772874917
+Z36 !s110 1772874917
 !i10b 1
 !s100 Ll9?kdo0HnOjBM=ib9eJf0
 Il0gOZ<o8JHK^8M3b@Bi?a2
-R13
+R12
 w1771165350
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v
 !i122 207
 L0 1 44
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z38 !s108 1772874917.000000
+Z37 !s108 1772874917.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v|
 !i113 0
-R17
+R16
 R10
 n@c@p@u
 vdecoder1to2
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v
-R35
+R34
 !i10b 1
 !s100 Ul37nJWOJzcLEdBB[oakB0
 I`RjMJN8i90jHcI687R7A[0
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v
 !i122 112
-Z39 L0 1 15
+Z38 L0 1 15
+R14
 R15
-R16
 r1
 !s85 0
 31
-R36
+R35
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v|
 !i113 0
-R17
+R16
 R10
 vDecoder2to4
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v
-R37
+R36
 !i10b 1
 !s100 Q8QZID;Oj2eF6LG?6=oME2
 I@J=UX4UzUPJdJnnGNh7l60
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v
 !i122 208
 L0 1 18
+R14
 R15
-R16
 r1
 !s85 0
 31
-R38
+R37
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v|
 !i113 0
-R17
+R16
 R10
 n@decoder2to4
 vDecoder3to8
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v
-Z40 !s110 1770559977
+Z39 !s110 1770559977
 !i10b 1
 !s100 d_6_`P2XAiVB5Oe3Z:6z>2
 IRP]I]blP?^e[>f`eC5;SJ2
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v
 !i122 114
-Z41 L0 1 23
+Z40 L0 1 23
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z42 !s108 1770559977.000000
+Z41 !s108 1770559977.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder3to8.v|
 !i113 0
-R17
+R16
 R10
 n@decoder3to8
 vdecoder4to16
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v
-R37
+R36
 !i10b 1
 !s100 1`J@8AR8i7=neannHISKj1
 I0En0n1Pa]9U_`;:Sm]M=X3
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v
 !i122 209
-Z43 L0 1 27
+Z42 L0 1 27
+R14
 R15
-R16
 r1
 !s85 0
 31
-R38
+R37
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v|
 !i113 0
-R17
+R16
 R10
 vdecoder5to32
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder5to32.v
-R37
+R36
 !i10b 1
 !s100 _Pd:DF1LD6DBCddCEhazD1
 IGHI;GBdUjUCLz[SUYU63I0
-R13
+R12
 w1772025661
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder5to32.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/decoder5to32.v
 !i122 210
 L0 1 47
+R14
 R15
-R16
 r1
 !s85 0
 31
-R38
+R37
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder5to32.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder5to32.v|
 !i113 0
-R17
+R16
 R10
 vdffg
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v
-R37
+R36
 !i10b 1
 !s100 VXlgc]jB<=XS6<B7M6J^<3
 IPS`?R:hIg6CoJ?dNcm7n;1
-R13
+R12
 w1770725961
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v
 !i122 211
-R39
+R38
+R14
 R15
-R16
 r1
 !s85 0
 31
-R38
+R37
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v|
 !i113 0
-R17
+R16
 R10
 vDIV_N_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/DIV_N_bit.v
-R37
+!s110 1772902525
 !i10b 1
-!s100 ;Z@nTP;eY<6RF1cUTGZ?Z0
-I>J1R<Z]Z^b^1]z6[;LF142
-R13
-w1772037720
+!s100 4UTBTOXW7Q5_>iglK`lb`2
+INW6Hi4OiV^QT^[iZC8>bE2
+R12
+w1772902498
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/DIV_N_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/DIV_N_bit.v
-!i122 212
-Z44 L0 1 16
+!i122 243
+L0 1 75
+R14
 R15
-R16
 r1
 !s85 0
 31
-R38
+!s108 1772902525.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/DIV_N_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/DIV_N_bit.v|
 !i113 0
-R17
+R16
 R10
 n@d@i@v_@n_bit
 vDMEM_PRGM
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEM_PRGM.v
-R40
+R39
 !i10b 1
 !s100 8Ld[c6Z<LGoLWSX52h?d10
 IAnEmf<jY@PIc3mn^lb7QC3
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEM_PRGM.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/DMEM_PRGM.v
 !i122 116
 L0 1 53
+R14
 R15
-R16
 r1
 !s85 0
 31
-R42
+R41
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEM_PRGM.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEM_PRGM.v|
 !i113 0
-R17
+R16
 R10
 n@d@m@e@m_@p@r@g@m
 vDMEMI
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEMI.v
-R40
+R39
 !i10b 1
 !s100 @6k9_<UekR]G9ocKK9a6k0
 IE?0odfB2gjFA4i8mno6:@3
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEMI.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/DMEMI.v
 !i122 117
 L0 20 274
+R14
 R15
-R16
 r1
 !s85 0
 31
-R42
+R41
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEMI.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/DMEMI.v|
 !i113 0
-R17
+R16
 R10
 n@d@m@e@m@i
 vExtender
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Extender.v
-Z45 !s110 1772874918
+Z43 !s110 1772874918
 !i10b 1
 !s100 d?XT[DaC3kn_29g2oaC;h1
 I`UAVZj?NRHemZSUJLB]Mf0
-R13
+R12
 w1772874695
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Extender.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Extender.v
 !i122 213
-R22
+R21
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z46 !s108 1772874918.000000
+Z44 !s108 1772874918.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Extender.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Extender.v|
 !i113 0
-R17
+R16
 R10
 n@extender
 vFlags
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v
-R45
+R43
 !i10b 1
 !s100 ^^P3Mj[aZbMHG8ZKdBIc@3
 I9L0=DAOBP9`eM5^hoV?5I0
-R13
+R12
 w1772038667
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v
 !i122 214
-R34
+R33
+R14
 R15
-R16
 r1
 !s85 0
 31
-R46
+R44
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Flags.v|
 !i113 0
-R17
+R16
 R10
 n@flags
 vIMEM_PRGM
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/IMEM_PRGM.v
-Z47 !s110 1770559978
+Z45 !s110 1770559978
 !i10b 1
 !s100 ]^PSXknXA8aIZF[@hWKW@3
 Ied[<FDhFL>[]TOACmz:VU1
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/IMEM_PRGM.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/IMEM_PRGM.v
 !i122 119
 L0 1 236
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z48 !s108 1770559978.000000
+Z46 !s108 1770559978.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/IMEM_PRGM.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/IMEM_PRGM.v|
 !i113 0
-R17
+R16
 R10
 n@i@m@e@m_@p@r@g@m
 vLCD
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v
-R47
+R45
 !i10b 1
 !s100 ?E_<a=fa[4[AOYhJ0Oa]41
 IXLoEUES2516nXHVA8WFIG3
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v
 !i122 120
 L0 2 34
+R14
 R15
-R16
-r1
-!s85 0
-31
-R48
-!s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v|
-!i113 0
-R17
-R10
-n@l@c@d
-vLCD_Display
-Z49 2C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD_Display.v
-R47
-!i10b 1
-!s100 :LY3XZ:RO4ImY2g:AHP^M1
-IWi[2Lj_V9U1SKSVa4ZedQ3
-R13
-R21
-Z50 8C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD_Display.v
-Z51 FC:/Users/vjrai/Documents/SC8bCPU/CPU/LCD_Display.v
-!i122 121
-L0 41 223
-R15
-R16
-r1
-!s85 0
-31
-R48
-Z52 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD_Display.v|
-Z53 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD_Display.v|
-!i113 0
-R17
-R10
-n@l@c@d_@display
-vLCD_display_string
-R49
-R47
-!i10b 1
-!s100 ;1P8K0@L_dO@:VoCJec?T2
-Ig`mfE1nON8=YA;`Sz`Z572
-R13
-R21
-R50
-R51
-!i122 121
-L0 265 23
-R15
-R16
-r1
-!s85 0
-31
-R48
-R52
-R53
-!i113 0
-R17
-R10
-n@l@c@d_display_string
-vLogic_Shifter
-2C:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v
-R45
-!i10b 1
-!s100 o]YgMh_YCWY4=ezGMQK?g1
-I7=8OYcSj;aOL::VdgmA?n3
-R13
-w1772038746
-8C:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v
-FC:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v
-!i122 215
-R29
-R15
-R16
 r1
 !s85 0
 31
 R46
+!s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD.v|
+!i113 0
+R16
+R10
+n@l@c@d
+vLCD_Display
+Z47 2C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD_Display.v
+R45
+!i10b 1
+!s100 :LY3XZ:RO4ImY2g:AHP^M1
+IWi[2Lj_V9U1SKSVa4ZedQ3
+R12
+R20
+Z48 8C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD_Display.v
+Z49 FC:/Users/vjrai/Documents/SC8bCPU/CPU/LCD_Display.v
+!i122 121
+L0 41 223
+R14
+R15
+r1
+!s85 0
+31
+R46
+Z50 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD_Display.v|
+Z51 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/LCD_Display.v|
+!i113 0
+R16
+R10
+n@l@c@d_@display
+vLCD_display_string
+R47
+R45
+!i10b 1
+!s100 ;1P8K0@L_dO@:VoCJec?T2
+Ig`mfE1nON8=YA;`Sz`Z572
+R12
+R20
+R48
+R49
+!i122 121
+L0 265 23
+R14
+R15
+r1
+!s85 0
+31
+R46
+R50
+R51
+!i113 0
+R16
+R10
+n@l@c@d_display_string
+vLogic_Shifter
+2C:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v
+R43
+!i10b 1
+!s100 o]YgMh_YCWY4=ezGMQK?g1
+I7=8OYcSj;aOL::VdgmA?n3
+R12
+w1772038746
+8C:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v
+FC:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v
+!i122 215
+R28
+R14
+R15
+r1
+!s85 0
+31
+R44
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Logic_Shifter.v|
 !i113 0
-R17
+R16
 R10
 n@logic_@shifter
 vmainreg
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v
-R45
+R43
 !i10b 1
 !s100 o>jeHjh9R@kjjzbGVOf<=1
 IW9bk]Ng<D>OGdSB84HC=a2
-R13
+R12
 w1772026093
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v
 !i122 216
 L0 1 26
+R14
 R15
-R16
 r1
 !s85 0
 31
-R46
+R44
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v|
 !i113 0
-R17
+R16
 R10
 vmemory
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v
-R45
+R43
 !i10b 1
 !s100 Bj2Gi]Q;W[IaO[8lfgI@?0
 IMSi^9VLUe`@zd^Q]]2DLG0
-R13
+R12
 w1770964301
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v
 !i122 217
-R44
+L0 1 16
+R14
 R15
-R16
 r1
 !s85 0
 31
-R46
+R44
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/memory.v|
 !i113 0
-R17
+R16
 R10
 vmemory2
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v
@@ -1069,14 +1095,14 @@ vmemory2
 !i10b 1
 !s100 e8[bLO0W@DoH^9z=KoGaR3
 IS;aNoF?En?V@e>9OWKdJG3
-R13
+R12
 w1772889155
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v
 !i122 231
 L0 1 65
+R14
 R15
-R16
 r1
 !s85 0
 31
@@ -1084,30 +1110,30 @@ r1
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v|
 !i113 0
-R17
+R16
 R10
 vMULT_N_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/MULT_N_bit.v
-Z54 !s110 1772874919
+!s110 1772903021
 !i10b 1
-!s100 M7<1^2b<Y5ZQQ25e;1ie`0
-INDQXc4iVj<d^2j5E>5]^Z2
-R13
-w1772038649
+!s100 NKnMJ`2N8NiWLTd`PGUJM0
+IIIBdabBAn=PzOi:KRU0AP2
+R12
+w1772903014
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/MULT_N_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/MULT_N_bit.v
-!i122 219
-L0 1 21
+!i122 244
+L0 1 19
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z55 !s108 1772874919.000000
+!s108 1772903021.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/MULT_N_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/MULT_N_bit.v|
 !i113 0
-R17
+R16
 R10
 n@m@u@l@t_@n_bit
 vNOT_8_bit
@@ -1116,14 +1142,14 @@ vNOT_8_bit
 !i10b 1
 !s100 E7U0`8JJbMHN9`CA3YUMK1
 I;PXj4ECQXRli[<[>Bln8G2
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_8_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_8_bit.v
 !i122 157
-R27
+R26
+R14
 R15
-R16
 r1
 !s85 0
 31
@@ -1131,387 +1157,387 @@ r1
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_8_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_8_bit.v|
 !i113 0
-R17
+R16
 R10
 n@n@o@t_8_bit
 vNOT_N_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_N_bit.v
-R54
+Z52 !s110 1772874919
 !i10b 1
 !s100 NIP43od1ZPBAfW3T2^Qm31
 IM5DDg`3SLMW4FXDS6B=Ri0
-R13
+R12
 w1771337095
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_N_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_N_bit.v
 !i122 220
-R27
+R26
+R14
 R15
-R16
 r1
 !s85 0
 31
-R55
+Z53 !s108 1772874919.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_N_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/NOT_N_bit.v|
 !i113 0
-R17
+R16
 R10
 n@n@o@t_@n_bit
 vOnes
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Ones.v
-R54
+R52
 !i10b 1
 !s100 1^^aA:zSZ5n2Y=1Zh726l2
 Idz^iFagj]zZPhPiG5:>_B3
-R13
+R12
 w1771337101
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Ones.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Ones.v
 !i122 221
-Z56 L0 1 5
+Z54 L0 1 5
+R14
 R15
-R16
 r1
 !s85 0
 31
-R55
+R53
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Ones.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Ones.v|
 !i113 0
-R17
+R16
 R10
 n@ones
+vOpcode_decoder
+2C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v
+Z55 !s110 1770559979
+!i10b 1
+!s100 XKGF6Hb^A[PkWgBz8]bHA2
+IeH8PZ;hK`@Q1n`Z?0zZPE3
+R12
+R20
+8C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v
+FC:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v
+!i122 126
+L0 20 271
+R14
+R15
+r1
+!s85 0
+31
+Z56 !s108 1770559979.000000
+!s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v|
+!i113 0
+R16
+R10
+n@opcode_decoder
 vOpcode_Decoder
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
-R54
+R52
 !i10b 1
 !s100 9_FebDeT@8S:<U?2O2kCM0
 I8iDHkaHkGl270icAZE^^X1
-R13
+R12
 w1772874911
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
 !i122 222
 L0 1 155
+R14
 R15
-R16
 r1
 !s85 0
 31
-R55
+R53
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v|
 !i113 0
-R17
+R16
 R10
 n@opcode_@decoder
-vOpcode_decoder
-2C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v
-Z57 !s110 1770559979
-!i10b 1
-!s100 XKGF6Hb^A[PkWgBz8]bHA2
-IeH8PZ;hK`@Q1n`Z?0zZPE3
-R13
-R21
-8C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v
-FC:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v
-!i122 126
-L0 20 271
-R15
-R16
-r1
-!s85 0
-31
-Z58 !s108 1770559979.000000
-!s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v|
-!i113 0
-R17
-R10
-n@opcode_decoder
 vOR_5_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_5_bit.v
-R57
+R55
 !i10b 1
 !s100 [AWgk`Wh31O]BhPW=b1Ij2
 ICiUfc^=>UNBocTb8caWoW2
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_5_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/OR_5_bit.v
 !i122 127
-R22
+R21
+R14
 R15
-R16
 r1
 !s85 0
 31
-R58
+R56
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_5_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_5_bit.v|
 !i113 0
-R17
+R16
 R10
 n@o@r_5_bit
 vOR_7_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_7_bit.v
-Z59 !s110 1770559980
+Z57 !s110 1770559980
 !i10b 1
 !s100 ;bGTl9c@<ge_97gD<ZhS31
 I1_:g4He:A[@hgE>`ekKla2
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_7_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/OR_7_bit.v
 !i122 128
-R22
+R21
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z60 !s108 1770559980.000000
+Z58 !s108 1770559980.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_7_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_7_bit.v|
 !i113 0
-R17
+R16
 R10
 n@o@r_7_bit
 vOR_8_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_8_bit.v
-Z61 !s110 1771160264
+Z59 !s110 1771160264
 !i10b 1
 !s100 hK[eHHBlBcWhT=T3C5G322
 IWVW;=;?14j]B?dil@V^I20
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_8_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/OR_8_bit.v
 !i122 159
+R13
 R14
 R15
-R16
 r1
 !s85 0
 31
-Z62 !s108 1771160264.000000
+Z60 !s108 1771160264.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_8_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_8_bit.v|
 !i113 0
-R17
+R16
 R10
 n@o@r_8_bit
 vOR_N_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_N_bit.v
-R54
+R52
 !i10b 1
 !s100 1oo6MACQ`jKSh<hdIVTPg1
 IRE3BN:4f:Pk]UL@NLeLlV3
-R13
+R12
 w1771337107
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_N_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/OR_N_bit.v
 !i122 223
+R13
 R14
 R15
-R16
 r1
 !s85 0
 31
-R55
+R53
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_N_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_N_bit.v|
 !i113 0
-R17
+R16
 R10
 n@o@r_@n_bit
 vPC
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/PC.v
-R54
+R52
 !i10b 1
 !s100 =QQ`J2jDaY@BoU2hn[Eg33
 I83^nOnjTFd4U;d^7NWZJo1
-R13
+R12
 w1772360393
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/PC.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/PC.v
 !i122 224
 L0 1 17
+R14
 R15
-R16
 r1
 !s85 0
 31
-R55
+R53
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/PC.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/PC.v|
 !i113 0
-R17
+R16
 R10
 n@p@c
 vreg_16_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_16_bit.v
-R59
+R57
 !i10b 1
 !s100 N_W2Xm?[MA?f<03W;N:WQ0
 ILeXXBh;Mb3D0;9QO^0Gdl1
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_16_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/reg_16_bit.v
 !i122 131
-R41
+R40
+R14
 R15
+r1
+!s85 0
+31
+R58
+!s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_16_bit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_16_bit.v|
+!i113 0
 R16
+R10
+vreg_8_bit
+2C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v
+R59
+!i10b 1
+!s100 M?OC7<@1_PGo6@k@>Q8fJ1
+I5?ZMlD]VTHMmVG`hNTbNi1
+R12
+R20
+8C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v
+FC:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v
+!i122 161
+R38
+R14
+R15
 r1
 !s85 0
 31
 R60
-!s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_16_bit.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_16_bit.v|
-!i113 0
-R17
-R10
-vreg_8_bit
-2C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v
-R61
-!i10b 1
-!s100 M?OC7<@1_PGo6@k@>Q8fJ1
-I5?ZMlD]VTHMmVG`hNTbNi1
-R13
-R21
-8C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v
-FC:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v
-!i122 161
-R39
-R15
-R16
-r1
-!s85 0
-31
-R62
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v|
 !i113 0
-R17
+R16
 R10
 vreg_N_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_N_bit.v
-Z63 !s110 1772874920
+Z61 !s110 1772874920
 !i10b 1
 !s100 SIdFY<XIjedQjV74fGBBz3
 I]lh6^dNIS0oc:@zRjnP?W1
-R13
+R12
 w1771343624
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_N_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/reg_N_bit.v
 !i122 225
-R27
+R26
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z64 !s108 1772874920.000000
+Z62 !s108 1772874920.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_N_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_N_bit.v|
 !i113 0
-R17
+R16
 R10
 nreg_@n_bit
 vregister
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v
-R63
+R61
 !i10b 1
 !s100 dQmN1eB7gQh;mfTOmK`2P0
 Ie?Ma<8P2]k@NK`z8;b1g<0
-R13
+R12
 w1770724834
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/register.v
 !i122 226
 L0 1 6
+R14
 R15
-R16
 r1
 !s85 0
 31
-R64
+R62
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/register.v|
 !i113 0
-R17
+R16
 R10
 vReset_Delay
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/reset_delay.v
-Z65 !s110 1770559981
+Z63 !s110 1770559981
 !i10b 1
 !s100 DaU71N^5k8VTH5YddiB9I2
 I9OeKKZ]UC:RZE9B1gnh<<0
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/reset_delay.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/reset_delay.v
 !i122 133
 L0 2 15
+R14
 R15
-R16
 r1
 !s85 0
 31
-Z66 !s108 1770559981.000000
+Z64 !s108 1770559981.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/reset_delay.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/reset_delay.v|
 !i113 0
-R17
+R16
 R10
 n@reset_@delay
 vseven_seg_decoder
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/seven_seg_decoder.v
-R65
+R63
 !i10b 1
 !s100 7KDI_[5CIUMGNldc>P1H?2
 Im[]fYa3R5HJ_lbXFUUznS1
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/seven_seg_decoder.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/seven_seg_decoder.v
 !i122 134
-R43
+R42
+R14
 R15
-R16
 r1
 !s85 0
 31
-R66
+R64
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/seven_seg_decoder.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/seven_seg_decoder.v|
 !i113 0
-R17
+R16
 R10
 vXOR_3_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_3_bit.v
-R65
+R63
 !i10b 1
 !s100 1_JldRJ1=Xg8@=Zc]kVNQ2
 IRe>QCY8EZkFcPR?dEV@:83
-R13
-R21
+R12
+R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_3_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_3_bit.v
 !i122 135
-R22
+R21
+R14
 R15
-R16
 r1
 !s85 0
 31
-R66
+R64
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_3_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_3_bit.v|
 !i113 0
-R17
+R16
 R10
 n@x@o@r_3_bit
 vXOR_8_bit
@@ -1520,14 +1546,14 @@ vXOR_8_bit
 !i10b 1
 !s100 ]0jaIj3SZmBD`c<[1z=Ni1
 Ii2Hc2=hhBd0YVoJa?9UZC3
-R13
+R12
 w1770962268
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_8_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_8_bit.v
 !i122 163
+R13
 R14
 R15
-R16
 r1
 !s85 0
 31
@@ -1535,54 +1561,54 @@ r1
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_8_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_8_bit.v|
 !i113 0
-R17
+R16
 R10
 n@x@o@r_8_bit
 vXOR_N_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_N_bit.v
-R63
+R61
 !i10b 1
 !s100 Lcd^J30I@2cPfgh4=SJ@e1
 IF4I<2<AlW]8o?P^LYZ@MU0
-R13
+R12
 w1771337284
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_N_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_N_bit.v
 !i122 227
+R13
 R14
 R15
-R16
 r1
 !s85 0
 31
-R64
+R62
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_N_bit.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/XOR_N_bit.v|
 !i113 0
-R17
+R16
 R10
 n@x@o@r_@n_bit
 vZeros
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v
-R63
+R61
 !i10b 1
 !s100 5>VBnWnRSKSCb558VF@bn2
 IP_cMzFR1Uz>7FQ[WD]HPg3
-R13
+R12
 w1771337289
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v
 !i122 228
-R56
+R54
+R14
 R15
-R16
 r1
 !s85 0
 31
-R64
+R62
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Zeros.v|
 !i113 0
-R17
+R16
 R10
 n@zeros

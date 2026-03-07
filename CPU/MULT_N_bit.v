@@ -10,8 +10,6 @@ module MULT_N_bit #(parameter N = 32) (X, Y, Signed, OutHi, OutLo, Ov);
     assign X_ext = Signed ? {X[N-1], X} : {1'b0, X};
     assign Y_ext = Signed ? {Y[N-1], Y} : {1'b0, Y};
 
-    assign Ov = (X[N-1] & (~|X[N-2:0]) & (&Y)) | (Y[N-1] & (~|Y[N-2:0]) & (&X));
-
     wire signed [2*N+1:0] product;
     assign product = X_ext * Y_ext;
 
