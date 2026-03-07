@@ -49,7 +49,7 @@ module Opcode_Decoder(
     assign FuncH5_Rd2 = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? Next_Inst_Out[10:6] : 
                         ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? 5'b0 : (~|PC_IMEM[1:0] ? 5'b0 : PC_IMEM[10:6]));
 
-    assign FuncL4 = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? [5:2] : 
+    assign FuncL4 = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? Next_Inst_Out[5:2] : 
                     ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? 4'b0 : (~|PC_IMEM[1:0] ? 4'b0 : PC_IMEM[5:2]));
 
     assign IMMEDIATE = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? {PC_IMEM[1:0], Next_Inst_Out[15:2]} : 
@@ -130,7 +130,7 @@ module Opcode_Decoder(
     assign FLAG_WE = {(DIVD | DIVR | DIVDU | DIVRU), (CMPR | ADDR_DEST | SUBR_DEST | ADDD | ADDR | SUBD | SUBR),
                       (CMPR | ADDR_DEST | SUBR_DEST | Fam_code[0] | Fam_code[2] | CMD),
                       (CMPR | ADDR_DEST | SUBR_DEST | Fam_code[0] | CMD), (CMPR | ADDR_DEST | SUBR_DEST | Fam_code[0] | CMD)};
-    assign REG_WE_A = ~(NOOP | I_END | CMPR | JMPR | JRALR | JPNR | JPER | JGTR | JGER | STW | STH | STB | JPN | JPE | JGT | JGTRU | JGERU | CMD)
+    assign REG_WE_A = ~(NOOP | I_END | CMPR | JMPR | JRALR | JPNR | JPER | JGTR | JGER | STW | STH | STB | JPN | JPE | JGT | JGTRU | JGERU | CMD);
     assign REG_W_ADD_A = R1_Rd_Rd1;
     assign REG_WE_B = SWAPR | JRALR | Fam_code[2];
     assign REG_W_ADD_B = ({5{SWAPR | JRALR}} & R2_R1) | FuncH5_Rd2;

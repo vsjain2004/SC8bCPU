@@ -28,7 +28,7 @@ module memory2 #(parameter BASE_BIT_WIDTH = 8, ADDR_WIDTH = 12) (clk, data, we, 
 						if(~addr1) begin
 							ram[addr + 1] <= data[BASE_BIT_WIDTH*2-1:BASE_BIT_WIDTH];
 						end
-						if(addr1 ~| addr2) begin
+						if(~(addr1 | addr2)) begin
 							ram[addr + 2] <= data[BASE_BIT_WIDTH*3-1:BASE_BIT_WIDTH*2];
 						end
 					end
@@ -37,10 +37,10 @@ module memory2 #(parameter BASE_BIT_WIDTH = 8, ADDR_WIDTH = 12) (clk, data, we, 
 						if(~addr1) begin
 							ram[addr + 1] <= data[BASE_BIT_WIDTH*2-1:BASE_BIT_WIDTH];
 						end
-						if(addr1 ~| addr2) begin
+						if(~(addr1 | addr2)) begin
 							ram[addr + 2] <= data[BASE_BIT_WIDTH*3-1:BASE_BIT_WIDTH*2];
 						end
-						if(addr1 ~| addr2 ~| addr3) begin
+						if(~(addr1 | addr2 | addr3)) begin
 							ram[addr + 3] <= data[BASE_BIT_WIDTH*4-1:BASE_BIT_WIDTH*3];
 						end
 					end

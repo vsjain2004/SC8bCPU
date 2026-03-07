@@ -3,5 +3,5 @@ module Extender(IN, Sign, Out);
     input Sign;
     output [31:0] Out;
 
-    assign Out = Sign ? {16{IN[15]}, IN} : {16'b0, IN};
+    assign Out = Sign ? {{16{IN[15]}}, IN} : {16'b0, IN};
 endmodule
