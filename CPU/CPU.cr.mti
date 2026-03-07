@@ -61,14 +61,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	Zeros
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v {2 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v
-Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module memory2
-** Warning: C:/Users/vjrai/Documents/SC8bCPU/CPU/memory2.v(52): (vlog-2256) Event expressions should result in a singular type.
-
-Top level modules:
-	memory2
-
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/mainreg.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 -- Compiling module mainreg
@@ -152,6 +144,13 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 
 Top level modules:
 	busmuxN_4_to_1
+
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_32_to_1.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_32_to_1.v
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module busmuxN_32_to_1
+
+Top level modules:
+	busmuxN_32_to_1
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024

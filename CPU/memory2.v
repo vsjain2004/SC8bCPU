@@ -59,5 +59,7 @@ module memory2 #(parameter BASE_BIT_WIDTH = 8, ADDR_WIDTH = 12) (clk, data, we, 
 				default: q = {BASE_BIT_WIDTH*4{1'bx}};
 			endcase
 		end
+		else
+			q = {BASE_BIT_WIDTH*4{1'bx}};
 	end
 endmodule
