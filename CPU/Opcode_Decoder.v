@@ -2,7 +2,7 @@ module Opcode_Decoder(
     input [31:0] PC_IMEM,
     input CF, OF, NF, ZF, CLK, RESET,
     output PC_INC, ADD_SUB, REG_WE_A, REG_WE_B, DMEM_W_EN, PC_LD_EN, PC_EN, SIGNED, ALU_X_SEL, DMEM_SEL_ADD, IMEM_R_EN, DMEM_R_EN,
-    output [1:0] DMEM_DLEN, PC_IN, REG_SEL_IN_B,
+    output [1:0] DMEM_DLEN, IMEM_DLEN, PC_IN, REG_SEL_IN_B,
     output [2:0] ALU_SELECT, ALU_Y_SEL, REG_SEL_IN_A,
     output [4:0] FLAG_WE, REG_W_ADD_A, REG_W_ADD_B, REG_R_ADD_A, REG_R_ADD_B,
     output [15:0] IMMEDIATE
@@ -150,6 +150,7 @@ module Opcode_Decoder(
     assign REG_SEL_IN_A = {(LDW | LDH | LDB | LDJ | Fam_code[2]), (LDM | LDMU | Fam_code[2]), 
                            (MOV | SWAPR | LDMU | LDJ | DIVD | DIVR | DIVDU | DIVRU)};
     assign REG_SEL_IN_B = {Fam_code[2], (JRALR | DIVD | DIVR | DIVDU | DIVRU)};
-    assign IMEM_R_EN = ~|PC_IMEM[1:0] & ~|PC_IMEM[17:16];
+    assign IMEM_R_EN = ~(~|PC_IMEM[1:0] & ~|PC_IMEM[17:16]);
+    assign IMEM_DLEN = {1'b0, ~(Has_Next_In & ~Next_Inst_In[1] & Next_inst_In[0])}
     assign DMEM_R_EN = LDW | LDH | LDB | ADDD | SUBD | ANDD | ORD | XORD | MULTD | MULTDU | DIVD | DIVDU | CMD;
 endmodule
