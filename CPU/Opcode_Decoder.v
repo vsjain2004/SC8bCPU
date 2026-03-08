@@ -18,46 +18,46 @@ module Opcode_Decoder(
     wire [1:0] Family;
 
     assign Next_Inst_In = PC_LD_EN ? 16'b0 : PC_IMEM[31:16];
-    assign Has_Next_In = PC_LD_EN ? 1'b0 : (~Has_Next_Out & ~|PC_IMEM[1:0]);
+    assign Has_Next_In = PC_LD_EN ? 1'b0 : (~Has_Next_Out & (~|PC_IMEM[1:0]));
     assign PC_INC = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) | (~PC_IMEM[1] & PC_IMEM[0] & ~Has_Next_Out);
 
     reg_N_bit #(.N(16)) Next_Inst(.IN(Next_Inst_In), .LOAD(Has_Next_In), .CLK(CLK), .OUT(Next_Inst_Out), .PRESET_N(1'b1), .CLEAR_N(RESET));
     register Has_Next(.IN(Has_Next_In), .LOAD(1'b1), .CLK(CLK), .OUT(Has_Next_Out), .PRESET_N(1'b1), .CLEAR_N(RESET));
 
     assign opcode = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? PC_IMEM[15:12] : 
-                    ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? Next_Inst_Out[15:12] : 
+                    (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? Next_Inst_Out[15:12] : 
                     (~|PC_IMEM[1:0] ? PC_IMEM[15:12] : PC_IMEM[31:28]));
 
     assign opmode = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? 1'b1 : 
-                    ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? 1'b0 : 
+                    (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? 1'b0 : 
                     (~|PC_IMEM[1:0] ? 1'b0 : 1'b1));
     
     assign R1_Rd_Rd1 = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? PC_IMEM[11:7] : 
-                       ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? Next_Inst_Out[11:7] : 
+                       (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? Next_Inst_Out[11:7] : 
                        (~|PC_IMEM[1:0] ? PC_IMEM[11:7] : PC_IMEM[27:23]));
 
     assign R2_R1 = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? PC_IMEM[6:2] : 
-                   ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? Next_Inst_Out[6:2] : 
+                   (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? Next_Inst_Out[6:2] : 
                    (~|PC_IMEM[1:0] ? PC_IMEM[6:2] : PC_IMEM[22:18]));
 
     assign R2 = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? {PC_IMEM[1:0], Next_Inst_Out[15:13]} : 
-                ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? 5'b0 : (~|PC_IMEM[1:0] ? 5'b0 : PC_IMEM[17:13]));
+                (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? 5'b0 : (~|PC_IMEM[1:0] ? 5'b0 : PC_IMEM[17:13]));
 
     assign Family = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? {PC_IMEM[1:0], Next_Inst_Out[12:11]} : 
-                    ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? 2'b0 : (~|PC_IMEM[1:0] ? 2'b0 : PC_IMEM[12:11]));
+                    (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? 2'b0 : (~|PC_IMEM[1:0] ? 2'b0 : PC_IMEM[12:11]));
 
     assign FuncH5_Rd2 = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? Next_Inst_Out[10:6] : 
-                        ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? 5'b0 : (~|PC_IMEM[1:0] ? 5'b0 : PC_IMEM[10:6]));
+                        (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? 5'b0 : (~|PC_IMEM[1:0] ? 5'b0 : PC_IMEM[10:6]));
 
     assign FuncL4 = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? Next_Inst_Out[5:2] : 
-                    ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? 4'b0 : (~|PC_IMEM[1:0] ? 4'b0 : PC_IMEM[5:2]));
+                    (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? 4'b0 : (~|PC_IMEM[1:0] ? 4'b0 : PC_IMEM[5:2]));
 
     assign IMMEDIATE = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? {PC_IMEM[1:0], Next_Inst_Out[15:2]} : 
-                       ((~|Next_Inst_Out[1:0] & Has_Next_Out) ? 16'b0 : (~|PC_IMEM[1:0] ? 16'b0 : PC_IMEM[17:2]));
+                       (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? 16'b0 : (~|PC_IMEM[1:0] ? 16'b0 : PC_IMEM[17:2]));
 
     decoder4to16 opdef1(.S(opcode), .O(op1));
 
-    decoder2to4 famdef(.S1(Family[1]), .S0(Family[0]), .EN(opmode), .Y0(Fam_code[0]), .Y1(Fam_code[1]), .Y2(Fam_code[2]), .Y3(Fam_code[3]));
+    Decoder2to4 famdef(.S1(Family[1]), .S0(Family[0]), .EN(opmode), .Y0(Fam_code[0]), .Y1(Fam_code[1]), .Y2(Fam_code[2]), .Y3(Fam_code[3]));
 
     decoder4to16 funcdef(.S(FuncL4), .O(op2));
 
@@ -130,9 +130,9 @@ module Opcode_Decoder(
     assign FLAG_WE = {(DIVD | DIVR | DIVDU | DIVRU), (CMPR | ADDR_DEST | SUBR_DEST | ADDD | ADDR | SUBD | SUBR),
                       (CMPR | ADDR_DEST | SUBR_DEST | Fam_code[0] | Fam_code[2] | CMD),
                       (CMPR | ADDR_DEST | SUBR_DEST | Fam_code[0] | CMD), (CMPR | ADDR_DEST | SUBR_DEST | Fam_code[0] | CMD)};
-    assign REG_WE_A = ~(NOOP | I_END | CMPR | JMPR | JRALR | JPNR | JPER | JGTR | JGER | STW | STH | STB | JPN | JPE | JGT | JGTRU | JGERU | CMD);
+    assign REG_WE_A = (~(NOOP | I_END | CMPR | JMPR | JRALR | JPNR | JPER | JGTR | JGER | STW | STH | STB | JPN | JPE | JGT | JGTRU | JGERU | CMD)) & ~((SWAPR | Fam_code[2]) & ~|(REG_W_ADD_A ^ REG_W_ADD_B));
     assign REG_W_ADD_A = R1_Rd_Rd1;
-    assign REG_WE_B = SWAPR | JRALR | Fam_code[2];
+    assign REG_WE_B = (SWAPR | JRALR | Fam_code[2]) & ~((SWAPR | Fam_code[2]) & ~|(REG_W_ADD_A ^ REG_W_ADD_B));
     assign REG_W_ADD_B = ({5{SWAPR | JRALR}} & R2_R1) | FuncH5_Rd2;
     assign REG_R_ADD_A = ({5{STW | STH | STB}} & R1_Rd_Rd1) | R2_R1;
     assign REG_R_ADD_B = ({5{~opmode}} & R1_Rd_Rd1) | ({5{LDW | LDH | LDB | STW | STH | STB}} & R2_R1) | R2;
@@ -150,7 +150,7 @@ module Opcode_Decoder(
     assign REG_SEL_IN_A = {(LDW | LDH | LDB | LDJ | Fam_code[2]), (LDM | LDMU | Fam_code[2]), 
                            (MOV | SWAPR | LDMU | LDJ | DIVD | DIVR | DIVDU | DIVRU)};
     assign REG_SEL_IN_B = {Fam_code[2], (JRALR | DIVD | DIVR | DIVDU | DIVRU)};
-    assign IMEM_R_EN = ~(~|PC_IMEM[1:0] & ~|PC_IMEM[17:16]);
-    assign IMEM_DLEN = {1'b0, ~(Has_Next_In & ~Next_Inst_In[1] & Next_inst_In[0])}
+    assign IMEM_R_EN = ~((~|PC_IMEM[1:0]) & (~|PC_IMEM[17:16]) & ~Has_Next_Out);
+    assign IMEM_DLEN = {1'b0, ~(Has_Next_In & ~Next_Inst_In[1] & Next_Inst_In[0])};
     assign DMEM_R_EN = LDW | LDH | LDB | ADDD | SUBD | ANDD | ORD | XORD | MULTD | MULTDU | DIVD | DIVDU | CMD;
 endmodule

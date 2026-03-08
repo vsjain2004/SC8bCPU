@@ -6,17 +6,17 @@ module CPU(InstExt, InstLd, CLK, CLEAR_N);
 	wire [31:0] oPC, oNPC, oDMEM, oRPA, oRPB, oRPC, iPC, ExtImm, Branch_Addr, Jump_Addr, IXAddr, oALU, iX, iY, MultHi, MultLo, DivQ, DivR, iWPA, iWPB;
 	wire [63:0] Inst;
 	wire fNF, fOF, fZF, fCF, PC_INC, ADD_SUB, REG_WE_A, REG_WE_B, DMEM_W_EN, PC_LD_EN, PC_EN, SIGNED, ALU_X_SEL, DMEM_SEL_ADD, IMEM_R_EN, DMEM_R_EN, OvALU, OvMULT, OvDIV;
-	wire [1:0] DMEM_DLEN, IMEM_DLEN, PC_IN, REG_SEL_IN_B,
-	wire [2:0] ALU_SELECT, ALU_Y_SEL, REG_SEL_IN_A,
-	wire [4:0] flags, FLAG_WE, REG_W_ADD_A, REG_W_ADD_B, REG_R_ADD_A, REG_R_ADD_B,
-	wire [15:0] IMMEDIATE
+	wire [1:0] DMEM_DLEN, IMEM_DLEN, PC_IN, REG_SEL_IN_B;
+	wire [2:0] ALU_SELECT, ALU_Y_SEL, REG_SEL_IN_A;
+	wire [4:0] flags, FLAG_WE, REG_W_ADD_A, REG_W_ADD_B, REG_R_ADD_A, REG_R_ADD_B;
+	wire [15:0] IMMEDIATE;
 	wire [31:0] DMEMAddr;
 
 	memory2 #(.data_width(16), .addr_width(11)) IMEM(.clk(CLK), .data(InstExt), .we(InstLd), .re(IMEM_R_EN), .addr(oPC[11:1]), .dlen(IMEM_DLEN), .q(Inst));
 	
 	memory2 DMEM(.clk(CLK), .data(oRPA), .we(DMEM_W_EN), .re(DMEM_R_EN), .addr(DMEMAddr[11:0]), .dlen(DMEM_DLEN), .q(oDMEM));
 	
-	Opcode_Decoder decoder(.PC_IMEM(Inst[31:0]), .CF(fCF), .OF(fOF), .NF(fNF), .ZF(fZF), CLK, .RESET(CLEAR_N), .PC_INC(PC_INC), 
+	Opcode_Decoder decoder(.PC_IMEM(Inst[31:0]), .CF(fCF), .OF(fOF), .NF(fNF), .ZF(fZF), .CLK(CLK), .RESET(CLEAR_N), .PC_INC(PC_INC), 
 		.ADD_SUB(ADD_SUB), .REG_WE_A(REG_WE_A), .REG_WE_B(REG_WE_B), .DMEM_W_EN(DMEM_W_EN), .PC_LD_EN(PC_LD_EN), .PC_EN(PC_EN), 
 		.SIGNED(SIGNED), .ALU_X_SEL(ALU_X_SEL), .DMEM_SEL_ADD(DMEM_SEL_ADD), .IMEM_R_EN(IMEM_R_EN), .DMEM_R_EN(DMEM_R_EN),
 		.DMEM_DLEN(DMEM_DLEN), .IMEM_DLEN(IMEM_DLEN), .PC_IN(PC_IN), .REG_SEL_IN_B(REG_SEL_IN_B), .ALU_SELECT(ALU_SELECT), 
@@ -49,7 +49,7 @@ module CPU(InstExt, InstLd, CLK, CLEAR_N);
 	
 	Flags flag_reg(.Flags(flags), .FWE(FLAG_WE), .CLK(CLK), .RESET(CLEAR_N), .CF(fCF), .OF(fOF), .NF(fNF), .ZF(fZF), .D0());
 	
-	AddSub_N_bit branch_addr(.Cin(1'b0), .X(oRPB), .Y(ExtImm), .S(IXAddr), .Cout(), .Ov());
+	AddSub_N_bit indexed_addr(.Cin(1'b0), .X(oRPB), .Y(ExtImm), .S(IXAddr), .Cout(), .Ov());
 	
 	assign DMEMAddr = DMEM_SEL_ADD ? IXAddr : oRPB;
 

@@ -1,69 +1,45 @@
 m255
 K4
 z2
-Z0 !s12c _opt1
+Z0 !s12c _opt2
 Z1 !s99 nomlopt
 R0
 R1
-Z2 !s12c _opt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+Z2 !s12c _opt1
 R1
 R2
 R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-Z3 !s12c _opt2
+Z3 !s12c _opt
 R1
 R3
 R1
-R0
-R1
-R2
+R3
 R1
 R3
 R1
-R0
+R3
 R1
 R3
 R1
-R0
+R3
 R1
-R0
+R3
+R1
+R3
 R1
 R3
 R1
 R3
 R1
 R0
-R1
-R2
-R1
-R2
-R1
-R3
-R1
-R0
-R1
-R2
-R1
-R2
-R1
-R3
 R1
 R0
 R1
@@ -75,6 +51,28 @@ R0
 R1
 R2
 R1
+R0
+R1
+R2
+R1
+R2
+R1
+R0
+R1
+R0
+R1
+R2
+R1
+R3
+R1
+R3
+R1
+R0
+R1
+R2
+R1
+R3
+R1
 R3
 R1
 R0
@@ -86,6 +84,20 @@ R1
 R0
 R1
 R2
+R1
+R3
+R1
+R0
+R1
+R2
+R1
+R3
+R1
+R0
+R1
+R2
+R1
+R3
 R1
 !s11f vlog 2024.3 2024.09, Sep 10 2024
 13
@@ -124,21 +136,21 @@ R9
 R10
 n@_opt1
 R11
+R4
 T_opt2
-!s110 1772889173
-V]YXnH[VWH;]KZI>WLR8RW1
-04 7 4 work memory2 fast 0
-=2-546cebdd63eb-69ac2455-f6-2870
+!s110 1772976765
+VhU9[_H<I1iFUOC`MSVEa?0
+04 14 4 work Opcode_Decoder fast 0
+=4-546cebdd63eb-69ad7a7d-33-2ea4
 R1
 R5
 R6
-R7
+!s124 OEM10U39 
 R8
 R9
 R10
 n@_opt2
 R11
-R4
 vAddSub8b
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub8b.v
 !s110 1771160259
@@ -164,32 +176,32 @@ Z16 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R10
 n@add@sub8b
 vAddSub_N_bit
-2C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v
-Z17 !s110 1772874915
+2C:\Users\vjrai\Documents\SC8bCPU\CPU\AddSub_N_bit.v
+!s110 1772969228
 !i10b 1
 !s100 DCcbR;Dl7cginomL;2Qe;1
-IECfGUDdNfbMFBn>0P^7ne2
+Ig;hnCg4oZ^F[6OCKDMLHj1
 R12
-w1771344248
-8C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v
-FC:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v
-!i122 199
+w1772950337
+8C:\Users\vjrai\Documents\SC8bCPU\CPU\AddSub_N_bit.v
+FC:\Users\vjrai\Documents\SC8bCPU\CPU\AddSub_N_bit.v
+!i122 245
 R13
 R14
 R15
 r1
 !s85 0
 31
-Z18 !s108 1772874915.000000
-!s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v|
+!s108 1772969228.000000
+!s107 C:\\Users\\vjrai\\Documents\\SC8bCPU\\CPU\\AddSub_N_bit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:\Users\vjrai\Documents\SC8bCPU\CPU\AddSub_N_bit.v|
 !i113 0
 R16
 R10
 n@add@sub_@n_bit
 vALU
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v
-R17
+Z17 !s110 1772874915
 !i10b 1
 !s100 O0^0R`kC6::aSgDedC0gg2
 IzLc4YfeKI1ljXRc_j?G[O3
@@ -204,7 +216,7 @@ R15
 r1
 !s85 0
 31
-R18
+Z18 !s108 1772874915.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/ALU.v|
 !i113 0
@@ -641,22 +653,22 @@ R10
 n@control_@unit
 vCPU
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v
-Z36 !s110 1772874917
+!s110 1772969503
 !i10b 1
-!s100 Ll9?kdo0HnOjBM=ib9eJf0
-Il0gOZ<o8JHK^8M3b@Bi?a2
+!s100 :_Y8a@fRhBn_lG5<mP;;H3
+IaK43[^GQTCRP@7`m4LL=i0
 R12
-w1771165350
+w1772969500
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v
-!i122 207
-L0 1 44
+!i122 246
+L0 1 62
 R14
 R15
 r1
 !s85 0
 31
-Z37 !s108 1772874917.000000
+!s108 1772969503.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/CPU.v|
 !i113 0
@@ -674,7 +686,7 @@ R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/decoder1to2.v
 !i122 112
-Z38 L0 1 15
+Z36 L0 1 15
 R14
 R15
 r1
@@ -688,7 +700,7 @@ R16
 R10
 vDecoder2to4
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v
-R36
+Z37 !s110 1772874917
 !i10b 1
 !s100 Q8QZID;Oj2eF6LG?6=oME2
 I@J=UX4UzUPJdJnnGNh7l60
@@ -703,7 +715,7 @@ R15
 r1
 !s85 0
 31
-R37
+Z38 !s108 1772874917.000000
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Decoder2to4.v|
 !i113 0
@@ -736,7 +748,7 @@ R10
 n@decoder3to8
 vdecoder4to16
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v
-R36
+R37
 !i10b 1
 !s100 1`J@8AR8i7=neannHISKj1
 I0En0n1Pa]9U_`;:Sm]M=X3
@@ -751,7 +763,7 @@ R15
 r1
 !s85 0
 31
-R37
+R38
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder4to16.v|
 !i113 0
@@ -759,7 +771,7 @@ R16
 R10
 vdecoder5to32
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder5to32.v
-R36
+R37
 !i10b 1
 !s100 _Pd:DF1LD6DBCddCEhazD1
 IGHI;GBdUjUCLz[SUYU63I0
@@ -774,7 +786,7 @@ R15
 r1
 !s85 0
 31
-R37
+R38
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder5to32.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/decoder5to32.v|
 !i113 0
@@ -782,7 +794,7 @@ R16
 R10
 vdffg
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v
-R36
+R37
 !i10b 1
 !s100 VXlgc]jB<=XS6<B7M6J^<3
 IPS`?R:hIg6CoJ?dNcm7n;1
@@ -791,13 +803,13 @@ w1770725961
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v
 !i122 211
-R38
+R36
 R14
 R15
 r1
 !s85 0
 31
-R37
+R38
 !s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/dffg.v|
 !i113 0
@@ -1208,6 +1220,30 @@ R53
 R16
 R10
 n@ones
+vOpcode_Decoder
+2C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
+!s110 1772976761
+!i10b 1
+!s100 YMT<hX^Sz>:DD524lGBz^2
+II_=fOQSo[1MnN9OJ:IMi:0
+R12
+w1772976757
+8C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
+FC:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
+!i122 253
+L0 1 156
+R14
+R15
+r1
+!s85 0
+31
+!s108 1772976761.000000
+!s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v|
+!i113 0
+R16
+R10
+n@opcode_@decoder
 vOpcode_decoder
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_decoder.v
 Z55 !s110 1770559979
@@ -1232,30 +1268,6 @@ Z56 !s108 1770559979.000000
 R16
 R10
 n@opcode_decoder
-vOpcode_Decoder
-2C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
-R52
-!i10b 1
-!s100 9_FebDeT@8S:<U?2O2kCM0
-I8iDHkaHkGl270icAZE^^X1
-R12
-w1772874911
-8C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
-FC:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
-!i122 222
-L0 1 155
-R14
-R15
-r1
-!s85 0
-31
-R53
-!s107 C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v|
-!i113 0
-R16
-R10
-n@opcode_@decoder
 vOR_5_bit
 2C:/Users/vjrai/Documents/SC8bCPU/CPU/OR_5_bit.v
 R55
@@ -1410,7 +1422,7 @@ R20
 8C:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v
 FC:/Users/vjrai/Documents/SC8bCPU/CPU/reg_8_bit.v
 !i122 161
-R38
+R36
 R14
 R15
 r1
