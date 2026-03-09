@@ -5,14 +5,14 @@ module CPU(InstExt, InstLd, CLK, CLEAR_N);
 	
 	wire [31:0] oPC, oNPC, oDMEM, oRPA, oRPB, oRPC, iPC, ExtImm, Branch_Addr, Jump_Addr, IXAddr, oALU, iX, iY, MultHi, MultLo, DivQ, DivR, iWPA, iWPB;
 	wire [63:0] Inst;
-	wire fNF, fOF, fZF, fCF, PC_INC, ADD_SUB, REG_WE_A, REG_WE_B, DMEM_W_EN, PC_LD_EN, PC_EN, SIGNED, ALU_X_SEL, DMEM_SEL_ADD, IMEM_R_EN, DMEM_R_EN, OvALU, OvMULT, OvDIV;
+	wire fNF, fOF, fZF, fCF, PC_INC, ADD_SUB, REG_WE_A, REG_WE_B, DMEM_W_EN, PC_LD_EN, PC_EN, SIGNED, ALU_X_SEL, DMEM_SEL_ADD, IMEM_R_EN, DMEM_R_EN, OvALU, OvMULT, OvDIV, IMEM_R_EN_CUR;
 	wire [1:0] DMEM_DLEN, IMEM_DLEN, PC_IN, REG_SEL_IN_B;
 	wire [2:0] ALU_SELECT, ALU_Y_SEL, REG_SEL_IN_A;
 	wire [4:0] flags, FLAG_WE, REG_W_ADD_A, REG_W_ADD_B, REG_R_ADD_A, REG_R_ADD_B;
 	wire [15:0] IMMEDIATE;
 	wire [31:0] DMEMAddr;
 
-	memory2 #(.data_width(16), .addr_width(11)) IMEM(.clk(CLK), .data(InstExt), .we(InstLd), .re(IMEM_R_EN), .addr(oPC[11:1]), .dlen(IMEM_DLEN), .q(Inst));
+	memory2 #(.data_width(16), .addr_width(11)) IMEM(.clk(CLK), .data(InstExt), .we(InstLd), .re(IMEM_R_EN_CUR), .addr(oPC[11:1]), .dlen(IMEM_DLEN), .q(Inst));
 	
 	memory2 DMEM(.clk(CLK), .data(oRPA), .we(DMEM_W_EN), .re(DMEM_R_EN), .addr(DMEMAddr[11:0]), .dlen(DMEM_DLEN), .q(oDMEM));
 	
@@ -22,6 +22,8 @@ module CPU(InstExt, InstLd, CLK, CLEAR_N);
 		.DMEM_DLEN(DMEM_DLEN), .IMEM_DLEN(IMEM_DLEN), .PC_IN(PC_IN), .REG_SEL_IN_B(REG_SEL_IN_B), .ALU_SELECT(ALU_SELECT), 
 		.ALU_Y_SEL(ALU_Y_SEL), .REG_SEL_IN_A(REG_SEL_IN_A), .FLAG_WE(FLAG_WE), .REG_W_ADD_A(REG_W_ADD_A), 
 		.REG_W_ADD_B(REG_W_ADD_B), .REG_R_ADD_A(REG_R_ADD_A), .REG_R_ADD_B(REG_R_ADD_B), .IMMEDIATE(IMMEDIATE));
+
+	dffg imem_r_en(.d(IMEM_R_EN), .clk(CLK), .prn(RESET), .clrn(1'b1), .q(IMEM_R_EN_CUR));
 
 	Extender extender(.IN(IMMEDIATE), .Sign(SIGNED), .Out(ExtImm));
 
