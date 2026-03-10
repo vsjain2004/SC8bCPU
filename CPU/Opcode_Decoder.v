@@ -127,12 +127,12 @@ module Opcode_Decoder(
     assign ALU_SELECT = {(NOT | ASR | ASRR | LSL | LSLR | LSR | LSRR | CSL | CSLR | CSR | CSRR), 
                          (ORM | ORD | ORR | XORD | XORR | ASR | ASRR | CSL | CSLR | CSR | CSRR), 
                          (ANDD | ANDR | XORD | XORR | LSL | LSLR | LSR | LSRR | CSL | CSLR | CSR | CSRR)};
-    assign FLAG_WE = {(DIVD | DIVR | DIVDU | DIVRU), (CMPR | ADDR_DEST | SUBR_DEST | ADDD | ADDR | SUBD | SUBR),
-                      (CMPR | ADDR_DEST | SUBR_DEST | Fam_code[0] | Fam_code[2] | CMD),
-                      (CMPR | ADDR_DEST | SUBR_DEST | Fam_code[0] | CMD), (CMPR | ADDR_DEST | SUBR_DEST | Fam_code[0] | CMD)};
-    assign REG_WE_A = (~(NOOP | I_END | CMPR | JMPR | JRALR | JPNR | JPER | JGTR | JGER | STW | STH | STB | JPN | JPE | JGT | JGTRU | JGERU | CMD)) & ~((SWAPR | Fam_code[2]) & ~|(REG_W_ADD_A ^ REG_W_ADD_B));
+    assign FLAG_WE = {(DIVD | DIVR | DIVDU | DIVRU), (CMPR | ADDR_DEST | SUBR_DEST | ADDD | ADDR | SUBD | SUBR | CMD),
+                      (CMPR | ADDR_DEST | SUBR_DEST | (op1[13] & Fam_code[0]) | (op1[13] & Fam_code[2]) | CMD),
+                      (CMPR | ADDR_DEST | SUBR_DEST | (op1[13] & Fam_code[0]) | CMD), (CMPR | ADDR_DEST | SUBR_DEST | (op1[13] & Fam_code[0]) | CMD)};
+    assign REG_WE_A = (~(NOOP | I_END | CMPR | JMPR | JRALR | JPNR | JPER | JGTR | JGER | STW | STH | STB | JPN | JPE | JGT | JGTRU | JGERU | CMD)) & ~((SWAPR | (op1[13] & Fam_code[2])) & ~|(REG_W_ADD_A ^ REG_W_ADD_B));
     assign REG_W_ADD_A = R1_Rd_Rd1;
-    assign REG_WE_B = (SWAPR | JRALR | Fam_code[2]) & ~((SWAPR | Fam_code[2]) & ~|(REG_W_ADD_A ^ REG_W_ADD_B));
+    assign REG_WE_B = (SWAPR | JRALR | Fam_code[2]) & ~((SWAPR | (op1[13] & Fam_code[2])) & ~|(REG_W_ADD_A ^ REG_W_ADD_B));
     assign REG_W_ADD_B = ({5{SWAPR | JRALR}} & R2_R1) | FuncH5_Rd2;
     assign REG_R_ADD_A = ({5{STW | STH | STB}} & R1_Rd_Rd1) | R2_R1;
     assign REG_R_ADD_B = ({5{~opmode}} & R1_Rd_Rd1) | ({5{LDW | LDH | LDB | STW | STH | STB}} & R2_R1) | R2;
@@ -147,9 +147,9 @@ module Opcode_Decoder(
     assign ALU_Y_SEL = {(ADDD | SUBD | ANDD |ORD | XORD | ASR | LSL | LSR | CSL | CSR | MULTD | MULTDU | DIVD | DIVDU | CMD | ADDPC), 
                         (INC | DEC | ORM | ADDPC), (CMPR | ADDR_DEST | SUBR_DEST | ORM | ASR | LSL | LSR | CSL | CSR)};
     assign DMEM_SEL_ADD = LDW | LDH | LDB | STW | STH | STB;
-    assign REG_SEL_IN_A = {(LDW | LDH | LDB | LDJ | Fam_code[2]), (LDM | LDMU | Fam_code[2]), 
+    assign REG_SEL_IN_A = {(LDW | LDH | LDB | LDJ | (op1[13] & Fam_code[2])), (LDM | LDMU | (op1[13] & Fam_code[2])), 
                            (MOV | SWAPR | LDMU | LDJ | DIVD | DIVR | DIVDU | DIVRU)};
-    assign REG_SEL_IN_B = {Fam_code[2], (JRALR | DIVD | DIVR | DIVDU | DIVRU)};
+    assign REG_SEL_IN_B = {(op1[13] & Fam_code[2]), (JRALR | DIVD | DIVR | DIVDU | DIVRU)};
     assign IMEM_R_EN = ~((~|PC_IMEM[1:0]) & (~|PC_IMEM[17:16]) & ~Has_Next_Out);
     assign IMEM_DLEN = {1'b0, ~(Has_Next_In & ~Next_Inst_In[1] & Next_Inst_In[0])};
     assign DMEM_R_EN = LDW | LDH | LDB | ADDD | SUBD | ANDD | ORD | XORD | MULTD | MULTDU | DIVD | DIVDU | CMD;

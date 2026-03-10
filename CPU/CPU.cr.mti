@@ -5,7 +5,7 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	Ones
 
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v {1 {vlog -work work -vopt -stats=none {C:\Users\vjrai\Documents\SC8bCPU\CPU\AddSub_N_bit.v}
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/AddSub_N_bit.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 -- Compiling module AddSub_N_bit
 
@@ -132,6 +132,13 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 Top level modules:
 	Logic_Shifter
 
+} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module Opcode_Decoder
+
+Top level modules:
+	Opcode_Decoder
+
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_4_to_1.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_4_to_1.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 -- Compiling module busmuxN_4_to_1
@@ -145,13 +152,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 
 Top level modules:
 	Extender
-
-} {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/Opcode_Decoder.v
-Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
--- Compiling module Opcode_Decoder
-
-Top level modules:
-	Opcode_Decoder
 
 } {} {}} C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_32_to_1.v {1 {vlog -work work -vopt -stats=none C:/Users/vjrai/Documents/SC8bCPU/CPU/busmuxN_32_to_1.v
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
