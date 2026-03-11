@@ -1,4 +1,5 @@
-IN A
+LDW A, X
+//ADD B, Z, #10
 Y: SWAPR A, B
 END
 
