@@ -85,7 +85,7 @@
   \node at (1,0.5) {Opcode};
   \node at (3,0.5) {Rd};
   \node at (5,0.5) {R1};
-  \node at (7,0.5) {R2};
+  \node at (7,0.5) {R2/ShiftAmt};
   \node at (9,0.5) {Family};
   \node at (11,0.5) {Function};
   \node at (12.5,0.5) {01};
@@ -110,7 +110,7 @@
 \begin{tikzpicture}[scale=.65, every node/.style={scale=0.59}]
   \draw (0,0) rectangle (13,1);
   \foreach \x in {2,4,6,8,9,11,12} \draw (\x,0) -- (\x,1);
-  \node at (1,0.5) {13$_{\text{hex}}$};
+  \node at (1,0.5) {13$_{\text{dec}}$};
   \node at (3,0.5) {Rd1};
   \node at (5,0.5) {R1};
   \node at (7,0.5) {R2};
@@ -199,7 +199,8 @@ SignExtImm & \{16\{Immediate[15]\}, Immediate\} \\
 ZeroExtImm & \{16'b0, Immediate\} \\
 NextInst & PC for next instruction \\
 JMPAddr & \{NextInst[31:17], Immediate, 1'b0\} \\
-OpX & Imm, [Reg], Imm[Reg] or Reg\\
+OpX & Imm, [Reg], (Imm)[Reg] or Reg\\
+ShiftAmt & Shift Amount\\
 \bottomrule
 \end{tabular}
 
@@ -223,22 +224,22 @@ Bit Alignment & None\\
 \subsection*{Load/Store}
 \begin{tabular}{>{\raggedright\arraybackslash\hangindent=0.5cm\hangafter=1}p{3cm}lc>{\raggedright\arraybackslash\hangindent=1.5cm\hangafter=1}p{5cm}lc}
 \toprule
-Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode(hex) \\
+Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode(dec) \\
 \midrule
 Load Immediate & LDM & I & R[Rd] = SignExtImm & LDM Rd, Imm & 0\\
 Load Immediate Upper & LDMU & I & R[Rd] = Immediate $<<$ 16 & LDMU Rd, Imm & 1\\
 Load Word Direct & LDW(D) & I & R[Rd] = M[R[R1]] & LDW Rd, [R1] & 2\\
-Load Word Indexed & LDW(X) & I & R[Rd] = M[R[R1] + SignExtImm] & LDW Rd, Imm[R1] & 2\\
+Load Word Indexed & LDW(X) & I & R[Rd] = M[R[R1] + SignExtImm] & LDW Rd, (Imm)[R1] & 2\\
 Load Half-Word Direct & LDH(D) & I & R[Rd] = \{16'b0, M[R[R1]](15:0)\} & LDH Rd, [R1] & 3\\
-Load Half-Word Indexed & LDH(X) & I & R[Rd] = \{16'b0, M[R[R1] + SignExtImm](15:0)\} & LDH Rd, Imm[R1] & 3\\
+Load Half-Word Indexed & LDH(X) & I & R[Rd] = \{16'b0, M[R[R1] + SignExtImm](15:0)\} & LDH Rd, (Imm)[R1] & 3\\
 Load Byte Direct & LDB(D) & I & R[Rd] = \{24'b0, M[R[R1]](7:0)\} & LDB Rd, [R1] & 4\\
-Load Byte Indexed & LDB(X) & I & R[Rd] = \{24'b0, M[R[R1] + SignExtImm](7:0)\} & LDB Rd, Imm[R1] & 4\\
+Load Byte Indexed & LDB(X) & I & R[Rd] = \{24'b0, M[R[R1] + SignExtImm](7:0)\} & LDB Rd, (Imm)[R1] & 4\\
 Store Word Direct & STW(D) & I & M[R[R1]] = R[Rd]& STW Rd, [R1] & 5\\
-Store Word Indexed & STW(X) & I & M[R[R1] + SignExtImm] = R[Rd] & STW Rd, Imm[R1] & 5\\
+Store Word Indexed & STW(X) & I & M[R[R1] + SignExtImm] = R[Rd] & STW Rd, (Imm)[R1] & 5\\
 Store Half-Word Direct & STH(D) & I & M[R[R1]] = R[Rd](15:0) & STH Rd, [R1] & 6\\
-Store Half-Word Indexed & STH(X) & I & M[R[R1] + SignExtImm] = R[Rd](15:0) & STH Rd, Imm[R1] & 6\\
+Store Half-Word Indexed & STH(X) & I & M[R[R1] + SignExtImm] = R[Rd](15:0) & STH Rd, (Imm)[R1] & 6\\
 Store Byte Direct & STB(D) & I & M[R[R1]] = R[Rd](7:0) & STB Rd, [R1] & 7\\
-Store Byte Indexed & STB(X) & I & M[R[R1] + SignExtImm] = R[Rd](7:0) & STB Rd, Imm[R1] & 7\\
+Store Byte Indexed & STB(X) & I & M[R[R1] + SignExtImm] = R[Rd](7:0) & STB Rd, (Imm)[R1] & 7\\
 Load Jump Address & LDJ & I & R[Rd] = JMPAddr & LDJ Rd, Imm & 12\\
 \bottomrule
 \end{tabular}
@@ -248,17 +249,17 @@ Load Jump Address & LDJ & I & R[Rd] = JMPAddr & LDJ Rd, Imm & 12\\
 \subsection*{Integer ALU}
 \begin{tabular}{>{\raggedright\arraybackslash\hangindent=0.2cm\hangafter=1}p{2.5cm}lc>{\raggedright\arraybackslash\hangindent=2.5cm\hangafter=1}p{5cm}l>{\centering\arraybackslash}p{2cm}}
 \toprule
-Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/Family/ Func(hex) \\
+Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/Family/ Func(dec) \\
 \midrule
 Add Immediate & ADD(M) & P & R[Rd] = R[R1] + SignExtImm & ADD Rd, R1, Imm & --\\
 Add Direct & ADD(D) & R2 & R[Rd] = R[R1] + M[R[R2]] & ADD Rd, R1, [R2] & 13/0/0\\
-Add Indexed & ADD(X) & P & R[Rd] = R[R1] + M[R[R2] + SignExtImm] & ADD Rd, R1, Imm[R2] & --\\
+Add Indexed & ADD(X) & P & R[Rd] = R[R1] + M[R[R2] + SignExtImm] & ADD Rd, R1, (Imm)[R2] & --\\
 Add Register (destructive) & ADD(R) & R1 & R[R1] = R[R1] + R[R2] & ADD R1, R2 & 8\\
 Add Register (non-destructive) & ADD(R) & R2 & R[Rd] = R[R1] + R[R2] & ADD Rd, R1, R2 & 13/0/1\\
 Add PC & ADDPC & R2 & R[Rd] = PC + R[R1] & ADDPC Rd, R1 & 13/3/3\\
 Subtract Immediate & SUB(M) & P & R[Rd] = R[R1] - SignExtImm & SUB Rd, R1, Imm & --\\
 Subtract Direct & SUB(D) & R2 & R[Rd] = R[R1] - M[R[R2]] & SUB Rd, R1, [R2] & 13/0/2\\
-Subtract Indexed & SUB(X) & P & R[Rd] = R[R1] - M[R[R2] + SignExtImm] & SUB Rd, R1, Imm[R2] & --\\
+Subtract Indexed & SUB(X) & P & R[Rd] = R[R1] - M[R[R2] + SignExtImm] & SUB Rd, R1, (Imm)[R2] & --\\
 Subtract Register (destructive) & SUB(R) & R1 & R[R1] = R[R1] - R[R2] & SUB R1, R2 & 9\\
 Subtract Register (non-destructive) & SUB(R) & R2 & R[Rd] = R[R1] - R[R2] & SUB Rd, R1, R2 & 13/0/3\\
 \bottomrule
@@ -267,30 +268,30 @@ Subtract Register (non-destructive) & SUB(R) & R2 & R[Rd] = R[R1] - R[R2] & SUB 
 \subsection*{Shift and Logical}
 \begin{tabular}{>{\raggedright\arraybackslash\hangindent=0.2cm\hangafter=1}p{2.5cm}lc>{\raggedright\arraybackslash\hangindent=2.5cm\hangafter=1}p{5cm}l>{\centering\arraybackslash}p{2cm}}
 \toprule
-Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/Family/ Func(hex) \\
+Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/Family/ Func(dec) \\
 \midrule
 Not Register & NOT & R1 & R[R1] = $~\sim$R[R2] & NOT R1, R2 & 7 \\
 And Immediate & AND(M) & P & R[Rd] = R[R1] \& ZeroExtImm & AND Rd, R1, Imm & --\\
 And Direct & AND(D) & R2 & R[Rd] = R[R1] \& M[R[R2]] & AND Rd, R1, [R2] & 13/1/0\\
-And Indexed & AND(X) & P & R[Rd] = R[R1] \& M[R[R2] + SignExtImm] & AND Rd, R1, Imm[R2] & --\\
+And Indexed & AND(X) & P & R[Rd] = R[R1] \& M[R[R2] + SignExtImm] & AND Rd, R1, (Imm)[R2] & --\\
 And Register & AND(R) & R2 & R[Rd] = R[R1] \& R[R2] & AND Rd, R1, R2 & 13/1/1\\
 Or Immediate & OR(M) & I & R[Rd] = R[R1] \textbar ~ZeroExtImm & OR Rd, R1, Imm & 8\\
 Or Direct & OR(D) & R2 & R[Rd] = R[R1] \textbar ~M[R[R2]] & OR Rd, R1, [R2] & 13/1/2\\
-Or Indexed & OR(X) & P & R[Rd] = R[R1] \textbar ~M[R[R2] + SignExtImm] & OR Rd, R1, Imm[R2] & --\\
+Or Indexed & OR(X) & P & R[Rd] = R[R1] \textbar ~M[R[R2] + SignExtImm] & OR Rd, R1, (Imm)[R2] & --\\
 Or Register & OR(R) & R2 & R[Rd] = R[R1] \textbar ~R[R2] & OR Rd, R1, R2 & 13/1/3\\
 Xor Immediate & XOR(M) & P & R[Rd] = R[R1] $\oplus$ ZeroExtImm & XOR Rd, R1, Imm & --\\
 Xor Direct & XOR(D) & R2 & R[Rd] = R[R1] $\oplus$ M[R[R2]] & XOR Rd, R1, [R2] & 13/1/4\\
-Xor Indexed & XOR(X) & P & R[Rd] = R[R1] $\oplus$ M[R[R2] + SignExtImm] & XOR Rd, R1, Imm[R2] & --\\
+Xor Indexed & XOR(X) & P & R[Rd] = R[R1] $\oplus$ M[R[R2] + SignExtImm] & XOR Rd, R1, (Imm)[R2] & --\\
 Xor Register & XOR(R) & R2 & R[Rd] = R[R1] $\oplus$ R[R2] & XOR Rd, R1, R2 & 13/1/5\\
-Arithmetic Shift Right Immediate & ASR & R2 & R[Rd] = R[R1] $>>>$ R2 & ASR Rd, R1, R2 & 13/1/6\\
+Arithmetic Shift Right Immediate & ASR & R2 & R[Rd] = R[R1] $>>>$ ShiftAmt & ASR Rd, R1, ShiftAmt & 13/1/6\\
 Arithmetic Shift Right Register & ASRR & R2 & R[Rd] = R[R1] $>>>$ R[R2] & ASRR Rd, R1, R2 & 13/1/7\\
-Logical Shift Left Immediate & LSL & R2 & R[Rd] = R[R1] $<<$ R2 & LSL Rd, R1, R2 & 13/1/8\\
+Logical Shift Left Immediate & LSL & R2 & R[Rd] = R[R1] $<<$ ShiftAmt & LSL Rd, R1, ShiftAmt & 13/1/8\\
 Logical Shift Left Register & LSLR & R2 & R[Rd] = R[R1] $<<$ R[R2] & LSLR Rd, R1, R2 & 13/1/9\\
-Logical Shift Right Immediate & LSR & R2 & R[Rd] = R[R1] $>>$ R2 & LSR Rd, R1, R2 & 13/1/10\\
+Logical Shift Right Immediate & LSR & R2 & R[Rd] = R[R1] $>>$ ShiftAmt & LSR Rd, R1, ShiftAmt & 13/1/10\\
 Logical Shift Right Register & LSRR & R2 & R[Rd] = R[R1] $>>$ R[R2] & LSRR Rd, R1, R2 & 13/1/11\\
-Circular Shift Left Immediate & CSL & R2 & R[Rd] = \{R[R1], R[R1]\} $>>$ (32 - R2) & CSL Rd, R1, R2 & 13/1/12\\
+Circular Shift Left Immediate & CSL & R2 & R[Rd] = \{R[R1], R[R1]\} $>>$ (32 - ShiftAmt) & CSL Rd, R1, ShiftAmt & 13/1/12\\
 Circular Shift Left Register & CSLR & R2 & R[Rd] =\{R[R1], R[R1]\} $>>$ (32 - R[R2]) & CSLR Rd, R1, R2 & 13/1/13\\
-Circular Shift Right Immediate & CSR & R2 & R[Rd] = \{R[R1], R[R1]\} $>>$ R2 & CSR Rd, R1, R2 & 13/1/14\\
+Circular Shift Right Immediate & CSR & R2 & R[Rd] = \{R[R1], R[R1]\} $>>$ ShiftAmt & CSR Rd, R1, ShiftAmt & 13/1/14\\
 Circular Shift Right Register & CSRR & R2 & R[Rd] = \{R[R1], R[R1]\} $>>$ R[R2] & CSRR Rd, R1, R2 & 13/1/15\\
 \bottomrule
 \end{tabular}
@@ -300,21 +301,21 @@ Circular Shift Right Register & CSRR & R2 & R[Rd] = \{R[R1], R[R1]\} $>>$ R[R2] 
 \subsection*{Multiply/Divide}
 \begin{tabular}{>{\raggedright\arraybackslash\hangindent=0.5cm\hangafter=1}p{2.5cm}lc>{\raggedright\arraybackslash\hangindent=2cm\hangafter=1}p{5.5cm}>{\raggedright\arraybackslash\hangindent=1.5cm\hangafter=1}p{3.6cm}c}
 \toprule
-Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Func(hex) \\
+Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Func(dec) \\
 \midrule
 Multiply Immediate & MULT(M) & P & \{R[Rd2], R[Rd1]\} = R[R1] * SignExtImm & MULT Rd1, Rd2, R1, Imm & --\\
 Multiply Direct & MULT(D) & R2 & \{R[Rd2], R[Rd1]\} = R[R1] * M[R[R2]] & MULT Rd, R1, [R2] & 0\\
-Multiply Indexed & MULT(X) & P & \{R[Rd2], R[Rd1]\} = R[R1] * M[R[R2] + SignExtImm] & MULT Rd1, Rd2, R1, Imm[R2] & --\\
+Multiply Indexed & MULT(X) & P & \{R[Rd2], R[Rd1]\} = R[R1] * M[R[R2] + SignExtImm] & MULT Rd1, Rd2, R1, (Imm)[R2] & --\\
 Multiply Register & MULT(R) & R2 & \{R[Rd2], R[Rd1]\} = R[R1] * R[R2] & MULT Rd1, Rd2, R1, R2 & 1\\
 Multiply Immediate Unsigned & MULT(M)U & P & \{R[Rd2], R[Rd1]\} = R[R1] * ZeroExtImm & MULTU Rd1, Rd2, R1, Imm & --\\
 Multiply Direct Unsigned & MULT(D)U & R2 & \{R[Rd2], R[Rd1]\} = R[R1] * M[R[R2]] & MULTU Rd1, Rd2, R1, [R2] & 2\\
-Multiply Indexed Unsigned & MULT(X)U & P & \{R[Rd2], R[Rd1]\} = R[R1] * M[R[R2] + SignExtImm] & MULTU Rd1, Rd2, R1, Imm[R2] & --\\
+Multiply Indexed Unsigned & MULT(X)U & P & \{R[Rd2], R[Rd1]\} = R[R1] * M[R[R2] + SignExtImm] & MULTU Rd1, Rd2, R1, (Imm)[R2] & --\\
 Multiply Register Unsigned & MULT(R)U & R2 & \{R[Rd2], R[Rd1]\} = R[R1] * R[R2] & MULTU Rd1, Rd2, R1, R2 & 3\\
 Divide Immediate & DIV(M) & P & R[Rd1] = R[R1] / SignExtImm & DIV Rd1, Rd2, R1, Imm & --\\
 &&&R[Rd2] = R[R1] \% SignExtImm\\
 Divide Direct & DIV(D) & R2 & R[Rd1] = R[R1] / M[R[R2]] & DIV Rd1, Rd2, R1, [R2] & 4\\
 &&&R[Rd2] = R[R1] \% M[R[R2]]\\
-Divide Indexed & DIV(X) & P & R[Rd1] = R[R1] / M[R[R2] + SignExtImm] & DIV Rd1, Rd2, R1, Imm[R2] & --\\
+Divide Indexed & DIV(X) & P & R[Rd1] = R[R1] / M[R[R2] + SignExtImm] & DIV Rd1, Rd2, R1, (Imm)[R2] & --\\
 &&&R[Rd2] = R[R1] \% M[R[R2] + SignExtImm]\\
 Divide Register & DIV(R) & R2 & R[Rd1] = R[R1] / R[R2] & DIV Rd1, Rd2, R1, R2 & 5\\
 &&&R[Rd2] = R[R1] \% R[R2]\\
@@ -322,7 +323,7 @@ Divide Immediate Unsigned & DIV(M)U & P & R[Rd1] = R[R1]] / ZeroExtImm & DIVU Rd
 &&&R[Rd2] = R[R1] \% ZeroExtImm\\
 Divide Direct Unsigned & DIV(D)U & R2 & R[Rd1] = R[R1] / M[R[R2]] & DIVU Rd1, Rd2, R1, [R2] & 6\\
 &&&R[Rd2] = R[R1] \% M[R[R2]]\\
-Divide Indexed Unsigned & DIV(X)U & P & R[Rd1] = R[R1] / M[R[R2] + SignExtImm] & DIVU Rd1, Rd2, R1, Imm[R2] & --\\
+Divide Indexed Unsigned & DIV(X)U & P & R[Rd1] = R[R1] / M[R[R2] + SignExtImm] & DIVU Rd1, Rd2, R1, (Imm)[R2] & --\\
 &&&R[Rd2] = R[R1] \% M[R[R2] + SignExtImm]\\
 Divide Register Unsigned & DIV(R)U & R2 & R[Rd1] = R[R1] / R[R2] & DIVU Rd1, Rd2, R1, R2 & 7\\
 &&&R[Rd2] = R[R1] \% R[R2]\\
@@ -342,14 +343,14 @@ Div Remainder Unsigned & REMU & P & R[Rd] = R[R1] \% U(Op2) & REMU Rd, R1, Op2 &
 \subsection*{Branch}
 \begin{tabular}{>{\raggedright\arraybackslash\hangindent=0.2cm\hangafter=1}p{2.5cm}lc>{\raggedright\arraybackslash\hangindent=2.5cm\hangafter=1}p{5.7cm}l>{\centering\arraybackslash}p{2cm}}
 \toprule
-Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/Family/ Func(hex) \\
+Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/Family/ Func(dec) \\
 \midrule
 Compare Immediate & CMP & P & SetFlags(R[R1] - SignExtImm) & CMP R1, Imm & --\\
 Compare Direct & CMD & R2 & SetFlags(R[R1] - M[R[R2]]) & CMP R1, [R2] & 13/3/2\\
-Compare Indexed & CMX & P & SetFlags(R[R1] - M[R[R2] + SignExtImm]) & CMP R1, Imm[R2] & --\\
+Compare Indexed & CMX & P & SetFlags(R[R1] - M[R[R2] + SignExtImm]) & CMP R1, (Imm)[R2] & --\\
 Compare Register & CMPR & R1 & SetFlags(R[R1] - R[R2]) & CMP R1, R2 & 6\\
 Jump & JMP & P & PC = JMPAddr & JMP Immediate & --\\
-Jump Register & JMPR & R1 & PC = R[R1] & JMPR R1 & 10\\
+Jump Register & JMPR & R1 & PC = R[R1] & JMP R1 & 10\\
 Jump and Link & JAL & P & PC = JMPAddr; R[RA] = NextInst & JAL Immediate & --\\
 Jump and Link Register & JAL(R) & P & PC = JMPAddr; R[R1] = NextInst & JAL R1, Imm & --\\
 Jump Register and Link & J(R)AL & P & PC = R[R1]; R[RA] = NextInst & JAL R1 & --\\
@@ -374,7 +375,7 @@ Jump if Greater Than or Equal Register Unsigned & JGE(R)U & R2 & If Flags, PC = 
 \subsection*{Additional}
 \begin{tabular}{>{\raggedright\arraybackslash\hangindent=0.2cm\hangafter=1}p{2.5cm}lc>{\raggedright\arraybackslash}p{5cm}lc}
 \toprule
-Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/(hex) \\
+Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/(dec) \\
 \midrule
 No Operation & NOOP & R1 & -- & NOOP & 0\\
 End Program & END & R1 & PC = PC & END & 1\\

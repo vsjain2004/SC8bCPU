@@ -13,6 +13,7 @@ import java.util.Map;
 import static java.util.Map.entry;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -211,7 +212,7 @@ public class Assembler {
                         op = scnr2.next();
                     }
                     switch(op) {
-                    case "NOOP" -> {
+                    case "NOOP", "END" -> {
                         if(!scnr2.hasNext()) {
                             inst = InstList.get(op);
                             R1_Rd_Rd1 = "00000";
@@ -220,16 +221,7 @@ public class Assembler {
                             throw new Exception("Illegal Instruction Format");
                         }
                     }
-                    case "END" -> {
-                        if(!scnr2.hasNext()) {
-                            inst = InstList.get(op);
-                            R1_Rd_Rd1 = "00000";
-                            R2_R1 = "00000";
-                        } else {
-                            throw new Exception("Illegal Instruction Format");
-                        }
-                    }
-                    case "INC" -> {
+                    case "INC", "DEC" -> {
                         a = scnr2.next();
                         if(!scnr2.hasNext()) {
                             inst = InstList.get(op);
@@ -239,17 +231,7 @@ public class Assembler {
                             throw new Exception("Illegal Instruction Format");
                         }
                     }
-                    case "DEC" -> {
-                        a = scnr2.next();
-                        if(!scnr2.hasNext()) {
-                            inst = InstList.get(op);
-                            R1_Rd_Rd1 = GetReg(a);
-                            R2_R1 = "00000";
-                        } else {
-                            throw new Exception("Illegal Instruction Format");
-                        }
-                    }
-                    case "MOV" -> {
+                    case "MOV", "SWAPR", "NOT" -> {
                         a = scnr2.next();
                         if(a.endsWith(",")) {
                             inst = InstList.get(op);
@@ -259,27 +241,7 @@ public class Assembler {
                         }
                         R2_R1 = GetReg(scnr2.next());
                     }
-                    case "SWAPR" -> {
-                        a = scnr2.next();
-                        if(a.endsWith(",")) {
-                            inst = InstList.get(op);
-                            R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
-                        } else {
-                            throw new Exception("Illegal Format");
-                        }
-                        R2_R1 = GetReg(scnr2.next());
-                    }
-                    case "NOT" -> {
-                        a = scnr2.next();
-                        if(!scnr2.hasNext()) {
-                            inst = InstList.get(op);
-                            R1_Rd_Rd1 = GetReg(a);
-                            R2_R1 = "00000";
-                        } else {
-                            throw new Exception("Illegal Format");
-                        }
-                    }
-                    case "LDM" -> {
+                    case "LDM", "LDMU", "LDJ" -> {
                         a = scnr2.next();
                         inst = InstList.get(op);
                         if(a.endsWith(",")) {
@@ -295,75 +257,23 @@ public class Assembler {
                             throw new Exception("Illegal Format");
                         }
                     }
-                    case "LDMU" -> {
+                    case "LDW", "LDH", "LDB", "STW", "STH", "STB" -> {
                         a = scnr2.next();
                         inst = InstList.get(op);
                         if(a.endsWith(",")) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
-                            R2_R1 = "00000";
                         } else {
                             throw new Exception("Illegal Format");
                         }
                         a = scnr2.next();
-                        if(a.startsWith("#")) {
-                            Imm = GetImmediate(a);
+                        if(a.startsWith("(") || a.startsWith("[")) {
+                            String[] Address = GetAddress(a);
+                            R2_R1 = Address[0];
+                            Imm = Address[1];
                         } else {
                             throw new Exception("Illegal Format");
                         }
                     }
-                    // case "LDM", "LDD" -> {
-                    //     y = a;
-                    //     a = scnr2.next();
-                    //     b = "0000";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     a = scnr2.next();
-                    //     if(a.startsWith("#") && y.equals("LDM")) {
-                    //         c = "00";
-                    //         e = GetImmediate(a);
-                    //     } else if (y.equals("LDD")) {
-                    //         c = "01";
-                    //         e = GetImmediatea(a, labels1);
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    // }
-                    // case "LDX" -> {
-                    //     a = scnr2.next();
-                    //     b = "0000";
-                    //     c = "10";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediatea(scnr2.next(), labels1);
-                    // }
-                    // case "STO" -> {
-                    //     a = scnr2.next();
-                    //     b = "0001";
-                    //     c = "01";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediatea(scnr2.next(), labels1);
-                    // }
-                    // case "STX" -> {
-                    //     a = scnr2.next();
-                    //     b = "0001";
-                    //     c = "10";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediatea(scnr2.next(), labels1);
-                    // }
                     // case "ADDM", "ADDD" -> {
                     //     y = a;
                     //     a = scnr2.next();
@@ -855,5 +765,28 @@ public class Assembler {
 		} else {
 			throw new Exception("Illegal Immediate Format");
 		}
+    }
+
+    public static String[] GetAddress(String Addr) throws Exception {
+        String[] ret = new String[2];
+        if(Addr.startsWith("(")){
+            String Imm = Addr.substring(1, Addr.lastIndexOf(')'));
+            if(Imm.startsWith("#")){
+                ret[1] = GetImmediate(Imm);
+            } else if (Pattern.matches("[0-9a-fA-F]+", Imm)) {
+                ret[1] = GetImmediate("#&" + Imm);
+            } else if (Pattern.matches("\\d*[2-9]\\d*", Imm)) {
+                ret[1] = GetImmediate("#" + Imm);
+            } else if (Pattern.matches("[01]+", Imm)) {
+                ret[1] = GetImmediate("#B" + Imm);
+            }
+            ret[0] = GetReg(Addr.substring(Addr.lastIndexOf('[') + 1, Addr.lastIndexOf(']')));
+        } else if(Addr.startsWith("[")){
+            ret[0] = GetReg(Addr.substring(1, Addr.lastIndexOf(']')));
+            ret[1] = "0000000000000000";
+        } else {
+			throw new Exception("Illegal Address Format");
+		}
+        return ret;
     }
 }
