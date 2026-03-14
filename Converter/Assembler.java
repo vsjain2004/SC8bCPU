@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -133,7 +134,7 @@ public class Assembler {
             }
         }
 
-        FilePaths.add(new File("./Test.asm"));
+        FilePaths.add(new File("./instLine.asm"));
 
         for(File f : FilePaths){
             String BasePath = f.getPath().substring(0, f.getPath().lastIndexOf('.'));
@@ -204,16 +205,16 @@ public class Assembler {
                 i = 0;
                 int size = 0;
                 while(i < Assembly.size() && !Assembly.get(i).equals("") && size < (1<<11)) {
-                    scnr2 = new Scanner(Assembly.get(i));
-                    String op = scnr2.next();
+                    ArrayList<String> instLine = new ArrayList<>(Arrays.asList(Assembly.get(i).split("\\s+")));
+                    if(instLine.getFirst().contains(":")) {
+                        instLine.removeFirst();
+                    }
+                    String op = instLine.getFirst();
                     Instruction inst = InstList.get("NOOP");
                     String R1_Rd_Rd1="00000", R2_R1="00000", R2="00000", Rd2="00000", Imm="0000000000000000", a;
-                    if(op.contains(":")){
-                        op = scnr2.next();
-                    }
                     switch(op) {
                     case "NOOP", "END" -> {
-                        if(!scnr2.hasNext()) {
+                        if(instLine.size() == 1) {
                             inst = InstList.get(op);
                             R1_Rd_Rd1 = "00000";
                             R2_R1 = "00000";
@@ -222,54 +223,68 @@ public class Assembler {
                         }
                     }
                     case "INC", "DEC" -> {
-                        a = scnr2.next();
-                        if(!scnr2.hasNext()) {
+                        if(instLine.size() == 2) {
                             inst = InstList.get(op);
-                            R1_Rd_Rd1 = GetReg(a);
+                            R1_Rd_Rd1 = GetReg(instLine.get(1));
                             R2_R1 = "00000";
                         } else {
                             throw new Exception("Illegal Instruction Format");
                         }
                     }
                     case "MOV", "SWAPR", "NOT" -> {
-                        a = scnr2.next();
-                        if(a.endsWith(",")) {
+                        a = instLine.get(1);
+                        if(a.endsWith(",") || instLine.size() != 3) {
                             inst = InstList.get(op);
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
                             throw new Exception("Illegal Instruction Format");
                         }
-                        R2_R1 = GetReg(scnr2.next());
+                        R2_R1 = instLine.get(2);
                     }
                     case "LDM", "LDMU", "LDJ" -> {
-                        a = scnr2.next();
+                        a = instLine.get(1);
                         inst = InstList.get(op);
-                        if(a.endsWith(",")) {
+                        if(a.endsWith(",") || instLine.size() != 3) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                             R2_R1 = "00000";
                         } else {
                             throw new Exception("Illegal Format");
                         }
-                        a = scnr2.next();
+                        a = instLine.get(2);
                         if(a.startsWith("#")) {
                             Imm = GetImmediate(a);
                         } else {
                             throw new Exception("Illegal Format");
                         }
                     }
-                    case "LDW", "LDH", "LDB", "STW", "STH", "STB" -> {
-                        a = scnr2.next();
+                    case "LDW", "LDH", "LDB", "STW", "STH", "STB", "ORM" -> {
+                        a = instLine.get(1);
                         inst = InstList.get(op);
-                        if(a.endsWith(",")) {
+                        if(a.endsWith(",") || instLine.size() != 3) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
                             throw new Exception("Illegal Format");
                         }
-                        a = scnr2.next();
+                        a = instLine.get(2);
                         if(a.startsWith("(") || a.startsWith("[")) {
                             String[] Address = GetAddress(a);
                             R2_R1 = Address[0];
                             Imm = Address[1];
+                        } else {
+                            throw new Exception("Illegal Format");
+                        }
+                    }
+                    case "JPN", "JPE", "JGT" -> {
+                        inst = InstList.get(op);
+                        if(instLine.size() != 2) {
+                            R1_Rd_Rd1 = "00000";
+                            R2_R1 = "00000";
+                        } else {
+                            throw new Exception("Illegal Format");
+                        }
+                        a = instLine.get(1);
+                        if(a.startsWith("#")) {
+                            Imm = GetImmediate(a);
                         } else {
                             throw new Exception("Illegal Format");
                         }
