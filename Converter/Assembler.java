@@ -222,7 +222,7 @@ public class Assembler {
                             throw new Exception("Illegal Instruction Format");
                         }
                     }
-                    case "INC", "DEC" -> {
+                    case "INC", "DEC", "JMPR", "JPNR", "JPER", "JGTR", "JGER" -> {
                         if(instLine.size() == 2) {
                             inst = InstList.get(op);
                             R1_Rd_Rd1 = GetReg(instLine.get(1));
@@ -231,7 +231,7 @@ public class Assembler {
                             throw new Exception("Illegal Instruction Format");
                         }
                     }
-                    case "MOV", "SWAPR", "NOT" -> {
+                    case "MOV", "SWAPR", "CMPR", "ADDR_DEST", "SUBR_DEST", "NOT", "JRALR", "ADDPC" -> {
                         a = instLine.get(1);
                         if(a.endsWith(",") || instLine.size() != 3) {
                             inst = InstList.get(op);
@@ -248,22 +248,22 @@ public class Assembler {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                             R2_R1 = "00000";
                         } else {
-                            throw new Exception("Illegal Format");
+                            throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(2);
                         if(a.startsWith("#")) {
                             Imm = GetImmediate(a);
                         } else {
-                            throw new Exception("Illegal Format");
+                            throw new Exception("Illegal Instruction Format");
                         }
                     }
-                    case "LDW", "LDH", "LDB", "STW", "STH", "STB", "ORM" -> {
+                    case "LDW", "LDH", "LDB", "STW", "STH", "STB" -> {
                         a = instLine.get(1);
                         inst = InstList.get(op);
                         if(a.endsWith(",") || instLine.size() != 3) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Format");
+                            throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(2);
                         if(a.startsWith("(") || a.startsWith("[")) {
@@ -271,7 +271,28 @@ public class Assembler {
                             R2_R1 = Address[0];
                             Imm = Address[1];
                         } else {
-                            throw new Exception("Illegal Format");
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                    }
+                    case "ORM" -> {
+                        a = instLine.get(1);
+                        inst = InstList.get(op);
+                        if(a.endsWith(",") || instLine.size() != 4) {
+                            R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(2);
+                        if(a.startsWith(",")) {
+                            R2_R1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(3);
+                        if(a.startsWith("#")) {
+                            Imm = GetImmediate(a);
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
                         }
                     }
                     case "JPN", "JPE", "JGT" -> {
@@ -280,352 +301,139 @@ public class Assembler {
                             R1_Rd_Rd1 = "00000";
                             R2_R1 = "00000";
                         } else {
-                            throw new Exception("Illegal Format");
+                            throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(1);
                         if(a.startsWith("#")) {
                             Imm = GetImmediate(a);
                         } else {
-                            throw new Exception("Illegal Format");
+                            throw new Exception("Illegal Instruction Format");
                         }
                     }
-                    // case "ADDM", "ADDD" -> {
-                    //     y = a;
-                    //     a = scnr2.next();
-                    //     b = "0010";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     a = scnr2.next();
-                    //     if(a.startsWith("#") && y.equals("ADDM")) {
-                    //         c = "00";
-                    //         e = GetImmediate(a);
-                    //     } else if (y.equals("ADDD")) {
-                    //         c = "01";
-                    //         e = GetImmediatea(a, labels1);
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    // }
-                    // case "ADDX" -> {
-                    //     a = scnr2.next();
-                    //     b = "0010";
-                    //     c = "10";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediatea(scnr2.next(), labels1);
-                    // }
-                    // case "SUBM", "SUBD" -> {
-                    //     y = a;
-                    //     a = scnr2.next();
-                    //     b = "0011";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     a = scnr2.next();
-                    //     if(a.startsWith("#") && y.equals("SUBM")) {
-                    //         c = "00";
-                    //         e = GetImmediate(a);
-                    //     } else if (y.equals("SUBD")) {
-                    //         c = "01";
-                    //         e = GetImmediatea(a, labels1);
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    // }
-                    // case "SUBX" -> {
-                    //     a = scnr2.next();
-                    //     b = "0011";
-                    //     c = "10";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediatea(scnr2.next(), labels1);
-                    // }
-                    // case "LSL" -> {
-                    //     a = scnr2.next();
-                    //     b = "0110";
-                    //     c = "10";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediate(scnr2.next());
-                    // }
-                    // case "LSR" -> {
-                    //     a = scnr2.next();
-                    //     b = "0110";
-                    //     c = "11";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediate(scnr2.next());
-                    // }
-                    // case "ADDR" -> {
-                    //     a = scnr2.next();
-                    //     b = "0100";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     c = GetReg(scnr2.next());
-                    //     e = "00000000";
-                    // }
-                    // case "SUBR" -> {
-                    //     a = scnr2.next();
-                    //     b = "0101";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     c = GetReg(scnr2.next());
-                    //     e = "00000000";
-                    // }
-                    // case "CMP", "CMD" -> {
-                    //     y = a;
-                    //     a = scnr2.next();
-                    //     b = "1000";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     a = scnr2.next();
-                    //     if(a.startsWith("#") && y.equals("CMP")) {
-                    //         c = "00";
-                    //         e = GetImmediate(a);
-                    //     } else if (y.equals("CMD")) {
-                    //         c = "01";
-                    //         e = GetImmediatea(a, labels1);
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    // }
-                    // case "CMX" -> {
-                    //     a = scnr2.next();
-                    //     b = "1000";
-                    //     c = "10";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediatea(scnr2.next(), labels1);
-                    // }
-                    // case "JMP" -> {
-                    //     b = "1000";
-                    //     c = "11";
-                    //     d = "00";
-                    //     e = GetImmediatea(scnr2.next(), labels);
-                    // }
-                    // case "JPN" -> {
-                    //     b = "1001";
-                    //     c = "00";
-                    //     d = "00";
-                    //     e = GetImmediatea(scnr2.next(), labels);
-                    // }
-                    // case "JPE" -> {
-                    //     b = "1001";
-                    //     c = "01";
-                    //     d = "00";
-                    //     e = GetImmediatea(scnr2.next(), labels);
-                    // }
-                    // case "JGT" -> {
-                    //     b = "1001";
-                    //     c = "10";
-                    //     d = "00";
-                    //     e = GetImmediatea(scnr2.next(), labels);
-                    // }
-                    // case "JGE" -> {
-                    //     b = "1001";
-                    //     c = "11";
-                    //     d = "00";
-                    //     e = GetImmediatea(scnr2.next(), labels);
-                    // }
-                    // case "SWAPR" -> {
-                    //     a = scnr2.next();
-                    //     b = "0111";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     c = GetReg(scnr2.next());
-                    //     e = "00000000";
-                    // }
-                    // case "ANDM", "ANDD" -> {
-                    //     y = a;
-                    //     a = scnr2.next();
-                    //     b = "1010";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     a = scnr2.next();
-                    //     if(a.startsWith("#") && y.equals("ANDM")) {
-                    //         c = "00";
-                    //         e = GetImmediate(a);
-                    //     } else if (y.equals("ANDD")) {
-                    //         c = "01";
-                    //         e = GetImmediatea(a, labels1);
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    // }
-                    // case "ANDX" -> {
-                    //     a = scnr2.next();
-                    //     b = "1010";
-                    //     c = "10";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediatea(scnr2.next(), labels1);
-                    // }
-                    // case "ORM", "ORD" -> {
-                    //     y = a;
-                    //     a = scnr2.next();
-                    //     b = "1100";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     a = scnr2.next();
-                    //     if(a.startsWith("#") && y.equals("ORM")) {
-                    //         c = "00";
-                    //         e = GetImmediate(a);
-                    //     } else if (y.equals("ORD")) {
-                    //         c = "01";
-                    //         e = GetImmediatea(a, labels1);
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    // }
-                    // case "ORX" -> {
-                    //     a = scnr2.next();
-                    //     b = "1100";
-                    //     c = "10";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediatea(scnr2.next(), labels1);
-                    // }
-                    // case "XORM", "XORD" -> {
-                    //     y = a;
-                    //     a = scnr2.next();
-                    //     b = "1110";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     a = scnr2.next();
-                    //     if(a.startsWith("#") && y.equals("XORM")) {
-                    //         c = "00";
-                    //         e = GetImmediate(a);
-                    //     } else if (y.equals("XORD")) {
-                    //         c = "01";
-                    //         e = GetImmediatea(a, labels1);
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    // }
-                    // case "XORX" -> {
-                    //     a = scnr2.next();
-                    //     b = "1110";
-                    //     c = "10";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediatea(scnr2.next(), labels1);
-                    // }
-                    // case "ASR" -> {
-                    //     a = scnr2.next();
-                    //     b = "0011";
-                    //     c = "11";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediate(scnr2.next());
-                    // }
-                    // case "CSL" -> {
-                    //     a = scnr2.next();
-                    //     b = "1100";
-                    //     c = "11";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediate(scnr2.next());
-                    // }
-                    // case "CSR" -> {
-                    //     a = scnr2.next();
-                    //     b = "1110";
-                    //     c = "11";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     e = GetImmediate(scnr2.next());
-                    // }
-                    // case "ANDR" -> {
-                    //     a = scnr2.next();
-                    //     b = "1011";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     c = GetReg(scnr2.next());
-                    //     e = "00000000";
-                    // }
-                    // case "ORR" -> {
-                    //     a = scnr2.next();
-                    //     b = "1101";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     c = GetReg(scnr2.next());
-                    //     e = "00000000";
-                    // }
-                    // case "XORR" -> {
-                    //     a = scnr2.next();
-                    //     b = "1111";
-                    //     if(a.endsWith(",")) {
-                    //         d = GetReg(a.substring(0, a.length() - 1));
-                    //     } else {
-                    //         throw new Exception("Illegal Format");
-                    //     }
-                    //     c = GetReg(scnr2.next());
-                    //     e = "00000000";
-                    // }
+                    case "ADDD", "SUBD", "ANDD", "ORD", "XORD" -> {
+                        a = instLine.get(1);
+                        inst = InstList.get(op);
+                        if(a.endsWith(",") || instLine.size() != 4) {
+                            R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(2);
+                        if(a.startsWith(",")) {
+                            R2_R1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(3);
+                        if(a.startsWith("[")) {
+                            R2 = GetAddress(a)[0];
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                    }
+                    case "ADDR", "SUBR", "ANDR", "ORR", "XORR", "ASRR", "LSLR", "LSRR", "CSLR", "CSRR" -> {
+                        a = instLine.get(1);
+                        inst = InstList.get(op);
+                        if(a.endsWith(",") || instLine.size() != 4) {
+                            R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(2);
+                        if(a.startsWith(",")) {
+                            R2_R1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        R2 = GetReg(instLine.get(3));
+                    }
+                    case "ASR", "LSL", "LSR", "CSL", "CSR" -> {
+                        a = instLine.get(1);
+                        inst = InstList.get(op);
+                        if(a.endsWith(",") || instLine.size() != 4) {
+                            R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(2);
+                        if(a.startsWith(",")) {
+                            R2_R1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        if(a.startsWith("#")) {
+                            R2 = GetImmediate(a).substring(11);
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                    }
+                    case "MULTD", "MULTDU", "DIVD", "DIVDU" -> {
+                        a = instLine.get(1);
+                        inst = InstList.get(op);
+                        if(a.endsWith(",") || instLine.size() != 5) {
+                            R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(2);
+                        if(a.startsWith(",")) {
+                            Rd2 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(3);
+                        if(a.startsWith(",")) {
+                            R2_R1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(4);
+                        if(a.startsWith("[")) {
+                            R2 = GetAddress(a)[0];
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                    }
+                    case "MULTR", "MULTRU", "DIVR", "DIVRU" -> {
+                        a = instLine.get(1);
+                        inst = InstList.get(op);
+                        if(a.endsWith(",") || instLine.size() != 5) {
+                            R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(2);
+                        if(a.startsWith(",")) {
+                            Rd2 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        a = instLine.get(3);
+                        if(a.startsWith(",")) {
+                            R2_R1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        R2 = GetReg(instLine.get(4));
+                    }
+                    case "JGTRU", "JGERU" -> {
+                        inst = InstList.get(op);
+                        if(instLine.size() != 2) {
+                            R2_R1 = GetReg(instLine.get(1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                    }
+                    case "CMD" -> {
+                        a = instLine.get(1);
+                        if(a.endsWith(",") || instLine.size() != 3) {
+                            inst = InstList.get(op);
+                            R2_R1 = GetReg(a.substring(0, a.length() - 1));
+                        } else {
+                            throw new Exception("Illegal Instruction Format");
+                        }
+                        R2 = instLine.get(2);
+                    }
                     default -> throw new Exception("Command " + op + " not supported");
                     }
                     if(inst.opmode() == 0) {
@@ -649,17 +457,16 @@ public class Assembler {
                     }
                     i += 1;
                 }
-            //     if(i == 16 && !"".equals(line)) {
-            //         throw new Exception("Too many instruction lines");
-            //     } else if(i < 16) {
-            //         for(; i < 15; i++) {
-            //             pi.println("0000");
-            //         }
-            //         pi.print("0000");
-            //     }
-            //     if(line == null) {
-            //         throw new Exception("Illegal Format");
-            //     }
+                if(size == (1<<11) && !"".equals(Assembly.get(i))) {
+                    throw new Exception("Too many instruction lines");
+                } else if(size < (1<<11)) {
+                    for(; size < (1<<11); size++) {
+                        pi.print("0000");
+                    }
+                }
+                if(line == null) {
+                    throw new Exception("Illegal Instruction Format");
+                }
             //     i = 0;
             //     try {
             //         line = scnr.nextLine();
@@ -680,7 +487,7 @@ public class Assembler {
             //         if(labels1.containsKey(a.substring(0, a.length() - 1))) {
             //             a = scnr2.next();
             //         } else if (a.endsWith(":")) {
-            //             throw new Exception("Illegal Format");
+            //             throw new Exception("Illegal Instruction Format");
             //         }
             //         if(i < 7) {
             //             pd.println(String.format("%2s", Integer.toHexString((Integer.parseInt(GetImmediate(a),2)))).replace(' ', '0'));
@@ -702,7 +509,7 @@ public class Assembler {
             //         }
             //         pd.print("00");
             //     } else if(!(i == 8 && line == null)) {
-            //         throw new Exception("Illegal Format");
+            //         throw new Exception("Illegal Instruction Format");
             //     }
             } catch (Exception e) {
                 e.printStackTrace();
