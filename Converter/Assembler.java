@@ -86,34 +86,34 @@ public class Assembler {
         entry("ADDPC", new Instruction("1101", 1, "11", "000000011"))
     );
 
-    // Map<String, Integer> PseudoInstLen = Map.ofEntries(
-    //     entry("ADDM", 6),
-    //     entry("ADDX", 4),
-    //     entry("SUBM", 6),
-    //     entry("SUBX", 4),
-    //     entry("ANDM", 6),
-    //     entry("ANDX", 4),
-    //     entry("ORX", 4),
-    //     entry("XORM", 6),
-    //     entry("XORX", 4),
-    //     entry("MULTM", 6),
-    //     entry("MULTX", 4),
-    //     entry("MULTMU", 6),
-    //     entry("MULTXU", 4),
-    //     entry("DIVM", 6),
-    //     entry("DIVX", 4),
-    //     entry("DIVMU", 6),
-    //     entry("DIVXU", 4),
-    //     entry("CMP", 5),
-    //     entry("CMX", 3),
-    //     entry("JMP", 3),
-    //     entry("JAL", 3),
-    //     entry("JALR", 3),
-    //     entry("JRAL", 1),
-    //     entry("JGE", 7),
-    //     entry("JGTU", 8),
-    //     entry("JGEU", 8)
-    // );
+    static Map<String, Integer> PseudoInstLen = Map.ofEntries(
+        entry("ADDM", 6),
+        entry("ADDX", 4),
+        entry("SUBM", 6),
+        entry("SUBX", 4),
+        entry("ANDM", 6),
+        entry("ANDX", 4),
+        entry("ORX", 4),
+        entry("XORM", 6),
+        entry("XORX", 4),
+        entry("MULTM", 6),
+        entry("MULTX", 4),
+        entry("MULTMU", 6),
+        entry("MULTXU", 4),
+        entry("DIVM", 6),
+        entry("DIVX", 4),
+        entry("DIVMU", 6),
+        entry("DIVXU", 4),
+        entry("CMP", 5),
+        entry("CMX", 3),
+        entry("JMP", 3),
+        entry("JAL", 3),
+        entry("JALR", 3),
+        entry("JRAL", 1),
+        entry("JGE", 7),
+        entry("JGTU", 8),
+        entry("JGEU", 8)
+    );
 
     public static void main(String[] args) throws IOException{
         ArrayList<File> FilePaths = new ArrayList<>();
@@ -169,16 +169,16 @@ public class Assembler {
                         line = null;
                     }
                 }
-                // for (i = 0; i < Assembly.size(); i++) {
-                //     String inst = Assembly.get(i);
-                //     List<String> expansion = PseudoExpand(inst);
-                //     if(expansion.size() != 1 || !expansion.getFirst().equals(inst)) {
-                //         Assembly.remove(i);
-                //         Assembly.addAll(i, expansion);
-                //     }
-                // }
-                // i = 0;
-                // System.out.println(Assembly);
+                for (i = 0; i < Assembly.size(); i++) {
+                    String inst = Assembly.get(i);
+                    String expansion = UnAlias(inst);
+                    if(!expansion.equals(inst)) {
+                        Assembly.remove(i);
+                        Assembly.add(i, expansion);
+                    }
+                }
+                i = 0;
+                System.out.println(Assembly);
                 HashMap<String, Integer> labels = new HashMap<>();
                 HashMap<String, String> labels1 = new HashMap<>();
                 while((i < Assembly.size()) && !Assembly.get(i).equals("")) {
@@ -189,9 +189,19 @@ public class Assembler {
                     }
                     i++;
                 }
-                i++;
-                while(i < Assembly.size()) {
-                    scnr2 = new Scanner(Assembly.get(i));
+                int memStart = i++;
+                for (i = 0; i < Assembly.size(); i++) {
+                    String inst = Assembly.get(i);
+                    List<String> expansion = PseudoExpand(inst, labels);
+                    if(expansion.size() != 1 || !expansion.getFirst().equals(inst)) {
+                        Assembly.remove(i);
+                        Assembly.addAll(i, expansion);
+                    }
+                }
+                i = 0;
+                System.out.println(Assembly);
+                while((memStart + i) < Assembly.size()) {
+                    scnr2 = new Scanner(Assembly.get(memStart + i));
                     String a = scnr2.next();
                     if(a.endsWith(":")) {
                         labels1.put(a.substring(0, a.length() - 1), IntToBin(i));
@@ -536,7 +546,19 @@ public class Assembler {
 		return x;
 	}
 
-    public static List<String> PseudoExpand(String inst) {
+    public static List<String> PseudoExpand(String inst, HashMap<String, Integer> labels) {
+        ArrayList<String> instLine = new ArrayList<>(Arrays.asList(inst.split("\\s+")));
+        String start = null;
+        if(instLine.getFirst().contains(":")) {
+            start = instLine.removeFirst();
+        }
+
+        String op = instLine.get(1);
+        switch (op) {
+            case "" -> {
+            }
+            default -> throw new AssertionError();
+        }
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -610,5 +632,9 @@ public class Assembler {
 			throw new Exception("Illegal Address Format");
 		}
         return ret;
+    }
+
+    public static String UnAlias(String inst) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
