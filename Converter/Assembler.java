@@ -149,7 +149,7 @@ public class Assembler {
             }
         }
 
-        FilePaths.add(new File("./instLine.asm"));
+        FilePaths.add(new File("./Test.asm"));
 
         for(File f : FilePaths){
             String BasePath = f.getPath().substring(0, f.getPath().lastIndexOf('.'));
@@ -186,12 +186,15 @@ public class Assembler {
                 }
                 for (; i < Assembly.size(); i++) {
                     String inst = Assembly.get(i);
+                    if(inst.equals(""))
+                        break;
                     String expansion = UnAlias(inst);
                     if(!expansion.equals(inst)) {
                         Assembly.remove(i);
                         Assembly.add(i, expansion);
                     }
                 }
+                System.out.println(Assembly);
                 i = 0;
                 int currpc = 0;
                 System.out.println(Assembly);
@@ -202,8 +205,8 @@ public class Assembler {
                     String a = scnr2.next();
                     if(a.endsWith(":")) {
                         labels.put(a.substring(0, a.length() - 1), currpc);
+                        a = scnr2.next();
                     }
-                    a = scnr2.next();
                     Instruction inst = InstList.get(a);
                     if(inst == null) {
                         currpc = currpc + PseudoInstLen.get(a);
@@ -212,6 +215,8 @@ public class Assembler {
                     }
                     i++;
                 }
+                System.out.println(labels);
+                System.out.println(currpc);
                 int memStart = i++;
                 for (i = 0; i < Assembly.size(); i++) {
                     String inst = Assembly.get(i);
@@ -222,7 +227,6 @@ public class Assembler {
                     }
                 }
                 i = 0;
-                System.out.println(Assembly);
                 while((memStart + i) < Assembly.size()) {
                     scnr2 = new Scanner(Assembly.get(memStart + i));
                     String a = scnr2.next();
@@ -667,7 +671,12 @@ public class Assembler {
         switch (op) {
             case "LDM", "LDMU", "LDWD", "LDWX", "LDWL", "LDHD", "LDHX", "LDHL", "LDBD", "LDBX", "LDBL", "STWD", "STWX", 
                  "STWL", "STHD", "STHX", "STHL", "STBD", "STBX", "STBL", "LDJ", "ADDM", "ADDD", "ADDX", "ADDPC", "SUBM",
-                 "SUBD", "SUBX" -> {
+                 "SUBD", "SUBX", "NOT", "ANDM", "ANDD", "ANDX", "ANDR", "ORM", "ORD", "ORX", "ORR", "XORM", "XORD", "XORX",
+                 "XORR", "ASR", "ASRR", "LSL", "LSLR", "LSR", "LSRR", "CSL", "CSLR", "CSR", "CSRR", "MULTM", "MULTD",
+                 "MULTX", "MULTR", "MULTMU", "MULTDU", "MULTXU", "MULTRU", "DIVM", "DIVD", "DIVX", "DIVR", "DIVMU", 
+                 "DIVDU", "DIVXU", "DIVRU", "CMD", "CMX", "CMPR", "JMPL", "JMPR", "JLALR", "JRALR",
+                 "JPLN", "JPNR", "JPLE", "JPER", "JLGT", "JGTR", "JLGTU", "JGTRU", "JLGE", "JGER", "JLGEU", "JGERU",
+                 "NOOP", "END", "INC", "DEC", "MOV", "SWAPR" -> {
                 return inst;
             }
             case "LDW", "LDH", "LDB", "STW", "STH", "STB" -> {
@@ -680,7 +689,7 @@ public class Assembler {
                     return inst.replace(op, op + "L");
                 }
             }
-            case "ADD", "SUB", "ADDR", "SUBR" -> {
+            case "ADD", "SUB", "ADDR", "SUBR", "AND", "OR", "XOR" -> {
                 if(instLine.size() == 3) {
                     if(op.endsWith("R")) {
                         return inst.replace(op, op + "_DEST");
@@ -699,11 +708,154 @@ public class Assembler {
                     return inst.replace(op, op + "R");
                 }
             }
-            case "" -> {
-                
+            case "MULT", "MULTH", "MULTU", "MULTHU", "DIV", "REM", "DIVU", "REMU" -> {
+                if(instLine.size() == 4) {
+                    String type;
+                    String op2 = instLine.get(3);
+                    if(op2.startsWith("#")) {
+                       type = "M";
+                    } else if(op2.startsWith("[")) {
+                        type = "D";
+                    } else if(op2.startsWith("(")) {
+                        type = "X";
+                    } else {
+                        type = "R";
+                    }
+                    if(op.endsWith("H")) {
+                        return inst.replaceFirst(instLine.get(1), "Z, " + instLine.get(1)).replace(op, "MULT" + type);
+                    } else if(op.endsWith("HU")) {
+                        return inst.replaceFirst(instLine.get(1), "Z, " + instLine.get(1)).replace(op, "MULT" + type + "U");
+                    } else if(op.endsWith("M")) {
+                        return inst.replaceFirst(instLine.get(1), "Z, " + instLine.get(1)).replace(op, "DIV" + type);
+                    } else if(op.endsWith("MU")) {
+                        return inst.replaceFirst(instLine.get(1), "Z, " + instLine.get(1)).replace(op, "DIV" + type + "U");
+                    } else if(op.endsWith("U")) {
+                        return inst.replaceFirst(instLine.get(1), instLine.get(1) + " Z,").replace(op, op.substring(0, op.length() - 2) + type + "U");
+                    } else {
+                        return inst.replaceFirst(instLine.get(1), instLine.get(1) + " Z,").replace(op, op + type);
+                    }
+                }
+                String type;
+                String op2 = instLine.get(3);
+                if(op2.startsWith("#")) {
+                    type = "M";
+                } else if(op2.startsWith("[")) {
+                    type = "D";
+                } else if(op2.startsWith("(")) {
+                    type = "X";
+                } else {
+                    type = "R";
+                }
+                if(op.endsWith("U")) {
+                    return inst.replace(op, op.substring(0, op.length() - 2) + type + "U");
+                } else {
+                    return inst.replace(op, op + type);
+                }
+            }
+            case "CMP" -> {
+                String op2 = instLine.get(2);
+                if(op2.startsWith("#")) {
+                    return inst;
+                } else if(op2.startsWith("[")) {
+                    return inst.replace(op, "CMD");
+                } else if(op2.startsWith("(")) {
+                    return inst.replace(op, "CMX");
+                } else {
+                    return inst.replace(op, op + "R");
+                }
+            }
+            case "JMP" -> {
+                String op2 = instLine.get(1);
+                if(op2.startsWith("#")){
+                    return inst;
+                }
+                try {
+                    GetReg(op2);
+                    return inst.replace(op, op + "R");
+                } catch (Exception e) {
+                    return inst.replace(op, op + "L");
+                }
+            }
+            case "JAL" -> {
+                if(instLine.size() == 2) {
+                    String op2 = instLine.get(1);
+                    if(op2.startsWith("#")) {
+                        return inst;
+                    }
+                    try {
+                        GetReg(op2);
+                        return inst.replace(op, "JRAL");
+                    } catch (Exception e) {
+                        return inst.replace(op, "JLAL");
+                    }
+                }
+                String op2 = instLine.get(2);
+                if(op2.startsWith("#")) {
+                    return inst.replace(op, "JALR");
+                }
+                try {
+                    GetReg(op2);
+                    return inst.replace(op, "JRALR");
+                } catch (Exception e) {
+                    return inst.replace(op, "JLALR");
+                }
+            }
+            case "JLAL", "JRAL" -> {
+                if(instLine.size() == 3) {
+                    return inst.replace(op, op + "R");
+                } else {
+                    return inst;
+                }
+            }
+            case "JALR" -> {
+                String op2 = instLine.get(2);
+                if(op2.startsWith("#")) {
+                    return inst;
+                }
+                try {
+                    GetReg(op2);
+                    return inst.replace(op, "JRALR");
+                } catch (Exception e) {
+                    return inst.replace(op, "JLALR");
+                }
+            }
+            case "JPN", "JPE" -> {
+                String op2 = instLine.get(1);
+                if(op2.startsWith("#")) {
+                    return inst;
+                }
+                try {
+                    GetReg(op2);
+                    return inst.replace(op, op + "R");
+                } catch (Exception e) {
+                    return inst.replace(op, "JPL" + op.charAt(2));
+                }
+            }
+            case "JGT", "JGE" -> {
+                String op2 = instLine.get(1);
+                if(op2.startsWith("#")) {
+                    return inst;
+                }
+                try {
+                    GetReg(op2);
+                    return inst.replace(op, op + "R");
+                } catch (Exception e) {
+                    return inst.replace(op, "JL" + op.substring(1));
+                }
+            }
+            case "JGTU", "JGEU" -> {
+                String op2 = instLine.get(1);
+                if(op2.startsWith("#")) {
+                    return inst;
+                }
+                try {
+                    GetReg(op2);
+                    return inst.replace(op, op.substring(0, 3) + "RU");
+                } catch (Exception e) {
+                    return inst.replace(op, "JL" + op.substring(1));
+                }
             }
             default -> throw new Exception("Alias/Instruction/Pseudoinstruction " + op + " is not supported.");
         }
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
