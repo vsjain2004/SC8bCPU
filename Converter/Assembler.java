@@ -107,12 +107,27 @@ public class Assembler {
         entry("CMP", 5),
         entry("CMX", 3),
         entry("JMP", 3),
+        entry("JMPL", 5),
         entry("JAL", 3),
+        entry("JLAL", 5),
         entry("JALR", 3),
+        entry("JLALR", 5),
         entry("JRAL", 1),
+        entry("JPLN", 2),
+        entry("JPLE", 2),
+        entry("JLGT", 2),
         entry("JGE", 7),
+        entry("JLGE", 5),
         entry("JGTU", 8),
-        entry("JGEU", 8)
+        entry("JLGTU", 6),
+        entry("JGEU", 8),
+        entry("JLGEU", 6),
+        entry("LDWL", 2),
+        entry("LDHL", 2),
+        entry("LDBL", 2),
+        entry("STWL", 2),
+        entry("STHL", 2),
+        entry("STBL", 2)
     );
 
     public static void main(String[] args) throws IOException{
@@ -169,7 +184,7 @@ public class Assembler {
                         line = null;
                     }
                 }
-                for (i = 0; i < Assembly.size(); i++) {
+                for (; i < Assembly.size(); i++) {
                     String inst = Assembly.get(i);
                     String expansion = UnAlias(inst);
                     if(!expansion.equals(inst)) {
@@ -178,6 +193,7 @@ public class Assembler {
                     }
                 }
                 i = 0;
+                int currpc = 0;
                 System.out.println(Assembly);
                 HashMap<String, Integer> labels = new HashMap<>();
                 HashMap<String, String> labels1 = new HashMap<>();
@@ -185,7 +201,14 @@ public class Assembler {
                     scnr2 = new Scanner(Assembly.get(i));
                     String a = scnr2.next();
                     if(a.endsWith(":")) {
-                        labels.put(a.substring(0, a.length() - 1), i);
+                        labels.put(a.substring(0, a.length() - 1), currpc);
+                    }
+                    a = scnr2.next();
+                    Instruction inst = InstList.get(a);
+                    if(inst == null) {
+                        currpc = currpc + PseudoInstLen.get(a);
+                    } else {
+                        currpc = currpc + inst.opmode() + 1;
                     }
                     i++;
                 }
@@ -546,18 +569,18 @@ public class Assembler {
 		return x;
 	}
 
-    public static List<String> PseudoExpand(String inst, HashMap<String, Integer> labels) {
+    public static List<String> PseudoExpand(String inst, HashMap<String, Integer> labels) throws Exception {
         ArrayList<String> instLine = new ArrayList<>(Arrays.asList(inst.split("\\s+")));
         String start = null;
         if(instLine.getFirst().contains(":")) {
             start = instLine.removeFirst();
         }
 
-        String op = instLine.get(1);
+        String op = instLine.get(0);
         switch (op) {
             case "" -> {
             }
-            default -> throw new AssertionError();
+            default -> throw new Exception("Pseudoinstruction " + op + " is not supported.");
         }
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -634,7 +657,53 @@ public class Assembler {
         return ret;
     }
 
-    public static String UnAlias(String inst) {
+    public static String UnAlias(String inst) throws Exception {
+        ArrayList<String> instLine = new ArrayList<>(Arrays.asList(inst.split("\\s+")));
+        if(instLine.getFirst().contains(":")) {
+            instLine.removeFirst();
+        }
+
+        String op = instLine.get(0);
+        switch (op) {
+            case "LDM", "LDMU", "LDWD", "LDWX", "LDWL", "LDHD", "LDHX", "LDHL", "LDBD", "LDBX", "LDBL", "STWD", "STWX", 
+                 "STWL", "STHD", "STHX", "STHL", "STBD", "STBX", "STBL", "LDJ", "ADDM", "ADDD", "ADDX", "ADDPC", "SUBM",
+                 "SUBD", "SUBX" -> {
+                return inst;
+            }
+            case "LDW", "LDH", "LDB", "STW", "STH", "STB" -> {
+                String addr = instLine.get(2);
+                if(addr.startsWith("[")) {
+                    return inst.replace(op, op + "D");
+                } else if(addr.startsWith("(")) {
+                    return inst.replace(op, op + "X");
+                } else {
+                    return inst.replace(op, op + "L");
+                }
+            }
+            case "ADD", "SUB", "ADDR", "SUBR" -> {
+                if(instLine.size() == 3) {
+                    if(op.endsWith("R")) {
+                        return inst.replace(op, op + "_DEST");
+                    } else {
+                        return inst.replace(op, op + "R_DEST");
+                    }
+                }
+                String op2 = instLine.get(3);
+                if(op2.startsWith("#")) {
+                    return inst.replace(op, op + "M");
+                } else if(op2.startsWith("[")) {
+                    return inst.replace(op, op + "D");
+                } else if(op2.startsWith("(")) {
+                    return inst.replace(op, op + "X");
+                } else {
+                    return inst.replace(op, op + "R");
+                }
+            }
+            case "" -> {
+                
+            }
+            default -> throw new Exception("Alias/Instruction/Pseudoinstruction " + op + " is not supported.");
+        }
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

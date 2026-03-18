@@ -93,9 +93,9 @@ JAL R1
 
 JPN Label
     (Label - current PC + 4 is calculated at Assembler)
-    JPN Diff
+    JPN (Diff >> 1)
 
-Same as above for JPE Label and JGT Label, Lower ones followed for rest
+Same as above for JPE Label and JGT Label
 
 JGE Immediate
     LDM A, Imm + 7
@@ -114,5 +114,13 @@ JGEU Immediate
     LSL A, A, 1
     ADDPC A, A
     JGERU A
+
+JLGE Label
+    (Diff = Label - (PC + 4 + 14))
+    LDM A, Diff
+    ADDPC A, A
+    JGER A
+
+JLGTU/JLGEU as above but with 16
 
 LD/ST Label becomes LD/ST (Label DMEM Address)[Z]

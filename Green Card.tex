@@ -214,6 +214,16 @@ Bit Alignment & None\\
 \bottomrule
 \end{tabular}
 
+\section*{Immediate Format}
+\begin{tabular}{ll}
+\toprule
+Prefix & Base\\
+\midrule
+\#B & Binary (2)\\
+\# & Decimal (10)\\
+\#\& & Hexadecimal (16)\\
+\bottomrule
+\end{tabular}
 
 \end{multicols}
 
@@ -222,7 +232,7 @@ Bit Alignment & None\\
 % Instruction set
 \section*{Instruction Set}
 \subsection*{Load/Store}
-\begin{tabular}{>{\raggedright\arraybackslash\hangindent=0.5cm\hangafter=1}p{3cm}lc>{\raggedright\arraybackslash\hangindent=1.5cm\hangafter=1}p{5cm}lc}
+\begin{tabular}{>{\raggedright\arraybackslash\hangindent=0.5cm\hangafter=1}p{3cm}>{\raggedright\arraybackslash\hangindent=0cm\hangafter=1}p{2cm}c>{\raggedright\arraybackslash\hangindent=1.5cm\hangafter=1}p{5cm}lc}
 \toprule
 Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode(dec) \\
 \midrule
@@ -241,7 +251,7 @@ Store Half-Word Indexed & STH(X) & I & M[R[R1] + SignExtImm] = R[Rd](15:0) & STH
 Store Byte Direct & STB(D) & I & M[R[R1]] = R[Rd](7:0) & STB Rd, [R1] & 7\\
 Store Byte Indexed & STB(X) & I & M[R[R1] + SignExtImm] = R[Rd](7:0) & STB Rd, (Imm)[R1] & 7\\
 Load Jump Address & LDJ & I & R[Rd] = JMPAddr & LDJ Rd, Imm & 12\\
-Any Load/Store with Label & -- & P & R[Rd] = M[Label] or M[Label] = R[Rd] & LD? or ST? Rd, Label & --\\
+Any Load/Store with Label & LD?(L) or ST?(L) & P & R[Rd] = M[Label] or M[Label] = R[Rd] & LD? or ST? Rd, Label & --\\
 \bottomrule
 \end{tabular}
 
@@ -360,16 +370,16 @@ Jump Label and Link Register & J(L)AL(R) & P & PC = Label Address; R[R1] = NextI
 Jump Register and Link & J(R)AL & P & PC = R[R1]; R[RA] = NextInst & JAL R1 & --\\
 Jump Register and Link Register & J(R)AL(R) & R1 & PC = R[R1]; R[R2] = PC + 2 & JAL R1, R2 & 11\\
 Jump if Not Equal & JPN & I & If Flags, PC = PC + 4 + (SignExtImm $<<$ 1) & JPN Immediate & 9\\
-Jump Label if Not Equal & JPN(L) & P & If Flags, PC = Label & JPN Label & --\\
+Jump Label if Not Equal & JP(L)N & P & If Flags, PC = Label & JPN Label & --\\
 Jump if Not Equal Register & JPN(R) & R1 & If Flags, PC = R[R1] & JPN R1 & 12\\
 Jump if Equal & JPE & I & If Flags, PC = PC + 4 + (SignExtImm $<<$ 1) & JPE Immediate & 10\\
-Jump Label if Equal & JPE(L) & P & If Flags, PC = Label & JPE Label & --\\
+Jump Label if Equal & JP(L)E & P & If Flags, PC = Label & JPE Label & --\\
 Jump if Equal Register & JPE(R) & R1 & If Flags, PC = R[R1] & JPE R1 & 13\\
 Jump if Greater Than & JGT & I & If Flags, PC = PC + 4 + (SignExtImm $<<$ 1) & JGT Immediate & 11\\
-Jump Label if Greater Than & JGT(L) & P & If Flags, PC = Label & JGT Label & --\\
+Jump Label if Greater Than & J(L)GT & P & If Flags, PC = Label & JGT Label & --\\
 Jump if Greater Than Register & JGT(R) & R1 & If Flags, PC = R[R1] & JGT R1 & 14\\
 Jump if Greater Than Unsigned & JGTU & P & If Flags, PC = PC + 4 + (SignExtImm $<<$ 1) & JGTU Immediate & --\\
-Jump Label if Greater Than Unsigned & JGT(L)U & P & If Flags, PC = Label & JGTU Label & --\\
+Jump Label if Greater Than Unsigned & J(L)GTU & P & If Flags, PC = Label & JGTU Label & --\\
 Jump if Greater Than Register Unsigned & JGT(R)U & R2 & If Flags, PC = R[R1] & JGTU R1 & 13/3/0\\
 \bottomrule
 \end{tabular}
@@ -378,10 +388,10 @@ Jump if Greater Than Register Unsigned & JGT(R)U & R2 & If Flags, PC = R[R1] & J
 Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/Family/ Func(dec) \\
 \midrule
 Jump if Greater Than or Equal & JGE & P & If Flags, PC = NextInst + (SignExtImm $<<$ 1) & JGE Immediate & --\\
-Jump Label if Greater Than or Equal & JGE(L) & P & If Flags, PC = Label & JGE Label & --\\
+Jump Label if Greater Than or Equal & J(L)GE & P & If Flags, PC = Label & JGE Label & --\\
 Jump if Greater Than or Equal Register & JGE(R) & R1 & If Flags, PC = R[R1] & JGE R1 & 15\\
 Jump if Greater Than or Equal Unsigned & JGEU & P & If Flags, PC = PC + 4 + (SignExtImm $<<$ 1) & JGEU Immediate & --\\
-Jump Label if Greater Than or Equal Unsigned & JGE(L)U & P & If Flags, PC = Label & JGEU Label & --\\
+Jump Label if Greater Than or Equal Unsigned & J(L)GEU & P & If Flags, PC = Label & JGEU Label & --\\
 Jump if Greater Than or Equal Register Unsigned & JGE(R)U & R2 & If Flags, PC = R[R1] & JGEU R1 & 13/3/1\\
 \bottomrule
 \end{tabular}
@@ -391,7 +401,7 @@ Jump if Greater Than or Equal Register Unsigned & JGE(R)U & R2 & If Flags, PC = 
 \subsection*{Additional}
 \begin{tabular}{>{\raggedright\arraybackslash\hangindent=0.2cm\hangafter=1}p{2.5cm}lc>{\raggedright\arraybackslash}p{5cm}lc}
 \toprule
-Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode/(dec) \\
+Instruction & Mnemonic & Format & Operation (in Verilog) & Assembly & Opcode(dec) \\
 \midrule
 No Operation & NOOP & R1 & -- & NOOP & 0\\
 End Program & END & R1 & PC = PC & END & 1\\
