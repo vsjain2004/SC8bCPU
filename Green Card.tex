@@ -251,7 +251,7 @@ Store Half-Word Indexed & STH(X) & I & M[R[R1] + SignExtImm] = R[Rd](15:0) & STH
 Store Byte Direct & STB(D) & I & M[R[R1]] = R[Rd](7:0) & STB Rd, [R1] & 7\\
 Store Byte Indexed & STB(X) & I & M[R[R1] + SignExtImm] = R[Rd](7:0) & STB Rd, (Imm)[R1] & 7\\
 Load Jump Address & LDJ & I & R[Rd] = JMPAddr & LDJ Rd, Imm & 12\\
-Any Load/Store with Label & LD?(L) or ST?(L) & P & R[Rd] = M[Label] or M[Label] = R[Rd] & LD? or ST? Rd, Label & --\\
+Any Load/Store with Label & LD?(L) or ST?(L) & P & R[Rd] = M[Label] or M[Label] = R[Rd] or R[Rd] = Label & LD? or ST? Rd, Label & --\\
 \bottomrule
 \end{tabular}
 

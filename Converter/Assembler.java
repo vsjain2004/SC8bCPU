@@ -127,7 +127,8 @@ public class Assembler {
         entry("LDBL", 2),
         entry("STWL", 2),
         entry("STHL", 2),
-        entry("STBL", 2)
+        entry("STBL", 2),
+        entry("LDML", 4)
     );
 
     public static void main(String[] args) throws IOException{
@@ -669,7 +670,7 @@ public class Assembler {
 
         String op = instLine.get(0);
         switch (op) {
-            case "LDM", "LDMU", "LDWD", "LDWX", "LDWL", "LDHD", "LDHX", "LDHL", "LDBD", "LDBX", "LDBL", "STWD", "STWX", 
+            case "LDMU", "LDWD", "LDWX", "LDWL", "LDHD", "LDHX", "LDHL", "LDBD", "LDBX", "LDBL", "STWD", "STWX", 
                  "STWL", "STHD", "STHX", "STHL", "STBD", "STBX", "STBL", "LDJ", "ADDM", "ADDD", "ADDX", "ADDPC", "SUBM",
                  "SUBD", "SUBX", "NOT", "ANDM", "ANDD", "ANDX", "ANDR", "ORM", "ORD", "ORX", "ORR", "XORM", "XORD", "XORX",
                  "XORR", "ASR", "ASRR", "LSL", "LSLR", "LSR", "LSRR", "CSL", "CSLR", "CSR", "CSRR", "MULTM", "MULTD",
@@ -678,6 +679,14 @@ public class Assembler {
                  "JPLN", "JPNR", "JPLE", "JPER", "JLGT", "JGTR", "JLGTU", "JGTRU", "JLGE", "JGER", "JLGEU", "JGERU",
                  "NOOP", "END", "INC", "DEC", "MOV", "SWAPR" -> {
                 return inst;
+            }
+            case "LDM" -> {
+                String op2 = instLine.get(2);
+                if(op2.startsWith("#")) {
+                    return inst;
+                } else {
+                    return inst.replace(op, op + "L");
+                }
             }
             case "LDW", "LDH", "LDB", "STW", "STH", "STB" -> {
                 String addr = instLine.get(2);
