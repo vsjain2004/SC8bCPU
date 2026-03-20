@@ -576,18 +576,61 @@ public class Assembler {
 
     public static List<String> PseudoExpand(String inst, HashMap<String, Integer> labels) throws Exception {
         ArrayList<String> instLine = new ArrayList<>(Arrays.asList(inst.split("\\s+")));
-        String start = null;
+        List<String> ret = new ArrayList<>();
         if(instLine.getFirst().contains(":")) {
-            start = instLine.removeFirst();
+            instLine.removeFirst();
         }
 
         String op = instLine.get(0);
+        String r1, r2, r3, r4, newOp;
         switch (op) {
-            case "" -> {
+            case "ADDM", "SUBM", "ANDM", "XORM" -> {
+                r1 = instLine.get(1);
+                r2 = instLine.get(2);
+                r3 = GetImmediate(instLine.get(3));
+                newOp = op.substring(0, op.length() - 2) + "R";
+                ret.add("LDMU A, #B" + r3.substring(0, 16));
+                ret.add("ORM A, A, #B" + r3.substring(16));
+                ret.add(newOp + " " + r1 + ",  "+ r2 + ", A");
+            }
+            case "ADDX", "SUBX", "ANDX", "ORX", "XORX" -> {
+                r1 = instLine.get(1);
+                r2 = instLine.get(2);
+                r3 = instLine.get(3);
+                newOp = op.substring(0, op.length() - 1) + "R";
+                ret.add("LDW A, " + r3);
+                ret.add(newOp + " " + r1 + ",  "+ r2 + ", A");
+            }
+            case "MULTM", "MULTMU", "DIVM", "DIVMU" -> {
+                r1 = instLine.get(1);
+                r2 = instLine.get(2);
+                r3 = instLine.get(3);
+                r4 = GetImmediate(instLine.get(4));
+                if(op.endsWith("U")) {
+                    newOp = op.substring(0, op.length() - 2) + "RU";
+                } else {
+                    newOp = op.substring(0, op.length() - 1) + "R";
+                }
+                ret.add("LDMU A, #B" + r4.substring(0, 16));
+                ret.add("ORM A, A, #B" + r4.substring(16));
+                ret.add(newOp + " " + r1 + ",  "+ r2 + ", "+ r3 + "A");
+            }
+            case "MULTX", "MULTXU", "DIVX", "DIVXU" -> {
+                r1 = instLine.get(1);
+                r2 = instLine.get(2);
+                r3 = instLine.get(3);
+                r4 = instLine.get(4);
+                if(op.endsWith("U")) {
+                    newOp = op.substring(0, op.length() - 2) + "RU";
+                } else {
+                    newOp = op.substring(0, op.length() - 1) + "R";
+                }
+                ret.add("LDW A, " + r4);
+                ret.add(newOp + " " + r1 + ",  "+ r2 + ", "+ r3 + "A");
             }
             default -> throw new Exception("Pseudoinstruction " + op + " is not supported.");
         }
-        throw new UnsupportedOperationException("Not supported yet.");
+        return ret;
     }
 
     public static String GetReg(String Reg) {
@@ -739,7 +782,7 @@ public class Assembler {
                     } else if(op.endsWith("MU")) {
                         return inst.replaceFirst(instLine.get(1), "Z, " + instLine.get(1)).replace(op, "DIV" + type + "U");
                     } else if(op.endsWith("U")) {
-                        return inst.replaceFirst(instLine.get(1), instLine.get(1) + " Z,").replace(op, op.substring(0, op.length() - 2) + type + "U");
+                        return inst.replaceFirst(instLine.get(1), instLine.get(1) + " Z,").replace(op, op.substring(0, op.length() - 1) + type + "U");
                     } else {
                         return inst.replaceFirst(instLine.get(1), instLine.get(1) + " Z,").replace(op, op + type);
                     }
@@ -756,7 +799,7 @@ public class Assembler {
                     type = "R";
                 }
                 if(op.endsWith("U")) {
-                    return inst.replace(op, op.substring(0, op.length() - 2) + type + "U");
+                    return inst.replace(op, op.substring(0, op.length() - 1) + type + "U");
                 } else {
                     return inst.replace(op, op + type);
                 }

@@ -1,6 +1,6 @@
 ADD Rd, R1, Imm
     LDMU A, Imm[31:16]
-    ORI A, A, Imm[15:0]
+    ORM A, A, Imm[15:0]
     ADDR Rd, R1, A
 
 ADD Rd, R1, Imm[R2]
@@ -9,7 +9,7 @@ ADD Rd, R1, Imm[R2]
 
 SUB Rd, R1, Imm
     LDMU A, Imm[31:16]
-    ORI A, A, Imm[15:0]
+    ORM A, A, Imm[15:0]
     SUBR Rd, R1, A
 
 SUB Rd, R1, Imm[R2]
