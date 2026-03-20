@@ -589,8 +589,9 @@ public class Assembler {
                 r2 = instLine.get(2);
                 r3 = GetImmediate(instLine.get(3));
                 newOp = op.substring(0, op.length() - 2) + "R";
-                ret.add("LDMU A, #B" + r3.substring(0, 16));
-                ret.add("ORM A, A, #B" + r3.substring(16));
+                // ret.add("LDMU A, #B" + r3.substring(0, 16));
+                ret.add("LDMU A, #&0000");
+                ret.add("ORM A, A, #B" + r3);
                 ret.add(newOp + " " + r1 + ",  "+ r2 + ", A");
             }
             case "ADDX", "SUBX", "ANDX", "ORX", "XORX" -> {
@@ -611,8 +612,8 @@ public class Assembler {
                 } else {
                     newOp = op.substring(0, op.length() - 1) + "R";
                 }
-                ret.add("LDMU A, #B" + r4.substring(0, 16));
-                ret.add("ORM A, A, #B" + r4.substring(16));
+                ret.add("LDMU A, #&0000");
+                ret.add("ORM A, A, #B" + r4);
                 ret.add(newOp + " " + r1 + ",  "+ r2 + ", "+ r3 + "A");
             }
             case "MULTX", "MULTXU", "DIVX", "DIVXU" -> {
@@ -628,6 +629,53 @@ public class Assembler {
                 ret.add("LDW A, " + r4);
                 ret.add(newOp + " " + r1 + ",  "+ r2 + ", "+ r3 + "A");
             }
+            case "CMP", "CMX" -> {
+                r1 = instLine.get(1);
+                r2 = instLine.get(2);
+                if(op.endsWith("P")) {
+                    ret.add("LDMU A, #&0000");
+                    ret.add("ORM A, A, #B" + GetImmediate(r2));
+                } else {
+                    ret.add("LDW A, " + r2);
+                }
+                ret.add("CMPR " + r1 + ", A");
+            }
+            case "JMP" -> {
+                ret.add("LDJ A, #B" + GetImmediate(instLine.get(1)));
+                ret.add("JMPR A");
+            }
+            case "JMPL" -> {
+                r1 = labels.get(instLine.get(1)).toString();
+                ret.add("LDMU A, #B" + r1.substring(0, 16));
+                ret.add("ORM A, A, #B" + r1.substring(16));
+                ret.add("JMPR A");
+            }
+            case "JAL" -> {
+                ret.add("LDJ A, #B" + GetImmediate(instLine.get(1)));
+                ret.add("JRALR A, RA");
+            }
+            case "JLAL" -> {
+                r1 = labels.get(instLine.get(1)).toString();
+                ret.add("LDMU A, #B" + r1.substring(0, 16));
+                ret.add("ORM A, A, #B" + r1.substring(16));
+                ret.add("JRALR A, RA");
+            }
+            case "JALR" -> {
+                ret.add("LDJ A, #B" + GetImmediate(instLine.get(2)));
+                ret.add("JRALR A, " + instLine.get(1));
+            }
+            case "JLALR" -> {
+                r1 = labels.get(instLine.get(2)).toString();
+                ret.add("LDMU A, #B" + r1.substring(0, 16));
+                ret.add("ORM A, A, #B" + r1.substring(16));
+                ret.add("JRALR A, " + instLine.get(1));
+            }
+            case "JRAL" -> {
+                ret.add("JRALR " + instLine.get(1) + ", RA");
+            }
+        /*entry("JPLN", 2), entry("JPLE", 2), entry("JLGT", 2), entry("JGE", 7), entry("JLGE", 5),
+        entry("JGTU", 8), entry("JLGTU", 6), entry("JGEU", 8), entry("JLGEU", 6), entry("LDWL", 2), entry("LDHL", 2),
+        entry("LDBL", 2), entry("STWL", 2), entry("STHL", 2), entry("STBL", 2), entry("LDML", 4)*/
             default -> throw new Exception("Pseudoinstruction " + op + " is not supported.");
         }
         return ret;
@@ -670,7 +718,7 @@ public class Assembler {
 				}
 			}
 			case "#0", "#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8", "#9", "#-" -> {
-				if((!Imm.startsWith("#-") && Imm.length() > 6) || (Imm.startsWith("#-") && Imm.length() > 7) || Integer.parseInt(Imm.substring(1)) > 32767 || Integer.parseInt(Imm.substring(1)) < -32768) {
+				if((!Imm.startsWith("#-") && Imm.length() > 6) || (Imm.startsWith("#-") && Imm.length() > 7) || Integer.parseInt(Imm.substring(1)) > 65535 || Integer.parseInt(Imm.substring(1)) < -32768) {
 					throw new Exception("Illegal Immediate Format");
 				}
 				return IntToBin(Integer.parseInt(Imm.substring(1))).substring(16);
