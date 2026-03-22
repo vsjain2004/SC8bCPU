@@ -117,7 +117,7 @@ public class Assembler {
         entry("JPLE", 2),
         entry("JLGT", 2),
         entry("JGE", 7),
-        entry("JLGE", 5),
+        entry("JLGE", 6),
         entry("JGTU", 8),
         entry("JLGTU", 6),
         entry("JGEU", 8),
@@ -200,7 +200,7 @@ public class Assembler {
                 int currpc = 0;
                 System.out.println(Assembly);
                 HashMap<String, Integer> labels = new HashMap<>();
-                HashMap<String, String> labels1 = new HashMap<>();
+                HashMap<String, Integer> labels1 = new HashMap<>();
                 while((i < Assembly.size()) && !Assembly.get(i).equals("")) {
                     scnr2 = new Scanner(Assembly.get(i));
                     String a = scnr2.next();
@@ -216,29 +216,35 @@ public class Assembler {
                     }
                     i++;
                 }
-                System.out.println(labels);
-                System.out.println(currpc);
                 int memStart = i++;
-                for (i = 0; i < Assembly.size(); i++) {
-                    String inst = Assembly.get(i);
-                    List<String> expansion = PseudoExpand(inst, labels);
-                    if(expansion.size() != 1 || !expansion.getFirst().equals(inst)) {
-                        Assembly.remove(i);
-                        Assembly.addAll(i, expansion);
-                    }
-                }
                 i = 0;
                 while((memStart + i) < Assembly.size()) {
                     scnr2 = new Scanner(Assembly.get(memStart + i));
                     String a = scnr2.next();
                     if(a.endsWith(":")) {
-                        labels1.put(a.substring(0, a.length() - 1), IntToBin(i));
+                        labels1.put(a.substring(0, a.length() - 1), i);
                     }
                     i++;
                 }
-
+                currpc = 0;
+                for (i = 0; i < Assembly.size(); i++) {
+                    String inst = Assembly.get(i);
+                    List<String> expansion;
+                    if(inst.matches(".*(LD[WHBM]L|ST[WHB]L).*")) {
+                        expansion = PseudoExpand(inst, labels1, currpc);
+                    } else {
+                        expansion = PseudoExpand(inst, labels, currpc);
+                    }
+                    
+                    if(expansion.size() != 1 || !expansion.getFirst().equals(inst)) {
+                        Assembly.remove(i);
+                        Assembly.addAll(i, expansion);
+                    }
+                    currpc = currpc + InstList.get(expansion.getFirst().split("\\s+")[0]).opmode() + 1;
+                }
                 System.out.println(labels.toString());
                 System.out.println(labels1.toString());
+                System.out.println(currpc);
                 System.out.println("");
                 i = 0;
                 int size = 0;
@@ -574,7 +580,7 @@ public class Assembler {
 		return x;
 	}
 
-    public static List<String> PseudoExpand(String inst, HashMap<String, Integer> labels) throws Exception {
+    public static List<String> PseudoExpand(String inst, HashMap<String, Integer> labels, int currpc) throws Exception {
         ArrayList<String> instLine = new ArrayList<>(Arrays.asList(inst.split("\\s+")));
         List<String> ret = new ArrayList<>();
         if(instLine.getFirst().contains(":")) {
@@ -582,6 +588,10 @@ public class Assembler {
         }
 
         String op = instLine.get(0);
+        if(InstList.containsKey(op)) {
+            ret.add(inst);
+            return ret;
+        }
         String r1, r2, r3, r4, newOp;
         switch (op) {
             case "ADDM", "SUBM", "ANDM", "XORM" -> {
@@ -645,7 +655,7 @@ public class Assembler {
                 ret.add("JMPR A");
             }
             case "JMPL" -> {
-                r1 = labels.get(instLine.get(1)).toString();
+                r1 = IntToBin(labels.get(instLine.get(1)));
                 ret.add("LDMU A, #B" + r1.substring(0, 16));
                 ret.add("ORM A, A, #B" + r1.substring(16));
                 ret.add("JMPR A");
@@ -655,7 +665,7 @@ public class Assembler {
                 ret.add("JRALR A, RA");
             }
             case "JLAL" -> {
-                r1 = labels.get(instLine.get(1)).toString();
+                r1 = IntToBin(labels.get(instLine.get(1)));
                 ret.add("LDMU A, #B" + r1.substring(0, 16));
                 ret.add("ORM A, A, #B" + r1.substring(16));
                 ret.add("JRALR A, RA");
@@ -665,7 +675,7 @@ public class Assembler {
                 ret.add("JRALR A, " + instLine.get(1));
             }
             case "JLALR" -> {
-                r1 = labels.get(instLine.get(2)).toString();
+                r1 = IntToBin(labels.get(instLine.get(2)));
                 ret.add("LDMU A, #B" + r1.substring(0, 16));
                 ret.add("ORM A, A, #B" + r1.substring(16));
                 ret.add("JRALR A, " + instLine.get(1));
@@ -673,9 +683,51 @@ public class Assembler {
             case "JRAL" -> {
                 ret.add("JRALR " + instLine.get(1) + ", RA");
             }
-        /*entry("JPLN", 2), entry("JPLE", 2), entry("JLGT", 2), entry("JGE", 7), entry("JLGE", 5),
-        entry("JGTU", 8), entry("JLGTU", 6), entry("JGEU", 8), entry("JLGEU", 6), entry("LDWL", 2), entry("LDHL", 2),
-        entry("LDBL", 2), entry("STWL", 2), entry("STHL", 2), entry("STBL", 2), entry("LDML", 4)*/
+            case "JPLN", "JPLE" -> {
+                int label = labels.get(instLine.get(1));
+                label = (label >> 1) - (currpc + 2);
+                ret.add("JP" + op.charAt(3) + " #B" + IntToBin(label).substring(16));
+            }
+            case "JLGT" -> {
+                int label = labels.get(instLine.get(1));
+                label = (label >> 1) - (currpc + 2);
+                ret.add("JGT #B" + IntToBin(label).substring(16));
+            }
+            case "JGE", "JGTU", "JGEU" -> {
+                r1 = GetImmediate(instLine.get(1));
+                int imm = Integer.parseInt(String.format("%32s", r1).replace(' ', r1.charAt(0)), 2);
+                if(op.endsWith("U")) {
+                    imm = imm + 8;
+                    newOp = op.substring(0, 3) + "RU";
+                } else {
+                    imm = imm + 7;
+                    newOp = op + "R";
+                }
+                ret.add("LDM A, #B" + GetImmediate(Integer.toString(imm)));
+                ret.add("LSL A, A, 1");
+                ret.add("ADDPC A, A");
+                ret.add(newOp + " A");
+            }
+            case "JLGE", "JLGTU", "JLGEU" -> {
+                r1 = IntToBin(labels.get(instLine.get(1)));
+                if(op.endsWith("U")) {
+                    newOp = "JG" + op.charAt(3) + "RU";
+                } else {
+                    newOp = "JGER";
+                }
+                ret.add("LDMU A, #B" + r1.substring(0, 16));
+                ret.add("ORM A, A, #B" + r1.substring(16));
+                ret.add(newOp + " A");
+            }
+            case "LDWL", "LDHL", "LDBL", "STWL", "STHL", "STBL" -> {
+                ret.add(op.substring(0, 3) + " " + instLine.get(1) + " (#B" + IntToBin(labels.get(instLine.get(2))).substring(16) + ")[Z]");
+            }
+            case "LDML" -> {
+                r1 = instLine.get(1);
+                r2 = IntToBin(labels.get(instLine.get(1)));
+                ret.add("LDMU " + r1 + " #B" + r2.substring(0, 16));
+                ret.add("ORM " + r1 + " " + r1 + " #B" + r2.substring(16));
+            }
             default -> throw new Exception("Pseudoinstruction " + op + " is not supported.");
         }
         return ret;
@@ -700,6 +752,32 @@ public class Assembler {
         }
     }
 
+	public static String HexToBin(String a) throws Exception {
+		String x = "";
+		for(int i = 0; i < a.length(); i++) {
+			switch(a.charAt(i)) {
+			case '0' -> x += "0000";
+			case '1' -> x += "0001";
+			case '2' -> x += "0010";
+			case '3' -> x += "0011";
+			case '4' -> x += "0100";
+			case '5' -> x += "0101";
+			case '6' -> x += "0110";
+			case '7' -> x += "0111";
+			case '8' -> x += "1000";
+			case '9' -> x += "1001";
+			case 'A', 'a' -> x += "1010";
+			case 'B', 'b' -> x += "1011";
+			case 'C', 'c' -> x += "1100";
+			case 'D', 'd' -> x += "1101";
+			case 'E', 'e' -> x += "1110";
+			case 'F', 'f' -> x += "1111";
+			default -> throw new Exception("Illegal Format");
+			}
+		}
+        return String.format("%32s", x).replace(' ', x.charAt(0));
+	}
+
     public static String GetImmediate(String Imm) throws Exception {
         if (Imm.startsWith("#")) {
 			switch(Imm.substring(0, 2)) {
@@ -712,16 +790,21 @@ public class Assembler {
 			}
 			case "#&" -> {
 				if(Imm.length() <= 6) {
-					return String.format("%16s", Integer.toBinaryString(Integer.parseInt(String.format("%4s", Imm.substring(2)), 16))).replace(' ', '0');
+					return HexToBin(Imm.substring(2)).substring(16);
 				} else {
 					throw new Exception("Illegal Immediate Format");
 				}
 			}
 			case "#0", "#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8", "#9", "#-" -> {
 				if((!Imm.startsWith("#-") && Imm.length() > 6) || (Imm.startsWith("#-") && Imm.length() > 7) || Integer.parseInt(Imm.substring(1)) > 65535 || Integer.parseInt(Imm.substring(1)) < -32768) {
-					throw new Exception("Illegal Immediate Format");
+                    throw new Exception("Illegal Immediate Format");
 				}
-				return IntToBin(Integer.parseInt(Imm.substring(1))).substring(16);
+                if(Integer.parseInt(Imm.substring(1)) > 32767 && Integer.parseInt(Imm.substring(1)) <= 65535) {
+                    int imm = Integer.parseInt(Imm.substring(1)) - 65536;
+                    return IntToBin(imm).substring(16);
+                } else {
+				    return IntToBin(Integer.parseInt(Imm.substring(1))).substring(16);
+                }
 			}
 			default -> throw new Exception("Illegal Immediate Format");
 			}

@@ -116,11 +116,10 @@ JGEU Immediate
     JGERU A
 
 JLGE Label
-    (Diff = Label - (PC + 4 + 14))
-    LDM A, Diff
-    ADDPC A, A
+    LDMU A, Label[31:16]
+    ORM A, A, Label[15:0]
     JGER A
 
-JLGTU/JLGEU as above but with 16
+JLGTU/JLGEU as above
 
 LD/ST Label becomes LD/ST (Label DMEM Address)[Z]
