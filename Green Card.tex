@@ -23,6 +23,7 @@
     \rule{\linewidth}{0.4pt}
 \end{center}
 
+\setlength{\columnsep}{1cm}
 \begin{multicols}{2}
 
 % Memory
@@ -214,7 +215,7 @@ Bit Alignment & None\\
 \bottomrule
 \end{tabular}
 
-\section*{Immediate Format}
+\section*{Assembly Immediate Format}
 \begin{tabular}{ll}
 \toprule
 Prefix & Base\\
@@ -222,6 +223,22 @@ Prefix & Base\\
 \#B & Binary (2)\\
 \# & Decimal (10)\\
 \#\& & Hexadecimal (16)\\
+\bottomrule
+\end{tabular}
+
+\section*{Assembly Data Types}
+\begin{tabular}{ll}
+\toprule
+Type & Description\\
+\midrule
+byte & Signed 8-bit\\
+short & Signed 16-bit\\
+int & Signed 32-bit\\
+char & Unsigned 8-bit\\
+half & Unsigned 16-bit\\
+word & Unsigned 32-bit\\
+T[S] & Array of type T. Size S can be specified\\
+string & Any size array of chars\\
 \bottomrule
 \end{tabular}
 

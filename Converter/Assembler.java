@@ -218,12 +218,18 @@ public class Assembler {
                 }
                 int memStart = i++;
                 i = 0;
+                int size = 0;
                 while((memStart + i) < Assembly.size()) {
                     scnr2 = new Scanner(Assembly.get(memStart + i));
                     String a = scnr2.next();
                     if(a.endsWith(":")) {
-                        labels1.put(a.substring(0, a.length() - 1), i);
-                    }
+                        if(a.contains("[")){
+                            labels1.put(a.substring(0, a.indexOf('[')), size);
+                        } else {
+                            labels1.put(a.substring(0, a.length() - 2), size);
+                        }
+                        size = size + GetDataSize(Assembly.get(memStart + i));
+                    } 
                     i++;
                 }
                 currpc = 0;
@@ -247,7 +253,7 @@ public class Assembler {
                 System.out.println(currpc);
                 System.out.println("");
                 i = 0;
-                int size = 0;
+                size = 0;
                 while(i < Assembly.size() && !Assembly.get(i).equals("") && size < (1<<11)) {
                     ArrayList<String> instLine = new ArrayList<>(Arrays.asList(Assembly.get(i).split("\\s+")));
                     if(instLine.getFirst().contains(":")) {
@@ -1040,5 +1046,51 @@ public class Assembler {
             }
             default -> throw new Exception("Alias/Instruction/Pseudoinstruction " + op + " is not supported.");
         }
+    }
+
+    public static int GetDataSize(String datatype) throws Exception {
+        int baseSize = 0;
+        int arraySize = 1;
+        ArrayList<String> dataLine = new ArrayList<>(Arrays.asList(datatype.split("\\s+")));
+        String type = dataLine.get(0).substring(0, dataLine.get(0).length() - 2);
+        String baseType = type;
+        if(type.contains("[")){
+            baseType = type.substring(0, type.indexOf('['));
+        }
+
+        switch(baseType) {
+            case "byte", "char", "string" -> {
+                baseSize = 8;
+            }
+            case "short", "half" -> {
+                baseSize = 16;
+            }
+            case "int", "word" -> {
+                baseSize = 32;
+            }
+            default -> throw new Exception("Data type " + baseType + " is not supported.");
+        }
+
+        if(type.contains("[") && !baseType.equals("string")) {
+            if(type.indexOf('[') + 1 != type.indexOf(']')) {
+                arraySize = Integer.parseInt(type.substring(type.indexOf('[') + 1, type.indexOf(']')));
+            } else if(!dataLine.get(1).startsWith("[") || !dataLine.getLast().endsWith("]")) {
+                throw new Exception("Incorrect array format.");
+            } else {
+                arraySize = dataLine.size() - 1;
+            }
+        } else if(!type.contains("[") && baseType.equals("string")) {
+            arraySize = dataLine.get(1).length() + 1;
+        } else if(type.contains("[") && baseType.equals("string")) {
+            if(!dataLine.get(1).startsWith("[") || !dataLine.getLast().endsWith("]")){
+                throw new Exception("Incorrect array format.");
+            }
+            arraySize = -2;
+            for(int j = 1; j < dataLine.size(); j++) {
+                arraySize = arraySize + dataLine.get(j).length() + 1;
+            }
+        }
+
+        return baseSize * arraySize;
     }
 }
