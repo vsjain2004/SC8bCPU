@@ -527,6 +527,12 @@ public class Assembler {
                     switch (baseType) {
                         case "byte" -> {
                             if(type.contains("[")) {
+                                if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
+                                    size = size + Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    break;
+                                } else if (dataLine.size() == 2) {
+                                    throw new Exception("Array initialization or size must be provided.");
+                                }
                                 dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
                                 dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
                                 for(int j = 2; j < dataLine.size(); j++) {
@@ -538,11 +544,20 @@ public class Assembler {
                                 }
                             } else {
                                 size++;
+                                if(dataLine.size() == 2) {
+                                    break;
+                                }
                                 pd.print(String.format("%2s", Integer.toHexString((Integer.parseInt(GetImmediate(dataLine.get(2)).substring(8),2)))).replace(' ', '0'));
                             }
                         }
                         case "short" -> {
                             if(type.contains("[")) {
+                                if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
+                                    size = size + 2 * Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    break;
+                                } else if (dataLine.size() == 2) {
+                                    throw new Exception("Array initialization or size must be provided.");
+                                }
                                 dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
                                 dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
                                 for(int j = 2; j < dataLine.size(); j++) {
@@ -555,6 +570,9 @@ public class Assembler {
                                 }
                             } else {
                                 size += 2;
+                                if(dataLine.size() == 2) {
+                                    break;
+                                }
                                 if(size > (1<<12)) {
                                     throw new Exception("Data overflow.");
                                 }
@@ -564,6 +582,12 @@ public class Assembler {
                         }
                         case "int" -> {
                             if(type.contains("[")) {
+                                if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
+                                    size = size + 4 * Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    break;
+                                } else if (dataLine.size() == 2) {
+                                    throw new Exception("Array initialization or size must be provided.");
+                                }
                                 dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
                                 dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
                                 for(int j = 2; j < dataLine.size(); j++) {
@@ -578,7 +602,7 @@ public class Assembler {
                                     } else if(data.startsWith("#&")) {
                                         imm = String.format("%8s", data.substring(2)).replace(' ', '0');
                                     } else if(data.startsWith("#") && ((data.charAt(2) >= '0' && data.charAt(2) <= '9') || data.charAt(2) == '-')) {
-                                        imm = String.format("%8s", Integer.toHexString((Integer.parseInt(data.substring(1))))).replace(' ', '0');
+                                        imm = String.format("%8s", Integer.toHexString((Integer.parseInt(data.substring(2))))).replace(' ', '0');
                                     } else {
                                         throw new Exception("Incorrect data value format.");
                                     }
@@ -589,10 +613,186 @@ public class Assembler {
                                 if(size > (1<<12)) {
                                     throw new Exception("Data overflow.");
                                 }
+                                if(dataLine.size() == 2) {
+                                    break;
+                                }
+                                String data = dataLine.get(2);
+                                if(data.startsWith("#B")) {
+                                    imm = String.format("%32s", data.substring(2)).replace(' ', '0');
+                                    imm = String.format("%8s", Integer.toHexString((Integer.parseInt(imm,2)))).replace(' ', '0');
+                                } else if(data.startsWith("#&")) {
+                                    imm = String.format("%8s", data.substring(2)).replace(' ', '0');
+                                } else if(data.startsWith("#") && ((data.charAt(2) >= '0' && data.charAt(2) <= '9') || data.charAt(2) == '-')) {
+                                    imm = String.format("%8s", Integer.toHexString((Integer.parseInt(data.substring(1))))).replace(' ', '0');
+                                } else {
+                                    throw new Exception("Incorrect data value format.");
+                                }
+                                pd.print(imm.substring(6) + imm.substring(4, 6) + imm.substring(2, 4) + imm.substring(0, 2));
+                            }
+                        }
+                        case "char" -> {
+                            if(type.contains("[")) {
+                                if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
+                                    size = size + Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    break;
+                                } else if (dataLine.size() == 2) {
+                                    throw new Exception("Array initialization or size must be provided.");
+                                }
+                                if(dataLine.get(2).startsWith("\"")) {
+                                    imm = dataLine.get(2).substring(1, dataLine.get(2).length() - 2);
+                                    size += imm.length() + 1;
+                                    if(size > (1<<12)) {
+                                        throw new Exception("Data overflow.");
+                                    }
+                                    for(int j = 0; j < imm.length(); j++) {
+                                        pd.print(String.format("%2s", Integer.toHexString(imm.charAt(j))).replace(' ', '0'));
+                                    }
+                                } else {
+                                    dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                    dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
+                                    for(int j = 2; j < dataLine.size(); j++) {
+                                        size++;
+                                        if(size > (1<<12)) {
+                                            throw new Exception("Data overflow.");
+                                        }
+                                        String data = dataLine.get(j);
+                                        if(data.startsWith("#B")) {
+                                            imm = String.format("%32s", data.substring(2)).replace(' ', '0');
+                                            imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                        } else if(data.startsWith("#&")) {
+                                            imm = String.format("%2s", data.substring(2)).replace(' ', '0');
+                                        } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
+                                            imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                        } else {
+                                            throw new Exception("Incorrect data value format.");
+                                        }
+                                        pd.print(imm);
+                                    }
+                                }
+                            } else {
+                                size++;
+                                if(dataLine.size() == 2) {
+                                    break;
+                                }
+                                String data = dataLine.get(2);
+                                if(data.startsWith("#B")) {
+                                    imm = String.format("%32s", data.substring(2)).replace(' ', '0');
+                                    imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                } else if(data.startsWith("#&")) {
+                                    imm = String.format("%2s", data.substring(2)).replace(' ', '0');
+                                } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
+                                    imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                } else {
+                                    throw new Exception("Incorrect data value format.");
+                                }
+                                pd.print(imm);
+                            }
+                        }
+                        case "half" -> {
+                            if(type.contains("[")) {
+                                if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
+                                    size = size + 2 * Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    break;
+                                } else if (dataLine.size() == 2) {
+                                    throw new Exception("Array initialization or size must be provided.");
+                                }
+                                dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
+                                for(int j = 2; j < dataLine.size(); j++) {
+                                    size += 2;
+                                    if(size > (1<<12)) {
+                                        throw new Exception("Data overflow.");
+                                    }
+                                    String data = dataLine.get(j);
+                                    if(data.startsWith("#B")) {
+                                        imm = String.format("%32s", data.substring(2)).replace(' ', '0');
+                                        imm = String.format("%4s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                    } else if(data.startsWith("#&")) {
+                                        imm = String.format("%4s", data.substring(2)).replace(' ', '0');
+                                    } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
+                                        imm = String.format("%4s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                    } else {
+                                        throw new Exception("Incorrect data value format.");
+                                    }
+                                    pd.print(imm.substring(2) + imm.substring(0, 2));
+                                }
+                            } else {
+                                size += 2;
+                                if(size > (1<<12)) {
+                                    throw new Exception("Data overflow.");
+                                }
+                                if(dataLine.size() == 2) {
+                                    break;
+                                }
+                                String data = dataLine.get(2);
+                                if(data.startsWith("#B")) {
+                                    imm = String.format("%32s", data.substring(2)).replace(' ', '0');
+                                    imm = String.format("%4s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                } else if(data.startsWith("#&")) {
+                                    imm = String.format("%4s", data.substring(2)).replace(' ', '0');
+                                } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
+                                    imm = String.format("%4s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                } else {
+                                    throw new Exception("Incorrect data value format.");
+                                }
+                                pd.print(imm.substring(2) + imm.substring(0, 2));
+                            }
+                        }
+                        case "word" -> {
+                            if(type.contains("[")) {
+                                if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
+                                    size = size + 4 * Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    break;
+                                } else if (dataLine.size() == 2) {
+                                    throw new Exception("Array initialization or size must be provided.");
+                                }
+                                dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
+                                for(int j = 2; j < dataLine.size(); j++) {
+                                    size += 4;
+                                    if(size > (1<<12)) {
+                                        throw new Exception("Data overflow.");
+                                    }
+                                    String data = dataLine.get(j);
+                                    if(data.startsWith("#B")) {
+                                        imm = String.format("%32s", data.substring(2)).replace(' ', '0');
+                                        imm = String.format("%8s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                    } else if(data.startsWith("#&")) {
+                                        imm = String.format("%8s", data.substring(2)).replace(' ', '0');
+                                    } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
+                                        imm = String.format("%8s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                    } else {
+                                        throw new Exception("Incorrect data value format.");
+                                    }
+                                    pd.print(imm.substring(6) + imm.substring(4, 6) + imm.substring(2, 4) + imm.substring(0, 2));
+                                }
+                            } else {
+                                size += 4;
+                                if(size > (1<<12)) {
+                                    throw new Exception("Data overflow.");
+                                }
+                                if(dataLine.size() == 2) {
+                                    break;
+                                }
+                                String data = dataLine.get(2);
+                                if(data.startsWith("#B")) {
+                                    imm = String.format("%32s", data.substring(2)).replace(' ', '0');
+                                    imm = String.format("%8s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                } else if(data.startsWith("#&")) {
+                                    imm = String.format("%8s", data.substring(2)).replace(' ', '0');
+                                } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
+                                    imm = String.format("%8s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                } else {
+                                    throw new Exception("Incorrect data value format.");
+                                }
+                                pd.print(imm.substring(6) + imm.substring(4, 6) + imm.substring(2, 4) + imm.substring(0, 2));
                             }
                         }
                         case "string" -> {
-                            imm = dataLine.get(2);
+                            if(dataLine.size() != 3) {
+                                throw new Exception("String initialization must be provided.");
+                            }
+                            imm = dataLine.get(2).substring(1, dataLine.get(2).length() - 2);
                             size += imm.length() + 1;
                             if(size > (1<<12)) {
                                 throw new Exception("Data overflow.");
@@ -600,6 +800,7 @@ public class Assembler {
                             for(int j = 0; j < imm.length(); j++) {
                                 pd.print(String.format("%2s", Integer.toHexString(imm.charAt(j))).replace(' ', '0'));
                             }
+                            pd.print("00");
                         }
                     }
                     i++;
