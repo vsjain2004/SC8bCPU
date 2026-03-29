@@ -222,12 +222,9 @@ public class Assembler {
                 while((memStart + i) < Assembly.size()) {
                     scnr2 = new Scanner(Assembly.get(memStart + i));
                     String a = scnr2.next();
+                    a = scnr2.next();
                     if(a.endsWith(":")) {
-                        if(a.contains("[")){
-                            labels1.put(a.substring(0, a.indexOf('[')), size);
-                        } else {
-                            labels1.put(a.substring(0, a.length() - 2), size);
-                        }
+                        labels1.put(a.substring(0, a.length() - 2), size);
                         size = size + GetDataSize(Assembly.get(memStart + i));
                     } 
                     i++;
@@ -509,58 +506,107 @@ public class Assembler {
                 }
                 if(size == (1<<11) && !"".equals(Assembly.get(i))) {
                     throw new Exception("Too many instruction lines");
-                } else if(size < (1<<11)) {
-                    for(; size < (1<<11); size++) {
-                        pi.print("0000");
+                }
+                i++;
+                pd = new PrintWriter(dmem);
+                size = 0;
+                while(i < Assembly.size() && !Assembly.get(i).equals("") && size < (1<<12)) {
+                    ArrayList<String> dataLine = new ArrayList<>(Arrays.asList(Assembly.get(i).split("\\s+")));
+                    String type = dataLine.get(0);
+                    String baseType = type;
+                    if(type.contains("[")){
+                        baseType = type.substring(0, type.indexOf('['));
                     }
+                    String a = dataLine.get(1);
+                    String imm;
+
+                    if (!labels1.containsKey(a.substring(0, a.length() - 1)) || !a.endsWith(":")) {
+                        throw new Exception("Illegal Instruction Format");
+                    }
+                    
+                    switch (baseType) {
+                        case "byte" -> {
+                            if(type.contains("[")) {
+                                dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
+                                for(int j = 2; j < dataLine.size(); j++) {
+                                    size++;
+                                    if(size > (1<<12)) {
+                                        throw new Exception("Data overflow.");
+                                    }
+                                    pd.print(String.format("%2s", Integer.toHexString((Integer.parseInt(GetImmediate(dataLine.get(j)).substring(8),2)))).replace(' ', '0'));
+                                }
+                            } else {
+                                size++;
+                                pd.print(String.format("%2s", Integer.toHexString((Integer.parseInt(GetImmediate(dataLine.get(2)).substring(8),2)))).replace(' ', '0'));
+                            }
+                        }
+                        case "short" -> {
+                            if(type.contains("[")) {
+                                dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
+                                for(int j = 2; j < dataLine.size(); j++) {
+                                    size += 2;
+                                    if(size > (1<<12)) {
+                                        throw new Exception("Data overflow.");
+                                    }
+                                    imm = String.format("%4s", Integer.toHexString((Integer.parseInt(GetImmediate(dataLine.get(j)),2)))).replace(' ', '0');
+                                    pd.print(imm.substring(2) + imm.substring(0, 2));
+                                }
+                            } else {
+                                size += 2;
+                                if(size > (1<<12)) {
+                                    throw new Exception("Data overflow.");
+                                }
+                                imm = String.format("%4s", Integer.toHexString((Integer.parseInt(GetImmediate(dataLine.get(2)),2)))).replace(' ', '0');
+                                pd.print(imm.substring(2) + imm.substring(0, 2));
+                            }
+                        }
+                        case "int" -> {
+                            if(type.contains("[")) {
+                                dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
+                                for(int j = 2; j < dataLine.size(); j++) {
+                                    size += 4;
+                                    if(size > (1<<12)) {
+                                        throw new Exception("Data overflow.");
+                                    }
+                                    String data = dataLine.get(j);
+                                    if(data.startsWith("#B")) {
+                                        imm = String.format("%32s", data.substring(2)).replace(' ', '0');
+                                        imm = String.format("%8s", Integer.toHexString((Integer.parseInt(imm,2)))).replace(' ', '0');
+                                    } else if(data.startsWith("#&")) {
+                                        imm = String.format("%8s", data.substring(2)).replace(' ', '0');
+                                    } else if(data.startsWith("#") && ((data.charAt(2) >= '0' && data.charAt(2) <= '9') || data.charAt(2) == '-')) {
+                                        imm = String.format("%8s", Integer.toHexString((Integer.parseInt(data.substring(1))))).replace(' ', '0');
+                                    } else {
+                                        throw new Exception("Incorrect data value format.");
+                                    }
+                                    pd.print(imm.substring(6) + imm.substring(4, 6) + imm.substring(2, 4) + imm.substring(0, 2));
+                                }
+                            } else {
+                                size += 4;
+                                if(size > (1<<12)) {
+                                    throw new Exception("Data overflow.");
+                                }
+                            }
+                        }
+                        case "string" -> {
+                            imm = dataLine.get(2);
+                            size += imm.length() + 1;
+                            if(size > (1<<12)) {
+                                throw new Exception("Data overflow.");
+                            }
+                            for(int j = 0; j < imm.length(); j++) {
+                                pd.print(String.format("%2s", Integer.toHexString(imm.charAt(j))).replace(' ', '0'));
+                            }
+                        }
+                    }
+                    i++;
                 }
-                if(line == null) {
-                    throw new Exception("Illegal Instruction Format");
+                if(size == (1<<12) && !"".equals(Assembly.get(i))) {
+                    throw new Exception("Too many data lines");
                 }
-            //     i = 0;
-            //     try {
-            //         line = scnr.nextLine();
-            //     } catch(java.util.NoSuchElementException g) {
-            //         line = null;
-            //     }
-            //     pd = new PrintWriter(dmem);
-                
-            //     while(line != null && i < 8) {
-            //         while(line != null && line.startsWith("//")) {
-            //             line = scnr.nextLine();
-            //         }
-            //         if(line == null) {
-            //             break;
-            //         }
-            //         scnr2 = new Scanner(line);
-            //         String a = scnr2.next();
-            //         if(labels1.containsKey(a.substring(0, a.length() - 1))) {
-            //             a = scnr2.next();
-            //         } else if (a.endsWith(":")) {
-            //             throw new Exception("Illegal Instruction Format");
-            //         }
-            //         if(i < 7) {
-            //             pd.println(String.format("%2s", Integer.toHexString((Integer.parseInt(GetImmediate(a),2)))).replace(' ', '0'));
-            //         } else {
-            //             pd.print(String.format("%2s", Integer.toHexString((Integer.parseInt(GetImmediate(a),2)))).replace(' ', '0'));
-            //         }
-            //         try {
-            //             line = scnr.nextLine();
-            //         } catch(java.util.NoSuchElementException d) {
-            //             line = null;
-            //         }
-            //         i++;
-            //     }
-            //     if(i == 8 && line != null) {
-            //         throw new Exception("Too many data lines");
-            //     }else if(i < 8 && line == null) {
-            //         for(; i < 7; i++) {
-            //             pd.println("00");
-            //         }
-            //         pd.print("00");
-            //     } else if(!(i == 8 && line == null)) {
-            //         throw new Exception("Illegal Instruction Format");
-            //     }
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -1052,7 +1098,7 @@ public class Assembler {
         int baseSize = 0;
         int arraySize = 1;
         ArrayList<String> dataLine = new ArrayList<>(Arrays.asList(datatype.split("\\s+")));
-        String type = dataLine.get(0).substring(0, dataLine.get(0).length() - 2);
+        String type = dataLine.get(0);
         String baseType = type;
         if(type.contains("[")){
             baseType = type.substring(0, type.indexOf('['));
@@ -1074,21 +1120,15 @@ public class Assembler {
         if(type.contains("[") && !baseType.equals("string")) {
             if(type.indexOf('[') + 1 != type.indexOf(']')) {
                 arraySize = Integer.parseInt(type.substring(type.indexOf('[') + 1, type.indexOf(']')));
-            } else if(!dataLine.get(1).startsWith("[") || !dataLine.getLast().endsWith("]")) {
+            } else if(!dataLine.get(2).startsWith("[") || !dataLine.getLast().endsWith("]")) {
                 throw new Exception("Incorrect array format.");
             } else {
                 arraySize = dataLine.size() - 1;
             }
         } else if(!type.contains("[") && baseType.equals("string")) {
-            arraySize = dataLine.get(1).length() + 1;
+            arraySize = dataLine.get(2).length() + 1;
         } else if(type.contains("[") && baseType.equals("string")) {
-            if(!dataLine.get(1).startsWith("[") || !dataLine.getLast().endsWith("]")){
-                throw new Exception("Incorrect array format.");
-            }
-            arraySize = -2;
-            for(int j = 1; j < dataLine.size(); j++) {
-                arraySize = arraySize + dataLine.get(j).length() + 1;
-            }
+            throw new Exception("Type string is already an array.");
         }
 
         return baseSize * arraySize;
