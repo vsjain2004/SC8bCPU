@@ -198,7 +198,6 @@ public class Assembler {
                 System.out.println(Assembly);
                 i = 0;
                 int currpc = 0;
-                System.out.println(Assembly);
                 HashMap<String, Integer> labels = new HashMap<>();
                 HashMap<String, Integer> labels1 = new HashMap<>();
                 while((i < Assembly.size()) && !Assembly.get(i).equals("")) {
@@ -216,7 +215,7 @@ public class Assembler {
                     }
                     i++;
                 }
-                int memStart = i++;
+                int memStart = ++i;
                 i = 0;
                 int size = 0;
                 while((memStart + i) < Assembly.size()) {
@@ -224,14 +223,19 @@ public class Assembler {
                     String a = scnr2.next();
                     a = scnr2.next();
                     if(a.endsWith(":")) {
-                        labels1.put(a.substring(0, a.length() - 2), size);
+                        labels1.put(a.substring(0, a.length() - 1), size);
                         size = size + GetDataSize(Assembly.get(memStart + i));
                     } 
                     i++;
                 }
+                System.out.println(labels.toString());
+                System.out.println(labels1.toString());
                 currpc = 0;
                 for (i = 0; i < Assembly.size(); i++) {
                     String inst = Assembly.get(i);
+                    if(inst.equals("")) {
+                        break;
+                    }
                     List<String> expansion;
                     if(inst.matches(".*(LD[WHBM]L|ST[WHB]L).*")) {
                         expansion = PseudoExpand(inst, labels1, currpc);
@@ -243,12 +247,15 @@ public class Assembler {
                         Assembly.remove(i);
                         Assembly.addAll(i, expansion);
                     }
-                    currpc = currpc + InstList.get(expansion.getFirst().split("\\s+")[0]).opmode() + 1;
+                    ArrayList<String> instLine = new ArrayList<>(Arrays.asList(expansion.getFirst().split("\\s+")));
+                    if(instLine.getFirst().endsWith(":")) {
+                        instLine.removeFirst();
+                    }
+                    currpc = currpc + InstList.get(instLine.getFirst()).opmode() + 1;
                 }
-                System.out.println(labels.toString());
-                System.out.println(labels1.toString());
                 System.out.println(currpc);
                 System.out.println("");
+                System.out.println(Assembly.toString());
                 i = 0;
                 size = 0;
                 while(i < Assembly.size() && !Assembly.get(i).equals("") && size < (1<<11)) {
@@ -286,7 +293,7 @@ public class Assembler {
                         } else {
                             throw new Exception("Illegal Instruction Format");
                         }
-                        R2_R1 = instLine.get(2);
+                        R2_R1 = GetReg(instLine.get(2));
                     }
                     case "LDM", "LDMU", "LDJ" -> {
                         a = instLine.get(1);
@@ -330,7 +337,7 @@ public class Assembler {
                             throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(2);
-                        if(a.startsWith(",")) {
+                        if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
                             throw new Exception("Illegal Instruction Format");
@@ -366,7 +373,7 @@ public class Assembler {
                             throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(2);
-                        if(a.startsWith(",")) {
+                        if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
                             throw new Exception("Illegal Instruction Format");
@@ -387,7 +394,7 @@ public class Assembler {
                             throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(2);
-                        if(a.startsWith(",")) {
+                        if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
                             throw new Exception("Illegal Instruction Format");
@@ -403,7 +410,7 @@ public class Assembler {
                             throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(2);
-                        if(a.startsWith(",")) {
+                        if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
                             throw new Exception("Illegal Instruction Format");
@@ -423,13 +430,13 @@ public class Assembler {
                             throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(2);
-                        if(a.startsWith(",")) {
+                        if(a.endsWith(",")) {
                             Rd2 = GetReg(a.substring(0, a.length() - 1));
                         } else {
                             throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(3);
-                        if(a.startsWith(",")) {
+                        if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
                             throw new Exception("Illegal Instruction Format");
@@ -450,13 +457,13 @@ public class Assembler {
                             throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(2);
-                        if(a.startsWith(",")) {
+                        if(a.endsWith(",")) {
                             Rd2 = GetReg(a.substring(0, a.length() - 1));
                         } else {
                             throw new Exception("Illegal Instruction Format");
                         }
                         a = instLine.get(3);
-                        if(a.startsWith(",")) {
+                        if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
                             throw new Exception("Illegal Instruction Format");
@@ -484,22 +491,22 @@ public class Assembler {
                     default -> throw new Exception("Command " + op + " not supported");
                     }
                     if(inst.opmode() == 0) {
-                        pi.print(String.format("%4s", Integer.toHexString((Integer.parseInt(inst.opcode() + R1_Rd_Rd1 + R2_R1 + "00",2)))).replace(' ', '0'));
+                        pi.print(BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + "00"));
                         size += 1;
                     } else if(!inst.opcode().equals("1101")) {
-                        String instHex = String.format("%8s", Integer.toHexString((Integer.parseInt(inst.opcode() + R1_Rd_Rd1 + R2_R1 + Imm + "01",2)))).replace(' ', '0');
-                        pi.print(instHex.substring(0, 16));
-                        pi.print(instHex.substring(16));
+                        String instHex = BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + Imm + "01");
+                        pi.print(instHex.substring(0, 4));
+                        pi.print(instHex.substring(4));
                         size += 2;
                     } else if(!inst.family().equals("10")) {
-                        String instHex = String.format("%8s", Integer.toHexString((Integer.parseInt(inst.opcode() + R1_Rd_Rd1 + R2_R1 + R2 + inst.family() + inst.function() + "01",2)))).replace(' ', '0');
-                        pi.print(instHex.substring(0, 16));
-                        pi.print(instHex.substring(16));
+                        String instHex = BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + R2 + inst.family() + inst.function() + "01");
+                        pi.print(instHex.substring(0, 4));
+                        pi.print(instHex.substring(4));
                         size += 2;
                     } else {
-                        String instHex = String.format("%8s", Integer.toHexString((Integer.parseInt(inst.opcode() + R1_Rd_Rd1 + R2_R1 + R2 + inst.family() + Rd2 + inst.function() + "01",2)))).replace(' ', '0');
-                        pi.print(instHex.substring(0, 16));
-                        pi.print(instHex.substring(16));
+                        String instHex = BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + R2 + inst.family() + Rd2 + inst.function() + "01");
+                        pi.print(instHex.substring(0, 4));
+                        pi.print(instHex.substring(4));
                         size += 2;
                     }
                     i += 1;
@@ -528,67 +535,84 @@ public class Assembler {
                         case "byte" -> {
                             if(type.contains("[")) {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
-                                    size = size + Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    size = size + num;
+                                    pd.print("00".repeat(num));
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
                                 }
                                 dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                for (int j = 3; j < dataLine.size() - 1; j++) {
+                                    dataLine.set(j, dataLine.get(j).substring(0, dataLine.get(j).length() - 1));
+                                }
                                 dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
                                 for(int j = 2; j < dataLine.size(); j++) {
                                     size++;
                                     if(size > (1<<12)) {
                                         throw new Exception("Data overflow.");
                                     }
-                                    pd.print(String.format("%2s", Integer.toHexString((Integer.parseInt(GetImmediate(dataLine.get(j)).substring(8),2)))).replace(' ', '0'));
+                                    pd.print(BinToHexString(GetImmediate(dataLine.get(j)).substring(8)));
                                 }
                             } else {
                                 size++;
                                 if(dataLine.size() == 2) {
+                                    pd.print("00");
                                     break;
                                 }
-                                pd.print(String.format("%2s", Integer.toHexString((Integer.parseInt(GetImmediate(dataLine.get(2)).substring(8),2)))).replace(' ', '0'));
+                                pd.print(BinToHexString(GetImmediate(dataLine.get(2)).substring(8)));
                             }
                         }
                         case "short" -> {
                             if(type.contains("[")) {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
-                                    size = size + 2 * Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    size = size + 2 * num;
+                                    pd.print("0000".repeat(num));
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
                                 }
                                 dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                for (int j = 3; j < dataLine.size() - 1; j++) {
+                                    dataLine.set(j, dataLine.get(j).substring(0, dataLine.get(j).length() - 1));
+                                }
                                 dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
                                 for(int j = 2; j < dataLine.size(); j++) {
                                     size += 2;
                                     if(size > (1<<12)) {
                                         throw new Exception("Data overflow.");
                                     }
-                                    imm = String.format("%4s", Integer.toHexString((Integer.parseInt(GetImmediate(dataLine.get(j)),2)))).replace(' ', '0');
+                                    imm = BinToHexString((GetImmediate(dataLine.get(j))));
                                     pd.print(imm.substring(2) + imm.substring(0, 2));
                                 }
                             } else {
                                 size += 2;
                                 if(dataLine.size() == 2) {
+                                    pd.print("0000");
                                     break;
                                 }
                                 if(size > (1<<12)) {
                                     throw new Exception("Data overflow.");
                                 }
-                                imm = String.format("%4s", Integer.toHexString((Integer.parseInt(GetImmediate(dataLine.get(2)),2)))).replace(' ', '0');
+                                imm = BinToHexString(GetImmediate(dataLine.get(2)));
                                 pd.print(imm.substring(2) + imm.substring(0, 2));
                             }
                         }
                         case "int" -> {
                             if(type.contains("[")) {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
-                                    size = size + 4 * Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    size = size + 4 * num;
+                                    pd.print("00000000".repeat(num));
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
                                 }
                                 dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                for (int j = 3; j < dataLine.size() - 1; j++) {
+                                    dataLine.set(j, dataLine.get(j).substring(0, dataLine.get(j).length() - 1));
+                                }
                                 dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
                                 for(int j = 2; j < dataLine.size(); j++) {
                                     size += 4;
@@ -598,11 +622,15 @@ public class Assembler {
                                     String data = dataLine.get(j);
                                     if(data.startsWith("#B")) {
                                         imm = String.format("%32s", data.substring(2)).replace(' ', '0');
-                                        imm = String.format("%8s", Integer.toHexString((Integer.parseInt(imm,2)))).replace(' ', '0');
+                                        imm = BinToHexString(imm);
                                     } else if(data.startsWith("#&")) {
                                         imm = String.format("%8s", data.substring(2)).replace(' ', '0');
-                                    } else if(data.startsWith("#") && ((data.charAt(2) >= '0' && data.charAt(2) <= '9') || data.charAt(2) == '-')) {
-                                        imm = String.format("%8s", Integer.toHexString((Integer.parseInt(data.substring(2))))).replace(' ', '0');
+                                    } else if(data.startsWith("#") && ((data.charAt(1) >= '0' && data.charAt(1) <= '9') || data.charAt(1) == '-')) {
+                                        if(data.charAt(1) == '-') {
+                                            imm = String.format("%8s", Integer.toHexString((Integer.parseInt(data.substring(2))))).replace(' ', '0');
+                                        } else {
+                                            imm = String.format("%8s", Integer.toHexString((Integer.parseInt(data.substring(2))))).replace(' ', '0');
+                                        }
                                     } else {
                                         throw new Exception("Incorrect data value format.");
                                     }
@@ -614,12 +642,13 @@ public class Assembler {
                                     throw new Exception("Data overflow.");
                                 }
                                 if(dataLine.size() == 2) {
+                                    pd.print("00000000");
                                     break;
                                 }
                                 String data = dataLine.get(2);
                                 if(data.startsWith("#B")) {
                                     imm = String.format("%32s", data.substring(2)).replace(' ', '0');
-                                    imm = String.format("%8s", Integer.toHexString((Integer.parseInt(imm,2)))).replace(' ', '0');
+                                    imm = BinToHexString(imm);
                                 } else if(data.startsWith("#&")) {
                                     imm = String.format("%8s", data.substring(2)).replace(' ', '0');
                                 } else if(data.startsWith("#") && ((data.charAt(2) >= '0' && data.charAt(2) <= '9') || data.charAt(2) == '-')) {
@@ -633,13 +662,15 @@ public class Assembler {
                         case "char" -> {
                             if(type.contains("[")) {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
-                                    size = size + Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    size = size + num;
+                                    pd.print("00".repeat(num));
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
                                 }
                                 if(dataLine.get(2).startsWith("\"")) {
-                                    imm = dataLine.get(2).substring(1, dataLine.get(2).length() - 2);
+                                    imm = dataLine.get(2).substring(1, dataLine.get(2).length() - 1);
                                     size += imm.length() + 1;
                                     if(size > (1<<12)) {
                                         throw new Exception("Data overflow.");
@@ -649,6 +680,9 @@ public class Assembler {
                                     }
                                 } else {
                                     dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                    for (int j = 3; j < dataLine.size() - 1; j++) {
+                                        dataLine.set(j, dataLine.get(j).substring(0, dataLine.get(j).length() - 1));
+                                    }
                                     dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
                                     for(int j = 2; j < dataLine.size(); j++) {
                                         size++;
@@ -657,12 +691,14 @@ public class Assembler {
                                         }
                                         String data = dataLine.get(j);
                                         if(data.startsWith("#B")) {
-                                            imm = String.format("%32s", data.substring(2)).replace(' ', '0');
-                                            imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                            imm = String.format("%8s", data.substring(2)).replace(' ', '0');
+                                            imm = BinToHexString(imm);
                                         } else if(data.startsWith("#&")) {
                                             imm = String.format("%2s", data.substring(2)).replace(' ', '0');
-                                        } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
-                                            imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                        } else if(data.startsWith("#") && data.charAt(1) >= '0' && data.charAt(1) <= '9') {
+                                            imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(1))))).replace(' ', '0');
+                                        } else if(data.startsWith("\'")) {
+                                            imm = String.format("%2s", Integer.toHexString(data.charAt(1))).replace(' ', '0');
                                         } else {
                                             throw new Exception("Incorrect data value format.");
                                         }
@@ -672,16 +708,19 @@ public class Assembler {
                             } else {
                                 size++;
                                 if(dataLine.size() == 2) {
+                                    pd.print("00");
                                     break;
                                 }
                                 String data = dataLine.get(2);
                                 if(data.startsWith("#B")) {
-                                    imm = String.format("%32s", data.substring(2)).replace(' ', '0');
-                                    imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                    imm = String.format("%8s", data.substring(2)).replace(' ', '0');
+                                    imm = BinToHexString(imm);
                                 } else if(data.startsWith("#&")) {
                                     imm = String.format("%2s", data.substring(2)).replace(' ', '0');
-                                } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
+                                } else if(data.startsWith("#") && data.charAt(1) >= '0' && data.charAt(1) <= '9') {
                                     imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                } else if(data.startsWith("\'")) {
+                                    imm = String.format("%2s", Integer.toHexString(data.charAt(1))).replace(' ', '0');
                                 } else {
                                     throw new Exception("Incorrect data value format.");
                                 }
@@ -691,12 +730,17 @@ public class Assembler {
                         case "half" -> {
                             if(type.contains("[")) {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
-                                    size = size + 2 * Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    size = size + 2 * num;
+                                    pd.print("0000".repeat(num));
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
                                 }
                                 dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                for (int j = 3; j < dataLine.size() - 1; j++) {
+                                    dataLine.set(j, dataLine.get(j).substring(0, dataLine.get(j).length() - 1));
+                                }
                                 dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
                                 for(int j = 2; j < dataLine.size(); j++) {
                                     size += 2;
@@ -705,12 +749,12 @@ public class Assembler {
                                     }
                                     String data = dataLine.get(j);
                                     if(data.startsWith("#B")) {
-                                        imm = String.format("%32s", data.substring(2)).replace(' ', '0');
-                                        imm = String.format("%4s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                        imm = String.format("%16s", data.substring(2)).replace(' ', '0');
+                                        imm = BinToHexString(imm);
                                     } else if(data.startsWith("#&")) {
                                         imm = String.format("%4s", data.substring(2)).replace(' ', '0');
-                                    } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
-                                        imm = String.format("%4s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                    } else if(data.startsWith("#") && data.charAt(1) >= '0' && data.charAt(1) <= '9') {
+                                        imm = String.format("%4s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(1))))).replace(' ', '0');
                                     } else {
                                         throw new Exception("Incorrect data value format.");
                                     }
@@ -722,12 +766,13 @@ public class Assembler {
                                     throw new Exception("Data overflow.");
                                 }
                                 if(dataLine.size() == 2) {
+                                    pd.print("0000");
                                     break;
                                 }
                                 String data = dataLine.get(2);
                                 if(data.startsWith("#B")) {
-                                    imm = String.format("%32s", data.substring(2)).replace(' ', '0');
-                                    imm = String.format("%4s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                    imm = String.format("%16s", data.substring(2)).replace(' ', '0');
+                                    imm = BinToHexString(imm);
                                 } else if(data.startsWith("#&")) {
                                     imm = String.format("%4s", data.substring(2)).replace(' ', '0');
                                 } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
@@ -741,12 +786,17 @@ public class Assembler {
                         case "word" -> {
                             if(type.contains("[")) {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
-                                    size = size + 4 * Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
+                                    size = size + 4 * num;
+                                    pd.print("00000000".repeat(num));
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
                                 }
                                 dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
+                                for (int j = 3; j < dataLine.size() - 1; j++) {
+                                    dataLine.set(j, dataLine.get(j).substring(0, dataLine.get(j).length() - 1));
+                                }
                                 dataLine.set(dataLine.size() - 1, dataLine.getLast().substring(0, dataLine.getLast().length() - 1));
                                 for(int j = 2; j < dataLine.size(); j++) {
                                     size += 4;
@@ -756,11 +806,11 @@ public class Assembler {
                                     String data = dataLine.get(j);
                                     if(data.startsWith("#B")) {
                                         imm = String.format("%32s", data.substring(2)).replace(' ', '0');
-                                        imm = String.format("%8s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                        imm = BinToHexString(imm);
                                     } else if(data.startsWith("#&")) {
                                         imm = String.format("%8s", data.substring(2)).replace(' ', '0');
-                                    } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
-                                        imm = String.format("%8s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                    } else if(data.startsWith("#") && data.charAt(1) >= '0' && data.charAt(1) <= '9') {
+                                        imm = String.format("%8s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(1))))).replace(' ', '0');
                                     } else {
                                         throw new Exception("Incorrect data value format.");
                                     }
@@ -772,12 +822,13 @@ public class Assembler {
                                     throw new Exception("Data overflow.");
                                 }
                                 if(dataLine.size() == 2) {
+                                    pd.print("00000000");
                                     break;
                                 }
                                 String data = dataLine.get(2);
                                 if(data.startsWith("#B")) {
                                     imm = String.format("%32s", data.substring(2)).replace(' ', '0');
-                                    imm = String.format("%8s", Integer.toHexString((Integer.parseUnsignedInt(imm,2)))).replace(' ', '0');
+                                    imm = BinToHexString(imm);
                                 } else if(data.startsWith("#&")) {
                                     imm = String.format("%8s", data.substring(2)).replace(' ', '0');
                                 } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
@@ -792,7 +843,7 @@ public class Assembler {
                             if(dataLine.size() != 3) {
                                 throw new Exception("String initialization must be provided.");
                             }
-                            imm = dataLine.get(2).substring(1, dataLine.get(2).length() - 2);
+                            imm = dataLine.get(2).substring(1, dataLine.get(2).length() - 1);
                             size += imm.length() + 1;
                             if(size > (1<<12)) {
                                 throw new Exception("Data overflow.");
@@ -808,6 +859,7 @@ public class Assembler {
                 if(size == (1<<12) && !"".equals(Assembly.get(i))) {
                     throw new Exception("Too many data lines");
                 }
+                System.out.println("Hex Files generated.");
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -819,8 +871,6 @@ public class Assembler {
                 scnr2.close();
             }
         }
-
-        System.out.println("Hex Files generated.");
     }
 
     public static String IntToBin(int a) {
@@ -851,11 +901,11 @@ public class Assembler {
                 r1 = instLine.get(1);
                 r2 = instLine.get(2);
                 r3 = GetImmediate(instLine.get(3));
-                newOp = op.substring(0, op.length() - 2) + "R";
+                newOp = op.substring(0, op.length() - 1) + "R";
                 // ret.add("LDMU A, #B" + r3.substring(0, 16));
                 ret.add("LDMU A, #&0000");
                 ret.add("ORM A, A, #B" + r3);
-                ret.add(newOp + " " + r1 + ",  "+ r2 + ", A");
+                ret.add(newOp + " " + r1 + " " + r2 + " A");
             }
             case "ADDX", "SUBX", "ANDX", "ORX", "XORX" -> {
                 r1 = instLine.get(1);
@@ -863,7 +913,7 @@ public class Assembler {
                 r3 = instLine.get(3);
                 newOp = op.substring(0, op.length() - 1) + "R";
                 ret.add("LDW A, " + r3);
-                ret.add(newOp + " " + r1 + ",  "+ r2 + ", A");
+                ret.add(newOp + " " + r1 + " " + r2 + " A");
             }
             case "MULTM", "MULTMU", "DIVM", "DIVMU" -> {
                 r1 = instLine.get(1);
@@ -877,7 +927,7 @@ public class Assembler {
                 }
                 ret.add("LDMU A, #&0000");
                 ret.add("ORM A, A, #B" + r4);
-                ret.add(newOp + " " + r1 + ",  "+ r2 + ", "+ r3 + "A");
+                ret.add(newOp + " " + r1 + " " + r2 + " "+ r3 + "A");
             }
             case "MULTX", "MULTXU", "DIVX", "DIVXU" -> {
                 r1 = instLine.get(1);
@@ -890,7 +940,7 @@ public class Assembler {
                     newOp = op.substring(0, op.length() - 1) + "R";
                 }
                 ret.add("LDW A, " + r4);
-                ret.add(newOp + " " + r1 + ",  "+ r2 + ", "+ r3 + "A");
+                ret.add(newOp + " " + r1 + " " + r2 + " "+ r3 + "A");
             }
             case "CMP", "CMX" -> {
                 r1 = instLine.get(1);
@@ -901,7 +951,7 @@ public class Assembler {
                 } else {
                     ret.add("LDW A, " + r2);
                 }
-                ret.add("CMPR " + r1 + ", A");
+                ret.add("CMPR " + r1 + " A");
             }
             case "JMP" -> {
                 ret.add("LDJ A, #B" + GetImmediate(instLine.get(1)));
@@ -1327,11 +1377,41 @@ public class Assembler {
                 arraySize = dataLine.size() - 1;
             }
         } else if(!type.contains("[") && baseType.equals("string")) {
-            arraySize = dataLine.get(2).length() + 1;
+            arraySize = dataLine.get(2).length() - 1;
         } else if(type.contains("[") && baseType.equals("string")) {
             throw new Exception("Type string is already an array.");
         }
 
         return baseSize * arraySize;
+    }
+
+    public static String BinToHexString(String bin) throws Exception{
+        String extBin = bin;
+        String hex = "";
+        if(bin.length() % 4 != 0) {
+            extBin = "0".repeat(4 - (bin.length() % 4)) + bin; 
+        }
+        for(int i = 0; i < extBin.length(); i += 4) {
+            switch (extBin.substring(i, i + 4)) {
+                case "0000" -> hex += '0';
+                case "0001" -> hex += '1';
+                case "0010" -> hex += '2';
+                case "0011" -> hex += '3';
+                case "0100" -> hex += '4';
+                case "0101" -> hex += '5';
+                case "0110" -> hex += '6';
+                case "0111" -> hex += '7';
+                case "1000" -> hex += '8';
+                case "1001" -> hex += '9';
+                case "1010" -> hex += 'a';
+                case "1011" -> hex += 'b';
+                case "1100" -> hex += 'c';
+                case "1101" -> hex += 'd';
+                case "1110" -> hex += 'e';
+                case "1111" -> hex += 'f';
+                default -> throw new Exception("Input is not binary.");
+            }
+        }
+        return hex;
     }
 }
