@@ -41,12 +41,18 @@ public class Assembler {
         entry("JGER", new Instruction("1111", 0, "", "")),
         entry("LDM", new Instruction("0000", 1, "", "")),
         entry("LDMU", new Instruction("0001", 1, "", "")),
-        entry("LDW", new Instruction("0010", 1, "", "")),
-        entry("LDH", new Instruction("0011", 1, "", "")),
-        entry("LDB", new Instruction("0100", 1, "", "")),
-        entry("STW", new Instruction("0101", 1, "", "")),
-        entry("STH", new Instruction("0110", 1, "", "")),
-        entry("STB", new Instruction("0111", 1, "", "")),
+        entry("LDWD", new Instruction("0010", 1, "", "")),
+        entry("LDHD", new Instruction("0011", 1, "", "")),
+        entry("LDBD", new Instruction("0100", 1, "", "")),
+        entry("STWD", new Instruction("0101", 1, "", "")),
+        entry("STHD", new Instruction("0110", 1, "", "")),
+        entry("STBD", new Instruction("0111", 1, "", "")),
+        entry("LDWX", new Instruction("0010", 1, "", "")),
+        entry("LDHX", new Instruction("0011", 1, "", "")),
+        entry("LDBX", new Instruction("0100", 1, "", "")),
+        entry("STWX", new Instruction("0101", 1, "", "")),
+        entry("STHX", new Instruction("0110", 1, "", "")),
+        entry("STBX", new Instruction("0111", 1, "", "")),
         entry("ORM", new Instruction("1000", 1, "", "")),
         entry("JPN", new Instruction("1001", 1, "", "")),
         entry("JPE", new Instruction("1010", 1, "", "")),
@@ -150,7 +156,7 @@ public class Assembler {
             }
         }
 
-        FilePaths.add(new File("./Test.asm"));
+        // FilePaths.add(new File("./TestProgs/Shift_MulDiv_Edge.asm"));
 
         for(File f : FilePaths){
             String BasePath = f.getPath().substring(0, f.getPath().lastIndexOf('.'));
@@ -173,7 +179,7 @@ public class Assembler {
                     scnr2 = new Scanner(line);
                     String a = scnr2.next();
                     if(!a.startsWith("//")){
-                        Assembly.add(line);
+                        Assembly.add(line.stripLeading().stripTrailing());
                     }
                     try {
                         line = scnr.nextLine();
@@ -195,7 +201,7 @@ public class Assembler {
                         Assembly.add(i, expansion);
                     }
                 }
-                System.out.println(Assembly);
+                // System.out.println(Assembly);
                 i = 0;
                 int currpc = 0;
                 HashMap<String, Integer> labels = new HashMap<>();
@@ -228,8 +234,8 @@ public class Assembler {
                     } 
                     i++;
                 }
-                System.out.println(labels.toString());
-                System.out.println(labels1.toString());
+                // System.out.println(labels.toString());
+                // System.out.println(labels1.toString());
                 currpc = 0;
                 for (i = 0; i < Assembly.size(); i++) {
                     String inst = Assembly.get(i);
@@ -253,9 +259,9 @@ public class Assembler {
                     }
                     currpc = currpc + InstList.get(instLine.getFirst()).opmode() + 1;
                 }
-                System.out.println(currpc);
-                System.out.println("");
-                System.out.println(Assembly.toString());
+                // System.out.println(currpc);
+                // System.out.println("");
+                // System.out.println(Assembly.toString());
                 i = 0;
                 size = 0;
                 while(i < Assembly.size() && !Assembly.get(i).equals("") && size < (1<<11)) {
@@ -273,7 +279,7 @@ public class Assembler {
                             R1_Rd_Rd1 = "00000";
                             R2_R1 = "00000";
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                     }
                     case "INC", "DEC", "JMPR", "JPNR", "JPER", "JGTR", "JGER" -> {
@@ -282,7 +288,7 @@ public class Assembler {
                             R1_Rd_Rd1 = GetReg(instLine.get(1));
                             R2_R1 = "00000";
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                     }
                     case "MOV", "SWAPR", "CMPR", "ADDR_DEST", "SUBR_DEST", "NOT", "JRALR", "ADDPC" -> {
@@ -291,7 +297,7 @@ public class Assembler {
                             inst = InstList.get(op);
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         R2_R1 = GetReg(instLine.get(2));
                     }
@@ -302,22 +308,22 @@ public class Assembler {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                             R2_R1 = "00000";
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(2);
                         if(a.startsWith("#")) {
                             Imm = GetImmediate(a);
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                     }
-                    case "LDW", "LDH", "LDB", "STW", "STH", "STB" -> {
+                    case "LDWD", "LDHD", "LDBD", "STWD", "STHD", "STBD", "LDWX", "LDHX", "LDBX", "STWX", "STHX", "STBX" -> {
                         a = instLine.get(1);
                         inst = InstList.get(op);
                         if(a.endsWith(",") || instLine.size() != 3) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(2);
                         if(a.startsWith("(") || a.startsWith("[")) {
@@ -325,7 +331,7 @@ public class Assembler {
                             R2_R1 = Address[0];
                             Imm = Address[1];
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                     }
                     case "ORM" -> {
@@ -334,34 +340,34 @@ public class Assembler {
                         if(a.endsWith(",") || instLine.size() != 4) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(2);
                         if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(3);
                         if(a.startsWith("#")) {
                             Imm = GetImmediate(a);
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                     }
                     case "JPN", "JPE", "JGT" -> {
                         inst = InstList.get(op);
-                        if(instLine.size() != 2) {
+                        if(instLine.size() == 2) {
                             R1_Rd_Rd1 = "00000";
                             R2_R1 = "00000";
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(1);
                         if(a.startsWith("#")) {
                             Imm = GetImmediate(a);
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                     }
                     case "ADDD", "SUBD", "ANDD", "ORD", "XORD" -> {
@@ -370,19 +376,19 @@ public class Assembler {
                         if(a.endsWith(",") || instLine.size() != 4) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(2);
                         if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(3);
                         if(a.startsWith("[")) {
                             R2 = GetAddress(a)[0];
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                     }
                     case "ADDR", "SUBR", "ANDR", "ORR", "XORR", "ASRR", "LSLR", "LSRR", "CSLR", "CSRR" -> {
@@ -391,13 +397,13 @@ public class Assembler {
                         if(a.endsWith(",") || instLine.size() != 4) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(2);
                         if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         R2 = GetReg(instLine.get(3));
                     }
@@ -407,18 +413,19 @@ public class Assembler {
                         if(a.endsWith(",") || instLine.size() != 4) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(2);
                         if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
+                        a = instLine.get(3);
                         if(a.startsWith("#")) {
                             R2 = GetImmediate(a).substring(11);
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                     }
                     case "MULTD", "MULTDU", "DIVD", "DIVDU" -> {
@@ -427,25 +434,25 @@ public class Assembler {
                         if(a.endsWith(",") || instLine.size() != 5) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(2);
                         if(a.endsWith(",")) {
                             Rd2 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(3);
                         if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(4);
                         if(a.startsWith("[")) {
                             R2 = GetAddress(a)[0];
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                     }
                     case "MULTR", "MULTRU", "DIVR", "DIVRU" -> {
@@ -454,19 +461,19 @@ public class Assembler {
                         if(a.endsWith(",") || instLine.size() != 5) {
                             R1_Rd_Rd1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(2);
                         if(a.endsWith(",")) {
                             Rd2 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         a = instLine.get(3);
                         if(a.endsWith(",")) {
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         R2 = GetReg(instLine.get(4));
                     }
@@ -475,7 +482,7 @@ public class Assembler {
                         if(instLine.size() != 2) {
                             R2_R1 = GetReg(instLine.get(1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                     }
                     case "CMD" -> {
@@ -484,7 +491,7 @@ public class Assembler {
                             inst = InstList.get(op);
                             R2_R1 = GetReg(a.substring(0, a.length() - 1));
                         } else {
-                            throw new Exception("Illegal Instruction Format");
+                            throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
                         }
                         R2 = instLine.get(2);
                     }
@@ -528,7 +535,7 @@ public class Assembler {
                     String imm;
 
                     if (!labels1.containsKey(a.substring(0, a.length() - 1)) || !a.endsWith(":")) {
-                        throw new Exception("Illegal Instruction Format");
+                        throw new Exception("Illegal Data Format");
                     }
                     
                     switch (baseType) {
@@ -718,7 +725,7 @@ public class Assembler {
                                 } else if(data.startsWith("#&")) {
                                     imm = String.format("%2s", data.substring(2)).replace(' ', '0');
                                 } else if(data.startsWith("#") && data.charAt(1) >= '0' && data.charAt(1) <= '9') {
-                                    imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                    imm = String.format("%2s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(1))))).replace(' ', '0');
                                 } else if(data.startsWith("\'")) {
                                     imm = String.format("%2s", Integer.toHexString(data.charAt(1))).replace(' ', '0');
                                 } else {
@@ -775,8 +782,8 @@ public class Assembler {
                                     imm = BinToHexString(imm);
                                 } else if(data.startsWith("#&")) {
                                     imm = String.format("%4s", data.substring(2)).replace(' ', '0');
-                                } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
-                                    imm = String.format("%4s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                } else if(data.startsWith("#") && data.charAt(1) >= '0' && data.charAt(1) <= '9') {
+                                    imm = String.format("%4s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(1))))).replace(' ', '0');
                                 } else {
                                     throw new Exception("Incorrect data value format.");
                                 }
@@ -831,8 +838,8 @@ public class Assembler {
                                     imm = BinToHexString(imm);
                                 } else if(data.startsWith("#&")) {
                                     imm = String.format("%8s", data.substring(2)).replace(' ', '0');
-                                } else if(data.startsWith("#") && data.charAt(2) >= '0' && data.charAt(2) <= '9') {
-                                    imm = String.format("%8s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(2))))).replace(' ', '0');
+                                } else if(data.startsWith("#") && data.charAt(1) >= '0' && data.charAt(1) <= '9') {
+                                    imm = String.format("%8s", Integer.toHexString((Integer.parseUnsignedInt(data.substring(1))))).replace(' ', '0');
                                 } else {
                                     throw new Exception("Incorrect data value format.");
                                 }
@@ -859,7 +866,7 @@ public class Assembler {
                 if(size == (1<<12) && !"".equals(Assembly.get(i))) {
                     throw new Exception("Too many data lines");
                 }
-                System.out.println("Hex Files generated.");
+                System.out.println(f + ": Hex Files generated.");
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -912,7 +919,7 @@ public class Assembler {
                 r2 = instLine.get(2);
                 r3 = instLine.get(3);
                 newOp = op.substring(0, op.length() - 1) + "R";
-                ret.add("LDW A, " + r3);
+                ret.add("LDWX A, " + r3);
                 ret.add(newOp + " " + r1 + " " + r2 + " A");
             }
             case "MULTM", "MULTMU", "DIVM", "DIVMU" -> {
@@ -927,7 +934,7 @@ public class Assembler {
                 }
                 ret.add("LDMU A, #&0000");
                 ret.add("ORM A, A, #B" + r4);
-                ret.add(newOp + " " + r1 + " " + r2 + " "+ r3 + "A");
+                ret.add(newOp + " " + r1 + " " + r2 + " "+ r3 + " A");
             }
             case "MULTX", "MULTXU", "DIVX", "DIVXU" -> {
                 r1 = instLine.get(1);
@@ -939,7 +946,7 @@ public class Assembler {
                 } else {
                     newOp = op.substring(0, op.length() - 1) + "R";
                 }
-                ret.add("LDW A, " + r4);
+                ret.add("LDWX A, " + r4);
                 ret.add(newOp + " " + r1 + " " + r2 + " "+ r3 + "A");
             }
             case "CMP", "CMX" -> {
@@ -949,7 +956,7 @@ public class Assembler {
                     ret.add("LDMU A, #&0000");
                     ret.add("ORM A, A, #B" + GetImmediate(r2));
                 } else {
-                    ret.add("LDW A, " + r2);
+                    ret.add("LDWX A, " + r2);
                 }
                 ret.add("CMPR " + r1 + " A");
             }
@@ -1023,11 +1030,11 @@ public class Assembler {
                 ret.add(newOp + " A");
             }
             case "LDWL", "LDHL", "LDBL", "STWL", "STHL", "STBL" -> {
-                ret.add(op.substring(0, 3) + " " + instLine.get(1) + " (#B" + IntToBin(labels.get(instLine.get(2))).substring(16) + ")[Z]");
+                ret.add(op.substring(0, 3) + "X " + instLine.get(1) + " (#B" + IntToBin(labels.get(instLine.get(2))).substring(16) + ")[Z]");
             }
             case "LDML" -> {
                 r1 = instLine.get(1);
-                r2 = IntToBin(labels.get(instLine.get(1)));
+                r2 = IntToBin(labels.get(instLine.get(2)));
                 ret.add("LDMU " + r1 + " #B" + r2.substring(0, 16));
                 ret.add("ORM " + r1 + " " + r1 + " #B" + r2.substring(16));
             }
@@ -1222,7 +1229,7 @@ public class Assembler {
                     }
                 }
                 String type;
-                String op2 = instLine.get(3);
+                String op2 = instLine.get(4);
                 if(op2.startsWith("#")) {
                     type = "M";
                 } else if(op2.startsWith("[")) {

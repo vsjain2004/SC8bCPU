@@ -1,9 +1,0 @@
-LDM A, #10
-LDM B, #3
-ADDR A, B
-SUBR A, B
-ANDR A, B
-ORR  A, B
-XORR A, B
-SWAPR A, B
-END
