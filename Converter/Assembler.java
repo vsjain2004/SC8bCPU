@@ -1131,7 +1131,7 @@ public class Assembler {
                 ret[1] = GetImmediate(Imm);
             } else if (Pattern.matches("[0-9a-fA-F]+", Imm)) {
                 ret[1] = GetImmediate("#&" + Imm);
-            } else if (Pattern.matches("-?\\d*[2-9]?\\d*", Imm)) {
+            } else if (Pattern.matches("-?\\d*[2-9]\\d*", Imm) || Pattern.matches("-\\d*[2-9]?\\d*", Imm)) {
                 ret[1] = GetImmediate("#" + Imm);
             } else if (Pattern.matches("[01]+", Imm)) {
                 ret[1] = GetImmediate("#B" + Imm);
