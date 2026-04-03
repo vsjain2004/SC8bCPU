@@ -23,7 +23,7 @@ STH R13, (2)[R12]
 END
 
 word X: #100
-word X_addr: #1
+word X_addr: #0
 byte B0: #1
 byte B1: #2
 half H0: #&1234

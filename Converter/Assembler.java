@@ -156,7 +156,7 @@ public class Assembler {
             }
         }
 
-        // FilePaths.add(new File("./TestProgs/Shift_MulDiv_Edge.asm"));
+        // FilePaths.add(new File("./TestProgs/Torture.asm"));
 
         for(File f : FilePaths){
             String BasePath = f.getPath().substring(0, f.getPath().lastIndexOf('.'));
@@ -479,7 +479,7 @@ public class Assembler {
                     }
                     case "JGTRU", "JGERU" -> {
                         inst = InstList.get(op);
-                        if(instLine.size() != 2) {
+                        if(instLine.size() == 2) {
                             R2_R1 = GetReg(instLine.get(1));
                         } else {
                             throw new Exception("Illegal Instruction Format: " + Assembly.get(i));
@@ -1131,7 +1131,7 @@ public class Assembler {
                 ret[1] = GetImmediate(Imm);
             } else if (Pattern.matches("[0-9a-fA-F]+", Imm)) {
                 ret[1] = GetImmediate("#&" + Imm);
-            } else if (Pattern.matches("\\d*[2-9]\\d*", Imm)) {
+            } else if (Pattern.matches("-?\\d*[2-9]?\\d*", Imm)) {
                 ret[1] = GetImmediate("#" + Imm);
             } else if (Pattern.matches("[01]+", Imm)) {
                 ret[1] = GetImmediate("#B" + Imm);
