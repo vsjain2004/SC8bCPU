@@ -1,10 +1,11 @@
-module memory2 #(parameter BASE_BIT_WIDTH = 8, ADDR_WIDTH = 12) (clk, data, we, re, addr, dlen, q); 
-	input clk;
-	input [ADDR_WIDTH-1:0] addr;
-	input [BASE_BIT_WIDTH*4 - 1:0] data;
-	input we, re;
-	input [1:0] dlen;
-	output reg [BASE_BIT_WIDTH*4 - 1:0] q;
+module memory2 #(parameter BASE_BIT_WIDTH = 8, ADDR_WIDTH = 12) (
+	input wire clk, we, re,
+	input wire [1:0] dlen,
+	input wire [ADDR_WIDTH-1:0] addr,
+	input wire [BASE_BIT_WIDTH*4-1:0] data,
+	output reg [BASE_BIT_WIDTH*4-1:0] q
+); 
+	
 	
 	reg [BASE_BIT_WIDTH-1:0] ram [0:(1<<ADDR_WIDTH)-1];
 	
@@ -49,7 +50,7 @@ module memory2 #(parameter BASE_BIT_WIDTH = 8, ADDR_WIDTH = 12) (clk, data, we, 
 		end
 	end
 	
-	always @(addr, addr1, addr2, addr3, dlen, ram, re) begin
+	always @* begin
 		if (re) begin
 			case (dlen)
 				2'b00 : q = {{BASE_BIT_WIDTH*3{1'b0}}, ram[addr]};
@@ -60,6 +61,6 @@ module memory2 #(parameter BASE_BIT_WIDTH = 8, ADDR_WIDTH = 12) (clk, data, we, 
 			endcase
 		end
 		else
-			q = {BASE_BIT_WIDTH*4{1'bx}};
+			q = {BASE_BIT_WIDTH*4{1'b0}};
 	end
 endmodule

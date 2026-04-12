@@ -1,7 +1,10 @@
-module Flags(Flags, FWE, CLK, RESET, CF, OF, NF, ZF, D0);
-	input CLK, RESET;
-	input [4:0] Flags, FWE;
-	output CF, NF, OF, ZF, D0;
+module Flags(
+	input [4:0] Flags,
+	input [4:0] FWE,
+	input CLK, RESET,
+	output D0, CF, OF, NF, ZF
+);
+	
 	
 	register D(.IN(Flags[4]), .LOAD(FWE[4]), .CLK(CLK), .OUT(D0), .PRESET_N(1'b1), .CLEAR_N(RESET));
 	register C(.IN(Flags[3]), .LOAD(FWE[3]), .CLK(CLK), .OUT(CF), .PRESET_N(1'b1), .CLEAR_N(RESET));

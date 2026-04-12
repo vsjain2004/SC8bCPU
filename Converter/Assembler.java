@@ -498,22 +498,21 @@ public class Assembler {
                     default -> throw new Exception("Command " + op + " not supported");
                     }
                     if(inst.opmode() == 0) {
-                        pi.print(BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + "00"));
+                        pi.println(BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + "00"));
                         size += 1;
                     } else if(!inst.opcode().equals("1101")) {
                         String instHex = BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + Imm + "01");
-                        pi.print(instHex.substring(0, 4));
-                        pi.print(instHex.substring(4));
+                        pi.println(instHex.substring(4));
+                        pi.println(instHex.substring(0, 4));
                         size += 2;
                     } else if(!inst.family().equals("10")) {
                         String instHex = BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + R2 + inst.family() + inst.function() + "01");
-                        pi.print(instHex.substring(0, 4));
-                        pi.print(instHex.substring(4));
-                        size += 2;
+                        pi.println(instHex.substring(4));
+                        pi.println(instHex.substring(0, 4));                        size += 2;
                     } else {
                         String instHex = BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + R2 + inst.family() + Rd2 + inst.function() + "01");
-                        pi.print(instHex.substring(0, 4));
-                        pi.print(instHex.substring(4));
+                        pi.println(instHex.substring(4));
+                        pi.println(instHex.substring(0, 4));
                         size += 2;
                     }
                     i += 1;
@@ -544,7 +543,9 @@ public class Assembler {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
                                     int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
                                     size = size + num;
-                                    pd.print("00".repeat(num));
+                                    for(int j = 0; j < num; j++) {
+                                        pd.println("00");
+                                    }
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
@@ -559,15 +560,15 @@ public class Assembler {
                                     if(size > (1<<12)) {
                                         throw new Exception("Data overflow.");
                                     }
-                                    pd.print(BinToHexString(GetImmediate(dataLine.get(j)).substring(8)));
+                                    pd.println(BinToHexString(GetImmediate(dataLine.get(j)).substring(8)));
                                 }
                             } else {
                                 size++;
                                 if(dataLine.size() == 2) {
-                                    pd.print("00");
+                                    pd.println("00");
                                     break;
                                 }
-                                pd.print(BinToHexString(GetImmediate(dataLine.get(2)).substring(8)));
+                                pd.println(BinToHexString(GetImmediate(dataLine.get(2)).substring(8)));
                             }
                         }
                         case "short" -> {
@@ -575,7 +576,10 @@ public class Assembler {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
                                     int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
                                     size = size + 2 * num;
-                                    pd.print("0000".repeat(num));
+                                    for(int j = 0; j < num; j++) {
+                                        pd.println("00");
+                                        pd.println("00");
+                                    }
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
@@ -591,19 +595,22 @@ public class Assembler {
                                         throw new Exception("Data overflow.");
                                     }
                                     imm = BinToHexString((GetImmediate(dataLine.get(j))));
-                                    pd.print(imm.substring(2) + imm.substring(0, 2));
+                                    pd.println(imm.substring(2));
+                                    pd.println(imm.substring(0, 2));
                                 }
                             } else {
                                 size += 2;
                                 if(dataLine.size() == 2) {
-                                    pd.print("0000");
+                                    pd.println("00");
+                                    pd.println("00");
                                     break;
                                 }
                                 if(size > (1<<12)) {
                                     throw new Exception("Data overflow.");
                                 }
                                 imm = BinToHexString(GetImmediate(dataLine.get(2)));
-                                pd.print(imm.substring(2) + imm.substring(0, 2));
+                                pd.println(imm.substring(2));
+                                pd.println(imm.substring(0, 2));
                             }
                         }
                         case "int" -> {
@@ -611,7 +618,12 @@ public class Assembler {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
                                     int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
                                     size = size + 4 * num;
-                                    pd.print("00000000".repeat(num));
+                                    for(int j = 0; j < num; j++) {
+                                        pd.println("00");
+                                        pd.println("00");
+                                        pd.println("00");
+                                        pd.println("00");
+                                    }
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
@@ -641,7 +653,10 @@ public class Assembler {
                                     } else {
                                         throw new Exception("Incorrect data value format.");
                                     }
-                                    pd.print(imm.substring(6) + imm.substring(4, 6) + imm.substring(2, 4) + imm.substring(0, 2));
+                                    pd.println(imm.substring(6));
+                                    pd.println(imm.substring(4, 6));
+                                    pd.println(imm.substring(2, 4));
+                                    pd.println(imm.substring(0, 2));
                                 }
                             } else {
                                 size += 4;
@@ -649,7 +664,10 @@ public class Assembler {
                                     throw new Exception("Data overflow.");
                                 }
                                 if(dataLine.size() == 2) {
-                                    pd.print("00000000");
+                                    pd.println("00");
+                                    pd.println("00");
+                                    pd.println("00");
+                                    pd.println("00");
                                     break;
                                 }
                                 String data = dataLine.get(2);
@@ -663,7 +681,10 @@ public class Assembler {
                                 } else {
                                     throw new Exception("Incorrect data value format.");
                                 }
-                                pd.print(imm.substring(6) + imm.substring(4, 6) + imm.substring(2, 4) + imm.substring(0, 2));
+                                pd.println(imm.substring(6));
+                                pd.println(imm.substring(4, 6));
+                                pd.println(imm.substring(2, 4));
+                                pd.println(imm.substring(0, 2));
                             }
                         }
                         case "char" -> {
@@ -671,7 +692,9 @@ public class Assembler {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
                                     int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
                                     size = size + num;
-                                    pd.print("00".repeat(num));
+                                    for(int j = 0; j < num; j++) {
+                                        pd.println("00");
+                                    }
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
@@ -683,7 +706,7 @@ public class Assembler {
                                         throw new Exception("Data overflow.");
                                     }
                                     for(int j = 0; j < imm.length(); j++) {
-                                        pd.print(String.format("%2s", Integer.toHexString(imm.charAt(j))).replace(' ', '0'));
+                                        pd.println(String.format("%2s", Integer.toHexString(imm.charAt(j))).replace(' ', '0'));
                                     }
                                 } else {
                                     dataLine.set(2, dataLine.get(2).substring(1, dataLine.get(2).length() - 1));
@@ -709,13 +732,13 @@ public class Assembler {
                                         } else {
                                             throw new Exception("Incorrect data value format.");
                                         }
-                                        pd.print(imm);
+                                        pd.println(imm);
                                     }
                                 }
                             } else {
                                 size++;
                                 if(dataLine.size() == 2) {
-                                    pd.print("00");
+                                    pd.println("00");
                                     break;
                                 }
                                 String data = dataLine.get(2);
@@ -731,7 +754,7 @@ public class Assembler {
                                 } else {
                                     throw new Exception("Incorrect data value format.");
                                 }
-                                pd.print(imm);
+                                pd.println(imm);
                             }
                         }
                         case "half" -> {
@@ -739,7 +762,10 @@ public class Assembler {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
                                     int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
                                     size = size + 2 * num;
-                                    pd.print("0000".repeat(num));
+                                    for(int j = 0; j < num; j++) {
+                                        pd.println("00");
+                                        pd.println("00");
+                                    }
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
@@ -765,7 +791,8 @@ public class Assembler {
                                     } else {
                                         throw new Exception("Incorrect data value format.");
                                     }
-                                    pd.print(imm.substring(2) + imm.substring(0, 2));
+                                    pd.println(imm.substring(2));
+                                    pd.println(imm.substring(0, 2));
                                 }
                             } else {
                                 size += 2;
@@ -773,7 +800,8 @@ public class Assembler {
                                     throw new Exception("Data overflow.");
                                 }
                                 if(dataLine.size() == 2) {
-                                    pd.print("0000");
+                                    pd.println("00");
+                                    pd.println("00");
                                     break;
                                 }
                                 String data = dataLine.get(2);
@@ -787,7 +815,8 @@ public class Assembler {
                                 } else {
                                     throw new Exception("Incorrect data value format.");
                                 }
-                                pd.print(imm.substring(2) + imm.substring(0, 2));
+                                pd.println(imm.substring(2));
+                                pd.println(imm.substring(0, 2));
                             }
                         }
                         case "word" -> {
@@ -795,7 +824,12 @@ public class Assembler {
                                 if(dataLine.size() == 2 && type.indexOf("[") != type.indexOf("]") + 1) {
                                     int num = Integer.parseUnsignedInt(type.substring(type.indexOf("[") + 1, type.indexOf("]")));
                                     size = size + 4 * num;
-                                    pd.print("00000000".repeat(num));
+                                    for(int j = 0; j < num; j++) {
+                                        pd.println("00");
+                                        pd.println("00");
+                                        pd.println("00");
+                                        pd.println("00");
+                                    }
                                     break;
                                 } else if (dataLine.size() == 2) {
                                     throw new Exception("Array initialization or size must be provided.");
@@ -821,7 +855,10 @@ public class Assembler {
                                     } else {
                                         throw new Exception("Incorrect data value format.");
                                     }
-                                    pd.print(imm.substring(6) + imm.substring(4, 6) + imm.substring(2, 4) + imm.substring(0, 2));
+                                    pd.println(imm.substring(6));
+                                    pd.println(imm.substring(4, 6));
+                                    pd.println(imm.substring(2, 4));
+                                    pd.println(imm.substring(0, 2));
                                 }
                             } else {
                                 size += 4;
@@ -829,7 +866,10 @@ public class Assembler {
                                     throw new Exception("Data overflow.");
                                 }
                                 if(dataLine.size() == 2) {
-                                    pd.print("00000000");
+                                    pd.println("00");
+                                    pd.println("00");
+                                    pd.println("00");
+                                    pd.println("00");
                                     break;
                                 }
                                 String data = dataLine.get(2);
@@ -843,7 +883,10 @@ public class Assembler {
                                 } else {
                                     throw new Exception("Incorrect data value format.");
                                 }
-                                pd.print(imm.substring(6) + imm.substring(4, 6) + imm.substring(2, 4) + imm.substring(0, 2));
+                                pd.println(imm.substring(6));
+                                pd.println(imm.substring(4, 6));
+                                pd.println(imm.substring(2, 4));
+                                pd.println(imm.substring(0, 2));
                             }
                         }
                         case "string" -> {
@@ -856,9 +899,9 @@ public class Assembler {
                                 throw new Exception("Data overflow.");
                             }
                             for(int j = 0; j < imm.length(); j++) {
-                                pd.print(String.format("%2s", Integer.toHexString(imm.charAt(j))).replace(' ', '0'));
+                                pd.println(String.format("%2s", Integer.toHexString(imm.charAt(j))).replace(' ', '0'));
                             }
-                            pd.print("00");
+                            pd.println("00");
                         }
                     }
                     i++;

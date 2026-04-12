@@ -1,8 +1,10 @@
-module MULT_N_bit #(parameter N = 32) (X, Y, Signed, OutHi, OutLo, Ov);
-    input [N-1:0] X, Y;
-    input Signed;
-    output [N-1:0] OutHi, OutLo;
-    output Ov;
+module MULT_N_bit #(parameter N = 32) (
+    input wire [N-1:0] X, Y,
+    input wire Signed,
+    output wire [N-1:0] OutHi, OutLo,
+    output wire Ov
+);
+    
 
     wire signed [N:0] X_ext;
     wire signed [N:0] Y_ext;

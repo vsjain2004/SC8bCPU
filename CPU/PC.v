@@ -1,8 +1,11 @@
-module PC(LOAD, IN, ULen, PCEN, CLK, RESET, oPC, oNPC);
+module PC(
+	input wire CLK, RESET,
+	input wire PCEN, ULen, LOAD,
+	input wire [31:0] IN,
+	output wire [31:0] oPC, oNPC
+);
 
-	input LOAD, PCEN, ULen, CLK, RESET;
-	input [31:0] IN;
-	output [31:0] oPC, oNPC;
+	
 
 	wire [31:0] PCAdd, NPCSeq;
 

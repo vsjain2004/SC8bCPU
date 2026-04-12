@@ -1,1 +1,1 @@
-C:/intelFPGA_lite/24.1std/questa_fse/win64/VisualizerRls/bin/viscom.exe -nolock -quiet -jmem_size 344352 work.DIV_N_bit(fast) -quiet -auto_acc_if_foreign -work work +acc -allow_unnamed -o _opt -id 12-546cebdd63eb-69ac5880-160-241c +__betafsm
+C:/intelFPGA_lite/24.1std/questa_fse/win64/VisualizerRls/bin/viscom.exe -nolock -quiet -jmem_size 786432 work.CPU(fast) -quiet -auto_acc_if_foreign -work work +acc -allow_unnamed -o _opt -id 4-546cebdd63eb-69d830ed-2f6-62c4 +__betafsm

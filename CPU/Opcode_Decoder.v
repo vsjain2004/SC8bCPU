@@ -43,7 +43,7 @@ module Opcode_Decoder(
     assign R2 = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? {PC_IMEM[1:0], Next_Inst_Out[15:13]} : 
                 (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? 5'b0 : (~|PC_IMEM[1:0] ? 5'b0 : PC_IMEM[17:13]));
 
-    assign Family = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? {PC_IMEM[1:0], Next_Inst_Out[12:11]} : 
+    assign Family = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? Next_Inst_Out[12:11] : 
                     (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? 2'b0 : (~|PC_IMEM[1:0] ? 2'b0 : PC_IMEM[12:11]));
 
     assign FuncH5_Rd2 = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? Next_Inst_Out[10:6] : 

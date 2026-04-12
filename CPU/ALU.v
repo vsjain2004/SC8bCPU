@@ -1,10 +1,10 @@
-module ALU(ADD_SUB, Y, X, ALU_SELECT, ZF, CF, OF, NF, Result);
-
-	input ADD_SUB;
-	input [31:0] Y, X;
-	input [2:0] ALU_SELECT;
-	output ZF, CF, OF, NF;
-	output [31:0] Result;
+module ALU (
+	input ADD_SUB,
+	input [31:0] Y, X,
+	input [2:0] ALU_SELECT,
+	output ZF, CF, OF, NF,
+	output [31:0] Result
+);
 	
 	wire [31:0] oAdd, oAnd, oOr, oXor, oNot, oLS, oCS, oAS;
 	

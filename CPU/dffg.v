@@ -1,6 +1,8 @@
-module dffg(d, clk, prn, clrn, q);
-	input d, clk, prn, clrn;
-	output reg q;
+module dffg(
+	input clk, prn, clrn, d,
+	output reg q
+);
+	
 	
 	always @(posedge clk or negedge prn or negedge clrn)
 	begin

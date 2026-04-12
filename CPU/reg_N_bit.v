@@ -1,7 +1,9 @@
-module reg_N_bit #(parameter N = 32) (IN, LOAD, CLK, OUT, PRESET_N, CLEAR_N);
-	input [N-1:0] IN;
-	input LOAD, CLK, PRESET_N, CLEAR_N;
-	output [N-1:0] OUT;
+module reg_N_bit #(parameter N = 32) (
+	input wire [N-1:0] IN,
+	input wire LOAD, CLK, PRESET_N, CLEAR_N,
+	output wire [N-1:0] OUT
+);
+	
 
 	genvar i;
 	generate

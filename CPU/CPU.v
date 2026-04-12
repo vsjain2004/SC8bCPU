@@ -1,18 +1,20 @@
-module CPU(InstExt, InstLd, CLK, CLEAR_N);
-	input [63:0] InstExt;
-	input InstLd, CLK, CLEAR_N;
-	//output ;
+module CPU(
+	input [63:0] InstExt,
+	input InstLd, CLK, CLEAR_N,
+	output Halt,
+	output [31:0] iWPA, iWPB, oPC
+);
 	
-	wire [31:0] oPC, oNPC, oDMEM, oRPA, oRPB, oRPC, iPC, ExtImm, Branch_Addr, Jump_Addr, IXAddr, oALU, iX, iY, MultHi, MultLo, DivQ, DivR, iWPA, iWPB;
+	wire [31:0] oNPC, oDMEM, oRPA, oRPB, oRPC, iPC, ExtImm, Branch_Addr, Jump_Addr, IXAddr, oALU, iX, iY, MultHi, MultLo, DivQ, DivR;
 	wire [63:0] Inst;
 	wire fNF, fOF, fZF, fCF, PC_INC, ADD_SUB, REG_WE_A, REG_WE_B, DMEM_W_EN, PC_LD_EN, PC_EN, SIGNED, ALU_X_SEL, DMEM_SEL_ADD, IMEM_R_EN, DMEM_R_EN, OvALU, OvMULT, OvDIV, IMEM_R_EN_CUR;
-	wire [1:0] DMEM_DLEN, IMEM_DLEN, PC_IN, REG_SEL_IN_B;
+	wire [1:0] DMEM_DLEN, IMEM_DLEN, PC_IN, REG_SEL_IN_B, IMEM_DLEN_CUR;
 	wire [2:0] ALU_SELECT, ALU_Y_SEL, REG_SEL_IN_A;
 	wire [4:0] flags, FLAG_WE, REG_W_ADD_A, REG_W_ADD_B, REG_R_ADD_A, REG_R_ADD_B;
 	wire [15:0] IMMEDIATE;
 	wire [31:0] DMEMAddr;
 
-	memory2 #(.data_width(16), .addr_width(11)) IMEM(.clk(CLK), .data(InstExt), .we(InstLd), .re(IMEM_R_EN_CUR), .addr(oPC[11:1]), .dlen(IMEM_DLEN), .q(Inst));
+	memory2 #(.BASE_BIT_WIDTH(16), .ADDR_WIDTH(11)) IMEM(.clk(CLK), .data(InstExt), .we(InstLd), .re(IMEM_R_EN_CUR), .addr(oPC[11:1]), .dlen(IMEM_DLEN_CUR), .q(Inst));
 	
 	memory2 DMEM(.clk(CLK), .data(oRPA), .we(DMEM_W_EN), .re(DMEM_R_EN), .addr(DMEMAddr[11:0]), .dlen(DMEM_DLEN), .q(oDMEM));
 	
@@ -23,7 +25,10 @@ module CPU(InstExt, InstLd, CLK, CLEAR_N);
 		.ALU_Y_SEL(ALU_Y_SEL), .REG_SEL_IN_A(REG_SEL_IN_A), .FLAG_WE(FLAG_WE), .REG_W_ADD_A(REG_W_ADD_A), 
 		.REG_W_ADD_B(REG_W_ADD_B), .REG_R_ADD_A(REG_R_ADD_A), .REG_R_ADD_B(REG_R_ADD_B), .IMMEDIATE(IMMEDIATE));
 
-	dffg imem_r_en(.d(IMEM_R_EN), .clk(CLK), .prn(RESET), .clrn(1'b1), .q(IMEM_R_EN_CUR));
+	dffg imem_r_en(.d(IMEM_R_EN), .clk(CLK), .prn(CLEAR_N), .clrn(1'b1), .q(IMEM_R_EN_CUR));
+
+	dffg imem_dlen_0(.d(IMEM_DLEN[0]), .clk(CLK), .prn(CLEAR_N), .clrn(1'b1), .q(IMEM_DLEN_CUR[0]));
+	dffg imem_dlen_1(.d(IMEM_DLEN[1]), .clk(CLK), .prn(1'b1), .clrn(CLEAR_N), .q(IMEM_DLEN_CUR[1]));
 
 	Extender extender(.IN(IMMEDIATE), .Sign(SIGNED), .Out(ExtImm));
 
@@ -40,7 +45,7 @@ module CPU(InstExt, InstLd, CLK, CLEAR_N);
 
 	busmuxN_8_to_1 Y_sel(.S(ALU_Y_SEL), .W0(oRPB), .W1(oRPA), .W2(oRPC), .W3(ExtImm), .W4(oDMEM), .W5(REG_R_ADD_B), .W6(oPC), .W7(), .F(iY));
 	
-	ALU alu(.ADD_SUB(ADD_SUB), .Y(iY), .X(iX), .AS2(ALU_S_2), .AS1(ALU_S_1), .AS0(ALU_S_0), .ZF(flags[0]), 
+	ALU alu(.ADD_SUB(ADD_SUB), .Y(iY), .X(iX), .ALU_SELECT(ALU_SELECT), .ZF(flags[0]), 
 			.CF(flags[3]), .OF(OvALU), .NF(flags[1]), .Result(oALU));
 
 	MULT_N_bit multiplier(.X(iX), .Y(iY), .Signed(SIGNED), .OutHi(MultHi), .OutLo(MultLo), .Ov(OvMULT));
@@ -61,4 +66,5 @@ module CPU(InstExt, InstLd, CLK, CLEAR_N);
 	
 	PC Prog_Counter(.LOAD(PC_LD_EN), .IN(iPC), .ULen(PC_INC), .PCEN(PC_EN), .CLK(CLK), .RESET(CLEAR_N), .oPC(oPC), .oNPC(oNPC));
 	
+	assign Halt = ~PC_EN;
 endmodule
