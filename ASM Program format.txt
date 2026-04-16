@@ -2,19 +2,21 @@ File Extension: .asm
 
 Program Format:
 
-1. Upto 16 lines of Assembly instructions, with final instruction being "END". Labels can be used for memory address
-   reference as "X: Y", where X is the Label and Y is the instruction.
-2. A 1 Line empty space
-3. Data Memory with each address on new line set as "X: Y", where X is an identifier variable/Label, used in the instructions as 
-   well, and Y is the data.
+1. Instruction Memory (IMEM) section
+   - Contains assembly instructions
+   - One instruction per line
+   - Program must end with "END"
+   - Labels are supported for control flow and memory references
+2. Exactly one empty line between IMEM and DMEM
+3. Data Memory (DMEM) Section
+   - Contains labeled data entries
+   - Each line defines a variable or memory block
 
-Number Format: For any Signed Immediate operand, shift amount, and Data Memory, use the following:
-    #  : Decimal (#-128 to #127)
-    #B : Binary (#B00000000 to #B11111111)
-    #& : Hexadecimal (#&00 to #&FF)
+Data types, Number formats, and Register naming are provided in the Green Card.
 
 For any memory address for non-branch instructions, it is recommended to use Labels and repeat them in the data memory section.
 For any memory address for jump/branch instructions, it is recommended to use Labels and use them at said instruction.
+Labels must be unique
 
 Comment Lines start with // (No inline comments allowed)
 
