@@ -1,0 +1,607 @@
+Statistics
+
+=== $paramod\reg_N_bit\N=s32'00000000000000000000000000010000 ===
+
+        +----------Local Count, excluding submodules.
+        |
+        6 wires
+       36 wire bits
+        6 public wires
+       36 public wire bits
+        6 ports
+       36 port bits
+       16 submodules
+       16   register
+
+=== $paramod$0048cde24c1465fc996495899ed0a520b6705b7e\memory2 ===
+
+        +----------Local Count, excluding submodules.
+        |
+   274419 wires
+   305276 wire bits
+     2055 public wires
+    32912 public wire bits
+        7 ports
+      144 port bits
+   305196 cells
+     2381   $_ANDNOT_
+    38180   $_AND_
+    32768   $_DFFE_PP_
+   153405   $_MUX_
+    74539   $_NAND_
+      825   $_NOR_
+        2   $_NOT_
+      264   $_ORNOT_
+     2804   $_OR_
+       23   $_XNOR_
+        5   $_XOR_
+
+=== register ===
+
+        +----------Local Count, excluding submodules.
+        |
+        7 wires
+        7 wire bits
+        7 public wires
+        7 public wire bits
+        6 ports
+        6 port bits
+        1 cells
+        1   $_MUX_
+        1 submodules
+        1   dffg
+
+=== PC ===
+
+        +----------Local Count, excluding submodules.
+        |
+       10 wires
+      136 wire bits
+       10 public wires
+      136 public wire bits
+        8 ports
+      101 port bits
+       33 cells
+       32   $_MUX_
+        1   $_NOT_
+        2 submodules
+        1   AddSub_N_bit
+        1   reg_N_bit
+
+=== Opcode_Decoder ===
+
+        +----------Local Count, excluding submodules.
+        |
+      321 wires
+      476 wire bits
+       49 public wires
+      204 public wire bits
+       32 ports
+      108 port bits
+      362 cells
+       15   $_ANDNOT_
+      100   $_AND_
+       16   $_MUX_
+      116   $_NAND_
+        8   $_NOR_
+        9   $_NOT_
+       34   $_ORNOT_
+       58   $_OR_
+        6   $_XNOR_
+        5 submodules
+        1   $paramod\reg_N_bit\N=s32'00000000000000000000000000010000
+        1   Decoder2to4
+        2   decoder4to16
+        1   register
+
+=== Zeros ===
+
+        +----------Local Count, excluding submodules.
+        |
+        1 wires
+       32 wire bits
+        1 public wires
+       32 public wire bits
+        1 ports
+       32 port bits
+
+=== Ones ===
+
+        +----------Local Count, excluding submodules.
+        |
+        1 wires
+       32 wire bits
+        1 public wires
+       32 public wire bits
+        1 ports
+       32 port bits
+
+=== memory2 ===
+
+        +----------Local Count, excluding submodules.
+        |
+   292426 wires
+   321172 wire bits
+     4103 public wires
+    32849 public wire bits
+        7 ports
+       81 port bits
+   321123 cells
+     4083   $_ANDNOT_
+    45274   $_AND_
+    32768   $_DFFE_PP_
+   156477   $_MUX_
+    72458   $_NAND_
+      631   $_NOR_
+        3   $_NOT_
+     1801   $_ORNOT_
+     7595   $_OR_
+       23   $_XNOR_
+       10   $_XOR_
+
+=== mainreg ===
+
+        +----------Local Count, excluding submodules.
+        |
+     2062 wires
+     4279 wire bits
+       47 public wires
+     2264 public wire bits
+       13 ports
+      184 port bits
+     3007 cells
+     2976   $_NAND_
+       31   $_OR_
+       37 submodules
+        1   Ones
+        1   Zeros
+        2   busmuxN_32_to_1
+        2   decoder5to32
+       31   reg_N_bit
+
+=== Flags ===
+
+        +----------Local Count, excluding submodules.
+        |
+        9 wires
+       17 wire bits
+        9 public wires
+       17 public wire bits
+        9 ports
+       17 port bits
+        5 submodules
+        5   register
+
+=== Extender ===
+
+        +----------Local Count, excluding submodules.
+        |
+        3 wires
+       49 wire bits
+        3 public wires
+       49 public wire bits
+        3 ports
+       49 port bits
+        1 cells
+        1   $_AND_
+
+=== dffg ===
+
+        +----------Local Count, excluding submodules.
+        |
+        6 wires
+        6 wire bits
+        5 public wires
+        5 public wire bits
+        5 ports
+        5 port bits
+        2 cells
+        1   $_ANDNOT_
+        1   $_DFFSR_PPN_
+
+=== decoder5to32 ===
+
+        +----------Local Count, excluding submodules.
+        |
+       33 wires
+       68 wire bits
+        3 public wires
+       38 public wire bits
+        3 ports
+       38 port bits
+       62 cells
+       15   $_ANDNOT_
+       46   $_AND_
+        1   $_NOR_
+
+=== decoder4to16 ===
+
+        +----------Local Count, excluding submodules.
+        |
+       14 wires
+       32 wire bits
+        2 public wires
+       20 public wire bits
+        2 ports
+       20 port bits
+       28 cells
+       14   $_ANDNOT_
+       13   $_AND_
+        1   $_NOR_
+
+=== Decoder2to4 ===
+
+        +----------Local Count, excluding submodules.
+        |
+        9 wires
+        9 wire bits
+        7 public wires
+        7 public wire bits
+        7 ports
+        7 port bits
+        6 cells
+        3   $_ANDNOT_
+        3   $_AND_
+
+=== busmuxN_32_to_1 ===
+
+        +----------Local Count, excluding submodules.
+        |
+     1923 wires
+     2981 wire bits
+        3 public wires
+     1061 public wire bits
+        3 ports
+     1061 port bits
+     1952 cells
+       51   $_ANDNOT_
+      316   $_AND_
+      512   $_MUX_
+      471   $_NAND_
+       78   $_NOR_
+      318   $_ORNOT_
+      206   $_OR_
+
+=== busmuxN_8_to_1 ===
+
+        +----------Local Count, excluding submodules.
+        |
+      202 wires
+      483 wire bits
+       10 public wires
+      291 public wire bits
+       10 ports
+      291 port bits
+      224 cells
+      224   $_MUX_
+
+=== busmuxN_4_to_1 ===
+
+        +----------Local Count, excluding submodules.
+        |
+       71 wires
+      226 wire bits
+        7 public wires
+      162 public wire bits
+        7 ports
+      162 port bits
+       96 cells
+       96   $_MUX_
+
+=== Logic_Shifter ===
+
+        +----------Local Count, excluding submodules.
+        |
+      451 wires
+      517 wire bits
+        4 public wires
+       70 public wire bits
+        4 ports
+       70 port bits
+      479 cells
+        4   $_ANDNOT_
+       89   $_AND_
+      198   $_MUX_
+      128   $_NAND_
+        1   $_NOR_
+        3   $_NOT_
+       56   $_OR_
+
+=== Circular_Shifter ===
+
+        +----------Local Count, excluding submodules.
+        |
+      145 wires
+      211 wire bits
+        4 public wires
+       70 public wire bits
+        4 ports
+       70 port bits
+      173 cells
+        2   $_ANDNOT_
+      160   $_MUX_
+        4   $_NAND_
+        3   $_NOR_
+        1   $_OR_
+        3   $_XNOR_
+
+=== Arithmetic_Shifter ===
+
+        +----------Local Count, excluding submodules.
+        |
+      127 wires
+      193 wire bits
+        3 public wires
+       69 public wire bits
+        3 ports
+       69 port bits
+      155 cells
+      155   $_MUX_
+
+=== CPU ===
+
+        +----------Local Count, excluding submodules.
+        |
+       63 wires
+      870 wire bits
+       62 public wires
+      869 public wire bits
+        8 ports
+      164 port bits
+       47 cells
+       44   $_MUX_
+        1   $_NOT_
+        2   $_OR_
+       19 submodules
+        1   $paramod$0048cde24c1465fc996495899ed0a520b6705b7e\memory2
+        1   ALU
+        2   AddSub_N_bit
+        1   DIV_N_bit
+        1   Extender
+        1   Flags
+        1   MULT_N_bit
+        1   Opcode_Decoder
+        1   PC
+        2   busmuxN_4_to_1
+        2   busmuxN_8_to_1
+        3   dffg
+        1   mainreg
+        1   memory2
+
+=== ALU ===
+
+        +----------Local Count, excluding submodules.
+        |
+       47 wires
+      390 wire bits
+       17 public wires
+      360 public wire bits
+        9 ports
+      104 port bits
+       31 cells
+       15   $_AND_
+       16   $_NOR_
+        9 submodules
+        1   AND_N_bit
+        1   AddSub_N_bit
+        1   Arithmetic_Shifter
+        1   Circular_Shifter
+        1   Logic_Shifter
+        1   NOT_N_bit
+        1   OR_N_bit
+        1   XOR_N_bit
+        1   busmuxN_8_to_1
+
+=== reg_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |
+        6 wires
+       68 wire bits
+        6 public wires
+       68 public wire bits
+        6 ports
+       68 port bits
+       32 submodules
+       32   register
+
+=== XOR_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |
+        3 wires
+       96 wire bits
+        3 public wires
+       96 public wire bits
+        3 ports
+       96 port bits
+       32 cells
+       32   $_XOR_
+
+=== OR_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |
+        3 wires
+       96 wire bits
+        3 public wires
+       96 public wire bits
+        3 ports
+       96 port bits
+       32 cells
+       32   $_OR_
+
+=== NOT_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |
+        2 wires
+       64 wire bits
+        2 public wires
+       64 public wire bits
+        2 ports
+       64 port bits
+       32 cells
+       32   $_NOT_
+
+=== MULT_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |
+     7310 wires
+     7561 wire bits
+        9 public wires
+      260 public wire bits
+        6 ports
+      130 port bits
+     7366 cells
+       81   $_ANDNOT_
+     1210   $_AND_
+       45   $_MUX_
+     3454   $_NAND_
+        8   $_NOR_
+       12   $_NOT_
+       59   $_ORNOT_
+       65   $_OR_
+      126   $_XNOR_
+     2306   $_XOR_
+
+=== DIV_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |
+     4728 wires
+     4976 wire bits
+        9 public wires
+      195 public wire bits
+        7 ports
+      131 port bits
+     4909 cells
+      172   $_ANDNOT_
+      763   $_AND_
+       64   $_DLATCH_P_
+      579   $_MUX_
+     1252   $_NAND_
+       51   $_NOR_
+       51   $_NOT_
+      217   $_ORNOT_
+      813   $_OR_
+      645   $_XNOR_
+      302   $_XOR_
+
+=== AND_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |
+        3 wires
+       96 wire bits
+        3 public wires
+       96 public wire bits
+        3 ports
+       96 port bits
+       32 cells
+       32   $_AND_
+
+=== AddSub_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |
+      175 wires
+      268 wire bits
+        6 public wires
+       99 public wire bits
+        6 ports
+       99 port bits
+      203 cells
+        1   $_ANDNOT_
+       18   $_AND_
+        2   $_MUX_
+       85   $_NAND_
+        3   $_NOR_
+        6   $_OR_
+        6   $_XNOR_
+       82   $_XOR_
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        |
+   651920 CPU
+   305196 $paramod$0048cde24c1465fc996495899ed0a520b6705b7e\memory2
+       31 ALU
+       32   AND_N_bit
+      203   AddSub_N_bit
+      155   Arithmetic_Shifter
+      173   Circular_Shifter
+      479   Logic_Shifter
+       32   NOT_N_bit
+       32   OR_N_bit
+       32   XOR_N_bit
+      224   busmuxN_8_to_1
+      203 AddSub_N_bit
+     4909 DIV_N_bit
+        1 Extender
+        1   register
+        2     dffg
+     7366 MULT_N_bit
+      362 Opcode_Decoder
+        1     register
+        2       dffg
+        6   Decoder2to4
+       28   decoder4to16
+        1   register
+        2     dffg
+       33 PC
+      203   AddSub_N_bit
+        1     register
+        2       dffg
+       96 busmuxN_4_to_1
+      224 busmuxN_8_to_1
+        2 dffg
+     3007 mainreg
+     1952   busmuxN_32_to_1
+       62   decoder5to32
+        1     register
+        2       dffg
+   321123 memory2
+
+        +----------Count including submodules.
+        |
+   601345 wires
+   671511 wire bits
+    19253 public wires
+    89357 public wire bits
+    11943 ports
+    19409 port bits
+        - memories
+        - memory bits
+        - processes
+   651920 cells
+     7954   $_ANDNOT_
+    86489   $_AND_
+    65536   $_DFFE_PP_
+     1049   $_DFFSR_PPN_
+       64   $_DLATCH_P_
+   314053   $_MUX_
+   156209   $_NAND_
+     1715   $_NOR_
+      114   $_NOT_
+     3011   $_ORNOT_
+    11893   $_OR_
+      850   $_XNOR_
+     2983   $_XOR_
+       19 submodules
+        1   $paramod$0048cde24c1465fc996495899ed0a520b6705b7e\memory2
+        1   ALU
+        2   AddSub_N_bit
+        1   DIV_N_bit
+        1   Extender
+        1   Flags
+        1   MULT_N_bit
+        1   Opcode_Decoder
+        1   PC
+        2   busmuxN_4_to_1
+        2   busmuxN_8_to_1
+        3   dffg
+        1   mainreg
+        1   memory2

@@ -1,0 +1,788 @@
+37. Printing statistics.
+
+=== Zeros ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        1        - wires
+       32        - wire bits
+        1        - public wires
+       32        - public wire bits
+        1        - ports
+       32        - port bits
+
+=== XOR_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        3        - wires
+       96        - wire bits
+        3        - public wires
+       96        - public wire bits
+        3        - ports
+       96        - port bits
+       32  150.176 cells
+       32  150.176   XOR2X1
+
+   Chip area for module '\XOR_N_bit': 150.176000
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== reg_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        6        - wires
+       68        - wire bits
+        6        - public wires
+       68        - public wire bits
+        6        - ports
+       68        - port bits
+       32        - submodules
+       32        -   register
+
+   Chip area for module '\reg_N_bit': 0.000000
+     of which used for sequential elements: 0.000000 (nan%)
+
+=== register ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        8        - wires
+        8        - wire bits
+        7        - public wires
+        7        - public wire bits
+        6        - ports
+        6        - port bits
+        2    5.162 cells
+        1    1.408   INVX1
+        1    3.754   MUX2X1
+        1        - submodules
+        1        -   dffg
+
+   Chip area for module '\register': 5.162300
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== PC ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       42        - wires
+      168        - wire bits
+       10        - public wires
+      136        - public wire bits
+        8        - ports
+      101        - port bits
+       65  166.602 cells
+       33   46.461   INVX1
+       32  120.141   MUX2X1
+        2        - submodules
+        1        -   AddSub_N_bit
+        1        -   reg_N_bit
+
+   Chip area for module '\PC': 166.601500
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== OR_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        3        - wires
+       96        - wire bits
+        3        - public wires
+       96        - public wire bits
+        3        - ports
+       96        - port bits
+       32   75.088 cells
+       32   75.088   OR2X1
+
+   Chip area for module '\OR_N_bit': 75.088000
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== Opcode_Decoder ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      235        - wires
+      374        - wire bits
+       44        - public wires
+      183        - public wire bits
+       32        - ports
+      108        - port bits
+      281   670.16 cells
+       22   51.623   AND2X1
+       16   45.053   AOI21X1
+       29   95.268   AOI22X1
+       60   84.474   INVX1
+        1    3.754   MUX2X1
+       27   50.684   NAND2X1
+       26   61.009   NAND3X1
+        6   14.079   NOR2X1
+       18   50.684   NOR3X1
+       45  126.711   OAI21X1
+       25   58.662   OR2X1
+        5   23.465   XNOR2X1
+        1    4.693   XOR2X1
+        5        - submodules
+        1        -   $paramod\reg_N_bit\N=s32'00000000000000000000000000010000
+        1        -   Decoder2to4
+        2        -   decoder4to16
+        1        -   register
+
+   Chip area for module '\Opcode_Decoder': 670.160400
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== Ones ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        1        - wires
+       32        - wire bits
+        1        - public wires
+       32        - public wire bits
+        1        - ports
+       32        - port bits
+
+=== NOT_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        2        - wires
+       64        - wire bits
+        2        - public wires
+       64        - public wire bits
+        2        - ports
+       64        - port bits
+       32   45.053 cells
+       32   45.053   INVX1
+
+   Chip area for module '\NOT_N_bit': 45.052800
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== MULT_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     7271        - wires
+     7395        - wire bits
+        6        - public wires
+      130        - public wire bits
+        6        - ports
+      130        - port bits
+     7330 2.07E+04 cells
+      517 1.21E+03   AND2X1
+      415 1.17E+03   AOI21X1
+       20   65.702   AOI22X1
+      353  496.989   INVX1
+        7   26.281   MUX2X1
+     2343  4398.28   NAND2X1
+      315  739.147   NAND3X1
+      288  675.792   NOR2X1
+       18   50.684   NOR3X1
+      656 1.85E+03   OAI21X1
+      507 1.19E+03   OR2X1
+      724  3.4E+03   XNOR2X1
+     1167 5.48E+03   XOR2X1
+
+   Chip area for module '\MULT_N_bit': 20745.875800
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== memory2 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+   327186        - wires
+   355932        - wire bits
+     4103        - public wires
+    32849        - public wire bits
+        7        - ports
+       81        - port bits
+   355883 1.23E+06 cells
+     4787 1.12E+04   AND2X1
+     8420 2.37E+04   AOI21X1
+    13712  4.5E+04   AOI22X1
+    32768 2.61E+05   DFFPOSX1
+    19993 2.81E+04   INVX1
+   143223 5.38E+05   MUX2X1
+    31863 5.98E+04   NAND2X1
+    21658 5.08E+04   NAND3X1
+     6415 1.51E+04   NOR2X1
+     8133 2.29E+04   NOR3X1
+    43536 1.23E+05   OAI21X1
+    21342 5.01E+04   OR2X1
+       32  150.176   XNOR2X1
+        1    4.693   XOR2X1
+
+   Chip area for module '\memory2': 1228687.939698
+     of which used for sequential elements: 261426.380800 (21.28%)
+
+=== mainreg ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     1070        - wires
+     3287        - wire bits
+       47        - public wires
+     2264        - public wire bits
+       13        - ports
+      184        - port bits
+     2015 4.73E+03 cells
+      992 3.26E+03   AOI22X1
+      992  1.4E+03   INVX1
+       31   72.742   OR2X1
+       37        - submodules
+        1        -   Ones
+        1        -   Zeros
+        2        -   busmuxN_32_to_1
+        2        -   decoder5to32
+       31        -   reg_N_bit
+
+   Chip area for module '\mainreg': 4728.197500
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== $paramod\reg_N_bit\N=s32'00000000000000000000000000010000 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        6        - wires
+       36        - wire bits
+        6        - public wires
+       36        - public wire bits
+        6        - ports
+       36        - port bits
+       16        - submodules
+       16        -   register
+
+   Chip area for module '$paramod\reg_N_bit\N=s32'00000000000000000000000000010000': 0.000000
+     of which used for sequential elements: 0.000000 (nan%)
+
+=== Logic_Shifter ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      366        - wires
+      432        - wire bits
+        4        - public wires
+       70        - public wire bits
+        4        - ports
+       70        - port bits
+      394 1.19E+03 cells
+        2    4.693   AND2X1
+       21   59.132   AOI21X1
+       32  105.123   AOI22X1
+       11   15.487   INVX1
+      189  709.582   MUX2X1
+       82   153.93   NAND2X1
+       24   56.316   NAND3X1
+       18   42.237   NOR2X1
+        2    5.632   NOR3X1
+       12    33.79   OAI21X1
+        1    2.346   OR2X1
+
+   Chip area for module '\Logic_Shifter': 1188.267600
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== Flags ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        9        - wires
+       17        - wire bits
+        9        - public wires
+       17        - public wire bits
+        9        - ports
+       17        - port bits
+        5        - submodules
+        5        -   register
+
+   Chip area for module '\Flags': 0.000000
+     of which used for sequential elements: 0.000000 (nan%)
+
+=== Extender ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        3        - wires
+       49        - wire bits
+        3        - public wires
+       49        - public wire bits
+        3        - ports
+       49        - port bits
+        1    2.346 cells
+        1    2.346   AND2X1
+
+   Chip area for module '\Extender': 2.346500
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== DIV_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     5110        - wires
+     5358        - wire bits
+        9        - public wires
+      195        - public wire bits
+        7        - ports
+      131        - port bits
+     5291 1.45E+04 cells
+      368  863.512   AND2X1
+      446 1.26E+03   AOI21X1
+       61  200.391   AOI22X1
+      475  668.753   INVX1
+       64  330.387   LATCH
+      440 1.65E+03   MUX2X1
+     1220 2.29E+03   NAND2X1
+      180   422.37   NAND3X1
+      240   563.16   NOR2X1
+       96  270.317   NOR3X1
+      580 1.63E+03   OAI21X1
+      385  903.402   OR2X1
+      634 2.98E+03   XNOR2X1
+      102  478.686   XOR2X1
+
+   Chip area for module '\DIV_N_bit': 14507.470900
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== dffg ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        7        - wires
+        7        - wire bits
+        5        - public wires
+        5        - public wire bits
+        5        - ports
+        5        - port bits
+        3    13.61 cells
+        1   10.325   DFFSR
+        1    1.408   INVX1
+        1    1.877   NAND2X1
+
+   Chip area for module '\dffg': 13.609700
+     of which used for sequential elements: 10.324600 (75.86%)
+
+=== decoder5to32 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       28        - wires
+       63        - wire bits
+        3        - public wires
+       38        - public wire bits
+        3        - ports
+       38        - port bits
+       57  135.628 cells
+        4    9.386   AND2X1
+        6    8.447   INVX1
+        6   11.263   NAND2X1
+        7   16.425   NAND3X1
+       11   25.811   NOR2X1
+       22   61.948   NOR3X1
+        1    2.346   OR2X1
+
+   Chip area for module '\decoder5to32': 135.627700
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== decoder4to16 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       15        - wires
+       33        - wire bits
+        2        - public wires
+       20        - public wire bits
+        2        - ports
+       20        - port bits
+       29   65.702 cells
+        6   14.079   AND2X1
+        4    5.632   INVX1
+        2    3.754   NAND2X1
+        4    9.386   NAND3X1
+        8   18.772   NOR2X1
+        5   14.079   NOR3X1
+
+   Chip area for module '\decoder4to16': 65.702000
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== Decoder2to4 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       11        - wires
+       11        - wire bits
+        7        - public wires
+        7        - public wire bits
+        7        - ports
+        7        - port bits
+        8   16.425 cells
+        3    4.224   INVX1
+        1    1.877   NAND2X1
+        1    2.346   NAND3X1
+        1    2.346   NOR2X1
+        2    5.632   NOR3X1
+
+   Chip area for module '\Decoder2to4': 16.425500
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== CPU ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      106        - wires
+      882        - wire bits
+       61        - public wires
+      837        - public wire bits
+        8        - ports
+      164        - port bits
+       91  232.773 cells
+       46   64.763   INVX1
+       44  165.194   MUX2X1
+        1    2.816   NOR3X1
+       19        - submodules
+        1        -   $paramod$0048cde24c1465fc996495899ed0a520b6705b7e\memory2
+        1        -   ALU
+        2        -   AddSub_N_bit
+        1        -   DIV_N_bit
+        1        -   Extender
+        1        -   Flags
+        1        -   MULT_N_bit
+        1        -   Opcode_Decoder
+        1        -   PC
+        2        -   busmuxN_4_to_1
+        2        -   busmuxN_8_to_1
+        3        -   dffg
+        1        -   mainreg
+        1        -   memory2
+
+   Chip area for module '\CPU': 232.772800
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== Circular_Shifter ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      176        - wires
+      242        - wire bits
+        4        - public wires
+       70        - public wire bits
+        4        - ports
+       70        - port bits
+      204  680.485 cells
+        1    2.346   AND2X1
+        1    2.816   AOI21X1
+       34   47.869   INVX1
+      160  600.704   MUX2X1
+        1    1.877   NAND2X1
+        1    2.346   NOR2X1
+        1    2.816   NOR3X1
+        2    5.632   OAI21X1
+        2    9.386   XNOR2X1
+        1    4.693   XOR2X1
+
+   Chip area for module '\Circular_Shifter': 680.485000
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== busmuxN_8_to_1 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      234        - wires
+      515        - wire bits
+       10        - public wires
+      291        - public wire bits
+       10        - ports
+      291        - port bits
+      256  886.038 cells
+       32   45.053   INVX1
+      224  840.986   MUX2X1
+
+   Chip area for module '\busmuxN_8_to_1': 886.038400
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== busmuxN_4_to_1 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       71        - wires
+      226        - wire bits
+        7        - public wires
+      162        - public wire bits
+        7        - ports
+      162        - port bits
+       96  360.422 cells
+       96  360.422   MUX2X1
+
+   Chip area for module '\busmuxN_4_to_1': 360.422400
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== busmuxN_32_to_1 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     1271        - wires
+     2329        - wire bits
+        3        - public wires
+     1061        - public wire bits
+        3        - ports
+     1061        - port bits
+     1300 4.05E+03 cells
+        9   21.118   AND2X1
+      157  442.081   AOI21X1
+       47    154.4   AOI22X1
+       64   90.106   INVX1
+      677 2.54E+03   MUX2X1
+      136  255.299   NAND2X1
+       15   35.197   NAND3X1
+       38   89.167   NOR2X1
+       12    33.79   NOR3X1
+      108  304.106   OAI21X1
+       37   86.821   OR2X1
+
+   Chip area for module '\busmuxN_32_to_1': 4053.813400
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== $paramod$0048cde24c1465fc996495899ed0a520b6705b7e\memory2 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+   305018        - wires
+   335875        - wire bits
+     2055        - public wires
+    32912        - public wire bits
+        7        - ports
+      144        - port bits
+   335795 1.19E+06 cells
+     3136 7.36E+03   AND2X1
+     7507 2.11E+04   AOI21X1
+    12167    4E+04   AOI22X1
+    32768 2.61E+05   DFFPOSX1
+    18207 2.56E+04   INVX1
+   148591 5.58E+05   MUX2X1
+    27846 5.23E+04   NAND2X1
+    11541 2.71E+04   NAND3X1
+     4888 1.15E+04   NOR2X1
+     5697  1.6E+04   NOR3X1
+    45926 1.29E+05   OAI21X1
+    17485  4.1E+04   OR2X1
+       34  159.562   XNOR2X1
+        2    9.386   XOR2X1
+
+   Chip area for module '$paramod$0048cde24c1465fc996495899ed0a520b6705b7e\memory2': 1190777.416398
+     of which used for sequential elements: 261426.380800 (21.95%)
+
+=== Arithmetic_Shifter ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      162        - wires
+      228        - wire bits
+        3        - public wires
+       69        - public wire bits
+        3        - ports
+       69        - port bits
+      190  609.151 cells
+        9   25.342   AOI21X1
+        7   22.996   AOI22X1
+       22   30.974   INVX1
+      117  439.265   MUX2X1
+        4    7.509   NAND2X1
+        2    4.693   NOR2X1
+       22   61.948   OAI21X1
+        7   16.425   OR2X1
+
+   Chip area for module '\Arithmetic_Shifter': 609.151400
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== AND_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        3        - wires
+       96        - wire bits
+        3        - public wires
+       96        - public wire bits
+        3        - ports
+       96        - port bits
+       32   75.088 cells
+       32   75.088   AND2X1
+
+   Chip area for module '\AND_N_bit': 75.088000
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== ALU ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       35        - wires
+      378        - wire bits
+       17        - public wires
+      360        - public wire bits
+        9        - ports
+      104        - port bits
+       19   48.807 cells
+        3    7.039   NAND3X1
+        1    2.346   NOR2X1
+        9   25.342   NOR3X1
+        6   14.079   OR2X1
+        9        - submodules
+        1        -   AND_N_bit
+        1        -   AddSub_N_bit
+        1        -   Arithmetic_Shifter
+        1        -   Circular_Shifter
+        1        -   Logic_Shifter
+        1        -   NOT_N_bit
+        1        -   OR_N_bit
+        1        -   XOR_N_bit
+        1        -   busmuxN_8_to_1
+
+   Chip area for module '\ALU': 48.807200
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== AddSub_N_bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      177        - wires
+      270        - wire bits
+        6        - public wires
+       99        - public wire bits
+        6        - ports
+       99        - port bits
+      205  659.366 cells
+       15   35.197   AND2X1
+       17   47.869   AOI21X1
+        2    2.816   INVX1
+        2    7.509   MUX2X1
+       47   88.228   NAND2X1
+        1    2.346   NAND3X1
+       14   32.851   NOR2X1
+       13   36.605   OAI21X1
+       15   35.197   OR2X1
+       29  136.097   XNOR2X1
+       50   234.65   XOR2X1
+
+   Chip area for module '\AddSub_N_bit': 659.366500
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        |        +-Area including submodules.
+        |        | 
+   717486  2.5E+06 CPU
+   335795 1.19E+06 $paramod$0048cde24c1465fc996495899ed0a520b6705b7e\memory2
+       19   48.807 ALU
+       32   75.088   AND_N_bit
+      205  659.366   AddSub_N_bit
+      190  609.151   Arithmetic_Shifter
+      204  680.485   Circular_Shifter
+      394 1.19E+03   Logic_Shifter
+       32   45.053   NOT_N_bit
+       32   75.088   OR_N_bit
+       32  150.176   XOR_N_bit
+      256  886.038   busmuxN_8_to_1
+      205  659.366 AddSub_N_bit
+     5291 1.45E+04 DIV_N_bit
+        1    2.346 Extender
+        2    5.162   register
+        3    13.61     dffg
+     7330 2.07E+04 MULT_N_bit
+      281   670.16 Opcode_Decoder
+        2    5.162     register
+        3    13.61       dffg
+        8   16.425   Decoder2to4
+       29   65.702   decoder4to16
+        2    5.162   register
+        3    13.61     dffg
+       65  166.602 PC
+      205  659.366   AddSub_N_bit
+        2    5.162     register
+        3    13.61       dffg
+       96  360.422 busmuxN_4_to_1
+      256  886.038 busmuxN_8_to_1
+        3    13.61 dffg
+     2015 4.73E+03 mainreg
+     1300 4.05E+03   busmuxN_32_to_1
+       57  135.628   decoder5to32
+        2    5.162     register
+        3    13.61       dffg
+   355883 1.23E+06 memory2
+
+        +----------Count including submodules.
+        |        +-Area including submodules.
+        |        | 
+   666902        - wires
+   736894        - wire bits
+    19244        - public wires
+    89174        - public wire bits
+    11943        - ports
+    19409        - port bits
+        -        - memories
+        -        - memory bits
+        -        - processes
+   717486  2.5E+06 cells
+     8964  2.1E+04   AND2X1
+    17217 4.85E+04   AOI21X1
+    27114 8.91E+04   AOI22X1
+    65536 5.23E+05   DFFPOSX1
+     1049 1.08E+04   DFFSR
+    42608    6E+04   INVX1
+       64  330.387   LATCH
+   296076 1.11E+06   MUX2X1
+    64912 1.22E+05   NAND2X1
+    33804 7.93E+04   NAND3X1
+    12030 2.82E+04   NOR2X1
+    14055 3.96E+04   NOR3X1
+    91047 2.56E+05   OAI21X1
+    39957  93759.1   OR2X1
+     1547 7.26E+03   XNOR2X1
+     1506 7.07E+03   XOR2X1
+       19  2.5E+06 submodules
+        1 1.19E+06   $paramod$0048cde24c1465fc996495899ed0a520b6705b7e\memory2
+        1 4.42E+03   ALU
+        2 2.64E+03   AddSub_N_bit
+        1 1.45E+04   DIV_N_bit
+        1    2.346   Extender
+        1    93.86   Flags
+        1 2.07E+04   MULT_N_bit
+        1 1.14E+03   Opcode_Decoder
+        1 1.43E+03   PC
+        2  720.845   busmuxN_4_to_1
+        2 2.66E+03   busmuxN_8_to_1
+        3 1.43E+04   dffg
+        1 3.17E+04   mainreg
+        1 1.23E+06   memory2
+
+   Chip area for top module '\CPU': 2497610.376289
+     of which used for sequential elements: 533683.267000 (21.37%)
+
