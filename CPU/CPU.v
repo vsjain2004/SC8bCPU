@@ -7,7 +7,7 @@ module CPU(
 	
 	wire [31:0] oNPC, oDMEM, oRPA, oRPB, oRPC, iPC, ExtImm, Branch_Addr, Jump_Addr, IXAddr, oALU, iX, iY, MultHi, MultLo, DivQ, DivR;
 	wire [63:0] Inst;
-	wire fNF, fOF, fZF, fCF, PC_INC, ADD_SUB, REG_WE_A, REG_WE_B, DMEM_W_EN, PC_LD_EN, PC_EN, SIGNED, ALU_X_SEL, DMEM_SEL_ADD, IMEM_R_EN, DMEM_R_EN, OvALU, OvMULT, OvDIV, IMEM_R_EN_CUR;
+	wire fNF, fOF, fZF, fCF, PC_INC, ADD_SUB, REG_WE_A, REG_WE_B, DMEM_W_EN, PC_LD_EN, PC_EN, SIGNED, ALU_X_SEL, DMEM_SEL_ADD, IMEM_R_EN, DMEM_R_EN, OvALU, OvMULT, OvDIV, IMEM_R_EN_CUR, PC_STALL;
 	wire [1:0] DMEM_DLEN, IMEM_DLEN, PC_IN, REG_SEL_IN_B, IMEM_DLEN_CUR;
 	wire [2:0] ALU_SELECT, ALU_Y_SEL, REG_SEL_IN_A;
 	wire [4:0] flags, FLAG_WE, REG_W_ADD_A, REG_W_ADD_B, REG_R_ADD_A, REG_R_ADD_B;
@@ -18,7 +18,7 @@ module CPU(
 	
 	memory2 DMEM(.clk(CLK), .data(oRPA), .we(DMEM_W_EN), .re(DMEM_R_EN), .addr(DMEMAddr[11:0]), .dlen(DMEM_DLEN), .q(oDMEM));
 	
-	Opcode_Decoder decoder(.PC_IMEM(Inst[31:0]), .CF(fCF), .OF(fOF), .NF(fNF), .ZF(fZF), .CLK(CLK), .RESET(CLEAR_N), .PC_INC(PC_INC), 
+	Opcode_Decoder decoder(.PC_IMEM(Inst[31:0]), .CF(fCF), .OF(fOF), .NF(fNF), .ZF(fZF), .CLK(CLK), .RESET(CLEAR_N), .PC_STALL(PC_STALL), .PC_INC(PC_INC), 
 		.ADD_SUB(ADD_SUB), .REG_WE_A(REG_WE_A), .REG_WE_B(REG_WE_B), .DMEM_W_EN(DMEM_W_EN), .PC_LD_EN(PC_LD_EN), .PC_EN(PC_EN), 
 		.SIGNED(SIGNED), .ALU_X_SEL(ALU_X_SEL), .DMEM_SEL_ADD(DMEM_SEL_ADD), .IMEM_R_EN(IMEM_R_EN), .DMEM_R_EN(DMEM_R_EN),
 		.DMEM_DLEN(DMEM_DLEN), .IMEM_DLEN(IMEM_DLEN), .PC_IN(PC_IN), .REG_SEL_IN_B(REG_SEL_IN_B), .ALU_SELECT(ALU_SELECT), 
@@ -43,7 +43,7 @@ module CPU(
 
 	assign iX = ALU_X_SEL ? oRPB : oRPA;
 
-	busmuxN_8_to_1 Y_sel(.S(ALU_Y_SEL), .W0(oRPB), .W1(oRPA), .W2(oRPC), .W3(ExtImm), .W4(oDMEM), .W5(REG_R_ADD_B), .W6(oPC), .W7(), .F(iY));
+	busmuxN_8_to_1 Y_sel(.S(ALU_Y_SEL), .W0(oRPB), .W1(oRPA), .W2(oRPC), .W3(ExtImm), .W4(oDMEM), .W5({27'b0, REG_R_ADD_B}), .W6(oPC), .W7(), .F(iY));
 	
 	ALU alu(.ADD_SUB(ADD_SUB), .Y(iY), .X(iX), .ALU_SELECT(ALU_SELECT), .ZF(flags[0]), 
 			.CF(flags[3]), .OF(OvALU), .NF(flags[1]), .Result(oALU));
@@ -64,7 +64,7 @@ module CPU(
 
 	busmuxN_4_to_1 pc_in(.In1(oRPA), .In2(oRPB), .In3(Branch_Addr), .In4(), .s1(PC_IN[1]), .s0(PC_IN[0]), .Out(iPC));
 	
-	PC Prog_Counter(.LOAD(PC_LD_EN), .IN(iPC), .ULen(PC_INC), .PCEN(PC_EN), .CLK(CLK), .RESET(CLEAR_N), .oPC(oPC), .oNPC(oNPC));
+	PC Prog_Counter(.LOAD(PC_LD_EN), .IN(iPC), .ULen(PC_INC), .PCEN(~PC_STALL & PC_EN), .CLK(CLK), .RESET(CLEAR_N), .oPC(oPC), .oNPC(oNPC));
 	
 	assign Halt = ~PC_EN;
 endmodule

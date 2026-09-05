@@ -1,7 +1,7 @@
 module Opcode_Decoder(
     input [31:0] PC_IMEM,
     input CF, OF, NF, ZF, CLK, RESET,
-    output PC_INC, ADD_SUB, REG_WE_A, REG_WE_B, DMEM_W_EN, PC_LD_EN, PC_EN, SIGNED, ALU_X_SEL, DMEM_SEL_ADD, IMEM_R_EN, DMEM_R_EN,
+    output PC_STALL, PC_INC, ADD_SUB, REG_WE_A, REG_WE_B, DMEM_W_EN, PC_LD_EN, PC_EN, SIGNED, ALU_X_SEL, DMEM_SEL_ADD, IMEM_R_EN, DMEM_R_EN,
     output [1:0] DMEM_DLEN, IMEM_DLEN, PC_IN, REG_SEL_IN_B,
     output [2:0] ALU_SELECT, ALU_Y_SEL, REG_SEL_IN_A,
     output [4:0] FLAG_WE, REG_W_ADD_A, REG_W_ADD_B, REG_R_ADD_A, REG_R_ADD_B,
@@ -9,7 +9,7 @@ module Opcode_Decoder(
 );
     
     wire [15:0] Next_Inst_In, Next_Inst_Out, op1, op2;
-    wire Has_Next_In, Has_Next_Out, opmode, NOOP, I_END, INC, DEC, MOV, SWAPR, CMPR, NOT, ADDR_DEST, SUBR_DEST, JMPR, 
+    wire PC_Next_inc, PC_INC_2, Has_Next_In, Has_Next_Out, opmode, NOOP, I_END, INC, DEC, MOV, SWAPR, CMPR, NOT, ADDR_DEST, SUBR_DEST, JMPR, 
     JRALR, JPNR, JPER, JGTR, JGER, LDM, LDMU, LDW, LDH, LDB, STW, STH, STB, ORM, JPN, JPE, JGT, LDJ, ADDD, ADDR, SUBD, 
     SUBR, ANDD, ANDR, ORD, ORR, XORD, XORR, ASR, ASRR, LSL, LSLR, LSR, LSRR, CSL, CSLR, CSR, CSRR, MULTD, MULTR, MULTDU, 
     MULTRU, DIVD, DIVR, DIVDU, DIVRU, JGTRU, JGERU, CMD, ADDPC, Fam_code[3:0];
@@ -17,12 +17,16 @@ module Opcode_Decoder(
     wire [4:0] R1_Rd_Rd1, R2_R1, R2, FuncH5_Rd2;
     wire [1:0] Family;
 
-    assign Next_Inst_In = PC_LD_EN ? 16'b0 : PC_IMEM[31:16];
-    assign Has_Next_In = PC_LD_EN ? 1'b0 : (~Has_Next_Out & (~|PC_IMEM[1:0]));
-    assign PC_INC = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) | (~PC_IMEM[1] & PC_IMEM[0] & ~Has_Next_Out);
+    assign Next_Inst_In = (PC_LD_EN | I_END) ? 16'b0 : PC_IMEM[31:16];
+    assign Has_Next_In = (PC_LD_EN | I_END) ? 1'b0 : (~Has_Next_Out & (~|PC_IMEM[1:0]));
+    assign PC_Next_inc = (PC_LD_EN | I_END | PC_STALL) ? 1'b1 : (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) | (~PC_IMEM[1] & PC_IMEM[0] & ~Has_Next_Out);
 
     reg_N_bit #(.N(16)) Next_Inst(.IN(Next_Inst_In), .LOAD(Has_Next_In), .CLK(CLK), .OUT(Next_Inst_Out), .PRESET_N(1'b1), .CLEAR_N(RESET));
     register Has_Next(.IN(Has_Next_In), .LOAD(1'b1), .CLK(CLK), .OUT(Has_Next_Out), .PRESET_N(1'b1), .CLEAR_N(RESET));
+    register PC_inc(.IN(PC_Next_inc), .LOAD(1'b1), .CLK(CLK), .OUT(PC_INC_2), .PRESET_N(RESET), .CLEAR_N(1'b1));
+    register PC_stall(.IN(~IMEM_R_EN), .LOAD(1'b1), .CLK(CLK), .OUT(PC_STALL), .PRESET_N(RESET), .CLEAR_N(1'b1));
+
+    assign PC_INC = ~JRALR & PC_INC_2;
 
     assign opcode = (~Next_Inst_Out[1] & Next_Inst_Out[0] & Has_Next_Out) ? PC_IMEM[15:12] : 
                     (((~|Next_Inst_Out[1:0]) & Has_Next_Out) ? Next_Inst_Out[15:12] : 
@@ -133,9 +137,9 @@ module Opcode_Decoder(
     assign REG_WE_A = (~(NOOP | I_END | CMPR | JMPR | JRALR | JPNR | JPER | JGTR | JGER | STW | STH | STB | JPN | JPE | JGT | JGTRU | JGERU | CMD)) & ~((SWAPR | (op1[13] & Fam_code[2])) & ~|(REG_W_ADD_A ^ REG_W_ADD_B));
     assign REG_W_ADD_A = R1_Rd_Rd1;
     assign REG_WE_B = (SWAPR | JRALR | Fam_code[2]) & ~((SWAPR | (op1[13] & Fam_code[2])) & ~|(REG_W_ADD_A ^ REG_W_ADD_B));
-    assign REG_W_ADD_B = ({5{SWAPR | JRALR}} & R2_R1) | FuncH5_Rd2;
-    assign REG_R_ADD_A = ({5{STW | STH | STB}} & R1_Rd_Rd1) | R2_R1;
-    assign REG_R_ADD_B = ({5{~opmode}} & R1_Rd_Rd1) | ({5{LDW | LDH | LDB | STW | STH | STB}} & R2_R1) | R2;
+    assign REG_W_ADD_B = (SWAPR | JRALR) ? R2_R1 : FuncH5_Rd2;
+    assign REG_R_ADD_A = (STW | STH | STB) ? R1_Rd_Rd1 : R2_R1;
+    assign REG_R_ADD_B = ~opmode ? R1_Rd_Rd1 : ((LDW | LDH | LDB | STW | STH | STB) ? R2_R1 : R2);
     assign DMEM_W_EN = STW | STH | STB;
     assign DMEM_DLEN = {(LDW | STW | ADDD | SUBD | ANDD | ORD | XORD | MULTD | MULTDU | DIVD | DIVDU | CMD),
                         (LDW | LDH | STW | STH | ADDD | SUBD | ANDD | ORD | XORD | MULTD | MULTDU | DIVD | DIVDU | CMD)};

@@ -156,7 +156,7 @@ public class Assembler {
             }
         }
 
-        // FilePaths.add(new File("./TestProgs/Torture.asm"));
+        FilePaths.add(new File("../TestProgs/Torture.asm"));
 
         for(File f : FilePaths){
             String BasePath = f.getPath().substring(0, f.getPath().lastIndexOf('.'));
@@ -191,6 +191,7 @@ public class Assembler {
                         line = null;
                     }
                 }
+                // System.out.println(Assembly.toString());
                 for (; i < Assembly.size(); i++) {
                     String inst = Assembly.get(i);
                     if(inst.equals(""))
@@ -229,7 +230,7 @@ public class Assembler {
                     String a = scnr2.next();
                     a = scnr2.next();
                     if(a.endsWith(":")) {
-                        labels1.put(a.substring(0, a.length() - 1), size);
+                        labels1.put(a.substring(0, a.length() - 1), size / 8);
                         size = size + GetDataSize(Assembly.get(memStart + i));
                     } 
                     i++;
@@ -508,7 +509,8 @@ public class Assembler {
                     } else if(!inst.family().equals("10")) {
                         String instHex = BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + R2 + inst.family() + inst.function() + "01");
                         pi.println(instHex.substring(4));
-                        pi.println(instHex.substring(0, 4));                        size += 2;
+                        pi.println(instHex.substring(0, 4));
+                        size += 2;
                     } else {
                         String instHex = BinToHexString(inst.opcode() + R1_Rd_Rd1 + R2_R1 + R2 + inst.family() + Rd2 + inst.function() + "01");
                         pi.println(instHex.substring(4));
@@ -516,6 +518,7 @@ public class Assembler {
                         size += 2;
                     }
                     i += 1;
+                    
                 }
                 if(size == (1<<11) && !"".equals(Assembly.get(i))) {
                     throw new Exception("Too many instruction lines");
@@ -1008,7 +1011,7 @@ public class Assembler {
                 ret.add("JMPR A");
             }
             case "JMPL" -> {
-                r1 = IntToBin(labels.get(instLine.get(1)));
+                r1 = IntToBin(labels.get(instLine.get(1)) << 1);
                 ret.add("LDMU A, #B" + r1.substring(0, 16));
                 ret.add("ORM A, A, #B" + r1.substring(16));
                 ret.add("JMPR A");
@@ -1018,7 +1021,7 @@ public class Assembler {
                 ret.add("JRALR A, RA");
             }
             case "JLAL" -> {
-                r1 = IntToBin(labels.get(instLine.get(1)));
+                r1 = IntToBin(labels.get(instLine.get(1)) << 1);
                 ret.add("LDMU A, #B" + r1.substring(0, 16));
                 ret.add("ORM A, A, #B" + r1.substring(16));
                 ret.add("JRALR A, RA");
@@ -1028,7 +1031,7 @@ public class Assembler {
                 ret.add("JRALR A, " + instLine.get(1));
             }
             case "JLALR" -> {
-                r1 = IntToBin(labels.get(instLine.get(2)));
+                r1 = IntToBin(labels.get(instLine.get(2)) << 1);
                 ret.add("LDMU A, #B" + r1.substring(0, 16));
                 ret.add("ORM A, A, #B" + r1.substring(16));
                 ret.add("JRALR A, " + instLine.get(1));
@@ -1038,13 +1041,18 @@ public class Assembler {
             }
             case "JPLN", "JPLE" -> {
                 int label = labels.get(instLine.get(1));
-                label = (label >> 1) - (currpc + 2);
+                label = (label - currpc) >> 1;
                 ret.add("JP" + op.charAt(3) + " #B" + IntToBin(label).substring(16));
             }
             case "JLGT" -> {
                 int label = labels.get(instLine.get(1));
-                label = (label >> 1) - (currpc + 2);
+                System.out.println(instLine);
+                System.out.println(label);
+                System.out.println(currpc);
+                label = (label - currpc) >> 1;
                 ret.add("JGT #B" + IntToBin(label).substring(16));
+                System.out.println(label);
+                System.out.println("JGT #B" + IntToBin(label).substring(16));
             }
             case "JGE", "JGTU", "JGEU" -> {
                 r1 = GetImmediate(instLine.get(1));
@@ -1128,7 +1136,11 @@ public class Assembler {
 			default -> throw new Exception("Illegal Format");
 			}
 		}
-        return String.format("%32s", x).replace(' ', x.charAt(0));
+        if(a.length() == 4) {
+            return String.format("%32s", x).replace(' ', x.charAt(0));
+        } else {
+            return String.format("%32s", x).replace(' ', '0');
+        }
 	}
 
     public static String GetImmediate(String Imm) throws Exception {

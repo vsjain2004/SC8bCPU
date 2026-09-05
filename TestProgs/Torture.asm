@@ -44,7 +44,7 @@ NEG_PATH: AND R8, R5, #&F
         ADD R20, R20, #5
         STW R20, W0
         // direct
-        LDM R2, W0_addr
+        LDW R2, W0_addr
         LDW R21, [R2]
         ADD R21, R21, #1
         STW R21, [R2]

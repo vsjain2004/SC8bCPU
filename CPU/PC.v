@@ -11,10 +11,10 @@ module PC(
 
 	assign PCAdd = ULen ? 32'd4 : 32'd2;
 
-	AddSub_N_bit npcseq(.Cin('b0), .X(oPC), .Y(PCAdd), .S(NPCSeq), .Cout(), .Ov());
+	AddSub_N_bit npcseq(.Cin(1'b0), .X(oPC), .Y(PCAdd), .S(oNPC), .Cout(), .Ov());
 
-	assign oNPC = LOAD ? IN : NPCSeq;
+	assign NPCSeq = LOAD ? IN : oNPC;
 	
-	reg_N_bit pc(.IN(oNPC), .LOAD(PCEN), .CLK(CLK), .OUT(oPC), .PRESET_N(1'b1), .CLEAR_N(RESET));
+	reg_N_bit pc(.IN(NPCSeq), .LOAD(PCEN), .CLK(CLK), .OUT(oPC), .PRESET_N(1'b1), .CLEAR_N(RESET));
 
 endmodule
