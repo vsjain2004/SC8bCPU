@@ -1,8 +1,9 @@
 set DESIGN_NAME     "CPU"
 set TOP_LEVEL       "CPU"
 set SOURCE_DIR      "./CPU"
-set OUTPUT_DIR      "./outputs"
-set LIB_PATH        "../../Downloads/freepdk45-v14/FreePDK45/osu_soc/lib/files/gscl45nm.lib"
+set OUTPUT_DIR      "C:/Users/vjrai/Documents/SC8bCPU/outputs"
+set SCHEM_DIR	    "C:/Users/vjrai/Documents/SC8bCPU/Schematics"
+set LIB_PATH        "C:/Users/vjrai/Downloads/freepdk45-v14/FreePDK45/osu_soc/lib/files/gscl45nm.lib"
 
 yosys -import
 
@@ -35,6 +36,11 @@ puts "                   SYNTHESIS AREA AND CELL REPORT                     "
 puts "======================================================================"
 stat -liberty $LIB_PATH
 tee -o "$OUTPUT_DIR/synthesis_report.txt" stat -liberty $LIB_PATH
+
+puts "Flattening hierarchy into a single standalone module..."
+flatten
+
+clean -purge
 
 set OUTPUT_NETLIST "$OUTPUT_DIR/${DESIGN_NAME}.v"
 puts "Writing structural netlist file to: $OUTPUT_NETLIST"
