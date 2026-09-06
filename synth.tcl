@@ -37,11 +37,6 @@ puts "======================================================================"
 stat -liberty $LIB_PATH
 tee -o "$OUTPUT_DIR/synthesis_report.txt" stat -liberty $LIB_PATH
 
-puts "Flattening hierarchy into a single standalone module..."
-flatten
-
-clean -purge
-
 set OUTPUT_NETLIST "$OUTPUT_DIR/${DESIGN_NAME}.v"
 puts "Writing structural netlist file to: $OUTPUT_NETLIST"
 write_verilog -noattr -noexpr -nohex -nodec $OUTPUT_NETLIST

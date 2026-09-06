@@ -1,12 +1,14 @@
-set_time_format -unit ns -decimal_places 3
-
-create_clock -name {CLK} -period 15.000 -waveform { 0.000 7.500 } [get_ports { CLK }]
+create_clock -name CLK -period 20.000 -waveform { 0.000 10.000 } [get_ports CLK]
 
 #**************************************************************
 # Set Clock Uncertainty
 #**************************************************************
 
-set_clock_uncertainty -rise_from [get_clocks {CLK}] -rise_to [get_clocks {CLK}]  0.020  
-set_clock_uncertainty -rise_from [get_clocks {CLK}] -fall_to [get_clocks {CLK}]  0.020  
-set_clock_uncertainty -fall_from [get_clocks {CLK}] -rise_to [get_clocks {CLK}]  0.020  
-set_clock_uncertainty -fall_from [get_clocks {CLK}] -fall_to [get_clocks {CLK}]  0.020  
+set_clock_uncertainty 0.100 [get_clocks CLK]
+
+# set_driving_cell -lib_cell BUFX2 [all_inputs -filter "name != CLK"]
+
+set_load 0.010 [all_outputs]
+
+# set_input_delay -clock CLK 0.200 [all_inputs -filter "name != CLK"]
+set_output_delay -clock CLK 2.000 [all_outputs]
